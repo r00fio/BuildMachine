@@ -1,0 +1,68 @@
+@*
+* This template takes a single argument, a String containing a
+* message to display.
+*@
+@(message: String)
+@*
+* Call the `main` template with two arguments. The first
+* argument is a `String` with the title of the page, the second
+* argument is an `Html` object containing the body of the page.
+*@
+@main("Build Your Dream") {
+    <script type='text/javascript'>
+            function build(){
+                setInterval(getProgress, 3000)
+            }
+
+            function changeName(server){
+
+                if (server === "OPE"){
+                    $("#s-name").val("MobilePrototype2OPE.ipa")
+                    $("#p-profile").val("2848f246-b7d5-4168-801d-8393efb92221")
+                } else if (server === "FT"){
+                    $("#s-name").val("MobilePrototype2.ipa")
+                    $("#p-profile").val("2848f246-b7d5-4168-801d-8393efb92221")
+                }else {
+                    $("#p-profile").val("c9d2d32e-c2d8-4312-817e-20ccf6098cb7")
+                    $("#s-name").val("ios-demo.ipa")
+                }
+            }
+
+    </script>
+    <script type='text/javascript' src='@routes.Assets.versioned("javascripts/index.js")'></script>
+    <div class="root">
+        <img id="img" src="@routes.Assets.versioned("images/favicon.png")">
+        <div id="status">@message</div>
+        <form id="main"  action="@routes.Application.build()" method = "post" style="color: goldenrod">
+            <div>
+                <div>
+                    Output file name <input id="s-name" type="text" name="outIpaName" value="MobilePrototype2.ipa">
+                </div>
+                <div class="server">
+                    <div class="server-title">Server:</div>
+                    <div>
+                        <br>
+                        <input type="radio" onclick="changeName('FT')" name="server" value="FT" checked="true" title="FT">
+                        FT<br>
+                        <input type="radio" onclick="changeName('OPE')" name="server" value="OPE" title="OPE">OPE<br>
+                        <input type="radio" onclick="changeName('DEMO')" name="server" value="DEMO" title="Demo">Demo
+                    </div>
+                </div>
+                <div class="re-add-platform">
+                    <div>Add Platform</div>
+                    <dvi><input type="checkbox" checked="true" name="reAddPlatform"></dvi>
+                </div>
+                <div class="re-add-platform">
+                    <div>Rebuild Project</div>
+                    <dvi><input type="checkbox" checked="true" name="buildProject"></dvi>
+                </div>
+                <div class="p-p">Provisioning profile:
+                    <select name="uuid" id="p-profile">
+                    </select>
+                </div>
+                <button onclick='build()'>Build</button>
+            </div>
+        </form>
+    </div>
+
+}

@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "389e8554-411b-2647-a47c-2e3a14053892++2300",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "389e8554-411b-2647-a47c-2e3a14053892++2300" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "389e8554-411b-2647-a47c-2e3a14053892++2300" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "725F4606-510F-4E68-9499-38176C6E220C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "389e8554-411b-2647-a47c-2e3a14053892++2300" : "mts-bank-patch\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MTS Demo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "platforms\/ios\/MTS Demo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/murena:81\/svn\/IBRS",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "389e8554-411b-2647-a47c-2e3a14053892++2300"
+    }
+  ]
+}

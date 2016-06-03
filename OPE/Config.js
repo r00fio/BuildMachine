@@ -1,0 +1,48 @@
+/*
+ * Модуль конфигурации приложения
+ */
+var AppConfig = (function () {
+
+    var IKFL_UUID = '201109051146483120000-f38a8bfa5fcffe28';
+    var clientServices = {"geoLocation": false,
+                          "phoneBook": false,
+                          "photos": false,
+                          "shaker": false,
+                          "gyroscope": false,
+                          "socialNetworks": false,
+                          "autoUpdate": false};
+    var clientBackground = 0;
+
+    return {
+        
+        cleverClientUrl: 'https://online.mtsbank.ru/ib6/clever/client/request.xml', //Тестовый стенд ОПЭ
+        //cleverClientUrl: 'http://88.86.72.106:4028/IBRSWebTomcatWAR/clever/client/request.xml', //Татьяна WWW
+
+        cleverClientAppUuid: IKFL_UUID,
+        clientServices: clientServices,
+        clientBackground: clientBackground,
+
+        enableProximitySensor: false,
+        enableSslPinning: true,
+        backgroundTimeout: 180000,      // 3 минуты в бэкраунде (мс)
+        defaultPlatform: 'ios',
+        //devicePlatform: 'android', //windows phone support - http://confluence.softlab.ru/display/dsebo/Windows+Phone+Support
+        adaptToWindowsphone: false, //подключение windowsphone-adaptive-style.css к стилям devicePlatform
+        onlineCallNumber: '78002500520', //Номер телефона online звонка через Zingaya, начинается с кода страны
+        handShakeSensitivity: 45 //Чувствительность датчика встряхивания телефона.
+    };
+})();
+
+/**
+ * mtsPersistenceStorage
+ * key                           value
+ *
+ * notFirstLaunch                признак непервого запуска (для настройки noRequestCodeFor3Min, изначальна должна быть включена)
+ * login                         сохранённый логин, для подтягивания на странице авторизации
+ *
+ * idShortCode                   идентификатор устройства для короткого кода (используется также в качестве признака - зарегистрирован ли КК в случае включения после отключения)
+ * registeredTouchID             признак того, что Touch ID был зарегистрирован (для вкл / выкл без подтверждения)
+ * authMode                      способ авторизации: логопас - login, КК - shortCode, TouchID - touchID
+ *
+ * noRequestCodeFor3Min          true/false включена ли настройка "Не запрашивать код в течение 3 минут"
+ */
