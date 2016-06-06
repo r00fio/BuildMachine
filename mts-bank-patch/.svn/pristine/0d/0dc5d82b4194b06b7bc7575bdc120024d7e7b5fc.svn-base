@@ -1,0 +1,13 @@
+<svg width="40px" height="30px" viewBox="0 0 40 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Imported Layers</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Product_list_full" sketch:type="MSArtboardGroup" transform="translate(-370.000000, -388.000000)" fill="#66797F">
+            <g id="quick_actions-2" sketch:type="MSLayerGroup" transform="translate(320.000000, 333.000000)">
+                <path d="M84.604,62.068 L88.131,59.649 L85.869,56.351 L81.605,59.275 C78.562,56.864 74.697,55 70,55 C56.667,55 50,70.069 50,70.069 C50,70.069 51.664,73.795 54.991,77.524 L50.869,80.351 L53.131,83.649 L57.922,80.364 C61.033,82.946 65.057,85 70,85 C83.333,85 90,70 90,70 C90,70 88.198,65.957 84.604,62.068 L84.604,62.068 Z M54.512,70.05 C56.466,66.621 61.738,59 70,59 C73.133,59 75.842,60.112 78.107,61.673 L70.176,67.112 C70.073,66.756 70,66.388 70,66 C70,64.864 70.479,63.844 71.239,63.116 C70.836,63.044 70.424,63 70,63 C66.134,63 63,66.134 63,70 C63,70.644 63.094,71.264 63.257,71.856 L58.333,75.233 C56.569,73.335 55.282,71.375 54.512,70.05 L54.512,70.05 Z M70,81 C66.632,81 63.76,79.718 61.397,77.981 L65.38,75.25 C66.614,76.336 68.228,77 70,77 C73.866,77 77,73.866 77,70 C77,69.577 76.956,69.164 76.884,68.761 C76.156,69.522 75.136,70 74,70 C73.714,70 73.436,69.967 73.167,69.91 L81.255,64.364 C83.233,66.404 84.66,68.577 85.488,70.009 C83.532,73.424 78.261,81 70,81 L70,81 Z" id="Imported-Layers" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

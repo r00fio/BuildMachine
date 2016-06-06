@@ -1,0 +1,99 @@
+<ion-view ng-controller="DepositCompareParamsCtrl">
+    <rs-header lbtn-class="icon-close" lbtn-action="goBack()" rbtn-class="icon-check-mark" rbtn-action="ok()">Параметры сравнения</rs-header>
+
+    <ion-content class="has-header">
+
+        <div ng-if="platform!=='android'">
+            <div class="content-block-title">Продукты для сравнения</div>
+            <div class="list-block" style="margin-bottom: 0;">
+                <ul>
+                    <li ui-sref="depositselect.depositdetails({ deposit: {{deposit}}, selectDepositId: {{deposit.id}} })" class="item-content item-inner" ng-repeat="deposit in depositList">
+                        <div class="item-title flex flex-middle">
+                            <div class="icon-22 icon-delete margin-right-15px" ng-show="depositList.length > 2"
+                                 ng-click="removeFromComparison(deposit)"></div>
+                            <div>Вклад &laquo;{{deposit.desc}}&raquo;, {{deposit.rate}}%</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div ng-if="platform==='android'">
+            <div class="content-block-title">Продукты для сравнения</div>
+            <div class="list-block" style="margin-bottom: 0;">
+                <ul>
+                    <li ui-sref="depositselect.depositdetails({ deposit: {{deposit}}, selectDepositId: {{deposit.id}} })" class="item-content item-inner" ng-repeat="deposit in depositList">
+                        <div class="item-title flex flex-middle">
+                            <div>Вклад &laquo;{{deposit.desc}}&raquo;, {{deposit.rate}}%</div>
+                        </div>
+                        <div class="item-after flex flex-middle">
+                            <div class="icon-22 icon-menu-dots icon-center" ng-show="depositList.length > 2"
+                                 ng-click="removeFromComparison(deposit)"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-block-title empty-title"></div>
+        <div class="list-block" style="margin-bottom: 0;">
+            <ul>
+                <li class="item-button">
+                    <button class="button button-full" ng-click="goBack(3)">
+                        Удалить сравнение
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-block-title empty-title"></div>
+        <div class="list-block" style="margin-bottom: 0;">
+            <ul>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title width100pc">Только различающиеся параметры</div>
+                        <div class="item-after">
+                            <rs-toggle ng-model="onlyDiff.value"></rs-toggle>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-block-title">Выбранные параметры</div>
+        <div class="list-block" style="margin-bottom: 0;">
+            <ul>
+                <li class="item-content item-inner" ng-repeat="param in compareParams | filter:{value: true}">
+                    <div class="item-title flex flex-middle">
+                        <label class="label-checkbox margin-right-15px">
+                            <input type="checkbox" ng-checked="true" ng-click="toggleParamValue(param)">
+                            <div class="item-media">
+                                <i class="icon icon-form-checkbox"></i>
+                            </div>
+                        </label>
+                        <div>{{param.name}}</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div style="min-height: 0.005px;"></div>
+
+        <div class="content-block-title">Все параметры</div>
+        <div class="list-block" style="margin-bottom: 0;">
+            <ul>
+                <li class="item-content item-inner" ng-repeat="param in compareParams | filter:{value: false}">
+                    <div class="item-title flex flex-middle">
+                        <label class="label-checkbox margin-right-15px">
+                            <input type="checkbox" ng-checked="false" ng-click="toggleParamValue(param)">
+                            <div class="item-media">
+                                <i class="icon icon-form-checkbox"></i>
+                            </div>
+                        </label>
+                        <div>{{param.name}}</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </ion-content>
+</ion-view>

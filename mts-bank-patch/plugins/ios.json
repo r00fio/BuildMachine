@@ -1,0 +1,115 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.borismus.webintent": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "com.cordova.plugins.sms": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "cordova-plugin-android-movetasktoback": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "cordova-plugin-app-preferences": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "cordova-plugin-appavailability": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "cordova-plugin-crosswalk-webview": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "1457322601234475",
+            "APP_NAME": "MTS Bank Test Application",
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "cordova-plugin-file-opener2": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "cordova-plugin-http": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "cordova-plugin-keyboard": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "cordova-plugin-screen-orientation": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "cordova-plugin-shake": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "mx.ferreyra.callnumber": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "org.apache.cordova.geolocation": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "ru.softlab.mobile.plugins.CookiesManager": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "ru.softlab.mobile.plugins.deviceinfo": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "ru.softlab.mobile.plugins.fingerscanner": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "ru.softlab.mobile.plugins.ios.properties.list": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "ru.softlab.mobile.plugins.social.fb": {
+            "APP_ID": "1457322601234475",
+            "APP_NAME": "MTS Bank Test Application",
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "ru.softlab.mobile.plugins.social.mslive": {
+            "APP_ID": "000000004C15728B",
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "ru.softlab.mobile.plugins.social.vk": {
+            "APP_ID": "4951150",
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "ru.softlab.mobile.plugins.zingaya": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "ru.softlab.ikfl.mts.prototype"
+        }
+    }
+}

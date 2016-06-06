@@ -1,0 +1,16 @@
+<ion-view>
+    <rs-header>Задолженность</rs-header>
+    <ion-content class="has-header">
+
+        <div class="content-block-title empty-title"></div>
+        <div class="list-block" style="margin:0;">
+            <ul>
+                <fw7-li ng-repeat="debt in loan.debtList" title="{{debt.description}}">
+                    {{debt.amount}}<span currency="{{loan.currency}}"></span>
+                    <span ng-if="debt.isOverdueDebt">&nbsp;с {{debt.debtCreationDate | defaultDate}}</span>
+                </fw7-li>
+            </ul>
+        </div>
+
+    </ion-content>
+</ion-view>

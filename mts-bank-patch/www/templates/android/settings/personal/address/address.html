@@ -1,0 +1,124 @@
+<div ui-view="settings-address-view">
+    <rs-header rbtn-class="icon-check-mark" rbtn-action="changeAddress()">Адрес проживания</rs-header>
+    <ion-view>
+        <ion-content class="has-header personal-page">
+            <rs-panel>
+                <div ng-if="statusOk" style="color:#00cc00;">Адрес введен правильно</div>
+                <div class="list-block next-block">
+                    <ul>
+                        <li class="item-content fw7-li-select">
+                            <div class="item-inner">
+                                <div class="table-fixed-width100pc">
+                                    <div class="table-row">
+                                        <div class="table-cell text-valign-middle">
+                                            <div class="item-title">Индекс</div>
+                                            </div>
+                                        </div>
+                                    <div class="table-row">
+                                        <div class="table-cell text-valign-middle fw7-li-content-text">
+                                            <input type="text" placeholder="Не задано" maxlength="6"
+                                                   ng-model="selectedAddress.index"
+                                                   ng-blur="onSuggestionFocusLost()">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <fw7-li-select item-class="item-inner"
+                                       title="Регион"
+                                       ng-click="addressRequest.type = 'region'"
+                                       ui-sref="settings.personal.address.selectRegion">
+                            <span ng-show="selectedAddress.region" ng-bind="selectedAddress.region" class="text-12px"></span>
+                            <span ng-hide="selectedAddress.region" class="text-13px">Не указано</span>
+                        </fw7-li-select>
+                        <fw7-li-select item-class="item-inner"
+                                       title="Район"
+                                       ng-click="addressRequest.type = 'area'"
+                                       ui-sref="settings.personal.address.selectArea">
+                            <span ng-show="selectedAddress.area" ng-bind="selectedAddress.area" class="text-12px"></span>
+                            <span ng-hide="selectedAddress.area" class="text-13px">Не указано</span>
+                        </fw7-li-select>
+                        <fw7-li-select item-class="item-inner"
+                                       title="Город"
+                                       ng-click="addressRequest.type = 'city'"
+                                       ui-sref="settings.personal.address.selectCity">
+                            <span ng-show="selectedAddress.city" ng-bind="selectedAddress.city" class="text-12px"></span>
+                            <span ng-hide="selectedAddress.city" class="text-13px">Не указано</span>
+                        </fw7-li-select>
+                        <fw7-li-select item-class="item-inner"
+                                       title="Населенный пункт"
+                                       ng-click="addressRequest.type = 'locality'"
+                                       ui-sref="settings.personal.address.selectLocality">
+                            <span ng-show="selectedAddress.locality" ng-bind="selectedAddress.locality" class="text-12px"></span>
+                            <span ng-hide="selectedAddress.locality" class="text-13px">Не указано</span>
+                        </fw7-li-select>
+                        <fw7-li-select item-class="item-inner"
+                                       title="Улица"
+                                       ng-click="addressRequest.type = 'street'"
+                                       ui-sref="settings.personal.address.selectStreet">
+                            <span ng-show="selectedAddress.street" ng-bind="selectedAddress.street" class="text-12px"></span>
+                            <span ng-hide="selectedAddress.street" class="text-13px">Не указано</span>
+                        </fw7-li-select>
+                        <li class="item-content fw7-li-select">
+                            <div class="item-inner">
+                                <div class="table-fixed-width100pc">
+                                    <div class="table-row">
+                                        <div class="table-cell text-valign-middle">
+                                            <div class="item-title">Дом</div>
+                                        </div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-cell text-valign-middle fw7-li-content-text">
+                                            <input type="text" placeholder="Не задано"
+                                                   ng-model="selectedAddress.house"
+                                                   ng-blur="onCheckInputFocusLost()"
+                                                   ng-disabled="needDisableHouseBlock()">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content fw7-li-select">
+                            <div class="item-inner">
+                                <div class="table-fixed-width100pc">
+                                    <div class="table-row">
+                                        <div class="table-cell text-valign-middle">
+                                            <div class="item-title">Корпус</div>
+                                        </div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-cell text-valign-middle fw7-li-content-text">
+                                            <input type="text" placeholder="Не задано"
+                                                   ng-model="selectedAddress.struct"
+                                                   ng-blur="onCheckInputFocusLost()"
+                                                   ng-disabled="needDisableHouseBlock()">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content fw7-li-select">
+                            <div class="item-inner">
+                                <div class="table-fixed-width100pc">
+                                    <div class="table-row">
+                                        <div class="table-cell text-valign-middle">
+                                            <div class="item-title">Номер квартиры</div>
+                                        </div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-cell text-valign-middle fw7-li-content-text">
+                                            <input type="text" placeholder="Не задано"
+                                                   ng-model="selectedAddress.flat"
+                                                   ng-blur="onCheckInputFocusLost()"
+                                                   ng-disabled="needDisableHouseBlock()">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

@@ -1,0 +1,20 @@
+<div>
+    <rs-header>Восстановление доступа</rs-header>
+    <ion-view>
+        <ion-content class="has-header has-fixed-button">
+            <div class="restore-access-text">Укажите номер счета</div>
+            <input input-clear-btn
+                   rs-auto-focus
+                   class="restore-access-input"
+                   type="text"
+                   pattern="[0-9]*"
+                   mask-clean="true"
+                   mask-restrict="reject"
+                   mask="99999999999999999999"
+                   placeholder="Номер счета"
+                   ng-model="user.accNumber"
+                   rs-enter="restoreAccess()"/>
+        </ion-content>
+        <button class="btn-in" ios-keyboard-attach ng-click="restoreAccess()">Продолжить</button>
+    </ion-view>
+</div>

@@ -1,0 +1,69 @@
+<rs-header>Заявка на выпуск ВПК</rs-header>
+<div ng-controller="IssueVirtualCardCtrl as issueVirtualCardCtrl">
+    <div class="content content-body" style="bottom: 0;">
+        <ion-view>
+            <ion-content class="bg-f0f4f5">
+                <rs-panel header-text="Заявка на выпуск виртуальной карты">
+                    <div class="list-block list-block-separator-hidden" style="margin-bottom: 0; margin-top: 0;">
+                        <ul>
+                            <li ng-hide="form.claim" class="item-content" style="padding: 0;" rs-waiter="form.claim"></li>
+                            <li ng-show="form.claim" class="item-content">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc" style="margin-top: 5px; margin-bottom: 5px;">
+                                        <div class="table-row">
+                                            <span class="table-cell text-gray white-space-pre-line" style="padding-top: 5px;"
+                                                  ng-bind-html="form.claim.conditions"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <rs-select ng-show="form.claim" header-text="Стоимость выпуска" value-text="{{form.claim.cost}}"></rs-select>
+                            <rs-select ng-show="form.claim" header-text="Срок действия" value-text="{{form.claim.expiryTerm | defaultDate}}"></rs-select>
+                            <rs-select ng-show="form.claim" header-text="Обслуживание" value-text="{{form.claim.service}}"></rs-select>
+
+                            <li ng-show="form.claim" class="item-content">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <input type="number"
+                                                       ng-disabled="form.requestAlreadySend"
+                                                       placeholder="Сумма пополнения"
+                                                       ng-model="form.initialAmount"
+                                                       class="placeholder-gray"
+                                                       style="font-size: 15px; padding: 0; border-bottom: 1px solid rgba(161, 174, 179, 0.16)" />
+                                                <span style="position: absolute; right: 10px; top: 17px;" currency="RUB"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+                <rs-panel header-text="Источник оплаты">
+                    <div class="list-block list-block-separator-hidden" style="margin:0;">
+                        <ul>
+                            <li ng-hide="form.selectedSource" class="item-content" style="padding: 0;" rs-waiter="form.selectedSource"></li>
+                            <li ng-show="form.selectedSource" ng-click="selectProductShow(form.paymentSourceList, 'selectedSource')">
+                                <rs-product product="form.selectedSource"></rs-product>
+                            </li>
+                        </ul>
+                        <div ng-if="form.commissionAmount" class="list-block-label" style="margin-bottom: 10px; text-align: center;">
+                            Комиссия&nbsp;
+                                <span ng-if="form.commissionAmount === '0'">
+                                    не взимается
+                                </span>
+                                <span ng-if="form.commissionAmount !== '0'">
+                                    <span ng-bind="(form.commissionAmount | defaultSum)"></span>
+                                    <span currency="{{form.selectedSource.currency}}"/>
+                                </span>
+                        </div>
+                    </div>
+                </rs-panel>
+
+                <button ng-if="form.showButton" class="rs-button-page bg-24A7B3" ng-click="sendRetailVirtCardRequest()">Отправить заявку</button>
+            </ion-content>
+        </ion-view>
+    </div>
+</div>

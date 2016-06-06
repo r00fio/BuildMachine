@@ -1,0 +1,116 @@
+<div ng-controller="PaymentsCtrl as paymentsCtrl" ui-view="payment-page">
+    <rs-header lbtn-class="" rbtn-class="icon-payment-settings" rbtn-action="redirectToSetting()">Платежи и переводы</rs-header>
+    <rs-spotlight-search ng-model="globalSearchText.name" class="has-header"></rs-spotlight-search>
+    <ion-view>
+        <div ng-if="!hideCategoryWaiterPayments" class="rs-backdrop-modal"><div rs-waiter="hideCategoryWaiterPayments" rs-waiter-size="big" class="rs-waiter-modal"></div></div>
+        <ion-content class="has-subheader bg-f0f4f5">
+            <ion-refresher on-refresh="doRefresh()" pulling-icon></ion-refresher>
+            <div ng-if="globalSearchText && globalSearchText.name && globalSearchText.name.length > 2">
+                <rs-panel ng-repeat="searchResult in searchResults | filter:{name: 'TEMPLATE'}" header-text="Избранные платежи">
+                    <div class="list-block" style="margin: 0;">
+                        <ul>
+                            <li class="item-content item-link" ng-repeat="favorite in searchResult.list" ng-click="redirectToPayment(favorite)">
+                                <div class="item-media">
+                                    <rs-operation-logo operation="favorite"></rs-operation-logo>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-15px text-two-lines" ng-bind="favorite.name"></div>
+                                        </div>
+                                        <div ng-if="favorite.desc" class="table-row">
+                                            <span class="table-cell text-12px text-gray text-two-lines" ng-bind="favorite.desc"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+                <rs-panel ng-repeat="searchResult in searchResults | filter:{name: '!TEMPLATE'}" header-text="{{searchResult.name}}">
+                    <div class="list-block" style="margin: 0;">
+                        <ul>
+                            <li class="item-content item-link" ng-repeat="category in searchResult.list" ng-click="redirectToService(category)">
+                                <div class="item-media">
+                                    <payment-category-logo category="{{category}}"></payment-category-logo>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-15px" style="white-space: normal;" ng-bind="category.name"></div>
+                                        </div>
+                                        <div ng-if="category.commission" class="table-row">
+                                            <span class="table-cell text-12px text-gray">Комиссия {{category.commission}}%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+            </div>
+
+            <div ng-hide="globalSearchText && globalSearchText.name && globalSearchText.name.length > 2">
+            <rs-panel header-text="Избранные платежи">
+                <div ng-show="favoritList && favoritList.length > 0" class="bg-white flex flex-middle favorit-scroll">
+                    <ion-scroll direction="x" scrollbar-x="false" style="min-width: 100%;  height: 100%" delegate-handle="favourites">
+                        <div class="table-cell text-align-center favorit-block-payments-cell" ng-repeat="favorit in favoritList" ng-click="redirectToPayment(favorit)"
+                             style="padding-left: 15px;" ng-style="{'padding-right': $last ? '15px' : '0'}">
+                            <rs-operation-logo operation="favorit"></rs-operation-logo>
+
+                            <div class="favorit-name-payments text-363D40 text-12px text-two-lines" ng-bind="favorit.name"></div>
+                        </div>
+                    </ion-scroll>
+                </div>
+                <div ng-show="favoritList === undefined" class="bg-white favorit-scroll" rs-waiter="favoritList"/>
+                <div ng-hide="favoritList && favoritList.length > 0 || favoritList === undefined" class="flex flex-middle flex-center favorit-scroll list-empty">
+                    Вы еще не сохранили ни одного шаблона и не осуществили ни одного платежа.<br>Попробуйте - это просто!
+                </div>
+            </rs-panel>
+
+            <rs-panel header-text="Переводы">
+                <div class="flex flex-wrap payment-flex-container bg-white">
+                    <div class="payment-flex-item" ng-repeat="transfer in transfersArr" ng-click="redirectToTransfers(transfer)">
+                        <img ng-src="{{transfer.iconSrc}}"/>
+
+                        <div ng-bind="transfer.name"></div>
+                    </div>
+                </div>
+            </rs-panel>
+
+            <rs-panel header-text="Платежи">
+                <div class="flex flex-wrap payment-flex-container bg-white">
+                    <div ng-if="!categoriesArr" class="payments-waiter">
+                        <div rs-waiter="categoriesArr" style="height:100%;"></div>
+                    </div>
+                    <div ng-if="categoriesArr" class="payment-flex-item" ng-repeat="category in categoriesArr | limitTo: categoriesLimit" ng-click="redirectToSelected(category)">
+                        <payment-category-logo category="{{category}}"></payment-category-logo>
+
+                        <div ng-bind="category.name"></div>
+                    </div>
+                    <div ng-if="showMoreButton" ng-click="onClickShowMoreButton()" class="table" style="width: 100%; text-align: center;">
+                        <div class="table-row">
+                            <div class="table-cell favorite-button">Все категории</div>
+                        </div>
+                    </div>
+                </div>
+            </rs-panel>
+
+            <rs-panel header-text="Последние онлайн-операции" class="payments-operations">
+                <rs-operations operations="operationList"
+                               operation-state="operationState"></rs-operations>
+                <div ng-if="operationList && operationList.length == 0" class="flex flex-middle flex-center list-empty">
+                    Вы не осуществили еще ни одной операции в интернет-банке. Попробуйте оплатить, например, свой
+                    мобильный телефон.<br>Это легко!
+                </div>
+            </rs-panel>
+                <div ng-if="visibleHistoryOperatins" ui-sref="operationhistory" class="table" style="width: 100%; text-align: center;">
+                    <div class="table-row">
+                        <div class="table-cell favorite-button">История операций</div>
+                    </div>
+                </div>
+            </div>
+
+        </ion-content>
+    </ion-view>
+</div>

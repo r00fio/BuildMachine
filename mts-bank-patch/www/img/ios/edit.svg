@@ -1,0 +1,25 @@
+<svg width="60px" height="61px" viewBox="0 0 60 61" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Mask + Fill 1 + Fill 2 + Fill 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="30" cy="30" r="30"></circle>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Popover_1_del-Copy-3" sketch:type="MSArtboardGroup" transform="translate(-46.000000, -251.625000)">
+            <g id="Popover" sketch:type="MSLayerGroup" transform="translate(16.000000, 100.000000)">
+                <g id="Mask-+-Fill-1-+-Fill-2-+-Fill-3" transform="translate(30.000000, 152.000000)">
+                    <mask id="mask-2" sketch:name="Mask" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#D7DEE0" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                    <g id="Fill-1-+-Fill-2-+-Fill-3" transform="translate(14.000000, 14.000000)" fill="#667980" sketch:type="MSShapeGroup">
+                        <path d="M0,28 L6.75862069,28 L20.2758621,14.4827586 L13.5172414,7.72413793 L0,21.2413793 L0,28 Z M5.0430361,24.9622508 L2.92130253,24.9622508 L2.92130253,22.3994814 L13.6789467,12.2792295 L16.0460668,14.4686153 L5.9277007,24.1348667 L5.0430361,24.9622508 Z" id="Fill-1"></path>
+                        <path d="M15.8249596,4.87708782 L22.7396282,12.0677869 L27.7331627,7.62961342 L20.4000876,0.843177532 L15.8249596,4.87708782 Z" id="Fill-2"></path>
+                        <path d="M12.0387931,28 L27.0344828,28 L27.0344828,24.1767073 L15.5325465,24.1767073 L12.0387931,28 Z" id="Fill-3"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

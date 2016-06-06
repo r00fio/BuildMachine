@@ -1,0 +1,79 @@
+<div ng-controller="AccountRateInfoCtrl">
+    <rs-header>Процентная ставка</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <rs-panel>
+                <div class="list-block" style="margin:0;">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title text-15px">Текущая ставка {{account.deposit ? 'вклада' : 'счета'}}</div>
+                                <div class="item-after">
+                                    <div>
+                                        <label class="text-12px">{{account.interestRate}}%</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title text-15px">Текущий размер {{account.deposit ? 'вклада' : 'счета'}}</div>
+                                <div class="item-after">
+                                    <div>
+                                        <span class="text-12px" ng-bind="(account.availableBalance | defaultSum)"></span>
+                                        <span class="text-12px" currency="{{account.currency}}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+
+            <!-- Вклад -->
+            <rs-panel ng-show="account.deposit">
+                <rs-panel rs-waiter="account.rateList" ng-repeat="accountRate in account.rateList"
+                          header-text="{{getFormattedAmountRange(accountRate.amountRange)}}">
+                    <div class="list-block" style="margin:0;">
+                        <ul>
+                            <li class="item-content" ng-repeat="rate in accountRate.rateList">
+                                <div class="item-inner">
+                                    <div class="item-title text-15px">
+                                        {{getFormattedPeriodRange(rate.periodRange)}}
+                                    </div>
+                                    <div class="item-after">
+                                        <div>
+                                            <label class="text-12px">{{rate.rate}}%</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+            </rs-panel>
+
+            <!-- Счет -->
+            <rs-panel ng-hide="account.deposit">
+                <div class="list-block" style="margin:0;">
+                    <ul>
+                        <li class="item-content" rs-waiter="account.rateList" ng-repeat="accountRate in account.rateList">
+                            <div class="item-inner">
+                                <div class="item-title text-15px">
+                                    {{getFormattedAmountRange(accountRate.amountRange)}}
+                                    <!-- Пока убрал, во вкладах неясно как её вывести, к тому же в ИК не выводится -->
+                                    <!--<span currency="{{account.currency}}"/>-->
+                                </div>
+                                <div class="item-after">
+                                    <div>
+                                        <label class="text-12px">{{accountRate.rate}}%</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

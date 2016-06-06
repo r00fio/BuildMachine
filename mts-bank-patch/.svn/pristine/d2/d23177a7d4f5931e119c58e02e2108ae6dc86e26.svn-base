@@ -1,0 +1,15 @@
+<div>
+    <rs-header>Карты</rs-header>
+    <div class="content" ng-controller="CardCtrl">
+        <div class="area-cards">
+            <div id="cards-gallery" class="owl-carousel"></div>
+        </div>
+        <div class="area-tabs">
+            <label class="area-tabs-label area-tabs-label-active" ui-sref="cards.operations">Операции</label>
+            <label class="area-tabs-label" ui-sref="cards.info">Информация</label>
+            <label class="area-tabs-label" ui-sref="cards.facilities">Услуги и сервисы</label>
+        </div>
+        <div ui-view="tab-content" class="tab-content"></div>
+    </div>
+    <div class="footer"></div>
+</div>

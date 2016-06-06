@@ -1,0 +1,76 @@
+<div ui-view="calendar-view">
+    <rs-header lbtn-class="">Календарь</rs-header>
+    <ion-view>
+        <ion-content class="has-header">
+            <div class="bg-white">
+                <div ng-show="showMonthCalendar" class="rs-calendar month-calendar">
+                    <div class="swiper-container swiper-vertical calendar-event-month-swiper" style="height: calc(100vh - 44px - 64px);">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" ng-repeat="month in calendar.months">
+                                <div class="month-name flex flex-middle flex-center" ng-bind="month.name"/>
+                                <div class="days-week flex">
+                                    <div class="day-week flex flex-middle flex-center" ng-repeat="dayOfWeek in daysOfWeek" ng-bind="dayOfWeek.format_D"/>
+                                </div>
+                                <div class="flex" ng-repeat="week in month.weeks">
+                                    <div class="day flex flex-middle flex-center flex-column" ng-repeat="day in week.days" ng-click="openWeekCalendar(day)">
+                                        <div class="day-number flex flex-middle flex-center" ng-class="{'today': day.isToday, 'selected': day.isSelected}">{{day.number}}</div>
+                                        <div class="with-events" ng-if="day.events && !day.isSelected"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="showWeekCalendar" class="rs-calendar week-calendar">
+                    <rs-shady-slider id="calendar-event-name-month-swiper" class="mts-controll-month" slider-data="calendar.months" display-field="name"
+                                     ng-model="selectedMonth" on-slide-change="nameMonthChanged(selectedMonth)" ng-click="openMonthCalendar()"></rs-shady-slider>
+                    <div class="days-week flex">
+                        <div class="day-week flex flex-middle flex-center" ng-repeat="dayOfWeek in daysOfWeek" ng-bind="dayOfWeek.format_D"/>
+                    </div>
+                    <div class="swiper-container calendar-event-week-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" ng-repeat="week in calendar.weeks">
+                                <div class="flex">
+                                    <div class="day flex flex-middle flex-center flex-column" ng-repeat="day in week.days" ng-click="selectDay(day)">
+                                        <div class="day-number flex flex-middle flex-center" ng-class="{'today': day.isToday, 'selected': day.isSelected}">{{day.number}}</div>
+                                        <div class="with-events" ng-if="day.events && !day.isSelected"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-block" style="margin: 0;" ng-click="eventsShow()">
+                        <ul>
+                            <li class="item-content" ng-repeat="event in selectedDay.events">
+                                <div class="item-media" style="margin: 10px 0; padding: 0;">
+                                    <img ng-if="event.logo" ng-src="{{getLogoUrl(event.logo.url)}}" class="item-img-calendar"/>
+                                    <img ng-if="!event.logo" src="img/transfer-pay.png" class="item-img-calendar"/>
+                                </div>
+                                <div class="item-inner" style="padding-top: 0; padding-bottom: 0;">
+                                    <div class="width100pc flex flex-middle" style="min-height: 50px; margin-top: 10px; margin-bottom: 10px;">
+                                        <div class="width100pc">
+                                            <div class="flex flex-between">
+                                                <div class="text-15px">
+                                                    <span class="white-space-pre-line" style="color: #363D40;">{{event.name}}</span>
+                                                </div>
+                                                <div ng-if="event.sum" class="text-15px">
+                                                    <span ng-bind="(event.sum | defaultSum)"></span>
+                                                    <span currency="{{event.currency}}"></span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <span class="text-13px text-gray white-space-pre-line">{{event.productObj.name}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </ion-content>
+    </ion-view>
+    <button class="rs-button" style="position: absolute; bottom: 0; left: 0; height: 64px;"
+            ui-sref="createcalendarevent">Добавить событие</button>
+</div>

@@ -1,0 +1,15 @@
+<ion-view>
+    <rs-header>Акции</rs-header>
+    <ion-content class="has-header">
+        <div class="list-block rs-promo-list no-margin">
+            <ul>
+                <li class="item-content" >
+                    <div ng-if="platform=='ios'" class="rs-promo-item-period">С {{promo.fromDate | dateWithMonthName}} по {{promo.toDate | dateWithMonthName}}</div>
+                    <div class="rs-promo-item-picture" ng-style="{'background-image': promo.picture ? 'url({{getLogoUrl(promo.picture.url)}})' : 'none', 'background-color': promo.picture ? 'unset' : false }"></div>
+                    <div ng-if="platform!='ios'" class="rs-promo-item-period">С {{promo.fromDate | dateWithMonthName}} по {{promo.toDate | dateWithMonthName}}</div>
+                    <div class="rs-promo-item-desc">{{promo.desc}}</div>
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+</ion-view>

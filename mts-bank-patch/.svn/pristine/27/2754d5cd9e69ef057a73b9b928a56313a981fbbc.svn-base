@@ -1,0 +1,104 @@
+<rs-header lbtn-class="icon-close" rbtn-class="icon-check-mark" rbtn-action="createCalendarEvent()">Событие</rs-header>
+<ion-view>
+    <ion-content class="has-header calendar-create-panel">
+        <rs-panel>
+            <div class="list-block" style="margin: 0;">
+                <ul>
+                    <fw7-li title="Дата события">
+                        <div class="item-input">
+                            <input type="text" readonly id="calendar-event-date-start"
+                                   on-change-date="startDateChange(newVal)" date-format="dd.mm.yyyy"
+                                   rs-date-picker-android/>
+                        </div>
+                    </fw7-li>
+                    <fw7-li-select item-class="item-inner" title="Повтор"
+                                   ng-click="selectShow(iterationList, 'display.regular', 'Повтор', 'desc')">
+                            <span ng-show="display.regular">
+                                {{display.regular.desc}}
+                            </span>
+                        <span ng-hide="display.regular">Не указано</span>
+                    </fw7-li-select>
+                    <li class="item-content" ng-if="display.regular.value === 'EVERYDAY'">
+                        <div class="item-inner">
+                            <div class="item-title text-15px width100pc">Только рабочие дни</div>
+                            <div class="item-after">
+                                <rs-toggle ng-model="calendarEvent.isOnlyWorkDay"></rs-toggle>
+                            </div>
+                        </div>
+                    </li>
+                    <fw7-li-select item-class="item-inner"
+                                   ng-if="display.regular.value === 'WEEKLY'"
+                                   title="День недели"
+                                   ng-click="selectShow(daysOfWeek, 'calendarEvent.dayOfWeek', 'День недели', 'desc')">
+                            <span ng-show="calendarEvent.dayOfWeek">
+                                {{calendarEvent.dayOfWeek.desc}}
+                            </span>
+                        <span ng-hide="calendarEvent.dayOfWeek">Не указано</span>
+                    </fw7-li-select>
+                    <fw7-li-select item-class="item-inner"
+                                   ng-if="display.regular.value === 'MONTHLY'"
+                                   title="Число"
+                                   ng-click="selectShow(daysOfMonth, 'calendarEvent.dayOfMonth', 'Число', '')">
+                            <span ng-show="calendarEvent.dayOfMonth">
+                                {{calendarEvent.dayOfMonth}}
+                            </span>
+                        <span ng-hide="calendarEvent.dayOfMonth">Не указано</span>
+                    </fw7-li-select>
+                    <fw7-li-select item-class="item-inner"
+                                   ng-if="display.regular.value === 'YEARLY'"
+                                   title="Месяц"
+                                   ng-click="selectShow(months, 'calendarEvent.month', 'Месяц', 'desc')">
+                            <span ng-show="calendarEvent.month">
+                                {{calendarEvent.month.desc}}
+                            </span>
+                        <span ng-hide="calendarEvent.month">Не указано</span>
+                    </fw7-li-select>
+                    <fw7-li title="Дата окончания" ng-if="display.regular && display.regular.value !== 'SINGLE'">
+                        <div class="item-input">
+                            <input type="text" date-format="dd.mm.yyyy"
+                                   readonly id="calendar-event-date-end" on-change-date="endDateChange(newVal)"
+                                   rs-date-picker-android/>
+                        </div>
+                    </fw7-li>
+                </ul>
+            </div>
+        </rs-panel>
+        <rs-panel>
+            <div class="list-block next-block">
+                <ul>
+                    <fw7-li-select item-class="item-inner"
+                                   title="Тип события"
+                                   ng-click="selectShow(eventTypeList, 'display.eventType', 'Тип события', 'name')">
+                            <span ng-show="display.eventType">
+                                {{display.eventType.name}}
+                            </span>
+                        <span ng-hide="display.eventType">Не указано</span>
+                    </fw7-li-select>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title" style="white-space: normal; width: 50%;" ng-bind="'Сумма'"></div>
+                            <div class="item-input">
+                                <input type="number" ng-model="calendarEvent.sum"/>
+                                <span class="summ-currency-for-inp" currency="{{calendarEvent.currency}}"></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell">
+                                        <input type="text"
+                                               placeholder="Комментарий"
+                                               ng-model="calendarEvent.name"
+                                               class="placeholder-gray">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </rs-panel>
+    </ion-content>
+</ion-view>

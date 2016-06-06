@@ -1,0 +1,79 @@
+<rs-header lbtn-class="icon-close" rbtn-class="icon-check-mark" rbtn-action="createCalendarEvent()">Событие</rs-header>
+<ion-view>
+    <ion-content class="has-header">
+        <rs-panel>
+            <div class="list-block" style="margin: 0;">
+                <ul>
+                    <fw7-li title="Дата события">
+                        <div class="item-input">
+                            <input type="date" style="color: #202426; font-size: 15px; min-width: 150px;" ng-model="display.startDate"/>
+                        </div>
+                    </fw7-li>
+                    <rs-select header-text="Повтор"
+                               value-text="{{display.regular ? display.regular.desc : ''}}"
+                               ng-click="selectShow(iterationList, 'display.regular', 'Повтор', 'desc')">
+                    </rs-select>
+                    <li class="item-content" ng-if="display.regular.value === 'EVERYDAY'">
+                        <div class="item-inner">
+                            <div class="item-title text-15px width100pc">Только рабочие дни</div>
+                            <div class="item-after">
+                                <rs-toggle ng-model="calendarEvent.isOnlyWorkDay"></rs-toggle>
+                            </div>
+                        </div>
+                    </li>
+                    <rs-select header-text="День недели" ng-if="display.regular.value === 'WEEKLY'"
+                               value-text="{{calendarEvent.dayOfWeek ? calendarEvent.dayOfWeek.desc : ''}}"
+                               ng-click="selectShow(daysOfWeek, 'calendarEvent.dayOfWeek', 'День недели', 'desc')">
+                    </rs-select>
+                    <rs-select header-text="Число" ng-if="display.regular.value === 'MONTHLY'"
+                               value-text="{{calendarEvent.dayOfMonth ? calendarEvent.dayOfMonth : ''}}"
+                               ng-click="selectShow(daysOfMonth, 'calendarEvent.dayOfMonth', 'Число', '')">
+                    </rs-select>
+                    <rs-select header-text="Месяц" ng-if="display.regular.value === 'YEARLY'"
+                               value-text="{{calendarEvent.month ? calendarEvent.month.desc : ''}}"
+                               ng-click="selectShow(months, 'calendarEvent.month', 'Месяц', 'desc')">
+                    </rs-select>
+                    <fw7-li title="Дата окончания" ng-if="display.regular && display.regular.value !== 'SINGLE'">
+                        <div class="item-input">
+                            <input type="date" style="color: #202426; font-size: 15px; min-width: 150px;" ng-model="display.endDate"/>
+                        </div>
+                    </fw7-li>
+                </ul>
+            </div>
+        </rs-panel>
+        <rs-panel>
+            <div class="list-block" style="margin: 0;">
+                <ul>
+                    <rs-select header-text="Тип события"
+                               value-text="{{display.eventType ? display.eventType.name : ''}}"
+                               ng-click="selectShow(eventTypeList, 'display.eventType', 'Тип события', 'name')">
+                    </rs-select>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title" style="white-space: normal; width: 50%;" ng-bind="'Сумма'"></div>
+                            <div class="item-input">
+                                <input type="number" ng-model="calendarEvent.sum"/>
+                                <span style="position: absolute; right: 0; top: 17px;" currency="{{calendarEvent.currency}}"></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell">
+                                        <input type="text"
+                                               placeholder="Комментарий"
+                                               ng-model="calendarEvent.name"
+                                               class="placeholder-gray"
+                                               style="font-size: 15px; padding: 0;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </rs-panel>
+    </ion-content>
+</ion-view>

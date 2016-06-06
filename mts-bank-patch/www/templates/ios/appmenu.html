@@ -1,0 +1,132 @@
+<ion-view>
+    <div class="appmenu-bg bg-app blur3px" ng-class="{'bg-app-{{background}}': true}">
+        <div class="bg-app-fill"/>
+    </div>
+    <ion-scroll class="appmenu-content" direction="y" scrollbar-y="false">
+        <button class="appmenu-button close-panel" ui-sref-if="favourites">
+            <div class="appmenu-item flex flex-middle flex-between appmenu-item-animated fadeInRight"
+                 style="-webkit-animation-delay: 0s; animation-delay: 0s;">
+                <div class="flex flex-middle" style="height: 100%;">
+                    <div class="appmenu-item-img flex flex-middle flex-center">
+                        <img class="favorit-item" src="img/ios/favorit-menu.svg">
+                    </div>
+                    <div class="appmenu-item-text">Избранные платежи</div>
+                </div>
+            </div>
+        </button>
+        <!-- TODO: закомменчено до исправления бонусов -->
+        <!--<button class="appmenu-button close-panel" ui-sref-if="bonuses.main">-->
+            <!--<div class="appmenu-item flex flex-middle flex-between appmenu-item-animated fadeInRight"-->
+                 <!--style="-webkit-animation-delay: 0.05s; animation-delay: 0.05s;">-->
+                <!--<div class="flex flex-middle" style="height: 100%;">-->
+                    <!--<div class="appmenu-item-img flex flex-middle flex-center">-->
+                        <!--<img class="bonus-item" src="img/ios/bonus-menu.svg">-->
+                    <!--</div>-->
+                    <!--<div class="appmenu-item-text">Услуги и опции</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</button>-->
+        <button class="appmenu-button close-panel" ui-sref-if="calendarevents">
+            <div class="appmenu-item flex flex-middle flex-between appmenu-item-animated fadeInRight"
+                 style="-webkit-animation-delay: 0.1s; animation-delay: 0.1s;">
+                <div class="flex flex-middle" style="height: 100%;">
+                    <div class="appmenu-item-img flex flex-middle flex-center">
+                        <img class="calendar-item" src="img/ios/calendar-menu.svg">
+                    </div>
+                    <div class="appmenu-item-text">Календарь</div>
+                </div>
+                <div class="counter bg-24A7B3" style="position: relative"><label class="text-white">5</label></div> <!-- Нотификатор новых событий -->
+            </div>
+        </button>
+        <button class="appmenu-button close-panel" ui-sref-if="settings">
+            <div class="appmenu-item flex flex-middle flex-between appmenu-item-animated fadeInRight"
+                 style="-webkit-animation-delay: 0.15s; animation-delay: 0.15s;">
+                <div class="flex flex-middle" style="height: 100%;">
+                    <div class="appmenu-item-img flex flex-middle flex-center">
+                        <img class="settings-item" src="img/ios/settings-menu.svg">
+                    </div>
+                    <div class="appmenu-item-text">Настройки</div>
+                </div>
+            </div>
+        </button>
+        <button class="appmenu-button close-panel" style="margin-top: 20px;" ui-sref-if="news">
+            <div class="appmenu-item flex flex-middle flex-between appmenu-item-animated fadeInRight"
+                 style="-webkit-animation-delay: 0.2s; animation-delay: 0.2s;">
+                <div class="flex flex-middle" style="height: 100%;">
+                    <div class="appmenu-item-img flex flex-middle flex-center">
+                        <img class="news-item" src="img/ios/news-menu.svg">
+                    </div>
+                    <div class="appmenu-item-text">Новости</div>
+                </div>
+                <div class="counter bg-24A7B3" style="position: relative "><label class="text-white">12</label></div>
+            </div>
+        </button>
+        <button class="appmenu-button close-panel" ui-sref-if="notice">
+            <div class="appmenu-item flex flex-middle flex-between appmenu-item-animated fadeInRight"
+                 style="-webkit-animation-delay: 0.25s; animation-delay: 0.25s;">
+                <div class="flex flex-middle" style="height: 100%;">
+                    <div class="appmenu-item-img flex flex-middle flex-center">
+                        <img class="notice-item" src="img/ios/notice-menu.svg">
+                    </div>
+                    <div class="appmenu-item-text">Уведомления</div>
+                </div>
+            </div>
+        </button>
+        <button class="appmenu-button close-panel" ui-sref-if="help">
+            <div class="appmenu-item flex flex-middle flex-between appmenu-item-animated fadeInRight"
+                 style="-webkit-animation-delay: 0.3s; animation-delay: 0.3s;">
+                <div class="flex flex-middle" style="height: 100%;">
+                    <div class="appmenu-item-img flex flex-middle flex-center">
+                        <img class="help-item" src="img/ios/help-menu.svg">
+                    </div>
+                    <div class="appmenu-item-text">Помощь и поддержка</div>
+                </div>
+                <div ng-show="globals.newChatMessageCount" class="counter bg-24A7B3" style="position: relative;"><label class="text-white">{{globals.newChatMessageCount}}</label></div>
+            </div>
+        </button>
+        <button class="appmenu-button close-panel appmenu-item-margin" ui-sref-if="currates">
+            <div class="appmenu-item flex flex-middle flex-between appmenu-item-animated fadeInRight"
+                 style="-webkit-animation-delay: 0.35s; animation-delay: 0.35s;">
+                <div class="flex flex-middle" style="height: 100%;">
+                    <div class="appmenu-item-img flex flex-middle flex-center">
+                        <img class="courses-item" src="img/ios/courses-menu.svg">
+                    </div>
+                    <div class="appmenu-item-text">Курсы валют</div>
+                </div>
+            </div>
+        </button>
+        <button class="appmenu-button close-panel" ui-sref-if="ideabank">
+            <div class="appmenu-item flex flex-middle flex-between appmenu-item-animated fadeInRight"
+                 style="-webkit-animation-delay: 0.4s; animation-delay: 0.4s;">
+                <div class="flex flex-middle" style="height: 100%;">
+                    <div class="appmenu-item-img flex flex-middle flex-center">
+                        <img class="ideas-item" src="img/ios/ideas-menu.svg">
+                    </div>
+                    <div class="appmenu-item-text">Идеи и предложения</div>
+                </div>
+            </div>
+        </button>
+        <button class="appmenu-button close-panel" ui-sref-if="atmsandoffices">
+            <div class="appmenu-item flex flex-middle flex-between appmenu-item-animated fadeInRight"
+                 style="-webkit-animation-delay: 0.45s; animation-delay: 0.45s;">
+                <div class="flex flex-middle" style="height: 100%;">
+                    <div class="appmenu-item-img flex flex-middle flex-center">
+                        <img class="atm-item" src="img/ios/atm-menu.svg">
+                    </div>
+                    <div class="appmenu-item-text">Банкоматы и офисы</div>
+                </div>
+            </div>
+        </button>
+        <button class="appmenu-button close-panel appmenu-item-margin" ng-click="exitFromMenuIos()">
+            <div class="appmenu-item flex flex-middle flex-between appmenu-item-animated fadeInRight"
+                 style="-webkit-animation-delay: 0.5s; animation-delay: 0.5s;">
+                <div class="flex flex-middle" style="height: 100%;">
+                    <div class="appmenu-item-img flex flex-middle flex-center">
+                        <img class="logout-item" src="img/ios/logout.svg">
+                    </div>
+                    <div class="appmenu-item-text">Выход</div>
+                </div>
+            </div>
+        </button>
+    </ion-scroll>
+</ion-view>

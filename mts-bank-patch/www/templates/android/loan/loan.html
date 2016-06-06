@@ -1,0 +1,134 @@
+<div ng-controller="LoanCtrl as lc" ui-view="loan-page">
+    <rs-header rbtn-class="icon-menu-more" rbtn-action="openPopover($event)">Кредиты</rs-header>
+        <ion-view>
+            <ion-content class="has-header bg-f0f4f5" on-scroll-complete="showMoreOperations()" when-scroll-ends-wp="showMoreOperations()"
+                         wp-ptr="doRefresh()" spinner-class="white-spinner" bg-color="#24A7B3">
+
+        <script id="templates/loan/popover.html" type="text/ng-template">
+            <ion-popover-view>
+                <ion-content scroll="false">
+                    <div class="list-block" style="font-size: 4vw !important;">
+                        <ul>
+                            <li class="item-content" ng-hide="loan.isClosed" ng-click="closePopover() + doEarlyRepayment()">
+                                <div class="item-media"><i class="icon icon-remove"></i></div>
+                                <div class="item-inner">
+                                    <span>Досрочное погашение</span>
+                                    <span style="position:absolute;left: 0;bottom: 0;font-size: 10px;color: slategray;">В рамках платежей</span>
+                                </div>
+                            </li>
+                            <li class="item-content" ng-click="closePopover() + renameProduct(loan)">
+                                <div class="item-media"><i class="icon icon-edit"></i></div>
+                                <div class="item-inner">Переименовать</div>
+                            </li>
+                            <li class="item-content item-inner save-divider" ng-click="closePopover()" ui-sref="loan.sendextract">
+                                <div class="item-media"><i class="icon icon-send-extract"></i></div>
+                                <div class="item-inner">Отправить выписку</div>
+                            </li>
+                            <li class="item-content" ng-hide="loan.isClosed">
+                                <div class="item-inner" style="margin-left: 45px; width: calc(100% - 45px); padding-right: 5px;">
+                                    <div class="item-title width100pc">Скрыть в списке продуктов</div>
+                                    <div class="item-after">
+                                        <rs-toggle ng-change="toggleFavourite(loan)" ng-model="loan.isFavourite" ng-true-value="false" ng-false-value="true"></rs-toggle>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </ion-content>
+            </ion-popover-view>
+        </script>
+
+        <div class="product-info">
+            <rs-product-slide-box on-slide-changed="onSlideChanged(index)" active-slide="activeSlide">
+                <rs-product-slide ng-repeat="loan in loans">
+                    <img class="picture-state" src="img/android/closed-product.svg" ng-if="loan.isClosed">
+                    <div class="product-block flex flex-column"
+                         style="{{(loan.isClosed) ? 'opacity: 0.7;' : ''}}">
+                        <div class="padding-left-20px text-align-left">
+                            <label class="product-name text-15px">{{loan.name}}</label>
+                        </div>
+                        <div class="padding-left-20px padding-top-5px text-color-white text-align-left">
+                            <label class="product-name text-12px">Кредит</label>
+                        </div>
+
+                        <div class="child-flex-2 padding-left-20px padding-top-10px text-color-white text-align-left">
+                            <label class="text-14px">№ {{loan.accountNumber}}</label>
+                        </div>
+                        <div class="padding-left-20px padding-bottom-20px text-color-white text-align-left">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row text-14px">
+                                    <span>Осталось выплатить</span><span class="padding-left-5px">{{loan.restPay}} %</span>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell cell-content-middle">
+                                        <rs-thermometer progress="{{loan.restPay}}" bg-class="bg-seagreen" fg-class="bg-white"></rs-thermometer>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </rs-product-slide>
+            </rs-product-slide-box>
+
+            <div ng-if="!loan.isUpdatedABS" class="width100pc height8pc margin-top-15px">
+                <div rs-waiter="loan.isUpdatedABS" class="product-info-cell white-spinner padding-top-10px">
+                </div>
+            </div>
+
+            <div ng-if="loan && loan.isUpdatedABS" class="margin-top-15px">
+                <product-info-field ng-if="loan.viewDebtList"
+                                    label="Задолженность"
+                                    value="{{loan.debt | defaultSum}}"
+                                    value-currency="{{loan.currency}}"
+                                    ui-sref="loan.debtinfo">
+                </product-info-field>
+                <product-info-field ng-show="loan.fullMinPay"
+                                    label="{{getLabelMonthlyPaymentAmount()}}"
+                                    value="внесен полностью">
+                </product-info-field>
+                <product-info-field ng-hide="loan.fullMinPay"
+                                    label="{{getLabelMonthlyPaymentAmount()}}"
+                                    value="{{loan.monthlyPaymentAmount | defaultSum}}"
+                                    value-currency="{{loan.currency}}">
+                </product-info-field>
+                <product-info-field ng-if="loan.monthlyPaymentState"
+                                    label="Статус платежа"
+                                    value="{{loan.monthlyPaymentState}}">
+                </product-info-field>
+                <product-info-field label="Срок"
+                                    value="{{getTermLoan()}}">
+                </product-info-field>
+            </div>
+        </div>
+
+        <div class="product-tabs padding-10px">
+            <label class="product-tab-title" ng-class="{active: activeTab == 'operations'}"
+                   ng-click="activeTab = 'operations'">Операции</label>
+            <label class="product-tab-title" ng-class="{active: activeTab == 'info'}"
+                   ng-click="activeTab = 'info'">Информация</label>
+        </div>
+
+        <div ng-include="'templates/loan.info.html'" ng-show="activeTab == 'info'"></div>
+        <!-- div ng-include="'templates/ios/card/services.html'" ng-show="activeTab == 'services'"></div -->
+
+        <div class="operations" ng-show="activeTab == 'operations'">
+            <rs-operations-with-basement product="loan"></rs-operations-with-basement>
+        </div>
+
+                <!-- Пространство для системной кнопки -->
+                <div style="height:43px;"></div>
+
+                <ion-refresher on-refresh="doRefresh()" pulling-icon="" spinner="android" class="white-spinner"></ion-refresher>
+
+            </ion-content>
+
+            <mfb-menu ng-show="isRefillProductAvailable(loan)" class="rs-mfb-menu"
+                      position="br"
+                      toggling-method="click"
+                      resting-icon="mfb-menu-icon icon-topup"
+                      data-mfb-state="closed"
+                      ng-click="refillProduct(loan)">
+            </mfb-menu>
+
+        </ion-view>
+</div>

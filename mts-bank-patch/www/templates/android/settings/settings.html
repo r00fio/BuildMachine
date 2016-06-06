@@ -1,0 +1,44 @@
+<div ui-view="settings-view">
+    <rs-header>Настройки</rs-header>
+    <ion-view>
+        <ion-content class="has-header personal-page">
+            <rs-panel>
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li class="item-content item-inner small-conteiner" ng-click="showLoadAvatar()">
+                            <div class="item-media">
+                                <div ng-show="retailClient.foto" class="item-img" style="background: url(data:image/jpeg;base64,{{retailClient.foto}}) no-repeat center; background-size: cover;"/>
+                                <img ng-hide="retailClient.foto" src="img/android/add.svg" class="item-img"/>
+                            </div>
+                            <div class="item-inner text-15px">Загрузить аватар</div>
+                        </li>
+                        <li class="item-content item-inner small-conteiner" ui-sref="settings.background">
+                            <div class="item-media">
+                                <div class="item-img" ng-class="{'bg-{{background}}': true}"></div>
+                            </div>
+                            <div class="item-inner text-15px">Выбрать фон</div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <rs-panel>
+                <div class="list-block next-block">
+                    <ul>
+                        <li class="item-content item-inner small-conteiner" ui-sref="settings.personal">
+                            <div class="item-inner text-15px">Персональные данные и контакты</div>
+                        </li>
+                        <li class="item-content item-inner small-conteiner" ui-sref="settings.security">
+                            <div class="item-inner text-15px">Безопасность и лимиты</div>
+                        </li>
+                        <li class="item-content item-inner small-conteiner" ui-sref="settings.paysdata">
+                            <div class="item-inner text-15px">Данные для платежей</div>
+                        </li>
+                        <li class="item-content item-inner small-conteiner" ui-sref="settings.application">
+                            <div class="item-inner text-15px">Настройки приложения</div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

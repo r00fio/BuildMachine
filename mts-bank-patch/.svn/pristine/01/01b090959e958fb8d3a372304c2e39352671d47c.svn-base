@@ -1,0 +1,14 @@
+<svg width="120px" height="120px" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle 210 + Imported Layers</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Izbrannie-Copy-16" sketch:type="MSArtboardGroup" transform="translate(-48.000000, -311.000000)">
+            <g id="Rectangle-210-+-Imported-Layers" sketch:type="MSLayerGroup" transform="translate(48.000000, 311.000000)">
+                <rect id="Rectangle-210" fill="#4464A7" sketch:type="MSShapeGroup" x="0" y="0" width="120" height="120" rx="10"></rect>
+                <path d="M94.7666667,51.5629796 L78.8395833,51.5629796 L78.8395833,41.1256735 C78.8395833,37.2059592 81.4395833,36.2921224 83.2708333,36.2921224 L94.5104167,36.2921224 L94.5104167,19.0603673 L79.03125,19 C61.8479167,19 57.9375,31.852 57.9375,40.0765306 L57.9375,51.5629796 L48,51.5629796 L48,69.3193054 L57.9375,69.0004876 L57.9375,119.995117 L79.03125,119.995117 L79.03125,69.3193054 L92.8410645,69.3193054 L94.7666667,51.5629796 L84.4660645,71.9509277" id="Imported-Layers" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

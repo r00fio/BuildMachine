@@ -1,0 +1,20 @@
+<ion-view>
+    <div style="position:absolute; top:0; bottom:0; width:100%;">
+        <div class="relative flex flex-column" style="height:100%; background-color:#00ACB5;">
+            <div style="padding:25px 15px; min-height:170px;" class="flex flex-column flex-between">
+                <div>
+                    <div style="color: rgba(255,255,255,0.7); font-size: larger;">{{lastDialUpStatus}}</div>
+                    <div style="color: white; font-size: xx-large;">МТС Банк</div>
+                </div>
+                <div class="flex flex-center flex-middle">
+                    <!--<div style="width:20px;height:20px; margin-right:20px; background: url(img/android/volume.svg) no-repeat; background-size: contain;"></div>-->
+                    <div class="rs-online-call-mute" ng-class="{'rs-online-call-mute-pressed': isMutePressed}"
+                         ng-click="(isMutePressed = !isMutePressed) + toggleMicrophone()"></div>
+                </div>
+            </div>
+            <div class="child-flex-1 flex flex-column flex-middle flex-vertical-end" style="padding-bottom:30px; background: url(img/android/onlinecall.png) no-repeat center top; background-size: cover;">
+                <div style="width:60px;height:60px; background: url(img/android/hangup-ico.svg) no-repeat; background-size: contain;" ng-click="goBack()"></div>
+            </div>
+        </div>
+    </div>
+</ion-view>

@@ -1,0 +1,56 @@
+<ion-view ng-controller="DepositDetailsCtrl" ui-view="open-deposit-view">
+    <rs-header>Вклад</rs-header>
+    <ion-content class="has-header">
+
+        <div class="list-block" style="margin: 0 0 47px 0;">
+            <ul>
+
+                <li class="item-content">
+                    <div class="item-inner">
+
+                        <div class="item-title">
+                            <div>
+                                <img ng-src="{{formDetails.logoUrl}}"/>
+                            </div>
+
+                            <p style="font-size:medium;">Вклад &laquo;{{formDetails.deposit.desc}}&raquo;</p>
+
+                            <p class="text-bold">Валюта вклада</p>
+                            <p>{{formDetails.currencyText | capitalize}}</p>
+
+                            <p class="text-bold">Сроки размещения</p>
+                            <ul>
+                                <li ng-repeat="currency in formDetails.deposit.currency">
+                                    <div>
+                                        <span>Для вкладов в {{currency == 'USD' ? 'долларах США' : currency == 'EUR' ? 'евро' : 'рублях'}} - </span>
+                                        <span ng-repeat="term in formDetails.deposit.terms[currency]">
+                                            {{$index ? ', ' : ''}}{{term.min}}{{term.max == term.min ? '' : ' - ' + term.max}} дней
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <p class="text-bold">Минимальная сумма первоначального взноса</p>
+                            <ul>
+                                <li ng-repeat="currency in formDetails.deposit.currency">
+                                    <div>
+                                        <span>Для вкладов в {{currency == 'USD' ? 'долларах США' : currency == 'EUR' ? 'евро' : 'рублях'}}</span>
+                                        <span ng-repeat="amount in formDetails.deposit.amounts[currency]">
+                                            {{$index ? ', ' : ''}}{{amount.min}}{{amount.max ? ' - ' + amount.max : ''}}
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <p class="text-bold">Особые условия</p>
+                            <p class="trusted-deposit-info" ng-bind-html="formDetails.trustedDepositInfo"></p>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+    </ion-content>
+    <button class="button rs-button no-margin" ui-sref="depositselect.depositdetails.depositopen">Оформить</button>
+</ion-view>

@@ -1,0 +1,20 @@
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Main_3" sketch:type="MSArtboardGroup" transform="translate(-432.000000, -1996.000000)" fill="#24A7B3">
+            <g id="tab_bar" sketch:type="MSLayerGroup" transform="translate(0.000000, 1948.000000)">
+                <g id="Imported-Layers" transform="translate(432.000000, 48.000000)" sketch:type="MSShapeGroup">
+                    <g id="Group">
+                        <path d="M4,16.138 C4,13.607 4.792,11.261 6.135,9.323 L3.277,6.465 C1.229,9.153 0,12.498 0,16.138 C0,24.296 6.11,31.014 14,32 L14,27.958 C8.334,27.001 4,22.072 4,16.138" id="Fill-1"></path>
+                        <path d="M27.819,14.138 L31.862,14.138 C31.497,11.22 30.345,8.549 28.63,6.337 L25.767,9.2 C26.793,10.644 27.513,12.321 27.819,14.138" id="Fill-2"></path>
+                        <path d="M22.946,6.364 L25.799,3.511 C23.093,1.403 19.698,0.138 16,0.138 C12.246,0.138 8.802,1.44 6.073,3.604 L8.931,6.463 C10.917,5.008 13.356,4.138 16,4.138 C18.589,4.138 20.986,4.964 22.946,6.364" id="Fill-3"></path>
+                        <path d="M18,27.958 L18,31.999 C25.232,31.094 30.958,25.372 31.862,18.138 L27.82,18.138 C26.976,23.16 23.022,27.114 18,27.958" id="Fill-4"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

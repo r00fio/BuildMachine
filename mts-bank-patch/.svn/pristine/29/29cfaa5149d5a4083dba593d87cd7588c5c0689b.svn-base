@@ -1,0 +1,62 @@
+<ion-view>
+    <rs-header>Помощь и поддержка</rs-header>
+    <ion-content class="has-header">
+
+        <div class="content-block-title empty-title"></div>
+        <div class="list-block no-margin">
+            <ul>
+                <li ui-sref="onlinechat">
+                    <a href="#" class="item-content item-link" ng-click="$event.preventDefault()">
+                        <div class="item-inner">
+                            <div class="item-title">Общение с банком</div>
+                            <div class="item-after">
+                                <div ng-show="globals.newChatMessageCount" class="counter bg-24A7B3" style="position: relative;"><label class="text-white">{{globals.newChatMessageCount}}</label></div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li ui-sref="tutorscreens">
+                    <a href="#" class="item-content item-link" ng-click="$event.preventDefault()">
+                        <div class="item-inner">
+                            <div class="item-title">Справочный центр</div>
+                        </div>
+                    </a>
+                </li>
+                <li ui-sref="serviceOnlineBank">
+                    <a href="#" class="item-content item-link" ng-click="$event.preventDefault()">
+                        <div class="item-inner">
+                            <div class="item-title">Обслуживание в интернет-банке</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-block-title empty-title"></div>
+        <div class="list-block no-margin">
+            <ul>
+                <li>
+                    <a href="#" class="item-content item-link" ng-click="$event.preventDefault() + callNumber('88002500520')">
+                        <div class="item-inner icon-call bg-size-15">
+                            <div class="item-title flex flex-column">
+                                <div>8 800 250-0-520</div>
+                                <div class="text-A1AEB3">Бесплатный звонок по России</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="item-content item-link" ng-click="$event.preventDefault() + callNumber('+74957770001')">
+                        <div class="item-inner icon-call bg-size-15">
+                            <div class="item-title flex flex-column">
+                                <div>+7 495 777-000-1</div>
+                                <div class="text-A1AEB3">Для Москвы и других стран</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+    <button class="button no-margin rs-button" ui-sref="onlinecall">Позвонить через интернет</button>
+</ion-view>

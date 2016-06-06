@@ -1,0 +1,10 @@
+<div ng-controller="DepositCompareCtrl">
+    <rs-header rbtn-class="icon-tuning" rbtn-action="goToState('depositselect.depositcompareparams')">Сравнение вкладов</rs-header>
+    <ion-view>
+        <ion-content class="has-header deposit-comparison">
+
+            <deposit-comparison-sheet deposit-list="depositList" compare-params="compareParams"></deposit-comparison-sheet>
+
+        </ion-content>
+    </ion-view>
+</div>

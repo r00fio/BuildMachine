@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="ru.softlab.mobile.plugins.social.mslive"
+    version="1.0.1">
+    <name>MsLiveSocial</name>
+    <description>Yet Another Cordova Device Plugin</description>
+
+	<preference name="APP_ID" />
+	
+    <js-module src="www/mslivesocial.js" name="MsLiveSocial">
+        <clobbers target="mslivesocial" />
+    </js-module>
+    
+	<!-- Android -->
+	<platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="MsLiveSocial" >
+                <param name="android-package" value="ru.softlab.mobile.plugins.social.mslive.MsLiveSocialPlugin"/>
+            </feature>
+        </config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<activity android:name="ru.softlab.mobile.plugins.social.mslive.AuthLaunchActivity" 
+				android:theme="@android:style/Theme.Black.NoTitleBar">
+			</activity>    
+		</config-file>
+		
+		<source-file src="src/android/msliveconnect.xml" target-dir="res/values" />
+        <config-file target="res/values/msliveconnect.xml" parent="/*">
+            <string name="mslive_app_id">$APP_ID</string>
+        </config-file>
+		
+		<framework src="src/android/liveSDK" custom="true" />
+		
+		<source-file src="src/android/res/layout/mainpage.xml" target-dir="res/layout" />
+		
+        <source-file src="src/android/MsLiveSocialPlugin.java" target-dir="src/ru/softlab/mobile/plugins/social/mslive" />
+		<source-file src="src/android/src/AuthLaunchActivity.java" target-dir="src/ru/softlab/mobile/plugins/social/mslive" />
+		<source-file src="src/android/src/LiveAuthDataResult.java" target-dir="src/ru/softlab/mobile/plugins/social/mslive" />
+		<source-file src="src/android/src/AppIdConstants.java" target-dir="src/ru/softlab/mobile/plugins/social/mslive" />
+		<source-file src="src/android/src/R.java" target-dir="src/ru/softlab/mobile/plugins/social/mslive" />
+		
+    </platform>
+	
+	<!-- iOS -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="MsLiveSocial">
+                <param name="ios-package" value="MsLiveSocialPlugin" />
+            </feature>
+        </config-file>
+        
+        <config-file target="*-Info.plist" parent="MicrosoftLiveAppID">
+            <string>$APP_ID</string>
+        </config-file>
+        
+        <framework src="src/ios/liveSDK/LiveSDK.framework" custom="true"/>
+        <resource-file src="src/ios/liveSDK/LiveSDK.framework/LiveAuthDialog_iPad.nib" />
+        <resource-file src="src/ios/liveSDK/LiveSDK.framework/LiveAuthDialog_iPhone.nib" />
+		<resource-file src="src/ios/liveSDK/LiveSDK.framework/backArrow_black.png" />
+        
+        <header-file src="src/ios/MsLiveSocialPlugin.h" />
+        <source-file src="src/ios/MsLiveSocialPlugin.m" />
+        
+    </platform>
+	
+	<!-- wp8 -->
+	<!-- <platform name="wp8">
+		<config-file target="config.xml" parent="/*">
+			<feature name="MsLiveSocial">
+				<param name="wp-package" value="MsLiveSocial"/>
+			</feature>
+		</config-file>
+
+		<source-file src="src/wp8/MsLiveSocial.cs" />
+		<framework src="src/wp8/liveSDK/Microsoft.Live.dll" custom="true"/>
+    
+	</platform> -->
+	
+</plugin>

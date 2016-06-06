@@ -1,0 +1,36 @@
+<div ng-controller="SocialFriendsCtrl as socialFriendsCtrl">
+    <rs-header rbtn-class="icon-payment-settings" rbtn-action="redirectToSocSetting()">Друзьям</rs-header>
+    <rs-spotlight-search ng-model="searchText.$" class="has-header"></rs-spotlight-search>
+    <ion-view>
+        <ion-content class="has-subheader" style="background-color: #FFF">
+            <div class="list-block" style="margin: 0;">
+                <ul>
+                    <!-- Пустой li для временного решения бага rs-waiter -->
+                    <li rs-waiter="friendsInBank" ng-repeat="i in []"></li>
+                    <li class="item-content"
+                        collection-repeat="friend in friendsInBank | filter:searchText | orderBy:'name'"
+                        item-render-buffer="5"
+                        force-refresh-images="true"
+                        ng-click="redirectToFriendTransfer(friend)">
+
+                        <div class="item-media">
+                            <img class="icon" style="height: 12vw; width: 12vw; border-radius: 100%;"
+                                 ng-src="{{friend.photoSrc ? friend.photoSrc : 'img/contact-nofoto.svg'}}"/>
+                        </div>
+                        <div class="item-inner">
+                            <div class="table-fixed-width100pc" style="width: 80%;">
+                                <div class="table-row">
+                                    <div class="table-cell text-15px" style="white-space: normal;" ng-bind="friend.name"></div>
+                                </div>
+                                <div class="table-row" ng-if="friend.network">
+                                    <span class="table-cell text-12px text-gray" ng-bind="friend.network"></span>
+                                </div>
+                            </div>
+                            <img class="icon" style="height: 7vw;" ng-src="img/inbank.svg"/>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </ion-content>
+    </ion-view>
+</div>

@@ -1,0 +1,14 @@
+<svg width="84px" height="84px" viewBox="0 0 84 84" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Oval 42 Copy + Imported Layers</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="News" sketch:type="MSArtboardGroup" transform="translate(-38.000000, -1069.000000)">
+            <g id="Oval-42-Copy-+-Imported-Layers" sketch:type="MSLayerGroup" transform="translate(40.000000, 1071.000000)">
+                <circle id="Oval-42-Copy" stroke="#CCD6D9" stroke-width="4" sketch:type="MSShapeGroup" cx="40" cy="40" r="40"></circle>
+                <path d="M50,24 L30,24 C28.895,24 28,24.895 28,26 L28,53.997 C28,55.173 28.966,56 30.006,56 C30.378,56 30.759,55.894 31.109,55.661 L39.347,48.562 C39.722,48.239 40.278,48.239 40.653,48.562 L48.891,55.661 C49.241,55.894 49.622,56 49.994,56 C51.034,56 52,55.173 52,53.997 L52,26 C52,24.895 51.105,24 50,24 L50,24 Z M48,49.613 L40.653,43.282 C40.278,42.959 39.722,42.959 39.347,43.282 L32,49.613 L32,29 C32,28.448 32.448,28 33,28 L47,28 C47.552,28 48,28.448 48,29 L48,49.613 L48,49.613 Z" id="Imported-Layers" fill="#CCD6D9" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

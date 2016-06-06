@@ -1,0 +1,19 @@
+<svg width="34px" height="30px" viewBox="0 0 34 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Fill 1 + Fill 2 + Fill 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Main_3" sketch:type="MSArtboardGroup" transform="translate(-559.000000, -1997.000000)" fill="#E1E4E6">
+            <g id="tab_bar" sketch:type="MSLayerGroup" transform="translate(0.000000, 1948.000000)">
+                <g id="other_menu" transform="translate(559.000000, 49.000000)" sketch:type="MSShapeGroup">
+                    <g id="Fill-1-+-Fill-2-+-Fill-3">
+                        <path d="M1,0 L33,0 C33.552,0 34,0.448 34,1 L34,3 C34,3.552 33.552,4 33,4 L1,4 C0.448,4 0,3.552 0,3 L0,1 C0,0.448 0.448,0 1,0" id="Fill-1"></path>
+                        <path d="M1,13 L33,13 C33.552,13 34,13.447 34,14 L34,16 C34,16.552 33.552,17 33,17 L1,17 C0.448,17 0,16.552 0,16 L0,14 C0,13.447 0.448,13 1,13" id="Fill-2"></path>
+                        <path d="M1,26 L33,26 C33.552,26 34,26.447 34,27 L34,29 C34,29.552 33.552,30 33,30 L1,30 C0.448,30 0,29.552 0,29 L0,27 C0,26.447 0.448,26 1,26" id="Fill-3"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

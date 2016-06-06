@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="ru.softlab.ikfl.mts.prototype" version="0.11.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>MTS Bank</name>
+    <description>
+        A sample Apache Cordova application that responds to the deviceready event.
+    </description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        Apache Cordova Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="orientation" value="portrait" />
+    <preference name="DisallowOverscroll" value="true" />
+    <platform name="android">
+        <preference name="android-minSdkVersion" value="15" />
+        <preference name="SplashScreen" value="screen" />
+        <preference name="SplashScreenDelay" value="30000" />
+        <preference name="StatusBarBackgroundColor" value="#147E80" />
+        <splash density="port-hdpi" src="res/screen/android/splash.png" />
+        <splash density="port-ldpi" src="res/screen/android/splash.png" />
+        <splash density="port-mdpi" src="res/screen/android/splash.png" />
+        <splash density="port-xhdpi" src="res/screen/android/splash.png" />
+        <icon density="ldpi" src="res/icon/android/icon-36-ldpi.png" />
+        <icon density="mdpi" src="res/icon/android/icon-48-mdpi.png" />
+        <icon density="hdpi" src="res/icon/android/icon-72-hdpi.png" />
+        <icon density="xhdpi" src="res/icon/android/icon-96-xhdpi.png" />
+        <preference name="StatusBarBackgroundColor" value="#147E80" />
+    </platform>
+    <platform name="ios">
+        <preference name="AutoHideSplashScreen" value="false" />
+        <!-- iOS 8.0+ -->
+        <!-- iPhone 6 Plus  -->
+        <icon src="res/icon/ios/icon-60@3x.png" width="180" height="180" />
+        <!-- iOS 7.0+ -->
+        <!-- iPhone / iPod Touch  -->
+        <icon src="res/icon/ios/icon-60.png" width="60" height="60" />
+        <icon src="res/icon/ios/icon-60@2x.png" width="120" height="120" />
+        <!-- iPad -->
+        <icon src="res/icon/ios/icon-76.png" width="76" height="76" />
+        <icon src="res/icon/ios/icon-76@2x.png" width="152" height="152" />
+        <!-- iOS 6.1 -->
+        <!-- Spotlight Icon -->
+        <icon src="res/icon/ios/icon-40.png" width="40" height="40" />
+        <icon src="res/icon/ios/icon-40@2x.png" width="80" height="80" />
+        <!-- iPhone / iPod Touch -->
+        <icon src="res/icon/ios/icon.png" width="57" height="57" />
+        <icon src="res/icon/ios/icon@2x.png" width="114" height="114" />
+        <!-- iPad -->
+        <icon src="res/icon/ios/icon-72.png" width="72" height="72" />
+        <icon src="res/icon/ios/icon-72@2x.png" width="144" height="144" />
+        <!-- iPhone Spotlight and Settings Icon -->
+        <icon src="res/icon/ios/icon-small.png" width="29" height="29" />
+        <icon src="res/icon/ios/icon-small@2x.png" width="58" height="58" />
+        <!-- iPad Spotlight and Settings Icon -->
+        <icon src="res/icon/ios/icon-50.png" width="50" height="50" />
+        <icon src="res/icon/ios/icon-50@2x.png" width="100" height="100" />
+
+        <splash src="res/screen/ios/splash-640x960.png" width="640" height="960"/>
+        <splash src="res/screen/ios/splash-640x1136.png" width="640" height="1136"/>
+        <splash src="res/screen/ios/splash-750x1334.png" width="750" height="1334"/>
+        <splash src="res/screen/ios/splash-1242x2208.png" width="1242" height="2208"/>
+        <preference name="StatusBarOverlaysWebView" value="true" />
+        <preference name="StatusBarBackgroundColor" value="#24A7B3" />
+        <preference name="KeyboardDisplayRequiresUserAction" value="false"/>
+    </platform>
+    <platform name="windows">
+        <preference name="webviewbounce" value="false" />
+        <preference name="UIWebViewBounce" value="false" />
+        <preference name="DisallowOverscroll" value="true" />
+        <preference name="SplashScreen" value="screen" />
+        <preference name="SplashScreenDelay" value="8000" />
+    </platform>
+
+    <engine name="ios" spec="^3.8.0" />
+    <engine name="android" spec="^4.0.3" />
+
+    <!-- Оригинальные плагины -->
+    <plugin name="cordova-plugin-app-preferences" spec="^0.6.1" /> <!-- Для персистентного хранения параметров приложения на устройстве, https://github.com/apla/me.apla.cordova.app-preferences -->
+    <plugin name="cordova-plugin-camera" spec="^1.2.0" />
+    <plugin name="cordova-plugin-contacts" spec="^1.0.0" />
+    <plugin name="cordova-plugin-crosswalk-webview" spec="^1.4.0" />
+    <plugin name="cordova-plugin-file" spec="^4.1.0" />
+    <plugin name="cordova-plugin-file-opener2" spec="https://github.com/pwlin/cordova-plugin-file-opener2" />
+    <plugin name="cordova-plugin-geolocation" spec="^0.3.12" />
+    <plugin name="cordova-plugin-keyboard" spec="http://scmadmin:scmadmin@172.16.34.221:8080/scm/git/cordova-keyboard-plugin" /> <!-- Стандартный плагин вместо иониковского -->
+    <plugin name="cordova-plugin-network-information" spec="https://github.com/apache/cordova-plugin-network-information"/> <!-- сигнализирует об отваливании/подключении интернета -->
+    <plugin name="cordova-plugin-proximity" spec="^0.2.1" /> <!-- Полезные советы по датчику приближения, https://github.com/awoken-well/cordova-plugin-proximity.git -->
+    <plugin name="cordova-plugin-screen-orientation" spec="^1.4.0" /> <!-- Управляет поворотом экрана -->
+    <plugin name="cordova-plugin-shake" spec="https://github.com/leecrossley/cordova-plugin-shake.git" /> <!-- Датчик "встряхивания" (для платежей и переводов) -->
+    <plugin name="cordova-plugin-splashscreen" spec="^2.1.0" />
+    <plugin name="cordova-plugin-statusbar" spec="^1.0.1" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.0.0" />
+    <plugin name="cordova-sms-plugin" spec="^0.1.2" /> <!-- https://github.com/cordova-sms/cordova-sms-plugin.git -->
+    <plugin name="com.synconset.cordovaHTTP" spec="https://github.com/wymsee/cordova-HTTP.git" /> <!-- Для обеспечения SSL Pinning -->
+    <plugin name="mx.ferreyra.callnumber" spec="https://github.com/Rohfosho/CordovaCallNumberPlugin.git" /> <!-- Выполнение звонка на заданный номер -->
+
+    <!-- Плагины, необходимые для соц. сетей -->
+    <plugin name="cordova-android-movetasktoback" spec="^0.1.3" />
+    <plugin name="cordova-plugin-appavailability" spec="^0.4.2" />
+    <plugin name="WebIntent" spec="https://github.com/Initsogar/cordova-webintent.git" />
+
+    <!-- "Самопальные" и "пропатченные" плагины -->
+    <plugin name="cordova-plugin-inappbrowser" spec="http://scmadmin:scmadmin@172.16.34.221:8080/scm/git/inappbrowser-plugin" /> <!-- Для соц. сетей -->
+    <plugin name="ru.softlab.mobile.plugins.CookiesManager" spec="http://172.16.34.221:8080/scm/git/clear-cookie-plugin" /> <!-- Очистка куков -->
+    <plugin name="ru.softlab.mobile.plugins.deviceinfo" spec="http://scmadmin:scmadmin@172.16.34.221:8080/scm/git/device-info-plugin" />
+    <plugin name="ru.softlab.mobile.plugins.fingerscanner" spec="http://scmadmin:scmadmin@172.16.34.221:8080/scm/git/fingerscanner-plugin" />
+    <plugin name="ru.softlab.mobile.plugins.zingaya" spec="http://scmadmin:scmadmin@172.16.34.221:8080/scm/git/zingaya-plugin" />
+    <plugin name="ru.softlab.mobile.plugins.social.vk" spec="http://scmadmin:scmadmin@172.16.34.221:8080/scm/git/social-vk-plugin">
+        <variable name="APP_ID" value="4951150" />
+    </plugin>
+    <plugin name="ru.softlab.mobile.plugins.social.mslive" spec="http://scmadmin:scmadmin@172.16.34.221:8080/scm/git/social-mslive-plugin">
+        <variable name="APP_ID" value="000000004C15728B" />
+    </plugin>
+    <plugin name="ru.softlab.mobile.plugins.social.fb" spec="http://scmadmin:scmadmin@172.16.34.221:8080/scm/git/social-fb-plugin">
+        <variable name="APP_ID" value="1457322601234475" />
+        <variable name="APP_NAME" value="MTS Bank Test Application" />
+    </plugin>
+    <plugin name="cordova-plugin-facebook4" spec="http://scmadmin@beam:8080/scm/git/cordova-facebook-plugin">
+        <variable name="APP_ID" value="1457322601234475" />
+        <variable name="APP_NAME" value="MTS Bank Test Application" />
+    </plugin>
+</widget>

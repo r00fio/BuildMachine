@@ -1,0 +1,91 @@
+<div>
+    <rs-header lbtn-class="icon-close"
+               lbtn-action="goBackFromField()"
+               rbtn-class="icon-check-mark"
+               rbtn-action="retailClient.personalAccount.isCreated ? createPersonalAccount() : changePersonalAccount()">
+        ФСПП
+    </rs-header>
+    <ion-view>
+        <ion-content class="has-header">
+            <rs-panel>
+                <div class="list-block list-block-separator-hidden next-block">
+                    <ul>
+                        <li>
+                            <div class="item-content item-inner">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-13px">Фамилия</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <input type="text"
+                                                       placeholder="Укажите"
+                                                       ng-model="retailClient.personalAccount.LAST_NAME_FEDERAL_BAILIFF_SERVICE">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-inner">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-13px">Имя</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <input type="text"
+                                                       placeholder="Укажите"
+                                                       ng-model="retailClient.personalAccount.FIRST_NAME_FEDERAL_BAILIFF_SERVICE">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-inner">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-13px">Дата рождения</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <input type="text"
+                                                       placeholder="Укажите"
+                                                       ng-model="retailClient.personalAccount.BIRTHDAY_FEDERAL_BAILIFF_SERVICE">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-inner">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-13px">Наименование</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <input type="text"
+                                                       placeholder="Например, Мой ФСПП"
+                                                       ng-model="retailClient.personalAccount.desc">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+        <div class="rs-button-del flex flex-center flex-middle" ng-if="!retailClient.personalAccount.isCreated" ng-click="deletePersonalAccount()">Удалить</div>
+    </ion-view>
+</div>

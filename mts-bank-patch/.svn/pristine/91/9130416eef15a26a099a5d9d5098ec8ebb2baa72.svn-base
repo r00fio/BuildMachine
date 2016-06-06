@@ -1,0 +1,57 @@
+<div class="no-shadow">
+    <rs-header>Регион</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <div class="searchbar searchbar-init">
+                <div class="searchbar-input">
+                    <input type="search" ng-model="searchText"
+                           class="width100pc solid-border-1px gray-border border-box text-14px icon-search-input"
+                           placeholder="Регион или город"/>
+                    <a href="#" class="searchbar-clear"></a>
+                </div>
+            </div>
+            <rs-panel>
+                <div class="list-block list-block-separator-hidden" style="margin: 0;">
+                    <ul>
+                        <li class="item-content fw7-li-select"
+                            ng-click="deleteRegion()">
+
+                            <div class="item-inner">
+                                <div class="table">
+                                    <div class="table-row">
+                                        <div class="item-title">По всем регионам</div>
+                                    </div>
+                                    <div class="table-row fw7-li-content-text">
+                                        <span>Отменить выбранный регион</span>
+                                    </div>
+                                </div>
+                                <div class="item-after" ng-if="!selectedAddress.region">
+                                    <div class="icon-selected"></div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="item-content fw7-li-select"
+                            ng-repeat="region in addressList | rsUnique:'region' | isNotEmpty:'region' | orderBy:'region'"
+                            ng-click="selectRegion(region)">
+
+                            <div class="item-inner">
+                                <div class="table">
+                                    <div class="table-row">
+                                        <div class="item-title">{{region.region}}</div>
+                                    </div>
+                                    <div class="table-row fw7-li-content-text">
+                                        <span>{{region | addressElement:addressRequest.type}}</span>
+                                    </div>
+                                </div>
+                                <div class="item-after" ng-if="(region.coderegion == selectedAddress.coderegion && region.region == selectedAddress.region)">
+                                    <div class="icon-selected"></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

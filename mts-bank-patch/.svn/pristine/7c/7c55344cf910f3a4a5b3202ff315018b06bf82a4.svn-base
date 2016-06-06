@@ -1,0 +1,41 @@
+<svg width="178px" height="179px" viewBox="0 0 178 179" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Button/Floating_Large 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="16.5799975%" y1="100%" x2="16.5799975%" y2="86.506958%" id="linearGradient-1">
+            <stop stop-color="#000000" stop-opacity="0.04" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="23.6621094%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" stop-opacity="0.8" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2.25" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.084 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.168 0" in="shadowBlurOuter2" type="matrix" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <circle id="path-4" cx="84" cy="84" r="84"></circle>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Help\-Copy-9" sketch:type="MSArtboardGroup" transform="translate(-451.000000, -1661.000000)">
+            <g id="Button/Floating_Large-2" sketch:type="MSLayerGroup" transform="translate(456.000000, 1663.700000)">
+                <g id="Oval-6" filter="url(#filter-3)" stroke-width="1.5">
+                    <use stroke="url(#linearGradient-1)" fill="#E63947" fill-rule="evenodd" sketch:type="MSShapeGroup" xlink:href="#path-4"></use>
+                    <use stroke="url(#linearGradient-2)" fill="none" xlink:href="#path-4"></use>
+                    <use stroke-opacity="0.02" stroke="#000000" fill="none" xlink:href="#path-4"></use>
+                </g>
+                <path d="M58.5447083,56.9760752 C58.5447083,56.9760752 57.9962899,57.2777197 57.0616327,58.5929184 C56.1269755,59.9081171 60.0022207,86.6600866 73.3249101,96.7225015 C86.6475994,106.784916 87.4871126,109.379104 109.771437,110.946606 C110.995028,109.96234 111.3337,108.33523 111.3337,108.33523 L110.99503,94.7030133 L109.686882,93.1658043 L94.8453885,93.0575376 L88.4048586,100.314095 C88.4048586,100.314095 69.2179314,89.4632598 67.8847292,79.7192521 C71.7407545,75.4973049 74.7426677,73.5560999 74.7426677,73.5560999 L75.1609711,58.4408081 L73.6089984,57.0579463 L58.5447083,56.9760752 Z" id="Path-1-Copy" fill="#FFFFFF" sketch:type="MSShapeGroup" transform="translate(84.000000, 84.000000) scale(1, -1) rotate(-45.000000) translate(-84.000000, -84.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,39 @@
+<div ng-controller="LoanRequisitesCtrl as loanRequisitesCtrl">
+    <ion-view>
+        <rs-header rbtn-class="icon-send" rbtn-action="showSend()">Реквизиты для погашения</rs-header>
+        <ion-content class="has-header">
+            <div class="list-block" style="margin:0;">
+                <div class="list-group">
+                    <ul>
+                        <li>
+                            <rs-product product="loan"></rs-product>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <rs-panel ng-if="!loan.requisites">
+                <div rs-waiter="loan.requisites"></div>
+            </rs-panel>
+            <div ng-if="loan.requisites" class="list-block" style="margin: 0;">
+                <rs-panel header-text="{{loan.requisites.bankDataLabel}}">
+                    <ul>
+                        <fw7-li ng-repeat="requisite in loan.requisites.propertiesBank"
+                                title="{{requisite.first}}"
+                                multiline="true">
+                            {{requisite.second}}
+                        </fw7-li>
+                    </ul>
+                </rs-panel>
+                <rs-panel header-text="{{loan.requisites.accountDataLabel}}">
+                    <ul>
+                        <fw7-li ng-repeat="requisite in loan.requisites.propertiesAccount"
+                                title="{{requisite.first}}"
+                                multiline="true">
+                            {{requisite.second}}
+                        </fw7-li>
+                    </ul>
+                </rs-panel>
+            </div>
+        </ion-content>
+    </ion-view>
+</div>

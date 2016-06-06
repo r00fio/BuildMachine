@@ -1,0 +1,20 @@
+<div wp-ptr="doRefresh()" bg-color="#F0F4F5">
+    <div class="list-block" ng-class="{'no-margin': platform !== 'ios'}">
+        <ul>
+            <li rs-waiter="bankPartners" ng-repeat="bankPartner in bankPartners" ui-sref="partnerdetails({bankPartner: bankPartner})" rs-waiter-class="rs-promo-list-waiter">
+                <a href="#" class="item-content flex-stretch" ng-class="{'item-inner': platform === 'ios'}" ng-click="$event.preventDefault()">
+                    <div class="item-media">
+                        <div class="rs-bank-partner-picture" ng-style="{'background-image': 'url({{bankPartner.logo}})'}"></div>
+                    </div>
+                    <div class="flex flex-column flex-start" ng-class="{'item-inner save-divider': platform !== 'ios'}" style="margin-left: 15px; padding: 7px 0 8px 8px;">
+                        <div class="item-title rs-bank-partner-name" ng-bind="bankPartner.name"></div>
+                        <div class="item-text rs-bank-partner-desc" ng-bind="bankPartner.desc"></div>
+                    </div>
+                </a>
+            </li>
+            <li ng-show="bankPartners === null || bankPartners !== undefined && !bankPartners.length"><div class="item-content item-inner rs-promo-list-waiter">Список пуст</div></li>
+        </ul>
+    </div>
+
+    <ion-refresher on-refresh="doRefresh()" pulling-icon="" spinner="{{platform}}"></ion-refresher>
+</div>

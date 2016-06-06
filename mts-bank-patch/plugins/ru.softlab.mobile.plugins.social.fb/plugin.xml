@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="ru.softlab.mobile.plugins.social.fb"
+    version="1.0.2">
+    <name>FBSocial</name>
+	
+	<preference name="APP_ID" />
+    <preference name="APP_NAME" />
+
+    <js-module src="www/fbsocial.js" name="FBSocial">
+        <clobbers target="fbsocial" />
+    </js-module>
+    
+	<!-- for android - http://scmadmin@beam:8080/scm/git/cordova-facebook-plugin -->
+	
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="FBSocial">
+                <param name="ios-package" value="FBSocial" />
+            </feature>
+        </config-file>
+        
+        <config-file target="*-Info.plist" parent="FacebookAppID">
+            <string>$APP_ID</string>
+        </config-file>
+        
+        <config-file target="*-Info.plist" parent="FacebookDisplayName">
+            <string>$APP_NAME</string>
+        </config-file>
+        
+        <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+            <array>
+                <dict>
+                    <key>CFBundleURLSchemes</key>
+                    <array>
+                        <string>fb$APP_ID</string>
+                    </array>
+                </dict>
+            </array>
+        </config-file>
+        
+        <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
+            <dict>
+                <key>NSExceptionDomains</key>
+                <dict>
+                    <key>facebook.com</key>
+                    <dict>
+                        <key>NSIncludesSubdomains</key>
+                        <true/>
+                        <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                        <false/>
+                    </dict>
+                    <key>fbcdn.net</key>
+                    <dict>
+                        <key>NSIncludesSubdomains</key>
+                        <true/>
+                        <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                        <false/>
+                    </dict>
+                    <key>akamaihd.net</key>
+                    <dict>
+                        <key>NSIncludesSubdomains</key>
+                        <true/>
+                        <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                        <false/>
+                    </dict>
+                </dict>
+            </dict>
+        </config-file>
+        
+        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+            <array>
+                <string>fbapi</string>
+                <string>fb-messenger-api</string>
+                <string>fbauth2</string>
+                <string>fbshareextension</string>
+            </array>
+        </config-file>
+        
+        <header-file src="src/ios/FBSocial.h" />
+        <source-file src="src/ios/FBSocial.m" />
+        <header-file src="src/ios/AppDelegate+fb.h" />
+        <source-file src="src/ios/AppDelegate+fb.m" />
+        
+        <framework src="src/ios/facebook-sdk/FBSDKCoreKit.framework" custom="true"/>
+        <framework src="src/ios/facebook-sdk/FBSDKLoginKit.framework" custom="true"/>
+        <resource-file src="src/ios/facebook-sdk/FacebookSDKStrings.bundle" />
+        
+    </platform>
+	
+	<platform name="windows">
+		<js-module src="src/windows/FBSocialProxy.js" name="FBSocialProxy">
+            <merges target="" />
+        </js-module>		
+	</platform>
+	
+</plugin>

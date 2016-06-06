@@ -1,0 +1,24 @@
+<div>
+    <rs-header>Восстановление доступа</rs-header>
+    <ion-view>
+        <ion-content class="has-header">
+            <rs-panel header-text="Укажите номер счета">
+                <div class="md-input-container-shadow">
+                    <md-input-container>
+                        <label>Номер счета</label>
+                        <input rs-auto-focus
+                               type="tel"
+                               mask-clean="true"
+                               mask-restrict="reject"
+                               mask="99999999999999999999"
+                               ng-model="user.accNumber"
+                               rs-enter="restoreAccess()">
+                    </md-input-container>
+                </div>
+            </rs-panel>
+        </ion-content>
+        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+            <md-button class="md-raised rs-button login-button" ng-click="restoreAccess()">Продолжить</md-button>
+        </section>
+    </ion-view>
+</div>

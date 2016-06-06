@@ -1,0 +1,14 @@
+<svg width="144px" height="145px" viewBox="0 0 144 145" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>TEEHAN+LAX Reject</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Help-Copy-4" sketch:type="MSArtboardGroup" transform="translate(-249.000000, -851.000000)">
+            <g id="TEEHAN+LAX-Reject" sketch:type="MSLayerGroup" transform="translate(248.000000, 850.400000)">
+                <path d="M73,1 C112.764,1 145,33.235 145,73 C145,112.765 112.764,145 73,145 C33.236,145 1,112.765 1,73 C1,33.236 33.236,1 73,1 L73,1 Z" id="Shape" fill="#E63947" sketch:type="MSShapeGroup"></path>
+                <path d="M54.413,47.592 C58.876,52.557 62.641,57.982 62.641,57.982 C62.641,57.982 65.743,62.243 63.002,65.002 C61.194,66.821 58.726,71.154 60.002,73.001 C61.278,74.848 77.002,90.001 77.002,90.001 C77.002,90.001 78.801,91.574 80.002,91.001 C81.203,90.428 87.001,87 87.001,87 C87.001,87 89.397,86.191 92.001,88.001 C94.63,89.828 102.73,95.199 102.73,95.199 C102.73,95.199 105.036,98.102 103.419,100.665 C101.802,103.227 96.75,108.295 96.75,108.295 C96.75,108.295 94.741,109.654 90.193,108.576 C85.647,107.498 75.016,104.962 60.446,90.4 C46.973,76.932 41.048,58.807 41.048,58.807 C41.048,58.807 40.618,55.65 42.538,52.839 C44.459,50.028 50.139,42.836 54.413,47.592 L54.413,47.592 Z" id="Shape" stroke="#FFFFFF" stroke-width="4" sketch:type="MSShapeGroup" transform="translate(72.500504, 77.499078) rotate(-225.000000) translate(-72.500504, -77.499078) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

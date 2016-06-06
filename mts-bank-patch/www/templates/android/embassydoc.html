@@ -1,0 +1,57 @@
+<div ng-controller="EmbassyDocCtrl as embassyDocCtrl">
+    <rs-header>Справка для посольства</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <rs-panel header-text="Заказ справки по средствам на">
+                <div class="list-block" style="margin:0;">
+                    <ul>
+                        <li ng-click="selectProductShow(form.paymentSourceList, 'selectedSource')">
+                            <rs-product product="form.selectedSource"></rs-product>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <rs-panel header-text="Язык справки">
+                <div class="list-block" style="margin:0;">
+                    <ul>
+                        <fw7-li title="{{form.selectedTariff.language}}"
+                                ng-click="selectShow(form.tariffList, 'selectedTariff', 'Выбор языка справки', 'language')"></fw7-li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <rs-panel header-text="Офис получения">
+                <div class="list-block" style="margin:0;">
+                    <ul>
+                        <rs-office-select model="form.office"></rs-office-select>
+                    </ul>
+                </div>
+            </rs-panel>
+            <rs-panel>
+                <div class="list-block" style="margin:0;">
+                    <ul>
+                        <fw7-li title="Стоимость изготовления" multiline="true">
+                            <label class="text-12px" ng-show="form.selectedTariff.amount" ng-bind="(form.selectedTariff.amount | defaultSum)"/>
+                            <label class="text-12px" ng-show="form.selectedTariff.amount" currency="RUB"/>
+                        </fw7-li>
+                        <fw7-li title="Срок изготовления" multiline="true">
+                            <label class="text-12px" ng-bind="form.termMaking"/>
+                        </fw7-li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <rs-panel>
+                <div class="list-block" style="margin:0;">
+                    <ul>
+                        <li class="item-content">
+                        <textarea class="item-inner border-none placeholder-gray"
+                                  style="height: 80px; font-size: 15px"
+                                  ng-model="form.comment"
+                                  placeholder="Комментарий"></textarea>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <button class="rs-button-page bg-24A7B3" ng-click="sendEmbassyDocRequest()">Отправить</button>
+        </ion-content>
+    </ion-view>
+</div>

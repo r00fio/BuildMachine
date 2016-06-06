@@ -1,0 +1,39 @@
+<div class="modal-container flex flex-middle flex-center">
+    <div class="swiper-container events-swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide flex flex-center flex-middle" ng-repeat="event in selectedDay.events">
+                <div class="event-content">
+                    <div class="flex flex-center" style="width: 100%;">
+                        <img ng-if="event.logo" ng-src="{{getLogoUrl(event.logo.url)}}" class="event-logo"/>
+                        <img ng-if="!event.logo" src="img/transfer-pay.png" class="event-logo"/>
+                    </div>
+                    <div class="event-date">
+                        <label class="text-15px" style="line-height: 15px;">{{selectedDay.number}} {{selectedMonth.name_format}},</label>
+                        <label class="text-15px" style="line-height: 15px; text-transform: lowercase;">&nbsp;{{daysOfWeek[selectedDay.dayOfWeek].format_Dd}}</label>
+                    </div>
+                    <div class="event-name" ng-bind="event.name"/>
+                    <div class="event-product-name" ng-bind="event.productObj.name"/>
+                    <div ng-if="event.sum" class="event-sum flex flex-center">
+                        <span ng-bind="(event.sum | defaultSum)"></span>
+                        <span currency="{{event.currency}}"></span>
+                    </div>
+                    <div ng-if="event.productObj" class="list-block no-shadow"
+                         style="margin-top: 20px; margin-bottom: 0; box-shadow: none; -webkit-box-shadow: none;">
+                        <ul>
+                            <li class="event-product">
+                                <rs-product product="event.productObj"/>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="event-btns flex flex-center">
+                        <button class="event-btn" ng-click="eventsHide()">Закрыть</button>
+                        <button ng-if="event.type === 'LoanPayment'" class="event-btn" ng-click="goLoanPayment(event)">Выполнить</button>
+                        <button ng-if="event.type === 'CardPayment'" class="event-btn" ng-click="goCardPayment(event)">Выполнить</button>
+                        <button ng-if="event.type === 'PeriodicalPay'" class="event-btn" ng-click="goPeriodicalPay(event)">Выполнить</button>
+                        <button ng-if="event.type === 'Remind'" class="event-btn" ng-click="deleteRemind(event)">Удалить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div>
+    <rs-header>Восстановление доступа</rs-header>
+    <ion-view>
+        <ion-content class="has-header has-fixed-button">
+            <div class="restore-access-text">Укажите номер и серию паспорта</div>
+            <div class="restore-access-passport flex flex-middle">
+                <div>
+                    <input class="passSeries"
+                           type="text"
+                           pattern="[0-9]*"
+                           maxlength="4"
+                           rs-auto-focus
+                           placeholder="Серия"
+                           ng-model="user.passSeries"
+                           ng-change="changePassSeries()"
+                           ng-focus="hasFocus = true" ng-blur="hasFocus = false"
+                           rs-enter="restoreAccess()"/>
+                </div>
+                <div class="passport-format">&mdash;</div>
+                <div>
+                    <div class="input-clear-container">
+                        <input class="passNumber"
+                               pattern="[0-9]*"
+                               type="text"
+                               maxlength="6"
+                               placeholder="Номер"
+                               ng-model="user.passNumber"
+                               ng-change="changePassNumber()"
+                               ng-focus="hasFocus = true" ng-blur="hasFocus = false"
+                               rs-enter="restoreAccess()"/>
+                        <div ng-show="(user.passSeries && user.passSeries != '') || (user.passNumber && user.passNumber != '')"
+                             ng-click="clearPassport()"
+                             ng-class="{'has-focus': hasFocus}"
+                             class="input-clear-btn"/>
+                    </div>
+                </div>
+            </div>
+        </ion-content>
+        <button class="btn-in" ios-keyboard-attach ng-click="restoreAccess()">Продолжить</button>
+    </ion-view>
+</div>

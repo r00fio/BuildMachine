@@ -1,0 +1,71 @@
+<ion-view ng-controller="CategoryBudgetCtrl" ui-view="category-budget-view" class="no-shadow">
+    <rs-header ng-if="platform !== 'ios'" lbtn-class="icon-back" lbtn-action="goBack()" ng-style="{'background-color': category.color}">{{category.name}}</rs-header>
+    <rs-header ng-if="platform === 'ios'" ng-style="{'background-color': category.color}">{{category.name}}</rs-header>
+    <div class="bar bar-subheader mts-category-budget-subheader" ng-style="{'background-color': category.color}">
+        <h2 class="title">
+            <span ng-show="category.totalCredit" ng-bind="(category.totalCredit | defaultSum)"></span>
+            <span ng-show="category.totalCredit" currency="RUB"></span>
+        </h2>
+    </div>
+    <ion-content class="has-subheader" on-scroll-complete="showMoreOperations()" when-scroll-ends-wp="showMoreOperations()">
+        <rs-panel>
+            <div class="list-block setting-budget no-margin">
+                <ul>
+                    <!-- Переключатель для назначения бюджета -->
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title width100pc"><span>Назначить бюджет</span></div>
+                            <div class="item-after">
+                                <rs-toggle ng-model="category.isView" ng-change="toggleBudget()"></rs-toggle>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Установка суммы бюджета -->
+                    <li class="item-content item-inner" ng-show="category.isView">
+                        <div class="item-title">Бюджет</div>
+                        <div class="item-after">
+                            <div class="item-input">
+                                <input type="number" ng-model="category.budget" ng-blur="saveBudget()" placeholder="Сумма" />
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-inner flex flex-column" style="min-height: 65px;" ng-show="category.isView">
+
+                        <!-- Текст результата (Осталось/Перерасход) -->
+                        <div class="child-flex-1 flex flex-middle">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell">
+                                    <span class="text-A1AEB3" ng-class="{'text-EE102E': category.overrun}">
+                                        {{category.overrun ? 'Перерасход' : 'Осталось'}}:
+                                    </span>
+                                        <span style="padding-left: 5px;">{{category.overrun || category.rest || 0}}<span currency="RUB"></span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Градусник результата -->
+                        <div class="child-flex-1 flex">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell cell-content-middle">
+                                        <rs-thermometer progress="{{category.budgetPercent}}" bg-class="mts-controll-therm-bg"
+                                                        fg-style="'background-color': '{{category.isView ? category.color : 'transparent'}}'"></rs-thermometer>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+        </rs-panel>
+
+        <rs-panel header-text="Операции">
+            <rs-search-bar id="operationSearchBar"></rs-search-bar>
+            <rs-operations operations="operationsDisplay" operation-state="operationState">
+            </rs-operations>
+        </rs-panel>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,19 @@
+<svg width="46px" height="10px" viewBox="0 0 46 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>more_icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Product_card-Copy-2" sketch:type="MSArtboardGroup" transform="translate(-554.000000, -78.000000)" fill="#FFFFFF">
+            <g id="Top" sketch:type="MSLayerGroup" transform="translate(-29.000000, 0.000000)">
+                <g id="navigation_bar" transform="translate(29.000000, 0.000000)" sketch:type="MSShapeGroup">
+                    <g id="more_icon" transform="translate(554.000000, 78.000000)">
+                        <path d="M5,0 C2.23857143,0 0,2.23857143 0,5 C0,7.76142857 2.23857143,10 5,10 C7.76142857,10 10,7.76142857 10,5 C10,2.23857143 7.76142857,0 5,0" id="Fill-1"></path>
+                        <path d="M23,0 C20.2385714,0 18,2.23857143 18,5 C18,7.76142857 20.2385714,10 23,10 C25.7614286,10 28,7.76142857 28,5 C28,2.23857143 25.7614286,0 23,0" id="Fill-2"></path>
+                        <path d="M41,0 C38.2385714,0 36,2.23857143 36,5 C36,7.76142857 38.2385714,10 41,10 C43.7614286,10 46,7.76142857 46,5 C46,2.23857143 43.7614286,0 41,0" id="Fill-3"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

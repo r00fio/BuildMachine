@@ -1,0 +1,54 @@
+<div ng-controller="SettingsCtrl" ui-view="settings-page">
+    <rs-header>Настройки</rs-header>
+    <div class="content no-footer">
+        <div class="padding-5px">
+            <label>Регистрация КК</label>
+            <br>
+            <label>Короткий код</label>
+            <input type="password" name="shortCode" maxlength="4" ng-model="shortCode"/>
+            <br>
+            <button type="button" ng-click="registerShortCode()">Задать короткий код</button>
+        </div>
+        <div class="padding-5px">
+            <label>Изменение КК</label>
+            <br>
+            <label>Текущий короткий код</label>
+            <input type="password" name="oldShortCode" maxlength="4" ng-model="oldShortCode"/>
+            <br>
+            <label>Новый короткий код</label>
+            <input type="password" name="newShortCode" maxlength="4" ng-model="newShortCode"/>
+            <br>
+            <label>Повторите короткий код</label>
+            <input type="password" name="newShortCode2" maxlength="4" ng-model="newShortCode2"/>
+            <br>
+            <button type="button" ng-click="changeShortCode()">Изменить короткий код</button>
+        </div>
+        <div class="padding-5px">
+            <label>Сброс КК</label>
+            <br>
+            <button type="button" ng-click="resetShortCode()">Сбросить короткий код</button>
+        </div>
+        <div class="padding-5px">
+            <label>Регистрация TouchID</label>
+            <br>
+            <button type="button" ng-click="registerTouchID()">Зарегистрировать TouchID</button>
+        </div>
+        <div class="padding-5px">
+            <label>Вход по КК</label>
+            <input type="checkbox" name="authShortCode" ng-model="authShortCode"/>
+            <br>
+            <label>Вход по TouchID</label>
+            <input type="checkbox" name="authTouchID" ng-model="authTouchID"/>
+            <button type="button" ng-click="save()">Сохранить</button>
+        </div>
+        <div class="padding-5px">
+            <button type="button" ng-click="onOTPAction()">Кнопка операции, подтверждаемой смс-паролем</button>
+
+            <!--Скрытая форма подверждения
+                actionId - strId действия, защищаемого паролем
+                callback - функция возврата, при успешной проверке пароля true, при отмене false-->
+            <div otp is-visible="isShowOTP" actionId="LoginAction" callback="onOTPConfirm"></div>
+        </div>
+        <div ui-sref="settings.app">Настройки приложения</div>
+    </div>
+</div>

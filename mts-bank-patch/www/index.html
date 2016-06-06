@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+        <title>MTS Cordova Prototype</title>
+
+        <link rel="stylesheet" ng-href="lib/ionic/css/ionic.css" ng-if="platform!=='windowsphone'" />
+
+        <link rel="stylesheet" type="text/css" href="lib/fw7/css/framework7.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/ionic-fw7-conflict-resolver.css" />
+
+        <!-- WinJS references -->
+        <link rel="stylesheet" ng-href="lib/winjs/ui-light.css" ng-if="platform==='windowsphone'"/> <!--Только для WP-->
+
+        <link rel="stylesheet" href="lib/owl-carousel/owl.carousel.css" />
+
+        <link rel="stylesheet" href="lib/mfb/mfb.css" />
+
+
+        <link href="lib/angular-material/angular-material.css" rel="stylesheet" ng-if="platform=='android'"/>
+
+        <link rel="stylesheet" type="text/css" href="css/common.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="lib/jqplot/jquery.jqplot.css" />
+        <link rel="stylesheet" type="text/css" ng-href="css/icons-{{platform}}.css" />
+        <link rel="stylesheet" type="text/css" ng-href="css/{{platform}}-style.css" />
+        <link ng-if="adaptToWindowsphone" rel="stylesheet" type="text/css" href="css/windowsphone-adaptive-style.css" />
+
+        <!-- iScroll c фиксацией столбца и заголовка при прокрутке -->
+        <link rel="stylesheet" type="text/css" href="lib/iscroll/style.css">
+
+        <!-- Скрипт cordova.js должен подключаться первым -->
+        <script type="text/javascript" src="cordova.js"></script>
+
+        <script type="text/javascript" src="js/polyfills.js"></script>
+
+        <script type="text/javascript" src="lib/winstore-jscompat.js"></script>
+
+        <script type="text/javascript" src="lib/iscroll/iscroll.js"></script>
+
+        <!-- добавляет метод format к прототипу Date -->
+        <script type="text/javascript" src="js/date-formatter.js"></script>
+
+        <script src="lib/jquery.js"></script>
+        <script src="lib/jqplot/jquery.jqplot.js"></script>
+        <script src="lib/jqplot/jquery.jqplot.min.js"></script>
+        <script src="lib/jqplot/plugins/jqplot.donutRenderer.min.js"></script>
+        <!-- Плагины jqplot для графика курсов валют -->
+        <script src="lib/jqplot/plugins/jqplot.dateAxisRenderer.js"></script>
+        <script src="lib/jqplot/plugins/jqplot.highlighter.js"></script>
+        <script src="lib/jqplot/plugins/jqplot.canvasOverlay.min.js"></script>
+        <script type="text/javascript">
+            // Ищем ф-ю handleMove, которая назначена обработчиком для jqplotMouseMove
+            // и назначаем ее обработчиком также для jqplotClick
+            for(var i = 0; i < jQuery.jqplot.eventListenerHooks.length; i++){
+                var jqplotEventName = jQuery.jqplot.eventListenerHooks[i][0];
+                var jqplotEventHandler = jQuery.jqplot.eventListenerHooks[i][1];
+
+                if (jqplotEventName === 'jqplotMouseMove' && jqplotEventHandler.name === 'handleMove') {
+                    jQuery.jqplot.eventListenerHooks.push(['jqplotClick', jqplotEventHandler]);
+                    break;
+                }
+            }
+        </script>
+
+
+        <!-- ionic обеспечивает подключение angularjs -->
+        <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+        <!-- Патч необходим для ангуляра 1.2.0 – 1.4.5, чтобы убрать на iOS9 зацикливание $digest() -->
+        <script src="lib/angular-ios9-uiwebview.patch.js"></script>
+
+        <script type="text/javascript" src="lib/fw7/js/framework7.js"></script>
+
+        <script src="lib/angular-aria/angular-aria.js" ng-if="platform=='android'"></script>
+        <script src="lib/angular-animate/angular-animate.js" ng-if="platform=='android'"></script>
+        <script src="lib/angular-material/angular-material.js" ng-if="platform=='android'"></script>
+
+        <script src="lib/crypto_utils.js"></script>
+        <script src="lib/convert.js"></script>
+        <!--
+        <script ng-if="adaptToWindowsphone" src="lib/winjs/WinJS.js"></script>
+-->
+        <!--Поддержка маск-->
+        <script src="lib/ngMask/ngMask.min.js"></script>
+
+        <script src="lib/owl-carousel/owl.carousel.js"></script>
+        <script src="lib/owl.synchronizer.js"></script>
+
+        <script src="lib/snap.svg.js"></script>
+
+        <script src="lib/mfb/mfb-directive.js"></script>
+
+        <script src="lib/social-mailru-plugin/md5/md5.min.js"></script>
+        <script src="lib/social-mailru-plugin/mailru_social_plugin.js"></script>
+
+        <script type="text/javascript" src="lib/jsXMLParser/xmldom.js"></script>
+        <script type="text/javascript" src="lib/jsXMLParser/xmlsax.js"></script>
+        <script type="text/javascript" src="lib/DefaultHandler.js"></script>
+
+        <script src="js/Config.js"></script>
+
+        <script src="js/mts-persistent-storage.js"></script>
+
+        <!--<script src="js/CleverClient.js"></script>-->
+        <!--<script src="js/DAO.js"></script>-->
+        <script src="js/ISO9Transliterator.js"></script>
+
+        <script src="js/common-ng-utilities.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/states.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="js/services/utils-service.js"></script>
+        <script src="js/filters.js"></script>
+        <script src="js/common-utilities.js"></script>
+        <script src="js/services/common-service.js"></script>
+        <script src="js/services/loan-service.js"></script>
+        <script src="js/services/info-services.js"></script>
+        <script src="js/services/product-services.js"></script>
+        <script src="js/services/account-service.js"></script>
+        <script src="js/services/card-service.js"></script>
+        <script src="js/services/deposit-service.js"></script>
+        <script src="js/services/select-codifier-service.js"></script>
+        <script src="js/services/payments-service.js"></script>
+        <script src="js/services/settings-service.js"></script>
+        <script src="js/services/calendar-service.js"></script>
+        <script src="js/services/costs-service.js"></script>
+        <script src="js/controllers/login-controller.js"></script>
+        <script src="js/controllers/extract-controllers.js"></script>
+        <script src="js/controllers/costs-controllers.js"></script>
+        <script src="js/controllers/account-controllers.js"></script>
+        <script src="js/controllers/card-controllers.js"></script>
+        <script src="js/controllers/deposit-controllers.js"></script>
+        <script src="js/controllers/loan-controllers.js"></script>
+        <script src="js/controllers/open-product-controller.js"></script>
+        <script src="js/controllers/infoservices-controllers.js"></script>
+        <script src="js/controllers/loyalty-controllers.js"></script>
+        <script src="js/controllers/select-codifier-controller.js"></script>
+        <script src="js/controllers/payments/payments-controllers.js"></script>
+        <script src="js/controllers/payments/servicepay-controller.js"></script>
+        <script src="js/controllers/payments/retailrubpayment-controller.js"></script>
+        <script src="js/controllers/payments/transfer-controller.js"></script>
+        <script src="js/controllers/payments/ictransfer-controller.js"></script>
+        <script src="js/controllers/payments/paymenttocard-controller.js"></script>
+        <script src="js/controllers/payments/paymentbase-controller.js"></script>
+        <script src="js/controllers/payments/trtofriend-controller.js"></script>
+        <script src="js/controllers/payments/favourites-controller.js"></script>
+		<script src="js/controllers/calendar-controllers.js"></script>
+        <script src="js/controllers/settings-controllers.js"></script>
+        <script src="js/controllers/social-controller.js"></script>
+        <script src="worker-service.js"></script>
+
+        <!-- Скрипт index.js должен подключаться последним т.к. содержит angular manual bootstrap -->
+        <script type="text/javascript" src="js/index.js"></script>
+
+        <style type="text/css">
+            html {
+                -ms-touch-action: none;
+                touch-action: none;
+            }
+        </style>
+    </head>
+    <body>
+            <div class="rs-statusbar" ng-style="{'background-color': statusBarColor}"></div>
+            <!--FW7-->
+            <div class="panel-overlay"></div>
+
+            <!--FW7-->
+            <div class="panel panel-left panel-cover bg-white" ng-style="{width: platform === 'android' ? null : 0}">
+                <div ng-include="'templates/android/appmenu.html'"></div>
+            </div>
+
+            <!--FW7-->
+            <div class="panel panel-right panel-reveal" ng-style="{width: platform === 'ios' ? null : 0}">
+                <div ng-include="'templates/ios/appmenu.html'"></div>
+            </div>
+
+            <div class="views"> <!-- FW7 -->
+                <div class="view view-main"> <!-- FW7 -->
+
+                    <div ui-view="rootpane" id="rootpane" class="rs-rootpane" ng-class="{'has-rs-ios-tabbar': showIosTabbar}"></div>
+
+                    <div class="rs-ios-tabbar flex flex-center flex-middle" ng-show="showIosTabbar" ng-controller="TabbarCtrl">
+                        <div class="rs-tabbar-icon icon-tabbar-home" ng-class="{'border-selected icon-tabbar-home-selected': isActiveTab('home')}" ui-sref="home"></div>
+                        <div class="rs-tabbar-icon icon-tabbar-products" ng-class="{'border-selected icon-tabbar-products-selected': isActiveTab('products')}" ui-sref="myfinances"></div>
+                        <div class="rs-tabbar-icon icon-tabbar-pays" ng-class="{'border-selected icon-tabbar-pays-selected': isActiveTab('pays')}" ui-sref="payments"></div>
+                        <div class="rs-tabbar-icon icon-tabbar-expenses" ng-class="{'border-selected icon-tabbar-expenses-selected': isActiveTab('expenses')}" ui-sref="controllingcosts"></div>
+                        <div class="rs-tabbar-icon flex flex-center flex-middle" open-panel ng-class="{'border-selected icon-tabbar-menu-selected': isActiveTab('other')}">
+                            <div class="tabbar-menu">
+                                <div id="tabbar-menu-div1" class="tabbar-menu-div"></div>
+                                <div id="tabbar-menu-div2" class="tabbar-menu-div" style="margin: 6px 0;"></div>
+                                <div id="tabbar-menu-div3" class="tabbar-menu-div"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+    </body>
+</html>

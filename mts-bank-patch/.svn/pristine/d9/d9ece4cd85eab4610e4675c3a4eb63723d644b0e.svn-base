@@ -1,0 +1,321 @@
+<div ui-view="card-page" class="no-shadow">
+    <rs-header rbtn-class="icon-menu-more" rbtn-action="openPopover($event)">Карты</rs-header>
+        <ion-view>
+            <ion-content class="has-header bg-f0f4f5" on-scroll-complete="showMoreOperations()" when-scroll-ends-wp="showMoreOperations()"
+                         wp-ptr="doRefresh()" spinner-class="white-spinner" bg-color="#24A7B3">
+
+                <script id="templates/card/popover.html" type="text/ng-template">
+                    <ion-popover-view>
+                        <ion-content scroll="false">
+                            <div class="list-block">
+                                <ul>
+                                    <li class="item-content" ng-if="bankCard.isVirtual" ng-click="closePopover() + sendVirtualCardRequisites()">
+                                        <div class="item-media"><i class="icon icon-send-requisites"></i></div>
+                                        <div class="item-inner">Отправить CVC и номер карты</div>
+                                    </li>
+                                    <li class="item-content" ng-show="bankCard.canBlock" ng-click="closePopover() + setBlocked(bankCard, true)">
+                                        <div class="item-media"><i class="icon icon-card-block"></i></div>
+                                        <div class="item-inner">Заблокировать</div>
+                                    </li>
+                                    <li class="item-content" ng-show="bankCard.canUnblock" ng-click="closePopover() + setBlocked(bankCard, false)">
+                                        <div class="item-media"><i class="icon icon-card-unblock"></i></div>
+                                        <div class="item-inner">Разблокировать</div>
+                                    </li>
+                                    <li class="item-content" ng-click="closePopover() + renameProduct(bankCard)">
+                                        <div class="item-media"><i class="icon icon-edit"></i></div>
+                                        <div class="item-inner">Переименовать</div>
+                                    </li>
+                                    <li class="item-content" ng-if="bankCard.canReissue" ng-click="closePopover()" ui-sref="card.reissue">
+                                        <div class="item-media"><i class="icon icon-card-reissue"></i></div>
+                                        <div class="item-inner">Перевыпустить</div>
+                                    </li>
+                                    <li class="item-content item-inner save-divider" ng-click="closePopover()" ui-sref="card.sendextract">
+                                        <div class="item-media"><i class="icon icon-send-extract"></i></div>
+                                        <div class="item-inner">Отправить выписку</div>
+                                    </li>
+                                    <li class="item-content" ng-if="bankCard.canChangeUseInPayments">
+                                        <div class="item-inner save-divider" style="margin-left: 45px; width: calc(100% - 45px); padding-right: 5px;">
+                                            <div class="item-title width100pc">Использовать для платежей</div>
+                                            <div class="item-after">
+                                                <rs-toggle ng-change="toggleDisabled(bankCard)" ng-model="bankCard.disabled" ng-true-value="false" ng-false-value="true"></rs-toggle>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="item-content" ng-hide="bankCard.isClosed">
+                                        <div class="item-inner save-divider" style="margin-left: 45px; width: calc(100% - 45px); padding-right: 5px;">
+                                            <div class="item-title width100pc">Скрыть в списке продуктов</div>
+                                            <div class="item-after">
+                                                <rs-toggle ng-change="toggleFavourite(bankCard)" ng-model="bankCard.isFavourite" ng-true-value="false" ng-false-value="true"></rs-toggle>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </ion-content>
+                    </ion-popover-view>
+                </script>
+
+                <div class="product-info">
+                    <rs-product-slide-box on-slide-changed="slideHasChanged(index)" active-slide="activeSlide">
+                        <rs-product-slide ng-repeat="product in bankCardList">
+                            <img class="picture-state" src="img/android/block.svg" ng-if="product.isBlocked || product.isForbidden">
+                            <img class="picture-state" src="img/android/reissue-product.svg" ng-if="product.isReissued">
+                            <img class="picture-state" src="img/android/closed-product.svg" ng-if="product.isClosed">
+                            <div class="product-block flex flex-column" ng-style="{'background-image': 'url({{getLogoUrl(product.cardLogo.url)}})'}">
+
+                                <div class="text-align-left product-card-block-small">
+                                    <span class="width100pc">
+                                        <span style="width: 75%; float: left;">
+                                            <label class="product-name text-15px" ng-bind="product.name"></label>
+                                        </span>
+                                        <span class="product-card-type-label">
+                                            <img ng-if="product.paymentSystemLogo" ng-src="{{getLogoUrl(product.paymentSystemLogo.url)}}" class="product-card-type-image"/>
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="text-color-white text-align-left">
+                                    <label ng-show="product.isMain" class="product-name-dop text-12px">{{product.type}}</label>
+                                    <label ng-hide="product.isMain" class="product-name-dop text-12px">{{product.type}}, {{product.kind}}</label>
+                                </div>
+                                <div class="child-flex-2text-color-white text-align-left">
+                                    <label class="text-15px product-card-number" ng-bind="product.number"></label>
+                                </div>
+                                <div class="product-card-info-date text-align-left">
+                                    <label class="text-12px product-name-date" ng-class="{'expiry-date-alert' : product.isExpiredOrEnds}">{{product.expiryDate | defaultDate}}</label>
+                                    <div class="product-name-summ">
+                                        <span class="text-16px" ng-bind="(product.balance | defaultSum)"></span>
+                                        <span class="text-16px" currency="{{product.currency}}"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </rs-product-slide>
+                    </rs-product-slide-box>
+
+                    <div ng-if="!bankCard.isUpdatedABS" class="width100pc height8pc margin-top-15px">
+                        <div rs-waiter="bankCard.isUpdatedABS" class="product-info-cell white-spinner">
+                        </div>
+                    </div>
+
+                    <div ng-if="bankCard && bankCard.isUpdatedABS">
+                        <div ng-if="bankCard.viewAvailableBalance">
+                            <product-info-field label="Доступный остаток"
+                                                value="{{bankCard.balance | defaultSum}}"
+                                                value-currency="{{bankCard.currency}}">
+                            </product-info-field>
+                            <product-info-field label="Собственные средства"
+                                                value="{{bankCard.ownMeans | defaultSum}}"
+                                                value-currency="{{bankCard.currency}}">
+                            </product-info-field>
+                            <product-info-field ng-if="bankCard.isCredit"
+                                                label="Кредитные средства"
+                                                value="{{bankCard.restDebtLimit | defaultSum}}"
+                                                value-currency="{{bankCard.currency}}">
+                            </product-info-field>
+                            <product-info-field label="Остаток счета карты"
+                                                value="{{bankCard.accountBalance | defaultSum}}"
+                                                value-currency="{{bankCard.currency}}">
+                            </product-info-field>
+                        </div>
+                        <product-info-field ng-if="bankCard.viewDebtList"
+                                            label="Задолженность"
+                                            value="{{bankCard.debt | defaultSum}}"
+                                            value-currency="{{bankCard.currency}}"
+                                            ui-sref="card.debtinfo">
+                        </product-info-field>
+                        <product-info-field ng-if="bankCard.viewHoldSum"
+                                            label="Заблок. средства"
+                                            value="{{bankCard.holdSum | defaultSum}}"
+                                            value-currency="{{bankCard.currency}}"
+                                            ui-sref="card.blockedoperations">
+                        </product-info-field>
+                        <product-info-field ng-if="bankCard.accountRate"
+                                            label="Ставка по карточному счету"
+                                            value="{{bankCard.accountRate | defaultSum}}%">
+                        </product-info-field>
+                        <div ng-if="bankCard.isCredit && bankCard.isActive && bankCard.viewMinPay">
+                            <product-info-field ng-show="bankCard.isFullMonthlyPaymentAmount"
+                                                label="Минимальный платеж внесен полностью">
+                            </product-info-field>
+                            <div ng-hide="bankCard.isFullMonthlyPaymentAmount">
+                                <product-info-field label="Мин. платеж"
+                                                    value="{{bankCard.monthlyPaymentAmount | defaultSum}}"
+                                                    value-currency="{{bankCard.currency}}">
+                                </product-info-field>
+                                <product-info-field label="Оплатить до"
+                                                    value="{{bankCard.monthlyPaymentDate | defaultDate}}">
+                                </product-info-field>
+                            </div>
+                        </div>
+                        <product-info-field ng-if="bankCard.reducedPaymentAmount"
+                                            label="Платеж льготного периода"
+                                            value="{{bankCard.reducedPaymentAmount | defaultSum}}"
+                                            value-currency="{{bankCard.currency}}">
+                        </product-info-field>
+                    </div>
+                </div>
+
+                <div class="product-tabs">
+                    <label class="product-tab-title" ng-class="{active: activeTab == 'operations'}"
+                           ng-click="changeTab('operations')">ОПЕРАЦИИ</label>
+                    <label class="product-tab-title" ng-class="{active: activeTab == 'info'}"
+                           ng-click="changeTab('info')">ИНФОРМАЦИЯ</label>
+                    <label class="product-tab-title" ng-class="{active: activeTab == 'services'}"
+                           ng-click="changeTab('services')">УСЛУГИ И ОПЦИИ</label>
+                </div>
+
+                <div ng-if="activeTab == 'operations'" class="operations">
+                    <rs-operations-with-basement product="bankCard"></rs-operations-with-basement>
+                </div>
+
+                <div ng-if="activeTab == 'info'" ng-include="'templates/card.info.html'"></div>
+
+                <div ng-if="activeTab == 'services'" class="options-block-product">
+                    <div ng-hide="bankCard.productServices" rs-waiter="bankCard.productServices"></div>
+
+                    <rs-panel header-text="Услуги" ng-if="bankCard.productServices">
+                        <div class="list-block list-block-separator-100vw" style="margin:0;">
+                            <ul>
+                                <li ng-if="bankCard.productServices.autoPay && bankCard.productServices.autoPay.canConnect"
+                                    ui-sref="autopaylist({bankCard: bankCard})">
+                                    <a href="#" class="item-content">
+                                        <div class="item-inner">
+                                            <div class="table-fixed-width100pc">
+                                                <div class="table-row">
+                                                    <div class="table-cell">Автоплатежи за МТС</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li ng-if="bankCard.productServices.smsInfo && bankCard.productServices.smsInfo.canActivate"
+                                    ui-sref="card.smsbankinfo({hasBonusProgram:bankCard.productServices.hasBonusProgram})"
+                                    ng-disabled="!bankCard.productServices.smsInfo.canChange">
+                                    <a href="#" class="item-content">
+                                        <div class="item-inner">
+                                            <div class="table-fixed-width100pc">
+                                                <div class="table-row">
+                                                    <div class="table-cell" ng-bind="bankCard.productServices.smsInfo.name"></div>
+                                                </div>
+                                                <div class="table-row">
+                                                    <span class="table-cell text-gray"
+                                                          ng-bind="bankCard.productServices.smsInfo | productOptionState">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li ng-if="bankCard.productServices.secure && bankCard.productServices.secure.canActivate"
+                                    ui-sref="card.connectoption({option: bankCard.productServices.secure, hasBonusProgram:bankCard.productServices.hasBonusProgram})"
+                                    ng-disabled="!bankCard.productServices.secure.canChange">
+                                    <a href="#" class="item-content">
+                                        <div class="item-inner">
+                                            <div class="table-fixed-width100pc">
+                                                <div class="table-row">
+                                                    <div class="table-cell" ng-bind="bankCard.productServices.secure.name"></div>
+                                                </div>
+                                                <div class="table-row">
+                                                    <span class="table-cell text-gray"
+                                                          ng-bind="bankCard.productServices.secure | productOptionState">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li ng-if="bankCard.productServices.insurance && bankCard.productServices.insurance.canActivate"
+                                    ui-sref="card.insurance"
+                                    ng-disabled="!bankCard.productServices.insurance.canChange">
+                                    <a href="#" class="item-content">
+                                        <div class="item-inner">
+                                            <div class="table-fixed-width100pc">
+                                                <div class="table-row">
+                                                    <div class="table-cell">Страхование карты</div>
+                                                </div>
+                                                <div class="table-row">
+                                                    <span class="table-cell text-gray"
+                                                          ng-bind="bankCard.productServices.insurance | productOptionState">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="table-row">
+                                                <span class="table-cell text-gray"></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <!-- TODO: 098339: MTS: Скрыть функционал в МБ для запуска беты -->
+                                <!--<li ng-if="bankCard.productServices.canOrderEmbassy"-->
+                                    <!--ui-sref="card.embassydoc">-->
+                                    <!--<a href="#" class="item-content">-->
+                                        <!--<div class="item-inner">-->
+                                            <!--<div class="table-fixed-width100pc">-->
+                                                <!--<div class="table-row">-->
+                                                    <!--<div class="table-cell">Справка в посольство</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</a>-->
+                                <!--</li>-->
+                            </ul>
+                        </div>
+                    </rs-panel>
+                    <rs-panel header-text="Опции" ng-if="bankCard.productServices.hasAvailableOptions">
+                        <div class="list-block list-block-separator-100vw" style="margin:0;">
+                            <ul>
+                                <li ng-repeat="(key, option) in bankCard.productServices.availableOptions track by key"
+                                    ng-disabled="!option.canChange || option.isInProcessing">
+                                    <a href="#" class="item-content">
+                                        <div class="item-inner" ui-sref="card.connectoption({option: option, hasBonusProgram: bankCard.productServices.hasBonusProgram})">
+                                            <div class="table-fixed-width100pc">
+                                                <div class="table-row">
+                                                    <div class="table-cell" ng-bind="option.name"></div>
+                                                </div>
+                                                <div class="table-row">
+                                            <span class="table-cell text-gray"
+                                                  ng-bind="option | productOptionState"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </rs-panel>
+
+                    <!-- TODO: не реализовано
+                    <rs-panel header-text="Безопасность">
+                        <div class="list-block list-block-separator-100vw" style="margin:0;">
+                            <ul>
+                                <li class="item-content">
+                                    <div class="item-inner">
+                                        <div class="table-fixed-width100pc">
+                                            <div class="table-row">
+                                                <div class="table-cell">Настройка лимитов</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </rs-panel>-->
+                </div>
+
+                <!-- Пространство для системной кнопки -->
+                <div></div>
+
+                <ion-refresher on-refresh="doRefresh()" pulling-icon="" spinner="android" class="white-spinner"></ion-refresher>
+
+            </ion-content>
+
+            <mfb-menu ng-show="isRefillProductAvailable(bankCard)" class="rs-mfb-menu"
+                      position="br"
+                      toggling-method="click"
+                      resting-icon="mfb-menu-icon icon-topup"
+                      data-mfb-state="closed"
+                      ng-click="refillProduct(bankCard)">
+            </mfb-menu>
+
+        </ion-view>
+
+</div>

@@ -1,0 +1,26 @@
+<div ui-view="news-page">
+    <ion-view>
+        <rs-header ng-show="isAuthorized" rbtn-class="icon-checked-circle" rbtn-action="readAll()">Новости</rs-header>
+        <rs-header ng-hide="isAuthorized">Новости</rs-header>
+        <ion-content class="has-header" on-scroll-complete="showMoreNews()" when-scroll-ends-wp="showMoreNews()">
+
+            <ion-slide-box class="slider-news" ng-init="advertColors=['#295fcc', '#29b1cc', '#29cc96', '#5947b3', '#cc3380']">
+                <ion-slide class="news-slide" ng-repeat="advert in advertList" ng-click="showDetails(advert)">
+                    <div class="news-slide-content" ng-style="{'background-color': advertColors[$index % 5]}">
+                        <div class="news-title">{{advert.title}}</div>
+                        <custom-html data="advert.description" class="news-text"></custom-html>
+                    </div>
+                </ion-slide>
+            </ion-slide-box>
+
+            <rs-news ng-repeat="news in newsAndPromo" ng-click="showDetails(news)" rs-waiter="newsAndPromo"
+                     subject="{{news.entityKind == 'News' ? news.title : news.name}}"
+                     text="{{news.entityKind == 'News' ? news.text : news.desc}}"
+                     date="{{news.startDate}}"
+                     type="{{news.entityKind == 'RetailPromotion' ? 'promo' : news.important ? 'important' : ''}}"
+                     is-new="isNew(news)">
+            </rs-news>
+
+        </ion-content>
+    </ion-view>
+</div>

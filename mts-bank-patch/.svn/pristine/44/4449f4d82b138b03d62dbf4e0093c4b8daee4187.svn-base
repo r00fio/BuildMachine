@@ -1,0 +1,36 @@
+<div>
+    <rs-header ng-if="globals.isMobilePhoneChangingEnabled"
+               lbtn-class="icon-close"      lbtn-action="goBackFromField()"
+               rbtn-class="icon-check-mark" rbtn-action="changeMobileTelephone()">Мобильный телефон</rs-header>
+    <rs-header ng-if="!globals.isMobilePhoneChangingEnabled"
+               lbtn-class="icon-close"      lbtn-action="goBackFromField()">Мобильный телефон</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <rs-panel>
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label text-15px">Номер</div>
+                                    <div class="item-input" style="padding-left: 0;">
+                                        <input style="color: #202426; font-size: 15px;"
+                                               type="tel"
+                                               mask-clean="true"
+                                               mask-restrict="reject"
+                                               mask="(999) 999-99-99"
+                                               ng-model="fieldValue.value"
+                                               ng-disabled="!globals.isMobilePhoneChangingEnabled" />
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <div ng-if="!globals.isMobilePhoneChangingEnabled" class="inaccessible-data-label">
+                Изменение данных временно недоступно
+            </div>
+        </ion-content>
+    </ion-view>
+</div>

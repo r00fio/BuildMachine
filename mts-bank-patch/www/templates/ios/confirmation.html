@@ -1,0 +1,50 @@
+<div ng-controller="ConfirmationCtrl as confirmationCtrl">
+    <ion-content scroll="false" class="confirmation-modal">
+        <div class="confirmation-title">
+            <div class="icon-close icon-close-confirmation" ng-click="cancel()">
+            </div>
+            <span class="text-14px text-color-white">ПОДТВЕРЖДЕНИЕ</span>
+        </div>
+        <div class="confirmation-container">
+            <div class="confirmation-input">
+                <div class="confirmation-type">
+                    <span class="text-15px text-color-white" ng-bind="params.sms ? 'Введите код из SMS' : 'Введите кодовую дату'"></span>
+                </div>
+                <input ng-if="params && params.sms"
+                       id="confirmation-code-input"
+                       class="confirmation-code-input"
+                       pattern="[0-9]*"
+                       type="text" ng-model="params.confirmationCode"
+                       maxlength="{{globals.smsCodeLength}}"/>
+                <div ng-if="params && !params.sms" class="code-date-container">
+                    <input id="confirmation-code-input"
+                           class="confirmation-code-input confirmation-date"
+                           type="text" ng-model="params.confirmationCode"
+                           pattern="[0-9]*"
+                           mask-clean="true"
+                           mask-restrict="reject"
+                           mask="99—99—9999"/>
+                    <span class="confirmation-code-masked" ng-bind="params.confirmationCode | maskedCode"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="confirmation-footer" ios-keyboard-attach>
+            <button ng-show="params.sms && seconds" class="button-full rs-button no-margin btn-hint">
+                Отправлено. Повторить можно через {{seconds}} сек
+            </button>
+            <button ng-show="params.sms && !seconds" ng-click="generate()" class="button-full rs-button no-margin btn-hint">
+                Отправить повторно
+            </button>
+            <button ng-if="!params.sms && hasHint()" ng-click="showHint()" class="button-full rs-button no-margin btn-hint">
+                Показать подсказку
+            </button>
+            <button ng-if="!params.sms && !hasHint()" class="button-full rs-button no-margin btn-hint">
+                У вас не задана подсказка к кодовой дате
+            </button>
+            <button class="button-full rs-button no-margin" ng-click="confirm()">
+                Подтвердить
+            </button>
+        </div>
+    </ion-content>
+</div>

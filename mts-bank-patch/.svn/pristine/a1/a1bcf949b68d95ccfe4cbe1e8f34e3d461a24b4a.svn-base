@@ -1,0 +1,18 @@
+<div ng-if="isViewMode() && showConfirmButton" class="rs-content-panel">
+    <div class="rs-content-panel-header text-align-center" style="text-transform: none; text-indent: 25px; text-align: justify;">
+        Я согласен с тем, что если по тарифам банка за операцию списывается комиссия, то она будет удержана с моего текущего счёта.
+    </div>
+</div>
+
+<!--
+<div ng-if="isViewMode() && showConfirmButton" class="rs-content-panel">
+    <div class="rs-content-panel-header text-align-center" style="text-transform: none;">
+        Комиссия&nbsp;
+        <span ng-if="comissionAmount < 0">в соответствии с тарифами Банка</span>
+        <span ng-if="comissionAmount == 0">не взимается</span>
+        <span ng-if="comissionAmount > 0">
+            {{comissionAmount}}<span ng-if="sourceProduct" currency="{{sourceProduct.currency}}"/>
+        </span>
+    </div>
+</div>
+-->

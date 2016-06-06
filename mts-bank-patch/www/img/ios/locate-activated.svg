@@ -1,0 +1,24 @@
+<svg width="109px" height="108px" viewBox="0 0 109 108" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Oval 20 + Imported Layers Copy 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterRes="218 216" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.295332314 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Offices_1" sketch:type="MSArtboardGroup" transform="translate(-7.000000, -794.000000)">
+            <g id="Oval-20-+-Imported-Layers-Copy-3" sketch:type="MSLayerGroup" transform="translate(16.600000, 800.000000)">
+                <circle id="Oval-20" opacity="0.9453125" fill="#D7DEE0" fill-opacity="0.6" filter="url(#filter-1)" sketch:type="MSShapeGroup" cx="45" cy="45" r="45"></circle>
+                <path d="M55.6818233,33.2150562 L43.6369918,58.5091011 L41.2626098,47.8253933 L30.1865424,44.7482022 L55.6818233,33.2150562 M60.4326098,26.7977528 C60.1878907,26.7977528 59.9411491,26.8493258 59.7075536,26.9544944 L22.7762053,43.6611236 C22.1006997,43.9665169 21.6901379,44.661236 21.7467671,45.3994382 C21.8044075,46.1366292 22.3171042,46.7605618 23.0300255,46.958764 L37.8405873,51.0724719 L41.1291266,65.8698876 C41.2919356,66.6030337 41.9017109,67.1511236 42.648003,67.2360674 C42.7147446,67.2441573 42.7804749,67.247191 42.8462053,67.247191 C43.5186772,67.247191 44.1395761,66.8619101 44.4338457,66.2450562 L62.0202502,29.3126966 C62.3377783,28.6462921 62.2053064,27.8524719 61.6885648,27.3246067 C61.350812,26.9797753 60.8957558,26.7977528 60.4326098,26.7977528" id="Imported-Layers-Copy-3" fill="#24A7B3" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

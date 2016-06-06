@@ -1,0 +1,82 @@
+<div ui-view="extract-page" ng-controller="ExtractCtrl as extractCtrl">
+    <rs-header rbtn-class="{{(extract && extract.operationList && extract.operationList.length > 0) ?'icon-send' : ''}}"
+               rbtn-action="redirectToSendEmail()" >Выписка</rs-header>
+        <ion-view>
+            <ion-content class="has-header bg-f0f4f5" on-scroll-complete="showMoreOperations()" when-scroll-ends-wp="showMoreOperations()">
+
+                <div class="content-block-title" style="margin-top: 10px; font-size: 18px;">Период</div>
+                <div class="list-block">
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray" style="padding-left: 5px; font-size: 16px;">С</div>
+                                        </div>
+                                        <div class="item-input table-row">
+                                            <input type="text" style="font-size: 16px;" readonly id="calendar-date-format-from"
+                                                   on-change-date="onChangeDate()" upper-bound="extractDateTo"
+                                                   value-date="extractDateFrom" rs-date-picker-android/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray" style="padding-left: 5px; font-size: 16px;">По</div>
+                                        </div>
+                                        <div class="item-input table-row">
+                                            <input type="text" style="font-size: 16px;" readonly id="calendar-date-format-to"
+                                                   on-change-date="onChangeDate()" lower-bound="extractDateFrom"
+                                                   value-date="extractDateTo" rs-date-picker-android/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rs-extract-waiter" ng-if="showSpinner">
+                    <ion-spinner></ion-spinner>
+                </div>
+
+                <div ng-if="extract && extract.operationList && extract.operationList.length == 0" class="table-fixed-width100pc" style="margin-top: 125px; margin-bottom: 5px;">
+                    <div class="table-row">
+                        <div class="table-cell text-gray white-space-pre-line text-align-center text-15px" style="padding-top: 5px;">
+                            <img src="img/android/empty-result.svg" width="70px" height="70px" style="margin-bottom: 20px;" />
+                            <span>За этот период нет операций</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-if="extract && extract.errorLoad" class="table-fixed-width100pc" style="margin-top: 125px; margin-bottom: 5px;">
+                    <div class="table-row">
+                        <div class="table-cell text-gray white-space-pre-line text-align-center text-15px" style="padding-top: 5px;">
+                            <img src="img/android/empty-result.svg" width="70px" height="70px" style="margin-bottom: 20px;" />
+                            <span>Не удалось загрузить</span>
+                        </div>
+                    </div>
+                </div>
+
+                <rs-panel ng-if="extract && extract.operationList && extract.operationList.length" header-text="Расходы и статистика" style="position: relative;">
+                    <img class="picture-graduate" src="img/android/down.svg" ui-sref="{{statisticState}}"/>
+                    <div class="percent-grad" ui-sref="{{statisticState}}">
+                        <div ng-repeat="category in extract.categoryList"
+                             class="percent-value-category"
+                             ng-style="{'width': category.percent, 'background-color': category.color}"/>
+                    </div>
+                </rs-panel>
+
+                <rs-panel ng-if="extract && extract.operationList && extract.operationList.length > 0">
+                    <rs-operations operations="extract.operationsDisplay" operation-state="operationState" show-operations-tab="true" show-search-bar="true"/>
+                </rs-panel>
+            </ion-content>
+            <button ng-hide="extract && (extract.errorLoad || (extract && extract.operationList && extract.operationList.length))" ng-click="showExtract()" class="button rs-button">Показать выписку</button>
+            <button ng-show="extract && extract.errorLoad" ng-click="showExtract()" class="button rs-button rs-wp-buttonfix">Повторить</button>
+        </ion-view>
+</div>

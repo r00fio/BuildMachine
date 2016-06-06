@@ -1,0 +1,93 @@
+<div ng-controller="ExtractStatisticCtrl as statisticCtrl" >
+    <rs-header>Расходы и статистика</rs-header>
+    <div class="content content-body">
+        <ion-view>
+            <ion-content>
+
+                <div class="rs-shadow" style="margin-bottom: 5px;">
+                    <div class="table-fixed-width100pc bg-white" style="margin-top: 30px;">
+                        <div class="table-row">
+                            <div class="table-cell extract-statistic-table-cell" style="width: 50%; border-left: none; border-right: none; border-bottom: none;">
+                                <div class="text-12px text-gray" style="line-height: 2;">Начало периода</div>
+                                <div class="text-13px text-black">
+                                    <span ng-bind="(extract.openingBalance | defaultSum)"></span>
+                                    <span currency="{{extract.currency}}"></span>
+                                </div>
+                            </div>
+                            <div class="table-cell extract-statistic-table-cell" style="width: 50%; border-right: none; border-bottom: none;">
+                                <div class="text-12px text-gray" style="line-height: 2;">Конец периода</div>
+                                <div class="text-13px text-black">
+                                    <span ng-bind="(extract.closingBalance | defaultSum)"></span>
+                                    <span currency="{{extract.currency}}"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-fixed-width100pc bg-white">
+                        <div class="table-row">
+                            <div class="table-cell extract-statistic-table-cell" style="width: 33%; border-left: none; border-right: none;">
+                                <div class="text-12px text-gray" style="line-height: 2;">Поступление</div>
+                                <div class="text-13px text-black">
+                                    <span ng-bind="(extract.totalDebit | defaultSum)"></span>
+                                    <span currency="{{extract.currency}}"></span>
+                                </div>
+                            </div>
+                            <div class="table-cell extract-statistic-table-cell" style="width: 34%;">
+                                <div class="text-12px text-gray" style="line-height: 2;">Списание</div>
+                                <div class="text-13px text-black">
+                                    <span ng-bind="(extract.totalCredit | defaultSum)"></span>
+                                    <span currency="{{extract.currency}}"></span>
+                                </div>
+                            </div>
+                            <div class="table-cell extract-statistic-table-cell" style="width: 33%; border-left: none; border-right: none;">
+                                <div class="text-12px text-gray" style="line-height: 2;">Итого</div>
+                                <div class="text-13px text-black">
+                                    <span ng-bind="(extract.totalSum | defaultSum)"></span>
+                                    <span currency="{{extract.currency}}"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <rs-donut rs-donut-data="donutData" on-sector-click="onDonutSectorClick(event, sectorIndex, sectorData)"></rs-donut>
+
+                <div class="list-block" style="margin:0;">
+                    <div class="list-group">
+                        <ul>
+                            <li ng-repeat="category in extract.categoryList" ng-click="showCategory(category)" id="expense-category-{{category.strId}}">
+                                <div class="flex flex-center" style="display: table; height: 70px;">
+                                    <div class="item-content item-inner text-15px" style="display: table-cell; vertical-align: middle;">
+                                        <div class="table-fixed-width100pc">
+                                            <div class="table-row">
+                                                <div class="table-cell">
+                                                    <span class="operation-category-point" style="background-color: {{category.color}};"></span>
+                                                    {{category.name}}
+                                                </div>
+                                                <div class="table-cell text-right">
+                                                    <span ng-show="category.totalCredit" ng-bind="(category.totalCredit | defaultSum)"></span>
+                                                    <span ng-show="category.totalCredit" currency="{{extract.currency}}"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="table-fixed-width100pc">
+                                            <div class="table-row">
+                                                <div class="table-cell cell-content-middle" style="padding-right:5px;">
+                                                    <rs-thermometer progress="{{category.width}}"
+                                                                    bg-class="bg-F5F5F5"
+                                                                    fg-style="'background-color': '{{category.color}}'"></rs-thermometer>
+                                                </div>
+                                                <!--TODO: <div class="table-cell text-right text-gray" style="width:100px;">Подключите бюджет</div>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="category_{{category.strId}}" class="hightligth-category" style="background: transparent;"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </ion-content>
+        </ion-view>
+    </div>
+</div>

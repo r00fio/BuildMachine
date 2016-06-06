@@ -1,0 +1,57 @@
+<div class="no-shadow">
+    <rs-header>Улица</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <div class="searchbar searchbar-init">
+                <div class="searchbar-input">
+                    <input type="search" ng-model="searchText"
+                           class="width100pc solid-border-1px gray-border border-box text-14px icon-search-input"
+                           placeholder="Улица"/>
+                    <a href="#" class="searchbar-clear"></a>
+                </div>
+            </div>
+            <rs-panel>
+                <div class="list-block list-block-separator-hidden" style="margin: 0;">
+                    <ul>
+                        <li class="item-content fw7-li-select"
+                            ng-click="deleteStreet()">
+
+                            <div class="item-inner">
+                                <div class="table">
+                                    <div class="table-row">
+                                        <div class="item-title">По всем улицам</div>
+                                    </div>
+                                    <div class="table-row fw7-li-content-text">
+                                        <span>Отменить выбранную улицу</span>
+                                    </div>
+                                </div>
+                                <div class="item-after" ng-if="!selectedAddress.street">
+                                    <div class="icon-selected"></div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="item-content fw7-li-select"
+                            ng-repeat="street in addressList | isNotEmpty:'street' | orderBy:'street'"
+                            ng-click="selectStreet(street)">
+
+                            <div class="item-inner">
+                                <div class="table">
+                                    <div class="table-row">
+                                        <div class="item-title">{{street.street}}</div>
+                                    </div>
+                                    <div class="table-row fw7-li-content-text">
+                                        <span>{{street | addressElement:'street'}}</span>
+                                    </div>
+                                </div>
+                                <div class="item-after" ng-if="(street.coderegion == selectedAddress.coderegion && street.street == selectedAddress.street)">
+                                    <div class="icon-selected"></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

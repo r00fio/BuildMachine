@@ -1,0 +1,21 @@
+<svg width="60px" height="61px" viewBox="0 0 60 61" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Mask Copy + Imported Layers 5 Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="30" cy="30" r="30"></circle>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Popover_1_lock-Copy" sketch:type="MSArtboardGroup" transform="translate(-46.000000, -585.625000)">
+            <g id="Popover" sketch:type="MSLayerGroup" transform="translate(16.000000, 100.000000)">
+                <g id="Mask-Copy-+-Imported-Layers-5-Copy" transform="translate(30.000000, 486.000000)">
+                    <mask id="mask-2" sketch:name="Mask Copy" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask-Copy" fill="#D7DEE0" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                    <path d="M30.6863943,44.3155348 C30.479741,44.7358204 30.0542783,45 29.5862693,45 C29.5437231,45 29.4950988,45 29.4464744,44.9939959 C28.9359192,44.9339551 28.5104565,44.5617021 28.4010518,44.0573593 L24.7454433,38.0174692 L31.3919597,28.1775537 L20.9247516,35.043637 L15.8863705,31.1485851 C15.3940494,31.0104912 15.0415232,30.5842015 15.005055,30.0798587 C14.9625087,29.5755159 15.1892804,28.9521578 15.6572894,28.7480191 L40.9030502,17.3113561 C42.0840723,16.9987528 42.1351173,16.8048492 42.620722,17.3113561 C43.1063266,17.8178629 43.0612807,18.6420844 42.8424713,19.0983945 L30.6863943,44.3155348 Z" id="Imported-Layers-5-Copy" fill="#667980" sketch:type="MSShapeGroup"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

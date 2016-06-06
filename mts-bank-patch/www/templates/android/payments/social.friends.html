@@ -1,0 +1,39 @@
+<div ng-controller="SocialFriendsCtrl as socialFriendsCtrl">
+    <rs-header rbtn-class="icon-payment-settings" rbtn-action="redirectToSocSetting()">Друзьям</rs-header>
+    <div class="searchbar searchbar-init bar bar-subheader">
+        <div class="searchbar-input">
+            <input type="search" ng-model="searchText.$"
+                   class="width100pc solid-border-1px gray-border border-box text-14px icon-search-input"/>
+            <a href="#" class="searchbar-clear"></a>
+        </div>
+    </div>
+    <ion-view>
+        <ion-content class="has-subheader bg-f0f4f5">
+            <div class="list-block" style="margin: 0;">
+                <ul>
+                    <li class="item-content"
+                        ng-repeat="friend in friendsInBank | filter:searchText | orderBy:'name'"
+                        ng-click="redirectToFriendTransfer(friend)"
+                        rs-waiter="friendsInBank">
+
+                        <div class="item-media">
+                            <img class="icon" style="height: 12vw; width: 12vw; border-radius: 100%;"
+                                 ng-src="{{friend.photoSrc ? friend.photoSrc : 'img/contact-nofoto.svg'}}"/>
+                        </div>
+                        <div class="item-inner">
+                            <div class="table-fixed-width100pc" style="width: 80%;">
+                                <div class="table-row">
+                                    <div class="table-cell text-15px" style="white-space: normal;" ng-bind="friend.name"></div>
+                                </div>
+                                <div class="table-row" ng-if="friend.network">
+                                    <span class="table-cell text-12px text-gray" ng-bind="friend.network"></span>
+                                </div>
+                            </div>
+                            <img class="icon" style="height: 7vw;" ng-src="img/inbank.svg"/>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </ion-content>
+    </ion-view>
+</div>

@@ -1,0 +1,26 @@
+<svg width="109px" height="108px" viewBox="0 0 109 108" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Oval 20 + Imported Layers Copy 4 + Rectangle 6</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterRes="218 216" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.295332314 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Offices_1" sketch:type="MSArtboardGroup" transform="translate(-524.000000, -542.000000)">
+            <g id="Oval-20-+-Imported-Layers-Copy-4-+-Rectangle-6" sketch:type="MSLayerGroup" transform="translate(533.000000, 548.000000)">
+                <g id="Oval-20-+-Imported-Layers-Copy-4" transform="translate(0.300000, 0.000000)" filter="url(#filter-1)" fill="#D7DEE0" fill-opacity="0.6" sketch:type="MSShapeGroup" opacity="0.9453125">
+                    <circle id="Oval-20" cx="45" cy="45" r="45"></circle>
+                </g>
+                <rect id="Rectangle-6" fill="#24A7B3" sketch:type="MSShapeGroup" x="24.3" y="43" width="42" height="4"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

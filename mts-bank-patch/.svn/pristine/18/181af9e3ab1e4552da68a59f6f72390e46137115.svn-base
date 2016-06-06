@@ -1,0 +1,14 @@
+<div ng-controller="SendToEmailPaymentReceiptCtrl as sendToEmailPaymentReceiptCtrl">
+    <rs-header>Отправить на почту</rs-header>
+    <ion-view>
+        <ion-content scroll="false" class="has-header bg-f0f4f5">
+            <rs-panel header-text="E-MAIL">
+                <label class="item item-input">
+                    <input input-clear-btn type="text" ng-model="sendEmailData.email">
+                </label>
+            </rs-panel>
+            <button class="rs-button" style="position: absolute; height: 64px; font-size: 15px;"
+                    ng-click="sendEmail(sendEmailData.email)">Отправить</button>
+        </ion-content>
+    </ion-view>
+</div>

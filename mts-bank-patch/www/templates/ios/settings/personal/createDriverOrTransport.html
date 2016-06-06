@@ -1,0 +1,88 @@
+<div>
+    <rs-header lbtn-class="icon-close"      lbtn-action="goBackFromField()"
+               rbtn-class="icon-check-mark" rbtn-action="createDriverOrTransport()">Добавить ВУ или ТС</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <rs-panel>
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <fw7-li title="Документ"
+                                item-class="item-link"
+                                ng-click="selectShow(docTypeList, 'docTypeCreate', 'Документ', 'desc')">
+                            <span ng-init="retailClient.docTypeCreate = docTypeList[0]" ng-bind="retailClient.docTypeCreate.desc" class="text-black"></span>
+                        </fw7-li>
+
+                        <li ng-if="retailClient.docTypeCreate.strId == 'driver'">
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label text-15px">Серия</div>
+                                    <div class="item-input" style="padding-left: 0;">
+                                        <input style="color: #202426; font-size: 15px;"
+                                               type="number"
+                                               mask-restrict="reject"
+                                               mask="9999"
+                                               ng-model="retailClient.docCreate.series"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li ng-if="retailClient.docTypeCreate.strId == 'driver'">
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label text-15px">Номер</div>
+                                    <div class="item-input" style="padding-left: 0;">
+                                        <input style="color: #202426; font-size: 15px;"
+                                               type="number"
+                                               mask-restrict="reject"
+                                               mask="999999"
+                                               ng-model="retailClient.docCreate.number"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li ng-if="retailClient.docTypeCreate.strId == 'driver'">
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label text-15px">Дата выдачи</div>
+                                    <div class="item-input" style="padding-left: 0;">
+                                        <input type="text" ng-model="retailClient.docCreate.deliveryDate" rs-date-picker
+                                               style="color: #202426; font-size: 15px;"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li ng-if="retailClient.docTypeCreate.strId == 'transport'">
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label text-15px">Гос. номер</div>
+                                    <div class="item-input" style="padding-left: 0;">
+                                        <input style="color: #202426; font-size: 15px;"
+                                               type="text"
+                                               mask-restrict="reject"
+                                               mask="D999DD999?"
+                                               ng-model="retailClient.docCreate.stateNumber"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li ng-if="retailClient.docTypeCreate.strId == 'transport'">
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label text-15px">Номер свидетельства</div>
+                                    <div class="item-input" style="padding-left: 0;">
+                                        <input style="color: #202426; font-size: 15px;"
+                                               type="text"
+                                               mask-restrict="reject"
+                                               mask="**** 999999"
+                                               ng-model="retailClient.docCreate.docNumber"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

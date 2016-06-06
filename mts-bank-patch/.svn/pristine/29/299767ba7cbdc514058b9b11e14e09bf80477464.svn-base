@@ -1,0 +1,22 @@
+<div>
+    <rs-header>Выберите фон</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <div class="flex flex-between flex-middle" style="margin: 5vw;">
+                <div class="bg" ng-class="{'bg-select': backgrounds[0].selected}" ng-click="selectBg(0)"><div class="bg-0"></div></div>
+                <div class="bg" ng-class="{'bg-select': backgrounds[1].selected}" ng-click="selectBg(1)"><div class="bg-1"></div></div>
+            </div>
+            <div class="flex flex-between flex-middle" style="margin: 5vw;">
+                <div class="bg" ng-class="{'bg-select': backgrounds[2].selected}" ng-click="selectBg(2)"><div class="bg-2"></div></div>
+                <div class="bg" ng-class="{'bg-select': backgrounds[3].selected}" ng-click="selectBg(3)"><div class="bg-3"></div></div>
+            </div>
+            <div class="flex flex-between flex-middle" style="margin: 5vw;">
+                <div class="bg" ng-class="{'bg-select': backgrounds[4].selected}" ng-click="selectBg(4)"><div class="bg-4"></div></div>
+                <div class="bg" ng-class="{'bg-select': backgrounds[5].selected}" ng-click="selectBg(5)"><div class="bg-5"></div></div>
+            </div>
+            <div class="flex flex-between flex-middle" style="margin: 5vw;">
+                <div class="bg" ng-class="{'bg-select': backgrounds[6].selected}" ng-click="selectBg(6)"><div class="bg-6"></div></div>
+            </div>
+        </ion-content>
+    </ion-view>
+</div>

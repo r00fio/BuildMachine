@@ -1,0 +1,31 @@
+<div>
+    <!-- Избранный платеж ios -->
+    <div ng-if="platform == 'ios'" class="operation-logo-container">
+        <div ng-show="operation.docKind">
+            <div ng-show="operation.logo.isSvg" class="flex flex-middle flex-center svg-logo" ng-style="{'background-color': operation.color}">
+                <img src="{{logoUrl}}" class="operation-logo-svg"/>
+            </div>
+            <img ng-hide="operation.logo.isSvg" src="{{logoUrl}}" class="operation-logo bg-default-logo"/>
+        </div>
+        <div ng-if="operation.periodicalPayStruct" class="regular-clock"></div>
+    </div>
+
+    <!-- Избранный платеж android -->
+    <div ng-if="platform == 'android'">
+        <div ng-show="operation.docKind" class="favorite-image">
+            <div ng-show="operation.logo.isSvg" class="flex flex-middle flex-center svg-logo" ng-style="{'background-color': operation.color}">
+                <img src="{{logoUrl}}" class="operation-logo-svg"/>
+            </div>
+            <img ng-hide="operation.logo.isSvg" src="{{logoUrl}}" class="favorite-logo bg-default-logo"/>
+        </div>
+        <div ng-if="operation.periodicalPayStruct" class="regular-clock"></div>
+    </div>
+
+    <!-- Операция в выписке / онлайн -->
+    <div ng-hide="operation.docKind">
+        <div ng-show="operation.logo.isSvg" class="flex flex-middle flex-center operation-logo" ng-style="{'background-color': operation.color}">
+            <img src="{{logoUrl}}" class="operation-logo-svg"/>
+        </div>
+        <img ng-hide="operation.logo.isSvg" src="{{logoUrl}}" class="operation-logo bg-default-logo"/>
+    </div>
+</div>

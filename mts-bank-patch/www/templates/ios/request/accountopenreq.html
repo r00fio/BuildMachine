@@ -1,0 +1,63 @@
+<div ng-controller="AccountOpenReqCtrl as accOpenCtrl">
+    <rs-header>Открытие продукта</rs-header>
+    <ion-view>
+        <ion-content class="has-header">
+            <rs-panel header-text="Открытие счета">
+                <div class="list-block" style="margin:0;">
+                    <ul>
+                        <fw7-li title="Тип счета" item-class="item-link" ng-model="form.selectedType" ng-change="changeType()"
+                                rs-options="form.accountTypeList" rs-options-show="desc" rs-options-header="Тип счета">
+                            <div>{{form.selectedType.desc}}</div>
+                        </fw7-li>
+                    </ul>
+                    <div class="list-block-label" style="margin: 10px 0;">{{form.selectedType.desc}}</div>
+                </div>
+                <div ng-show="form.conditionsFile[form.selectedCurrency]" class="list-block" style="margin:0;">
+                    <ul>
+                        <fw7-li title="Условия" item-class="item-link" ng-click="openUrl(form.conditionsFile[form.selectedCurrency])"></fw7-li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <rs-panel header-text="Сумма">
+                <div class="list-block" style="margin:0;">
+                    <ul>
+                        <fw7-li title="Валюта счета"
+                                item-class="item-link"
+                                ng-model="form.selectedCurrency"
+                                rs-options="form.currencyList"
+                                rs-options-header="Валюта счета"
+                                ng-change="changeCurrency()">
+                            <div>{{form.selectedCurrency}}</div>
+                        </fw7-li>
+                        <fw7-li rs-waiter="form.tariffRate" rs-waiter-class="rs-li-waiter-right" ng-show="form.tariffRate || form.tariffRate === undefined" title="Процентная ставка (годовых)">
+                            <div ng-show="form.tariffRate">{{form.tariffRate}} %</div>
+                        </fw7-li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <rs-panel header-text="Офис обслуживания">
+                <div class="list-block list-block-separator-100vw" style="margin:0;">
+                    <ul>
+                        <rs-office-select model="form.office" region-list="regionList" read-only="readOnly"></rs-office-select>
+                    </ul>
+                </div>
+            </rs-panel>
+            <rs-panel>
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title text-15px text-wrap width100pc">С условиями открытия счета ознакомлен</div>
+                                <div class="item-after">
+                                    <rs-toggle ng-model="form.confirm"></rs-toggle>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <div class="rs-button-page flex flex-center flex-middle bg-24A7B3" ng-if="!form.readOnly"
+                 ng-click="sendNewAccountRequest()">Оформить</div>
+        </ion-content>
+    </ion-view>
+</div>

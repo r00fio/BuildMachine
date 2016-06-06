@@ -1,0 +1,35 @@
+<svg width="130px" height="130px" viewBox="0 0 130 130" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Oval 2 + Imported Layers Copy</title>
+    <desc>Created with Sketch.</desc>
+    <!-- defs>
+        <linearGradient x1="50%" y1="1.21158452%" x2="50%" y2="94.3982372%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2.25" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.112 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.182 0" in="shadowBlurOuter2" type="matrix" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs -->
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Autrization" sketch:type="MSArtboardGroup" transform="translate(-475.000000, -1442.000000)">
+            <g id="Oval-2-+-Imported-Layers-Copy" sketch:type="MSLayerGroup" transform="translate(480.000000, 1444.000000)">
+                <circle id="Oval-2" stroke="url(#linearGradient-1)" fill="#FFFFFF" filter="url(#filter-2)" sketch:type="MSShapeGroup" cx="60" cy="60" r="60"></circle>
+                <g id="Imported-Layers-Copy" transform="translate(37.500000, 24.000000)" fill="#667980" sketch:type="MSShapeGroup">
+                    <path d="M12,31.5 L12,18.3675 C12,13.0305 15.825,8.2695 21.117,7.5885 C27.519,6.7665 33,11.7555 33,18 L33,22.5 C33,24.1575 34.3425,25.5 36,25.5 C37.6575,25.5 39,24.1575 39,22.5 L39,18.483 C39,9.8955 32.64,2.379 24.09,1.575 C14.28,0.651 6,8.376 6,18 L6,31.5 C2.7,31.5 0,34.2 0,37.5 L0,47.406 C0,58.8855 8.358,68.9655 19.7565,70.335 C33.342,71.967 45,61.278 45,48 L45,37.5 C45,34.2 42.3,31.5 39,31.5 L12,31.5 L12,31.5 Z M39,48 C39,57.0975 31.5975,64.5 22.5,64.5 C13.4025,64.5 6,57.0975 6,48 L6,37.5 L39,37.5 L39,48 L39,48 Z" id="Fill-1"></path>
+                    <path d="M19.5,51.3315 L19.5,54 C19.5,55.65 20.85,57 22.5,57 C24.15,57 25.5,55.65 25.5,54 L25.5,51.3315 C26.415,50.508 27,49.3275 27,48 C27,45.5145 24.9855,43.5 22.5,43.5 C20.0145,43.5 18,45.5145 18,48 C18,49.3275 18.585,50.508 19.5,51.3315" id="Fill-2"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

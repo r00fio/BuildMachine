@@ -1,0 +1,21 @@
+<rs-header>График платежей</rs-header>
+<div ng-controller="SchedulePaymentCtrl" class="content">
+    <ion-view>
+        <ion-content >
+
+            <div class="content-block-title flex flex-middle" style="margin-top: 10px;">
+                <div class="child-flex-1">{{payment.$_tmpIdx + 1}} Платеж {{payment.paymentDate | defaultDate}}</div>
+                <div class="child-flex-1 text-right" ng-class="{'text-EE102E': payment.state === 'PAST_DUE'}">{{payment.state === 'RECEIVED' ? 'Выполнен' : payment.state === 'PAST_DUE' ? 'Просрочен' : ''}}</div>
+            </div>
+            <div class="list-block" style="margin-bottom: 0;">
+                <ul>
+                    <fw7-li title="Сумма">{{payment.amount}}<span currency="{{loanCurrency}}"></span></fw7-li>
+                    <fw7-li title="Основной долг">{{payment.principalAmount}}<span currency="{{loanCurrency}}"></span></fw7-li>
+                    <fw7-li title="Проценты">{{payment.interestsAmount}}<span currency="{{loanCurrency}}"></span></fw7-li>
+                    <fw7-li title="Остаток">{{payment.mainDeptRest}}<span currency="{{loanCurrency}}"></span></fw7-li>
+                </ul>
+            </div>
+
+        </ion-content>
+    </ion-view>
+</div>

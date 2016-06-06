@@ -1,0 +1,25 @@
+<rs-header>Настройки</rs-header>
+<div >
+    <div class="content content-body" style="bottom: 0;">
+        <ion-view>
+            <ion-content scroll="false" class="bg-f0f4f5" ng-controller="PaymentSettingsCtrl as paymentSettingsCtrl">
+
+                <rs-panel>
+                    <div class="list-block" style="margin-top: 0;">
+                        <ul>
+                            <rs-select header-text="Регион для платежей"
+                                       value-text="{{selectedRegion ? selectedRegion.name : ''}}"
+                                       value-class="item-after-multiline"
+                                       ng-click="onSelectRegionPanel()"
+                                       ng-show="regionsForPaymentArr">
+                            </rs-select>
+                            <li class="item-content" ng-hide="regionsForPaymentArr" rs-waiter="regionsForPaymentArr" />
+                        </ul>
+                    </div>
+                </rs-panel>
+
+            </ion-content>
+
+        </ion-view>
+    </div>
+</div>

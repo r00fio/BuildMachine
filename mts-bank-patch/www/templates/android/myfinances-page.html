@@ -1,0 +1,168 @@
+<div class="pages navbar-through toolbar-through" ng-controller="MyFinancesCtrl">
+    <rs-header ng-click="scrollToTop()">Мои финансы</rs-header>
+    <div class="page bg-f0f4f5">
+        <div class="page-content pull-to-refresh-content">
+            <div class="pull-to-refresh-layer">
+                <div class="preloader"></div>
+            </div>
+
+            <!-- Карты -->
+            <rs-panel header-text="Карты" ng-if="visibleCards">
+                <div class="list-block" style="margin:0;">
+                    <div class="list-group">
+                        <ul>
+                            <li class="swipeout product-li" rs-waiter="cardList" ng-repeat="card in cardList | visibleProducts" winjs-menu="cardMenu">
+                                <div class="swipeout-content" ui-sref="card({cardId:card.id})">
+                                    <rs-product product="card" class="product-line"></rs-product>
+                                </div>
+
+                                <div class="swipeout-actions-left" ng-show="isRefillProductAvailable(card)">
+                                    <a href="#" class="swipe-item swipe-item-seagreen icon-topup"
+                                       ng-click="$event.preventDefault() + refillProduct(card)">
+                                    </a>
+                                </div>
+                                <div class="swipeout-actions-right">
+                                    <a href="#" class="swipeout-delete swipe-item swipe-item-gray icon-hide"
+                                       ng-click="$event.preventDefault() + toggleHidden(card)">
+                                    </a>
+                                </div>
+                            </li>
+
+                            <rs-cut elements="{{hiddenCards = (cardList | hiddenProducts)}}"
+                                    is-hidden="showHiddenCards"></rs-cut>
+
+                            <!-- Скрытые карты -->
+                            <li class="swipeout product-li" ng-repeat="card in (showHiddenCards && hiddenCards)" winjs-menu="cardMenu">
+                                <div class="swipeout-content" ui-sref="card({cardId:card.id})">
+                                    <rs-product product="card" hidden-product="true" class="product-line"></rs-product>
+                                </div>
+
+                                <div class="swipeout-actions-left" ng-show="isRefillProductAvailable(card)">
+                                    <a href="#" class="swipe-item swipe-item-seagreen icon-topup"
+                                       ng-click="$event.preventDefault() + refillProduct(card)">
+                                    </a>
+                                </div>
+                                <div class="swipeout-actions-right">
+                                    <a href="#" class="swipeout-delete swipe-item swipe-item-gray icon-show"
+                                       ng-click="$event.preventDefault() + toggleHidden(card)">
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </rs-panel>
+
+            <!-- Кредиты -->
+            <rs-panel header-text="Кредиты" ng-if="visibleLoans">
+                <div class="list-block" style="margin:0;">
+                    <div class="list-group">
+                        <ul>
+                            <li class="swipeout product-li" rs-waiter="loans" ng-repeat="loan in loans | visibleProducts">
+                                <div class="swipeout-content" ui-sref="loan({loanId:loan.id})">
+                                    <rs-product product="loan" class="product-line"></rs-product>
+                                </div>
+
+                                <div class="swipeout-actions-left" ng-show="isRefillProductAvailable(loan)">
+                                    <a href="#" class="swipe-item swipe-item-seagreen icon-topup"
+                                       ng-click="$event.preventDefault() + refillProduct(loan)">
+                                    </a>
+                                </div>
+                                <div class="swipeout-actions-right">
+                                    <a href="#" class="swipeout-delete swipe-item swipe-item-gray icon-hide"
+                                       ng-click="$event.preventDefault() + toggleHidden(loan)">
+                                    </a>
+                                </div>
+
+                            </li>
+
+                            <rs-cut elements="{{hiddenLoans = (loans | hiddenProducts)}}"
+                                    is-hidden="showHiddenLoans"></rs-cut>
+
+                            <li class="swipeout product-li" ng-repeat="loan in (showHiddenLoans && hiddenLoans)">
+                                <div class="swipeout-content" ui-sref="loan({loanId:loan.id})">
+                                    <rs-product product="loan" hidden-product="true" class="product-line"></rs-product>
+                                </div>
+
+                                <div class="swipeout-actions-left" ng-show="isRefillProductAvailable(loan)">
+                                    <a href="#" class="swipe-item swipe-item-seagreen icon-topup"
+                                       ng-click="$event.preventDefault() + refillProduct(loan)">
+                                    </a>
+                                </div>
+                                <div class="swipeout-actions-right">
+                                    <a href="#" class="swipeout-delete swipe-item swipe-item-gray icon-show"
+                                       ng-click="$event.preventDefault() + toggleHidden(loan)">
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </rs-panel>
+
+            <!-- Счета и вклады -->
+            <rs-panel header-text="Счета и вклады" ng-if="visibleAccsDeps">
+                <div class="list-block" style="margin:0;">
+                    <div class="list-group">
+                        <ul>
+                            <!-- Открытые счета и вклады-->
+                            <li class="swipeout product-li" rs-waiter="accountDepositList" ng-repeat="product in accountDepositList | visibleProducts">
+
+                                <div class="swipeout-content" ui-sref="account({productId:product.id})">
+                                    <rs-product product="product" class="product-line"></rs-product>
+                                </div>
+
+                                <div class="swipeout-actions-left" ng-show="isRefillProductAvailable(product)">
+                                    <a href="#" class="swipe-item swipe-item-seagreen icon-topup"
+                                       ng-click="$event.preventDefault() + refillProduct(product)">
+                                    </a>
+                                </div>
+                                <div class="swipeout-actions-right">
+                                    <a href="#" class="swipeout-delete swipe-item swipe-item-gray icon-hide"
+                                       ng-click="$event.preventDefault() + toggleHidden(product)">
+                                    </a>
+                                </div>
+
+                            </li>
+
+                            <rs-cut elements="{{safeStringify(hiddenAccountsDeposits = (accountDepositList | hiddenProducts))}}"
+                                    is-hidden="showHiddenAccounts"></rs-cut>
+
+                            <!-- Скрытые счета и вклады -->
+                            <li class="swipeout product-li" ng-repeat="product in (showHiddenAccounts && hiddenAccountsDeposits)">
+
+                                <div class="swipeout-content" ui-sref="account({productId:product.id})">
+                                    <rs-product product="product" hidden-product="true" class="product-line"></rs-product>
+                                </div>
+
+                                <div class="swipeout-actions-left" ng-show="isRefillProductAvailable(product)">
+                                    <a href="#" class="swipe-item swipe-item-seagreen icon-topup"
+                                       ng-click="$event.preventDefault() + refillProduct(product)">
+                                    </a>
+                                </div>
+                                <div class="swipeout-actions-right">
+                                    <a href="#" class="swipeout-delete swipe-item swipe-item-gray icon-show"
+                                       ng-click="$event.preventDefault() + toggleHidden(product)">
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </rs-panel>
+
+            <!-- для ios/android блок высотой 47/58px для того чтобы кнопка не закрывала последний элемент на странице -->
+            <div class="bottom-line-for-block"></div>
+
+        </div>
+
+        <mfb-menu class="rs-mfb-menu"
+                  position="br"
+                  toggling-method="click"
+                  resting-icon="ion-plus-round"
+                  data-mfb-state="closed"
+                  ui-sref="products">
+        </mfb-menu>
+
+    </div>
+</div>

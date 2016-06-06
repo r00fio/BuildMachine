@@ -1,0 +1,79 @@
+<div ui-view="settings-address-view">
+    <rs-header rbtn-class="icon-check-mark" rbtn-action="changeAddress()">Адрес проживания</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <rs-panel>
+                <div ng-if="statusOk" style="color:#00cc00;">Адрес введен правильно</div>
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <fw7-li title="Индекс">
+                            <div class="item-input">
+                                <input type="text" placeholder="Не задано" maxlength="6"
+                                       ng-model="selectedAddress.index"
+                                       ng-blur="onSuggestionFocusLost()"
+                                       style="color: #202426; font-size: 15px;">
+                            </div>
+                        </fw7-li>
+                        <fw7-li title="Регион" item-class="item-link"
+                                ng-click="addressRequest.type = 'region'"
+                                ui-sref="settings.personal.address.selectRegion">
+                            <span ng-show="selectedAddress.region" ng-bind="selectedAddress.region" class="text-15px"></span>
+                            <span ng-hide="selectedAddress.region" class="text-15px">Не указано</span>
+                        </fw7-li>
+                        <fw7-li title="Район" item-class="item-link"
+                                ng-click="addressRequest.type = 'area'"
+                                ui-sref="settings.personal.address.selectArea">
+                            <span ng-show="selectedAddress.area" ng-bind="selectedAddress.area" class="text-15px"></span>
+                            <span ng-hide="selectedAddress.area" class="text-15px">Не указано</span>
+                        </fw7-li>
+                        <fw7-li title="Город" item-class="item-link"
+                                ng-click="addressRequest.type = 'city'"
+                                ui-sref="settings.personal.address.selectCity">
+                            <span ng-show="selectedAddress.city" ng-bind="selectedAddress.city" class="text-15px"></span>
+                            <span ng-hide="selectedAddress.city" class="text-15px">Не указано</span>
+                        </fw7-li>
+                        <fw7-li title="Населенный пункт" item-class="item-link"
+                                ng-click="addressRequest.type = 'locality'"
+                                ui-sref="settings.personal.address.selectLocality">
+                            <span ng-show="selectedAddress.locality" ng-bind="selectedAddress.locality" class="text-15px"></span>
+                            <span ng-hide="selectedAddress.locality" class="text-15px">Не указано</span>
+                        </fw7-li>
+                        <fw7-li title="Улица" item-class="item-link"
+                                ng-click="addressRequest.type = 'street'"
+                                ui-sref="settings.personal.address.selectStreet">
+                            <span ng-show="selectedAddress.street" ng-bind="selectedAddress.street" class="text-15px"></span>
+                            <span ng-hide="selectedAddress.street" class="text-15px">Не указано</span>
+                        </fw7-li>
+                        <fw7-li title="Дом">
+                            <div class="item-input">
+                                <input type="text" placeholder="Не задано"
+                                       ng-model="selectedAddress.house"
+                                       ng-blur="onCheckInputFocusLost()"
+                                       ng-disabled="needDisableHouseBlock()"
+                                       style="color: #202426; font-size: 15px;">
+                            </div>
+                        </fw7-li>
+                        <fw7-li title="Корпус">
+                            <div class="item-input">
+                                <input type="text" placeholder="Не задано"
+                                       ng-model="selectedAddress.struct"
+                                       ng-blur="onCheckInputFocusLost()"
+                                       ng-disabled="needDisableHouseBlock()"
+                                       style="color: #202426; font-size: 15px;">
+                            </div>
+                        </fw7-li>
+                        <fw7-li title="Номер квартиры">
+                            <div class="item-input">
+                                <input type="text" placeholder="Не задано"
+                                       ng-model="selectedAddress.flat"
+                                       ng-blur="onCheckInputFocusLost()"
+                                       ng-disabled="needDisableHouseBlock()"
+                                       style="color: #202426; font-size: 15px;">
+                            </div>
+                        </fw7-li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

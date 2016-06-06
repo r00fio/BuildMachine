@@ -1,0 +1,58 @@
+<div ng-controller="ConfirmationCtrl as confirmationCtrl" class="confirmation-modal">
+
+    <div class="confirm-code">
+        <img src="img/android/back.svg" ng-click="cancel()"/>
+        <span class="text-color-white">Подтверждение</span>
+    </div>
+    <div>
+    <div class="enter-text-confirm">
+        <span class="text-12px text-color-white" ng-bind="params.sms ? 'Введите код из SMS' : 'Введите кодовую дату'"></span>
+    </div>
+
+    <input ng-if="params && params.sms"
+           class="confirmation-code-input"
+           id="confirmation-code-input"
+           type="tel" ng-model="params.confirmationCode"
+           mask-clean="true"
+           mask-restrict="reject"
+           mask="9"
+           mask-repeat="100"
+           maxlength="{{globals.smsCodeLength}}"
+           ng-class="{invalid: params.invalidConfirmationCode}" />
+    <div ng-if="params && !params.sms" class="code-date-container">
+        <input class="confirmation-code-input confirmation-date"
+               id="confirmation-code-input"
+               type="tel" ng-model="params.confirmationCode"
+               placeholder="ДД—ММ—ГГГГ"
+               mask-clean="true"
+               mask-restrict="reject"
+               mask="99—99—9999"
+               ng-class="{invalid: params.invalidConfirmationCode}" />
+        <span class="confirmation-code-masked" ng-bind="params.confirmationCode | maskedCode"/>
+    </div>
+
+    <div class="invalide-code" ng-if="params.invalidConfirmationCode">
+        <span class="text-12px" ng-bind="params.sms ? 'Введен неверный код' : 'Введена неверная дата'"></span>
+    </div>
+    <div class="state-enter">
+        <div ng-show="params.sms && seconds" class="btn-hint">
+            Отправлено. Повторить можно через {{seconds}} сек
+        </div>
+        <div ng-show="params.sms && !seconds" ng-click="generate()" class="btn-hint">
+            ОТПРАВИТЬ ПОВТОРНО
+        </div>
+        <div ng-if="!params.sms && !hintIsShown && hasHint()" ng-click="showHintAndroid()" class="btn-hint">
+            ПОКАЗАТЬ ПОДСКАЗКУ
+        </div>
+        <div ng-if="!params.sms && !hasHint()" class="btn-hint">
+            У вас не задана подсказка к кодовой дате
+        </div>
+        <div ng-if="!params.sms && hintIsShown" class="code-date-hint flex" ng-click="hideHint()">
+            <span class="text-14px code-date-hint-text" ng-bind="params.codeDateHint"></span>
+            <span class="text-14px code-date-hint-btn">OK</span>
+        </div>
+    </div>
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-button class="md-raised rs-button login-button" ng-click="confirm()">Подтвердить</md-button>
+    </section>
+</div>

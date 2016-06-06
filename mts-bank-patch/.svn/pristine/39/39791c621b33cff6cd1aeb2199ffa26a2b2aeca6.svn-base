@@ -1,0 +1,104 @@
+<div class="no-shadow">
+    <rs-header lbtn-class="icon-back" lbtn-action="goBack()">Как подключиться</rs-header>
+    <ion-view>
+        <ion-content class="has-header" scroll="false">
+            <md-tabs md-swipe-content="true">
+                <md-tab>
+                    <md-tab-label>
+                        Я клиент банка
+                    </md-tab-label>
+                    <md-tab-body>
+                        <div class="width100pc flex flex-center">
+                            <img ng-hide="adaptToWindowsphone" src="img/android/call.svg" class="call-img"
+                                 ng-click="callNumber('88002500520')"/>
+                        </div>
+                        <div class="how-connect-info" ng-click="callNumber('88002500520')">
+                            <div>Вы можете подключить</div>
+                            <div>Мобильный банк, позвонив</div>
+                            <div><label class="text-24A7B3">8 800 250-0-520</label><label>,</label></div>
+                            <div>а также в любом банкомате</div>
+                            <div>или офисе Банка.</div>
+                        </div>
+                        <div class="width100pc absolute-how">
+                            <div class="width100pc flex flex-center">
+                                <img src="img/android/auth-block.svg" class="auth-block-img"
+                                     ui-sref="login.restoreAccess"/>
+                            </div>
+                            <div class="how-connect-info-down">
+                                <div ui-sref="login.restoreAccess">Возможно, вы уже подключены<br>к Мобильному банку,
+                                    попробуйте<br>восстановить доступ
+                                </div>
+                            </div>
+                        </div>
+                    </md-tab-body>
+                </md-tab>
+                <md-tab>
+                    <md-tab-label>
+                        Еще не клиент
+                    </md-tab-label>
+                    <md-tab-body>
+                        <div class="width100pc flex flex-center">
+                            <img src="img/android/atm.svg" class="atm-img"/>
+                        </div>
+                        <div class="how-connect-info">
+                            Оформите карту МТС Деньги<br/>в салоне МТС или любую другую<br/>карту в офисе Банка.
+                        </div>
+                        <div class="width100pc absolute-how">
+                            <div class="how-connect-info-down" ng-click="callNumber('88002500520')">
+                                <div>Возникли вопросы?</div>
+                                <div>Обратитесь в службу поддержки</div>
+                                <div class="text-24A7B3">8 800 250-0-520</div>
+                            </div>
+                        </div>
+                    </md-tab-body>
+                </md-tab>
+            </md-tabs>
+            <!--<div class="width100pc dark-tabs rs-shadow flex flex-center" ng-init="activeTarget = 'client'">-->
+            <!--<label class="dark-tab-title child-flex-1"-->
+            <!--ng-class="{active: activeTarget === 'client'}"-->
+            <!--ng-click="activeTarget = 'client'">Я клиент банка</label>-->
+            <!--<label class="dark-tab-title child-flex-1"-->
+            <!--ng-class="{active: activeTarget === 'noclient'}"-->
+            <!--ng-click="activeTarget = 'noclient'">Еще не клиент</label>-->
+            <!--</div>-->
+            <!--<div>-->
+            <!--<div ng-if="activeTarget === 'client'">-->
+            <!--<div class="width100pc flex flex-center">-->
+            <!--<img ng-hide="adaptToWindowsphone" src="img/android/call.svg" class="call-img" ng-click="callNumber('88002500520')" />-->
+            <!--</div>-->
+            <!--<div class="how-connect-info" ng-click="callNumber('88002500520')">-->
+            <!--<div>Вы можете подключить</div>-->
+            <!--<div>Мобильный банк, позвонив</div>-->
+            <!--<div><label class="text-24A7B3">8 800 250-0-520</label><label>,</label></div>-->
+            <!--<div>а также в любом банкомате</div>-->
+            <!--<div>или офисе Банка.</div>-->
+            <!--</div>-->
+            <!--<div class="width100pc absolute-how">-->
+            <!--<div class="width100pc flex flex-center">-->
+            <!--<img src="img/android/auth-block.svg" class="auth-block-img" ui-sref="login.restoreAccess"/>-->
+            <!--</div>-->
+            <!--<div class="how-connect-info-down">-->
+            <!--<div ui-sref="login.restoreAccess">Возможно, вы уже подключены<br>к Мобильному банку,-->
+            <!--попробуйте<br>восстановить доступ</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div ng-if="activeTarget === 'noclient'" ui-sref="atmsandoffices({type: 'officeBank'})">-->
+            <!--<div class="width100pc flex flex-center">-->
+            <!--<img src="img/android/atm.svg" class="atm-img"/>-->
+            <!--</div>-->
+            <!--<div class="how-connect-info">-->
+            <!--Оформите карту МТС Деньг<br/>в салоне МТС или любую другую<br/>карту в офисе Банка.-->
+            <!--</div>-->
+            <!--<div class="width100pc absolute-how">-->
+            <!--<div class="how-connect-info-down" ng-click="callNumber('88002500520')">-->
+            <!--<div>Возникли вопросы?</div>-->
+            <!--<div>Обратитесь в службу поддержки</div>-->
+            <!--<div class="text-24A7B3">8 800 250-0-520</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+        </ion-content>
+    </ion-view>
+</div>

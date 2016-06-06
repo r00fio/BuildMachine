@@ -1,0 +1,34 @@
+<div ui-view="serviceonlinebank-page">
+    <ion-view>
+        <rs-header rbtn-class="icon-filter" rbtn-action="showFilter()">Обслуживание</rs-header>
+        <ion-content class="has-header" on-scroll-complete="showMore()" when-scroll-ends-wp="showMore()">
+
+            <div class="rs-service-container rs-shadow" rs-waiter="docListDisplay"
+                 ng-repeat="doc in docListDisplay" ng-click="showDetails(doc)">
+                <div class="rs-service-date">{{doc.date}}</div>
+                <div class="rs-service-title">{{doc.productName}}</div>
+                <div class="rs-service-desc">{{doc.kind}}</div>
+                <div class="rs-service-solution">
+                    <div  ng-if="doc.state === 'Исполнен'" class="rs-service-solution-positive flex">
+                        <div class="icon-positive rs-service-solution-icon"></div>
+                        <div>{{doc.state}}</div>
+                    </div>
+                    <div  ng-if="doc.state === 'Отказан'" class="rs-service-solution-negative flex">
+                        <div class="icon-negative rs-service-solution-icon"></div>
+                        <div>{{doc.state}}</div>
+                    </div>
+                    <div  ng-if="doc.state !== 'Исполнен' && doc.state !== 'Отказан'" class="rs-service-solution-other">
+                        <div>{{doc.state}}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="docListDisplay && docListDisplay.length == 0" class="text-center text-red margin-top-30px">
+                <div style="position: relative; width: 70%; margin: 0 auto;">
+                    Вы еще не осуществляли операций в интернет-банке
+                </div>
+            </div>
+
+        </ion-content>
+    </ion-view>
+</div>

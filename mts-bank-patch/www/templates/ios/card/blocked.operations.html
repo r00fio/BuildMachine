@@ -1,0 +1,13 @@
+<div>
+    <rs-header>Заблокировано</rs-header>
+    <ion-view>
+        <ion-content class="has-header">
+            <rs-operations operations="bankCard.holdOperations"></rs-operations>
+            <div class="no-operation-block" ng-show="bankCard.holdOperations && !bankCard.holdOperations.length">
+                <div class="no-operation-text flex flex-center flex-middle">
+                    <span>Заблокированные операции<br/>(холды) отсутствуют.<br/>Все операции по карте<br/>отражены на счете</span>
+                </div>
+            </div>
+        </ion-content>
+    </ion-view>
+</div>

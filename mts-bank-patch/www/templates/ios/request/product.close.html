@@ -1,0 +1,51 @@
+<div ng-controller="ProductCloseCtrl">
+    <rs-header>Закрыть {{form.title}}</rs-header>
+    <div class="content content-body has-header" style="bottom: 64px;">
+        <ion-view>
+            <ion-content  class="bg-f0f4f5">
+                <rs-panel header-text="Текущий счет / вклад">
+                    <div class="list-block" style="margin:0;">
+                        <ul>
+                            <li ng-click="selectProductShow(form.productListForClosing, 'selectedProduct')">
+                                <rs-product rs-waiter="form.productListForClosing" product="form.selectedProduct"></rs-product>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+                <rs-panel header-text="Сумма при досрочном расторжении" ng-if="form.isDeposit && form.canClose && form.externalInterestAmount">
+                    <div class="list-block" style="margin:0;">
+                        <ul>
+                            <li class="item-content item-inner" ng-repeat="(currency, value) in form.externalInterestAmount">
+                                <div class="item-title text-15px">
+                                    <span ng-show="value" ng-bind="(value | defaultSum)"/>
+                                    <span ng-show="value" currency="{{currency}}"/>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+                <rs-panel header-text="Сумму с текущего счета/вклада перечислить на счет">
+                    <div class="list-block" style="margin:0;">
+                        <ul>
+                            <li ng-click="selectProductShow(form.productListForCredit, 'selectedProductForCredit')">
+                                <rs-product rs-waiter="form.productListForCredit" product="form.selectedProductForCredit"></rs-product>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+
+                <div ng-if="form.isDeposit && !form.canClose" style="margin: 15px;">
+                    <span class="text-bold text-red">Не удалось получить информацию о ставках досрочного расторжения. Повторите попытку позднее</span>
+                </div>
+
+                <div ng-if="!form.isDeposit && !form.canClose" style="margin: 15px;">
+                    <span class="text-bold text-red">Счет нельзя закрыть, т.к. он связан с продуктами: {{form.accountReference}}</span>
+                </div>
+            </ion-content>
+        </ion-view>
+    </div>
+    <button ng-if="form.canClose"
+            class="button button-full rs-button no-margin"
+            style="bottom: 0; position: absolute"
+            ng-click="sendOrder()">Отправить заявку</button>
+</div>

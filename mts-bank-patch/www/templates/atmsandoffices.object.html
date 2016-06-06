@@ -1,0 +1,52 @@
+<ion-view>
+    <rs-header ng-if="platform!=='android'" rbtn-action="makeRoute(point.geometry.coordinates)" rbtn-class="icon-route">{{point.title}}</rs-header>
+    <rs-header ng-if="platform==='android'" lbtn-class="icon-back" lbtn-action="goBack()">{{point.title}}</rs-header>
+    <div style="position: absolute; bottom: 0; width: 100%; height: auto;" class="has-header flex flex-column">
+        <div class="flex rs-geolocation-map">
+            <div id="rs-map-waiter" rs-waiter style="position:absolute;width:100%;height:100%;z-index:0;"></div>
+            <ymap ng-if="!adaptToWindowsphone" style="background-color: #f0f4f5;" map-center="{{point.geometry.coordinates}}" zoom="15" icon="img/ios/map.svg"
+                  icon-size="[36,36]" icon-offset="[-18,-36]" map="map" no-controls no-drag></ymap>
+            <ymap-wp ng-if="adaptToWindowsphone" style="background-color: #f0f4f5;" map-center="{{point.geometry.coordinates}}" zoom="15" icon="/www/img/ios/map.svg"
+                  icon-size="[36,36]" icon-offset="[-18,-36]" no-controls no-drag></ymap-wp>
+            <div class="rs-distance-balloon" ng-hide="distance == ''" ng-bind="distance"></div>
+        </div>
+        <div class="flex rs-geolocation-tooltip">
+            <ion-scroll style="width: 100%;" scrollbar-y="{{platform == 'ios' ? 'true' : 'false'}}">
+                <div class="list-block no-margin" style="width: 100%;">
+                    <ul class="flex flex-column" style="height: 100%;">
+                        <li class="item-content child-flex-1 flex flex-column" ng-class="{'item-inner': platform === 'android'}">
+                            <div class="child-flex-1 flex flex-column flex-start flex-center" ng-class="{'item-inner': platform !== 'android'}" style="width:100%">
+                                <div class="flex flex-middle rs-geolocation-object-property">{{point.properties.name}}&nbsp;</div>
+                                <div class="flex flex-middle rs-geolocation-object-property text-A1AEB3">{{point.properties.address}}&nbsp;</div>
+                            </div>
+                        </li>
+                        <li ng-if="point.properties.metro && !'/^нет данных$/i'.test(point.properties.metro)" class="item-content child-flex-1 flex flex-column" ng-class="{'item-inner': platform === 'android'}">
+                            <div class="child-flex-1 flex flex-column flex-start flex-center" ng-class="{'item-inner': platform !== 'android'}" style="width:100%">
+                                <div class="flex flex-middle rs-geolocation-object-property text-A1AEB3">Ближайшее метро</div>
+                                <div class="flex flex-middle rs-geolocation-object-property">{{point.properties.metro}}&nbsp;</div>
+                            </div>
+                        </li>
+                        <li ng-if="point.properties.hours" class="item-content child-flex-1 flex flex-column" ng-class="{'item-inner': platform === 'android'}">
+                            <div class="child-flex-1 flex flex-column flex-start flex-center" ng-class="{'item-inner': platform !== 'android'}" style="width:100%">
+                                <div class="flex flex-middle rs-geolocation-object-property text-A1AEB3">Режим работы</div>
+                                <div class="flex flex-middle rs-geolocation-object-property">{{point.properties.hours}}&nbsp;</div>
+                            </div>
+                        </li>
+                        <li ng-if="point.properties.services" class="item-content child-flex-1 flex flex-column" ng-class="{'item-inner': platform === 'android'}">
+                            <div class="child-flex-1 flex flex-column flex-start flex-center" ng-class="{'item-inner': platform !== 'android'}" style="width:100%">
+                                <div class="flex flex-middle rs-geolocation-object-property text-A1AEB3">Услуги</div>
+                                <div class="flex flex-middle rs-geolocation-object-property white-space-pre-line">{{formatServicesString(point.properties.services)}}</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </ion-scroll>
+        </div>
+
+        <button ng-if="platform === 'android'"
+                class="button no-margin rs-sysbutton rs-shadow icon-route-find"
+                ng-click="makeRoute(point.geometry.coordinates)"
+                style="background-size: 120%; background-position: center center;"></button>
+    </div>
+
+</ion-view>

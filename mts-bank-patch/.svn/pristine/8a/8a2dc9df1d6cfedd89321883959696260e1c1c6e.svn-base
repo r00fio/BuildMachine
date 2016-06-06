@@ -1,0 +1,23 @@
+<div>
+    <rs-header>{{retailClient.personalAccount.type.name}}</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <rs-panel>
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <fw7-li ng-repeat="field in retailClient.personalAccount.fields" title="{{field.name}}">
+                            <div class="item-input">
+                                <input type="text" placeholder="Не задано" ng-model="field.value" class="placeholder-gray">
+                            </div>
+                        </fw7-li>
+                        <fw7-li title="Наименование">
+                            <div class="item-input">
+                                <input type="text" placeholder="Не задано" ng-model="retailClient.personalAccount.desc" class="placeholder-gray">
+                            </div>
+                        </fw7-li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

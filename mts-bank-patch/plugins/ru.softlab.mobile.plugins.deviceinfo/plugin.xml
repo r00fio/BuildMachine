@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="ru.softlab.mobile.plugins.deviceinfo"
+    version="0.0.1">
+    <name>DeviceInfo</name>
+    <description>Yet Another Cordova Device Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,device</keywords>
+	<!-- fake repo -->
+    <repo>https://softlab.ru/</repo>
+    <issue>https://softlab.ru</issue>
+
+    <js-module src="www/deviceinfo.js" name="deviceinfo">
+        <clobbers target="deviceinfo" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="DeviceInfo" >
+                <param name="android-package" value="ru.softlab.mobile.plugins.deviceinfo.DeviceInfoPlugin"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/DeviceInfoPlugin.java" target-dir="src/ru/softlab/mobile/plugins/deviceinfo" />
+    </platform>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="DeviceInfo">
+                <param name="ios-package" value="CDVDeviceInfoPlugin"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/CDVDeviceInfoPlugin.h" />
+        <source-file src="src/ios/CDVDeviceInfoPlugin.m" />
+    </platform>
+
+  <!--  <platform name="wp8">
+        <config-file target="config.xml" parent="/*">
+            <feature name="DeviceInfo">
+                <param name="wp-package" value="DeviceInfoPlugin"/>
+            </feature>
+        </config-file>
+
+        <config-file target="Properties/WMAppManifest.xml" parent="/Deployment/App/Capabilities">
+            <Capability Name="ID_CAP_IDENTITY_DEVICE" />
+			<Capability Name="ID_CAP_NETWORKING" />
+			<Capability Name="ID_CAP_PROXIMITY" />
+        </config-file>
+
+        <source-file src="src/wp/DeviceInfoPlugin.cs" />
+    </platform> -->
+
+    <platform name="browser">
+        <config-file target="config.xml" parent="/*">
+            <feature name="DeviceInfo">
+                <param name="browser-package" value="DeviceInfoPlugin" />
+            </feature>
+        </config-file>
+
+        <js-module src="src/browser/DeviceInfoPlugin.js" name="DeviceInfoPlugin">
+            <runs />
+        </js-module>
+    </platform>
+
+	<platform name="windows">
+		<config-file target="package.appxmanifest" parent="/Package/Capabilities">
+            <DeviceCapability Name="proximity" />
+        </config-file>
+        <js-module src="src/windows/DeviceInfoProxy.js" name="DeviceInfoProxy">
+            <merges target="" />
+        </js-module>
+    </platform>
+	
+</plugin>

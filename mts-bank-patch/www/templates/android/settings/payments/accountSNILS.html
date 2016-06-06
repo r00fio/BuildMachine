@@ -1,0 +1,57 @@
+<div>
+    <rs-header lbtn-class="icon-close"
+               lbtn-action="goBackFromField()"
+               rbtn-class="icon-check-mark"
+               rbtn-action="retailClient.personalAccount.isCreated ? createPersonalAccount() : changePersonalAccount()">
+        СНИЛС
+    </rs-header>
+    <ion-view>
+        <ion-content class="has-header">
+            <rs-panel>
+                <div class="list-block list-block-separator-hidden next-block">
+                    <ul>
+                        <li>
+                            <div class="item-content item-inner">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-13px">Номер</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <input type="text"
+                                                       placeholder="Укажите"
+                                                       mask-restrict="reject"
+                                                       mask="999-999-999 99"
+                                                       ng-model="retailClient.personalAccount.NUMBER_SNILS">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-inner">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-13px">Наименование</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <input type="text"
+                                                       placeholder="Например, Мой СНИЛС"
+                                                       ng-model="retailClient.personalAccount.desc">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+        <div class="rs-button-del flex flex-center flex-middle" ng-if="!retailClient.personalAccount.isCreated" ng-click="deletePersonalAccount()">Удалить</div>
+    </ion-view>
+</div>

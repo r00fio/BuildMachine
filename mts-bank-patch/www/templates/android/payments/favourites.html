@@ -1,0 +1,25 @@
+<div ng-controller="FavouritesPaymentCtrl as favouritesPaymentCtrl">
+    <rs-header>Избранные платежи</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5" wp-ptr="doRefresh()" bg-color="#FFFFFF">
+            <ion-refresher on-refresh="doRefresh()" pulling-icon=""></ion-refresher>
+
+            <div class="list-block favorit-list">
+                <ul>
+                    <li class="item-content" ng-repeat="favorite in favoritList" ng-click="redirectToPayment(favorite)">
+                        <div class="item-media">
+                            <rs-operation-logo operation="favorite"></rs-operation-logo>
+                        </div>
+                        <div class="item-inner">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell text-15px favorit-text" style="white-space: normal;" ng-bind="favorite.name"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </ion-content>
+    </ion-view>
+</div>

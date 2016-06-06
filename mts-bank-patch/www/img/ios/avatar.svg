@@ -1,0 +1,27 @@
+<svg width="180px" height="180px" viewBox="0 0 180 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Mask + Imported Layers</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="90" cy="90" r="90"></circle>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Main_4" sketch:type="MSArtboardGroup" transform="translate(-230.000000, -170.000000)">
+            <g id="avatar" sketch:type="MSLayerGroup" transform="translate(220.000000, 160.000000)">
+                <g id="Mask-+-Imported-Layers" transform="translate(10.000000, 10.000000)">
+                    <mask id="mask-2" sketch:name="Mask" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                    <g id="Imported-Layers" mask="url(#mask-2)" sketch:type="MSShapeGroup">
+                        <g transform="translate(-3.000000, -2.000000)">
+                            <path d="M190.5,95.95 C190.5,127.848889 174.772222,156.085 150.642222,173.322222 C135.104444,184.416111 116.062222,190.95 95.5,190.95 C74.9483333,190.95 55.9272222,184.437222 40.4,173.343333 C16.2488889,156.116667 0.5,127.87 0.5,95.95 C0.5,43.4783333 43.0283333,0.95 95.5,0.95 C147.971667,0.95 190.5,43.4783333 190.5,95.95 L190.5,95.95 Z" id="Fill-1" fill="#DFE8EB"></path>
+                            <path d="M93.5,45 C110.897,45 125,59.103 125,76.5 C125,93.897 110.897,108 93.5,108 C76.103,108 62,93.897 62,76.5 C62,59.103 76.103,45 93.5,45 L93.5,45 Z" id="Fill-3" fill="#FFFFFF"></path>
+                            <path d="M145.74,166.25 C131.02,176.76 112.98,182.95 93.5,182.95 C74.03,182.95 56.01,176.78 41.3,166.27 C45.1,146.28 56.92,117 93.5,117 C130.06,117 141.91,146.25 145.74,166.25 L145.74,166.25 Z" id="Fill-5" fill="#FFFFFF"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

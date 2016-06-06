@@ -1,0 +1,16 @@
+<div>
+    <ion-view>
+        <rs-header ng-if="platform !== 'ios'">Бонусы</rs-header>
+        <div class="light-tabs dark-tab-theme" style="position:absolute; width:100%; height:44px;" ng-style="{top: platform !== 'ios' ? '44px' : '20px'}">
+            <label class="light-tab-title" ng-class="{active: getCurrentStateName() == 'bonuses.main'}" ui-sref="bonuses.main">Бонусы</label>
+            <label class="light-tab-title" ng-class="{active: getCurrentStateName() == 'bonuses.partners'}" ui-sref="bonuses.partners">Партнёры</label>
+            <label class="light-tab-title" ng-class="{active: getCurrentStateName() == 'bonuses.promos'}" ui-sref="bonuses.promos">Акции</label>
+        </div>
+
+        <ion-content ng-style="{top: platform !== 'ios' ? '89px' : '64px'}">
+            <div ui-view="bonuses-content"></div>
+        </ion-content>
+
+
+    </ion-view>
+</div>

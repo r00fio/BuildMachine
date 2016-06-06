@@ -1,0 +1,18 @@
+<ion-view>
+    <rs-header lbtn-class="icon-close" lbtn-action="closeMe()">{{header}}</rs-header>
+    <ion-content class="has-header">
+        <div class="content-block-title empty-title"></div>
+        <div class="list-block no-margin" ng-class="cssClass ? cssClass : null">
+            <ul>
+                <li ng-repeat="option in options" class="theme-mts" ng-click="select(option) + save() + closeMe()">
+                    <label class="label-radio item-content">
+                        <input type="radio" ng-checked="isSelected(option)">
+                        <div class="item-inner">
+                            <div class="item-title">{{getLabel(option)}}</div>
+                        </div>
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+</ion-view>

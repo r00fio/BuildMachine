@@ -1,0 +1,15 @@
+<svg width="34px" height="34px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Oval 55 + Rectangle 16 + Rectangle 16 Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Offices_2" sketch:type="MSArtboardGroup" transform="translate(-45.000000, -857.000000)">
+            <g id="Oval-55-+-Rectangle-16-+-Rectangle-16-Copy" sketch:type="MSLayerGroup" transform="translate(47.000000, 859.000000)">
+                <circle id="Oval-55" stroke="#667980" stroke-width="3" sketch:type="MSShapeGroup" cx="15" cy="15" r="15"></circle>
+                <rect id="Rectangle-16" fill="#667980" sketch:type="MSShapeGroup" x="14" y="5" width="3" height="12"></rect>
+                <rect id="Rectangle-16-Copy" fill="#667980" sketch:type="MSShapeGroup" transform="translate(19.500000, 15.500000) rotate(-90.000000) translate(-19.500000, -15.500000) " x="18" y="11" width="3" height="9"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

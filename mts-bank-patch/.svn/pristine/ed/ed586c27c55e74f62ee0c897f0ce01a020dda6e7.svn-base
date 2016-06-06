@@ -1,0 +1,19 @@
+<svg width="120px" height="120px" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>ico</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Izbrannie-Copy-6" sketch:type="MSArtboardGroup" transform="translate(-216.000000, -1127.000000)">
+            <g id="Card" sketch:type="MSLayerGroup" transform="translate(0.000000, 401.000000)">
+                <g id="First-2" transform="translate(216.000000, 726.000000)" sketch:type="MSShapeGroup">
+                    <g id="ico">
+                        <circle id="Mask" fill="#D8DFE1" cx="60" cy="60" r="60"></circle>
+                        <path d="M60.4484635,30.1293934 C71.909576,30.1293934 81.2006071,39.4204246 81.2006071,50.8815371 C81.2006071,62.3426495 71.909576,71.6336807 60.4484635,71.6336807 C48.987351,71.6336807 39.6963199,62.3426495 39.6963199,50.8815371 C39.6963199,39.4204246 48.987351,30.1293934 60.4484635,30.1293934 L60.4484635,30.1293934 Z" id="Fill-3" fill="#A1AEB3"></path>
+                        <path d="M94.6664426,108.808676 C84.9689329,115.732646 73.0842132,119.810607 60.250824,119.810607 C47.4240229,119.810607 35.5524791,115.745822 25.8615574,108.821852 C28.3649906,95.6524762 36.1519855,76.3628646 60.250824,76.3628646 C84.3364866,76.3628646 92.1432454,95.6327122 94.6664426,108.808676 L94.6664426,108.808676 Z" id="Fill-5" fill="#A1AEB3"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

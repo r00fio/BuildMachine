@@ -1,0 +1,51 @@
+<div>
+    <rs-header lbtn-class="icon-close"
+               lbtn-action="goBackFromField()"
+               rbtn-class="icon-check-mark"
+               rbtn-action="retailClient.personalAccount.isCreated ? createPersonalAccount() : changePersonalAccount()">
+        ФСПП
+    </rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <rs-panel>
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <fw7-li title="Фамилия">
+                            <div class="item-input">
+                                <input type="text"
+                                       placeholder="Укажите"
+                                       ng-model="retailClient.personalAccount.LAST_NAME_FEDERAL_BAILIFF_SERVICE"
+                                       style="color: #202426; font-size: 15px;">
+                            </div>
+                        </fw7-li>
+                        <fw7-li title="Имя">
+                            <div class="item-input">
+                                <input type="text"
+                                       placeholder="Укажите"
+                                       ng-model="retailClient.personalAccount.FIRST_NAME_FEDERAL_BAILIFF_SERVICE"
+                                       style="color: #202426; font-size: 15px;">
+                            </div>
+                        </fw7-li>
+                        <fw7-li title="Дата рождения">
+                            <div class="item-input">
+                                <input type="text"
+                                       placeholder="Укажите"
+                                       ng-model="retailClient.personalAccount.BIRTHDAY_FEDERAL_BAILIFF_SERVICE"
+                                       style="color: #202426; font-size: 15px;">
+                            </div>
+                        </fw7-li>
+                        <fw7-li title="Наименование">
+                            <div class="item-input">
+                                <input type="text"
+                                       placeholder="Например, Мой ФСПП"
+                                       ng-model="retailClient.personalAccount.desc"
+                                       style="color: #202426; font-size: 15px;">
+                            </div>
+                        </fw7-li>
+                    </ul>
+                </div>
+                <div class="rs-button-del flex flex-center flex-middle" ng-if="!retailClient.personalAccount.isCreated" ng-click="deletePersonalAccount()">Удалить</div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

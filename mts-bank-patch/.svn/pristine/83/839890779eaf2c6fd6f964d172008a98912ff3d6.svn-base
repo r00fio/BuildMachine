@@ -1,0 +1,28 @@
+<div class="rs-tutorial-container">
+    <div class="relative height100pc">
+        <div class="rs-tutorial-close icon-close" ng-click="hideTutorial()"></div>
+
+        <div class="rs-tutorial-content">
+            <div class="relative height100pc">
+                <ion-slide-box class="height100pc" on-slide-changed="tutorialSlideHasChanged($index)" delegate-handle="tutorial-slide-box">
+                    <ion-slide>
+                        <div class="rs-tutorial-image" style="background-image: url(img/tutorial1.png);"></div>
+                        <div class="rs-tutorial-desc">
+                            <div class="rs-tutorial-caption">Уведомления</div>
+                            <div class="rs-tutorial-text">Все уведомления доступны на главной странице</div>
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                        <div class="rs-tutorial-image" style="background-image: url(img/tutorial1.png);"></div>
+                        <div class="rs-tutorial-desc">
+                            <div class="rs-tutorial-caption">Жесты и управления</div>
+                            <div class="rs-tutorial-text">Сдвинув строку на страницу &laquo;Мои финансы&raquo;, Вы можете запустить быстрое действие &mdash; скрыть, пополнить, заблокировать</div>
+                        </div>
+                    </ion-slide>
+                </ion-slide-box>
+            </div>
+        </div>
+
+        <div class="rs-button rs-tutorial-bottom-btn flex flex-center flex-middle" ng-click="tutorialNextSlide()">{{tutorialButtonText}}</div>
+    </div>
+</div>

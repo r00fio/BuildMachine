@@ -1,0 +1,353 @@
+<div ng-controller="PaymentBaseCtrl as paymentBaseCtrl">
+<div ng-controller="PaymentWithDetailsCtrl as paymentWithDetailsCtrl">
+    <rs-header rbtn-class="{{payment.fromTemplate && !isViewMode() ? 'icon-tuning' : ''}}" rbtn-action="payment.fromTemplate && !isViewMode()? setEditTemplateMode($event) : 0">{{payment.paymentTitle}}</rs-header>
+    <ion-view>
+        <div ng-hide="retailClient" rs-waiter="retailClient" rs-waiter-size="big" class="rs-backdrop-modal"></div>
+
+        <ion-content class="has-header bg-f0f4f5" rs-waiter="retailClient">
+
+            <div ng-include="'templates/ios/payments/payment.favourite.html'"></div>
+
+            <rs-panel>
+                <div class="list-block" style="margin: 0;">
+                    <ul style="padding-top: 10px; padding-bottom: 10px;">
+                        <li ng-if="payment.sourceProduct" ng-disabled="isViewMode()" ng-click="selectProductShow(payment.paymentSourceList, 'sourceProduct')">
+                            <rs-product product="payment.sourceProduct" show-card-account="{{(payment.transferType.strId === 'BROKER') && showCardAccount(payment.sourceProduct, payment.payeeAccount)}}"></rs-product>
+                        </li>
+                        <li ng-if="!payment.paymentSourceList" class="item-content" style="padding: 0;">
+                            <div class="item-inner" rs-waiter="payment.paymentSourceList" style="padding: 0;"></div>
+                        </li>
+                        <li ng-if="payment.paymentSourceList && payment.sourceProduct == null"
+                            ng-disabled="isViewMode()" class="item-content item-link"
+                            ng-click="selectProductShow(payment.paymentSourceList, 'sourceProduct')">
+
+                            <div class="item-inner">
+                                <div class="item-title text-15px">Выбрать продукт</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+
+            <rs-panel ng-if="isTaxOrBudgetPayment()" header-text="Реквизиты плательщика">
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">Наименование</div>
+                                <div class="item-after" ng-bind="payment.clientName"></div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;">ИНН</div>
+                                <div class="item-input">
+                                    <input ng-disabled="isViewMode()"
+                                           maxlength="12"
+                                           type="text" ng-model='payment.clientINN'/>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+
+            <div class="rs-content-panel">
+                <div class="rs-content-panel-header text-align-center">
+                    <img src="img/payto.svg" style="height: 4vw;" />
+                </div>
+            </div>
+
+            <rs-panel ng-if="!isBrokerAccountTransfer()" header-text="Реквизиты банка получателя">
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;">БИК</div>
+                                <div class="item-input">
+                                    <input ng-disabled="isViewMode()" ng-change="checkPayeeBankBIC()"
+                                           type="text" maxlength="9" ng-model='payment.payeeBankBIK'/>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;">Наименование</div>
+                                <div class="item-input">
+                                    <input ng-disabled="isViewMode() || payment.isFilledBIK"
+                                           maxlength="255"
+                                           type="text" ng-model='payment.payeeBankName'/>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;">Кор. счет</div>
+                                <div class="item-input">
+                                    <input ng-disabled="isViewMode() || payment.isFilledBIK"
+                                           maxlength="20"
+                                           type="text" ng-model='payment.payeeBankCorAcc'/>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+
+            <rs-panel header-text="Реквизиты получателя платежа">
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <rs-select header-text="Получатель платежа" ng-if="isVisiblePayeeTypeSet()"
+                                   value-text="{{payment.payeeTypeDesc ? payment.payeeTypeDesc : ''}}"
+                                   value-class="item-after-multiline"
+                                   ng-click="onSelectCodifierPanel(payment.personTypes, 'personTypes')"
+                                   ng-disabled="isViewMode()">
+                        </rs-select>
+                        <rs-select header-text="Перевести" ng-if="isPersonTransferType()"
+                                   value-text="{{payment.naturalPersonSelected ? payment.naturalPersonSelected.desc : ''}}"
+                                   value-class="item-after-multiline"
+                                   ng-click="onSelectCodifierPanel(payment.naturalPersonTypes, 'naturalPersonTypes')"
+                                   ng-disabled="isViewMode()">
+                        </rs-select>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;">Счет</div>
+                                <div class="item-input">
+                                    <input ng-disabled="isViewMode()"
+                                           maxlength="20"
+                                           type="text" ng-model='payment.payeeAccount'/>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;" ng-bind="isPersonTransferType() ? 'Ф.И.О.' : 'Наименование'"></div>
+                                <div class="item-input">
+                                    <input ng-disabled="isViewMode() || isReadOnlyPayeeName()"
+                                           maxlength="160"
+                                           type="text" ng-model='payment.payeeName'/>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content" ng-if="isJuridicalOrTaxOrBudgetPayment()">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;">ИНН</div>
+                                <div class="item-input">
+                                    <input ng-disabled="isViewMode()"
+                                           maxlength="{{payment.payeeTypeValue == payment.personTypes.JURIDICAL.strId ? 10 : 12}}"
+                                           type="text" ng-model='payment.payeeINN'/>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content" ng-if="isJuridicalOrTaxOrBudgetPayment()">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;">КПП</div>
+                                <div class="item-input">
+                                    <input ng-disabled="isViewMode()"
+                                           maxlength="9"
+                                           mask-restrict="reject"
+                                           mask="9999A?9?A?9?999"
+                                           type="text" ng-model='payment.payeeKPP'/>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content" ng-if="isTaxOrBudgetPayment()">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;">УИН</div>
+                                <div class="item-input">
+                                    <input ng-disabled="isViewMode()"
+                                           maxlength="30"
+                                           type="text" ng-model='payment.payCode'/>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+
+            <!-- Перевод на брокерский счёт-->
+            <rs-panel ng-if="isBrokerAccountTransfer()">
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;">Номер договора</div>
+                                <div class="item-input">
+                                    <input ng-disabled="isViewMode()"
+                                           ng-blur="updateGroundBroker()"
+                                           maxlength="6"
+                                           type="text" ng-model='payment.agreementNumber'/>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;">Дата договора</div>
+                                <div class="item-input">
+                                    <input ng-disabled="isViewMode()"
+                                           ng-change="updateGroundBroker()"
+                                           rs-date-picker
+                                           type="text" ng-model='payment.agreementDate'/>
+                                </div>
+                            </div>
+                        </li>
+                        <rs-select header-text="Торговая система"
+                                   value-text="{{payment.brokerTradeMarket ? payment.brokerTradeMarket.desc : ''}}"
+                                   value-class="item-after-multiline"
+                                   ng-click="onSelectCodifierPanel(payment.brokerTradeMarketList, 'brokerTradeMarket')"
+                                   ng-disabled="isViewMode()">
+                        </rs-select>
+                        <li class="item-content" ng-if="payment.ground">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;">Назначение платежа</div>
+                                <div class="item-input">
+                                    <div ng-bind="payment.ground" style="white-space: normal;"/>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+
+            <!-- Для перевода на брокерский счёт div чуть выше -->
+            <rs-panel ng-if="!isBrokerAccountTransfer()">
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;">Назначение платежа</div>
+                                <div class="item-input">
+                                    <input ng-disabled="isViewMode()"
+                                           maxlength="160"
+                                           type="text" ng-model='payment.ground'/>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+
+            <rs-panel ng-if="isJuridicalPayment()">
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <rs-select header-text="Информация об НДС" ng-if="isVisiblePayeeTypeSet()"
+                                   value-text="{{payment.paymentVatValue ? payment.paymentVatValue.desc : ''}}"
+                                   value-class="item-after-multiline"
+                                   ng-click="onSelectCodifierPanel(payment.paymentVats, 'paymentVats')"
+                                   ng-disabled="isViewMode()">
+                        </rs-select>
+                        <li class="item-content" ng-if="payment.paymentVatValue && !payment.paymentVatValue.included && payment.paymentVatValue.nds != 0">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;">Сумма НДС</div>
+                                <div class="item-after">
+                                    {{payment.paymentVatSum}}<span ng-if="payment.sourceProduct" currency="{{payment.sourceProduct.currency}}"></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+
+            <rs-panel ng-if="isTaxOrBudgetPayment()" header-text="Налоговые поля">
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <rs-select header-text="Статус составителя (101)" ng-if="payment.taxPayerStates.length > 0"
+                                   value-text="{{payment.taxStatusValue ? payment.taxStatusValue : ''}}"
+                                   ng-click="onSelectCodifierPanel(payment.taxPayerStates, 'taxPayerStates', true)"
+                                   ng-disabled="isViewMode()">
+                        </rs-select>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;">КБК (104)</div>
+                                <div class="item-input">
+                                    <input ng-disabled="isViewMode()"
+                                           maxlength="20"
+                                           type="text" ng-model='payment.KBK'/>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;">ОКТМО (105)</div>
+                                <div class="item-input">
+                                    <input ng-disabled="isViewMode()"
+                                           maxlength="11"
+                                           type="text" ng-model='payment.payerOkato'/>
+                                </div>
+                            </div>
+                        </li>
+                        <rs-select header-text="Основание налогового платежа (106)" ng-if="payment.isTaxPayment"
+                                   value-text="{{payment.taxGroundValue ? payment.taxGroundValue : ''}}"
+                                   ng-click="onSelectCodifierPanel(payment.taxPaymentGrounds, 'taxPaymentGrounds', true)"
+                                   ng-disabled="isViewMode() || payment.taxPaymentGrounds.length == 0">
+                        </rs-select>
+                        <li ng-if="payment.isTaxPayment" class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;">Налоговый период (107)</div>
+                                <div class="item-input">
+                                    <input ng-disabled="isViewMode()"
+                                           maxlength="10"
+                                           type="text" ng-model='payment.taxPeriod'/>
+                                </div>
+                            </div>
+                        </li>
+                        <li ng-if="payment.isTaxPayment" class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;">Номер документа (108)</div>
+                                <div class="item-input">
+                                    <input ng-disabled="isViewMode()"
+                                           maxlength="255"
+                                           type="text" ng-model='payment.taxDocNumber'/>
+                                </div>
+                            </div>
+                        </li>
+                        <li ng-if="payment.isTaxPayment" class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;">Дата документа (109)</div>
+                                <div class="item-input">
+                                    <input ng-disabled="isViewMode()"
+                                           maxlength="10"
+                                           type="text" ng-model='payment.taxDocDate'/>
+                                </div>
+                            </div>
+                        </li>
+                        <li ng-if="payment.isTaxPayment" class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;">Тип налогового платежа (110)</div>
+                                <div class="item-input">
+                                    <input ng-disabled="true"
+                                           type="text" ng-model='payment.taxTypeValue'/>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+
+            <rs-panel>
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;">Сумма</div>
+                                <div class="item-input">
+                                    <input ng-disabled="isViewMode()"
+                                           ng-keyup="onChangeSum()"
+                                           type="number" ng-model="payment.sum"/>
+                                    <span style="position: absolute; right: 0; top: 17px;" ng-if="payment.sourceProduct" currency="{{payment.sourceProduct.currency}}"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <div ng-include="'templates/ios/payments/payment.commission.html'"></div>
+                    </ul>
+                </div>
+            </rs-panel>
+
+            <div ng-include="'templates/ios/payments/payment.favourite.fields.html'"></div>
+            <div ng-include="'templates/ios/payments/payment.actions.html'"></div>
+
+        </ion-content>
+
+    </ion-view>
+</div>
+</div>

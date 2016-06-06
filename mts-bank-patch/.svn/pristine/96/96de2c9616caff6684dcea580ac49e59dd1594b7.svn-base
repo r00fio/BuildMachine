@@ -1,0 +1,48 @@
+<div>
+    <rs-header lbtn-action="back()">Авторизация</rs-header>
+    <ion-view>
+        <ion-content class="has-header" scroll="false">
+            <div class="login-page-ios">
+                <div class="list-block">
+                    <ul>
+                        <li>
+                            <div focus-input class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label text-15px text-gray">Логин</div>
+                                    <div class="item-input">
+                                        <input input-clear-btn type="text" ng-model="user.login"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div focus-input class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label text-15px text-gray">Пароль</div>
+                                    <div class="item-input">
+                                        <input input-clear-btn id="password" type="password" ng-model="user.password"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex flex-middle">
+                    <ion-toggle class="no-background no-border width100pc text-12px text-gray" ng-model="user.setShortCode" ng-change="saveSetShortCode()">Задать код быстрого доступа</ion-toggle>
+                </div>
+                <!-- по запросу #097339
+                <div class="rs-button-demo flex flex-center flex-middle" ng-click="authorize(true)()">Демо-доступ</div>
+                -->
+            </div>
+            <div class="width100pc restore-access flex flex-column flex-vertical-end">
+                <div class="width100pc flex flex-center">
+                    <img src="img/ios/auth-block.svg" class="auth-block-img" ui-sref="login.restoreAccess"/>
+                </div>
+                <div class="text-align-center text-15px text-667980" ui-sref="login.restoreAccess">
+                    Восстановить доступ
+                </div>
+            </div>
+        </ion-content>
+        <button class="btn-in" ng-click="authorize(false)">Войти</button>
+    </ion-view>
+</div>

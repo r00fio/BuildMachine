@@ -1,0 +1,19 @@
+<svg width="40px" height="36px" viewBox="0 0 40 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>news_icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Main" sketch:type="MSArtboardGroup" transform="translate(-510.000000, -242.000000)" fill="#667980">
+            <g id="news" sketch:type="MSLayerGroup" transform="translate(373.000000, 120.000000)">
+                <g id="news_icon" transform="translate(137.000000, 122.000000)" sketch:type="MSShapeGroup">
+                    <path d="M36,3 L31.945,3 C31.945,3 31.945,0 28.016,0 L4,0 C1.791,0 0,1.791 0,4 L0,32 C0,34.209 1.791,36 4,36 L36,36 C38.209,36 40,34.209 40,32 L40,7 C40,4.791 38.209,3 36,3 L36,3 Z M28.016,30 C28.016,31.105 27.121,32 26.016,32 L5.986,32 C4.884,32 3.991,31.107 3.991,30.005 L3.991,6 C3.991,4.895 4.886,4 5.991,4 L26.021,4 C27.123,4 28.016,4.893 28.016,5.995 L28.016,30 L28.016,30 Z M36,30 C36,31.105 35.105,32 34,32 L33.945,32 C32.84,32 31.945,31.105 31.945,30 L31.945,8 C31.945,7.448 32.392,7 32.944,7 L35,7 C35.552,7 36,7.448 36,8 L36,30 L36,30 Z" id="Fill-1"></path>
+                    <path d="M23,8 L19,8 C18.45,8 18,8.45 18,9 L18,11 C18,11.55 18.45,12 19,12 L23,12 C23.55,12 24,11.55 24,11 L24,9 C24,8.45 23.55,8 23,8" id="Fill-2"></path>
+                    <path d="M9,12 L13,12 C13.55,12 14,11.55 14,11 L14,9 C14,8.45 13.55,8 13,8 L9,8 C8.45,8 8,8.45 8,9 L8,11 C8,11.55 8.45,12 9,12" id="Fill-3"></path>
+                    <path d="M23,16 L9,16 C8.45,16 8,16.45 8,17 L8,19 C8,19.55 8.45,20 9,20 L23,20 C23.55,20 24,19.55 24,19 L24,17 C24,16.45 23.55,16 23,16" id="Fill-4"></path>
+                    <path d="M23,24 L9,24 C8.45,24 8,24.45 8,25 L8,27 C8,27.55 8.45,28 9,28 L23,28 C23.55,28 24,27.55 24,27 L24,25 C24,24.45 23.55,24 23,24" id="Fill-5"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

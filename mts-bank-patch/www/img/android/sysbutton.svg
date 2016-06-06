@@ -1,0 +1,13 @@
+<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon-plus</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Main-Copy" sketch:type="MSArtboardGroup" transform="translate(-927.000000, -2905.000000)" fill="#FFFFFF">
+            <g id="Button/Floating_Large" sketch:type="MSLayerGroup" transform="translate(864.000000, 2841.000000)">
+                <path d="M81,88 L63,88 L63,82 L81,82 L81,64 L87,64 L87,82 L105,82 L105,88 L87,88 L87,106 L81,106 L81,88 Z" id="Icon-plus" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

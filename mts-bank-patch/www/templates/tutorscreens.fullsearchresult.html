@@ -1,0 +1,22 @@
+<div class="rs-tutorscreens-fullsearch">
+    <div class="relative height100pc">
+        <ion-content>
+
+            <div ui-view="tutorscreen-answer-content">
+                <div class="list-block no-margin">
+                    <ul>
+                        <div ng-repeat="question in filteredQuestions | filter:search.question">
+                            <li class="list-group-title item-content bg-f0f4f5">{{question.category}}</li>
+                            <li ui-sref="tutorscreens.questions.answer({tsqId: question.id, question: question})">
+                                <a href="#" class="item-content item-link" ng-click="$event.preventDefault()">
+                                    <div class="item-inner" style="white-space:normal;">{{question.name}}</div>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+
+        </ion-content>
+    </div>
+</div>

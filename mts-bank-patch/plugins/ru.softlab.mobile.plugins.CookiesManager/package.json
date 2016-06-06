@@ -1,0 +1,12 @@
+{
+    "version": "0.0.1",
+    "name": "ru.softlab.mobile.plugins.CookiesManager",
+    "cordova_name": "CookiesManager",
+    "description": "Cordova Cookies Plugin",
+    "license": "Apache 2.0",
+    "keywords": [
+        "cordova",
+        "cookies"
+    ],
+    "engines": []
+}

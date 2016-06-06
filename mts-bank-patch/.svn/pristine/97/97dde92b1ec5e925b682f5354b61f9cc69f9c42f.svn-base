@@ -1,0 +1,24 @@
+<svg width="65px" height="65px" viewBox="0 0 65 65" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Oval 2 Copy 49 + Oval 2 Copy 48</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" filterRes="130" id="filter-1">
+            <feOffset dx="0" dy="5" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.363136889 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Offices_2" sketch:type="MSArtboardGroup" transform="translate(-79.000000, -211.000000)">
+            <g id="Oval-2-Copy-49-+-Oval-2-Copy-48" sketch:type="MSLayerGroup" transform="translate(89.000000, 216.000000)">
+                <path d="M22.5,45 C34.9264069,45 45,34.9264069 45,22.5 C45,10.0735931 34.9264069,0 22.5,0 C10.0735931,0 0,10.0735931 0,22.5 C0,34.9264069 10.0735931,45 22.5,45 Z" id="Oval-2-Copy-49" stroke-opacity="0.9" stroke="#FFFFFF" stroke-width="5" fill="#24A7B3" filter="url(#filter-1)" sketch:type="MSShapeGroup"></path>
+                <path d="M22.5,33 C28.2989899,33 33,28.2989899 33,22.5 C33,16.7010101 28.2989899,12 22.5,12 C16.7010101,12 12,16.7010101 12,22.5 C12,28.2989899 16.7010101,33 22.5,33 Z" id="Oval-2-Copy-48" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

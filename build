@@ -3,7 +3,7 @@
 cwd=$(pwd)
 cwd="$HOME"/Work/buildmachine
 CNT=1
-WORKSPACE="$HOME"/Work/mts/mts/MTS\ MB/mts-bank-patch
+WORKSPACE="$HOME"/Work/buildmachine/mts-bank-patch
 DESTINATION="$HOME"/Documents
 PROVISIONING_PROFILES="$HOME"/Library/MobileDevice/Provisioning\ Profiles
 PROVISIONING_PROFILE="$PROVISIONING_PROFILES"/2848f246-b7d5-4168-801d-8393efb92221.mobileprovision

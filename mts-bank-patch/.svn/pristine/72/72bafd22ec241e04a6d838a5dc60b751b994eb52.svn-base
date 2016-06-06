@@ -1,0 +1,16 @@
+<svg width="60px" height="61px" viewBox="0 0 60 61" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Oval 67 + Imported Layers</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Popover_1_del-Copy-3" sketch:type="MSArtboardGroup" transform="translate(-46.000000, -140.625000)">
+            <g id="Popover" sketch:type="MSLayerGroup" transform="translate(16.000000, 100.000000)">
+                <g id="Oval-67-+-Imported-Layers" transform="translate(30.000000, 41.000000)" sketch:type="MSShapeGroup">
+                    <circle id="Oval-67" fill="#EB3642" cx="30" cy="30" r="30"></circle>
+                    <path d="M41.1649148,37.95 L33.1296876,29.9147727 L41.1649148,21.8795455 C42.0524148,20.9920455 42.0524148,19.5522727 41.1649148,18.6647727 C40.2774148,17.7784091 38.8376421,17.7784091 37.9501421,18.6647727 L29.9149148,26.7 L21.8796876,18.6647727 C20.9921876,17.7784091 19.5535512,17.7784091 18.6660512,18.6647727 C17.7785512,19.5522727 17.7785512,20.9920455 18.6660512,21.8795455 L26.7012785,29.9147727 L18.6660512,37.95 C17.7785512,38.8375 17.7774148,40.2761364 18.6660512,41.1647727 C19.5535512,42.0511364 20.9921876,42.0511364 21.8796876,41.1636364 L29.9149148,33.1284091 L37.9501421,41.1647727 C38.8376421,42.0511364 40.2774148,42.0511364 41.1649148,41.1647727 C42.0524148,40.2761364 42.0524148,38.8375 41.1649148,37.95" id="Imported-Layers" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

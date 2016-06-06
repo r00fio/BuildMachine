@@ -1,0 +1,163 @@
+<div ng-controller="PaymentBaseCtrl as paymentBaseCtrl">
+    <div ng-controller="ServicePayCtrl as servicePayCtrl" class="subpayment-page">
+        <rs-header rbtn-class="{{payment.fromTemplate && !isViewMode() ? 'icon-tuning' : ''}}"
+                   rbtn-action="payment.fromTemplate && !isViewMode()? setEditTemplateMode($event) : 0">
+            {{payment.paymentTitle}}
+        </rs-header>
+        <ion-view>
+            <ion-content class="has-header bg-f0f4f5">
+
+                <div ng-include="'templates/android/payments/payment.favourite.html'"></div>
+
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li ng-if="payment.sourceProduct" ng-disabled="isViewMode()"
+                            ng-click="selectProductShow(payment.paymentSourceList, 'sourceProduct')">
+                            <rs-product product="payment.sourceProduct"></rs-product>
+                        </li>
+                        <li ng-if="!payment.paymentSourceList" class="item-content">
+                            <div class="item-inner" rs-waiter="payment.paymentSourceList"></div>
+                        </li>
+                        <li ng-if="payment.paymentSourceList && payment.sourceProduct == null"
+                            ng-disabled="isViewMode()" class="item-content"
+                            ng-click="selectProductShow(payment.paymentSourceList, 'sourceProduct')">
+
+                            <div class="item-inner">
+                                <div class="item-title text-15px text-gray">Выбрать продукт</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="rs-content-panel">
+                    <div class="rs-content-panel-header text-align-center">
+                        <img src="img/payto.svg" class="pay-to-svg"/>
+                    </div>
+                </div>
+
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-media category-logo-pay">
+                                <payment-category-logo category="{{payment.tile}}"></payment-category-logo>
+                            </div>
+                            <div class="item-inner">
+                                <div class="table-row">
+                                    <div class="table-cell text-15px name-product-for-pay"
+                                         ng-bind="payment.tile.name"></div>
+                                </div>
+                                <div ng-if="payment.tile.commission" class="table-row">
+                                    <span class="table-cell text-12px text-gray">Комиссия {{payment.tile.commission}}%</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="relative">
+                    <div class="list-block telephone-number-for-pay" style="margin: 0;">
+                        <ul>
+                            <li rs-waiter="payment.additionalFields"
+                                ng-repeat="field in payment.additionalFields | filter: {type : '!set'}"
+                                ng-class="{'item-link': (field.type == 'list')}">
+                                <div ng-if="field.type != 'list'" class="item-inner">
+                                    <div>
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <!-- Если есть маска - длину не ограничиваем (со скобками в телефоне косяк) -->
+                                                <input ng-if="field.mask"
+                                                       type="text"
+                                                       ng-disabled="isViewMode()"
+                                                       mask-restrict="reject"
+                                                       ng-attr-mask-clean="{{field.stripMask ? 'true' : 'false'}}"
+                                                       mask="{{field.mask}}"
+                                                       ng-model='field.value'
+                                                       class="placeholder-gray"/>
+                                                <!-- А если маски нет, то ограничение длины остаётся -->
+                                                <input ng-if="!field.mask"
+                                                       type="text"
+                                                       ng-disabled="isViewMode()"
+                                                       maxlength="{{field.maxLength}}"
+                                                       ng-model='field.value'
+                                                       class="placeholder-gray"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li rs-waiter="payment.additionalFields"
+                            ng-repeat="field in payment.additionalFields | filter: {type : '!set'}"
+                            ng-class="{'item-link': (field.type == 'list')}">
+                            <div ng-if="field.type == 'list'" class="item-inner item-link"
+                                 ng-disabled="isViewMode()"
+                                 ng-click="onSelectCodifierPanel(field.possibleValues, field.strId, field.value)">
+                                <div class="item-title" style="white-space: normal; width: 50%;"
+                                     ng-bind="field.name"></div>
+                                <div class="item-after" style="white-space: normal; width: 50%;"
+                                     ng-bind="getValueByStrId(field.possibleValues, field.value)"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <rs-panel ng-repeat="field in payment.additionalFields | filter: {type : 'set'}"
+                          header-text="{{field.name}}">
+                    <div class="list-block" style="margin: 0;">
+                        <ul>
+                            <li ng-repeat="possibleValue in field.possibleValues">
+                                <div class="item-content item-inner flex flex-middle">
+                                    <div class="margin-right-15px">
+                                        <label class="label-checkbox">
+                                            <input ng-disabled="isViewMode()" type="checkbox"
+                                                   ng-model="possibleValue.selected">
+                                            <div class="item-media">
+                                                <i class="icon icon-form-checkbox"></i>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div ng-bind="possibleValue.value"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+
+                <rs-panel>
+                    <div class="list-block summ-block-for-pay" style="margin: 0;">
+                        <ul>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray">Сумма</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <input type="number" class="placeholder-gray text-left"
+                                                       ng-disabled="isViewMode()"
+                                                       ng-model="payment.sum" placeholder="Сумма, ₽"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <div ng-include="'templates/android/payments/payment.sum.with.commission.html'"></div>
+                        </ul>
+                    </div>
+                </rs-panel>
+                <div ng-include="'templates/android/payments/payment.commission.html'"></div>
+
+                <div ng-include="'templates/android/payments/payment.favourite.fields.html'"></div>
+                <div ng-include="'templates/android/payments/payment.actions.html'"></div>
+
+            </ion-content>
+
+        </ion-view>
+    </div>
+</div>

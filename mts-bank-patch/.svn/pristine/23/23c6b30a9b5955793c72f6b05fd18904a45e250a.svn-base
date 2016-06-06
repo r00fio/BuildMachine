@@ -1,0 +1,44 @@
+<svg width="130px" height="130px" viewBox="0 0 130 130" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Button/Floating_Large</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="16.5799975%" y1="100%" x2="16.5799975%" y2="86.506958%" id="linearGradient-1">
+            <stop stop-color="#000000" stop-opacity="0.04" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="23.6621094%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" stop-opacity="0.8" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2.25" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.084 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.168 0" in="shadowBlurOuter2" type="matrix" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <circle id="path-4" cx="60" cy="60" r="60"></circle>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Translate" sketch:type="MSArtboardGroup" transform="translate(-43.000000, -394.000000)">
+            <g id="Button/Floating_Large" sketch:type="MSLayerGroup" transform="translate(48.000000, 396.000000)">
+                <g id="Oval-6" filter="url(#filter-3)" stroke-width="1.5">
+                    <use stroke="url(#linearGradient-1)" fill="#FFFFFF" fill-rule="evenodd" sketch:type="MSShapeGroup" xlink:href="#path-4"></use>
+                    <use stroke="url(#linearGradient-2)" fill="none" xlink:href="#path-4"></use>
+                    <use stroke-opacity="0.02" stroke="#000000" fill="none" xlink:href="#path-4"></use>
+                </g>
+                <g id="Imported-Layers-Copy" transform="translate(28.000000, 34.000000)" fill="#667980" sketch:type="MSShapeGroup">
+                    <path d="M55.08,15.1636364 L45.36,26.6181818 L51.83514,26.6181818 C51.83514,28.4607273 51.57594,30.3654545 50.99274,32.3127273 C48.86568,39.4210909 42.99966,44.7343636 35.75178,45.9681818 C29.14056,47.094 23.01696,44.8129091 18.78228,40.596 C17.62722,39.444 15.73506,39.2361818 14.45202,40.2409091 C12.90978,41.4452727 12.72996,43.7378182 14.06646,45.0943636 C19.29744,50.3978182 26.75106,53.4578182 34.911,52.6805455 C46.86822,51.54 56.63358,41.9181818 58.11912,29.8794545 C58.2552,28.7765455 58.30056,27.6916364 58.30056,26.6181818 L64.8,26.6181818 L55.08,15.1636364" id="Fill-1"></path>
+                    <path d="M12.97134,26.6181818 C12.97134,24.5825455 13.29534,22.4667273 14.07456,20.2854545 C16.7184,12.8858182 23.45598,7.47927273 31.23036,7.01618182 C36.69948,6.69054545 41.71662,8.66727273 45.4329,12.0692727 C46.69164,13.2212727 48.63726,13.1263636 49.8393,11.9121818 C51.17256,10.5654545 51.06888,8.38090909 49.66272,7.10945455 C44.69418,2.61436364 38.0052,0.0207272727 30.7071,0.490363636 C18.02088,1.30690909 7.59456,11.6470909 6.56748,24.4450909 C6.50916,25.1765455 6.49134,25.8998182 6.49134,26.6181818 L0,26.6181818 L8.42076,36.5410909 C8.46774,36.6589091 8.50986,36.78 8.55846,36.8978182 L8.64756,36.8078182 L9.72,38.0727273 L19.44,26.6181818 L12.97134,26.6181818" id="Fill-2"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

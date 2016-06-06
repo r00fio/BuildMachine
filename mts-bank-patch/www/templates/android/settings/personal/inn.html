@@ -1,0 +1,33 @@
+<div>
+    <rs-header lbtn-class="icon-close"      lbtn-action="goBackFromField()"
+               rbtn-class="icon-check-mark" rbtn-action="changeFieldValue()">ИНН</rs-header>
+    <ion-view>
+        <ion-content class="has-header personal-page">
+            <rs-panel>
+                <div class="list-block next-block">
+                    <ul>
+                        <li>
+                            <div class="item-content item-inner">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-13px">Номер</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <input type="text"
+                                                       mask-restrict="reject"
+                                                       mask="999999999999"
+                                                       ng-model="fieldValue.value">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

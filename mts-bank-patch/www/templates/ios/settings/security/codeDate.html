@@ -1,0 +1,47 @@
+<div ng-init="resetUserCodeDate()">
+    <rs-header lbtn-class="icon-close"
+               rbtn-class="icon-check-mark" rbtn-action="changeCodeDate()">Кодовая дата</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <rs-panel>
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li ng-show="retailClient.isCodeDate" class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title text-15px width100pc">Изменить кодовую дату</div>
+                                <div class="item-after">
+                                    <rs-toggle ng-model="user.isCodeDate"></rs-toggle>
+                                </div>
+                            </div>
+                        </li>
+                        <li ng-hide="retailClient.isCodeDate" class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title text-15px width100pc">Задать кодовую дату</div>
+                                <div class="item-after">
+                                    <rs-toggle ng-model="user.isCodeDate"></rs-toggle>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <rs-panel ng-if="user.isCodeDate">
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li class="code-date-input">
+                            <rs-date-picker-ios value-date="user.codeDateObj" field-id="code-date" title="Кодовая дата" placeholder="Укажите кодовую дату" hide-date="true"/>
+                        </li>
+                        <fw7-li title="Подсказка">
+                            <div class="item-input">
+                                <input type="text"
+                                       placeholder="Укажите"
+                                       style="color: #202426; font-size: 15px;"
+                                       ng-model="user.codeDateHint"/>
+                            </div>
+                        </fw7-li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

@@ -1,0 +1,13 @@
+<div ng-controller="BankCardSendEmailCtrl as bankCardSendEmailCtrl">
+    <rs-header>Отправить на почту</rs-header>
+    <ion-view>
+        <ion-content scroll="false" class="has-header bg-f0f4f5">
+            <rs-panel header-text="E-MAIL">
+                <label class="item item-input">
+                    <input input-clear-btn type="text" ng-model="bankCardSendEmailCtrl.email">
+                </label>
+            </rs-panel>
+            <button class="button rs-button" ng-click="bankCardSendEmailCtrl.sendEmail()">Отправить</button>
+        </ion-content>
+    </ion-view>
+</div>

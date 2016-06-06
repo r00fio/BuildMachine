@@ -1,0 +1,7 @@
+<ion-header-bar>
+    <button ng-if="lbtnDefaultClass || lbtnClass" class="button button-clear button-icon"
+            ng-class="lbtnDefaultClass ? lbtnDefaultClass : lbtnClass"
+            ng-click="lbtnDefaultAction ? lbtnDefaultAction() : lbtnAction({$event: $event})"></button>
+    <h1 class="title"><transclude-replace></transclude-replace></h1>
+    <button ng-if="rbtnClass" class="button button-clear button-icon" ng-class="rbtnClass" ng-click="rbtnAction({$event: $event})"></button>
+</ion-header-bar>

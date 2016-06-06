@@ -1,0 +1,14 @@
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Imported Layers</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Menu" sketch:type="MSArtboardGroup" transform="translate(-172.000000, -534.000000)" fill="#FFFFFF">
+            <g id="Imported-Layers" sketch:type="MSLayerGroup" transform="translate(172.000000, 534.000000)">
+                <path d="M30,20 L28,20 L28,12 C28,5.373 22.627,0 16,0 C9.373,0 4,5.373 4,12 L4,20 L2,20 C0.895,20 0,20.896 0,22 C0,23.105 0.895,24 2,24 L30,24 C31.105,24 32,23.105 32,22 C32,20.896 31.105,20 30,20 L30,20 Z M8,20 L8,12 C8,7.589 11.589,4 16,4 C20.411,4 24,7.589 24,12 L24,20 L8,20 L8,20 Z" id="Fill-1" sketch:type="MSShapeGroup"></path>
+                <path d="M12,28 C12,30.209 13.791,32 16,32 C18.209,32 20,30.209 20,28 L20,26 L12,26 L12,28" id="Fill-2" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,31 @@
+<ion-view>
+    <rs-header>Общение с банком</rs-header>
+
+    <!-- Поповер меню выбора изображения на андройде -->
+    <script id="templates/onlinechat.popover.html" type="text/ng-template">
+        <ion-popover-view class="rs-online-chat-popover">
+            <ion-content scroll="false">
+                <div class="list-block list-block-separator-hidden" style="font-size: large !important;">
+                    <ul>
+                        <li class="item-content" ng-click="ChatCtrl.closePopover() + ChatCtrl.selectPicture()">
+                            <div class="item-inner" style="padding-right: 45px;">Выбрать фото</div>
+                        </li>
+                        <li class="item-content" ng-click="ChatCtrl.closePopover() + ChatCtrl.takePicture()">
+                            <div class="item-inner" style="padding-right: 45px;">Сделать фото</div>
+                        </li>
+                    </ul>
+                </div>
+            </ion-content>
+        </ion-popover-view>
+    </script>
+
+    <rs-chat on-send-click="ChatCtrl.sendMessage(text)" on-photo-click="ChatCtrl.attachPicture($event)" on-pull-to-refresh="ChatCtrl.getMoreMessages()">
+        <rs-chat-message ng-repeat="msg in ChatCtrl.messages"
+                         text="msg.text"
+                         attachments="msg.attachments"
+                         is-my-msg="msg.author.uuid == userUuid"
+                         time="msg.dateCreate">
+        </rs-chat-message>
+    </rs-chat>
+
+</ion-view>

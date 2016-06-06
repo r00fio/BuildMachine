@@ -1,0 +1,59 @@
+<div ui-view="extract-page" ng-controller="ExtractCtrl as extractCtrl">
+    <rs-header rbtn-class="{{(extract && extract.operationList && extract.operationList.length > 0) ?'icon-send' : ''}}"
+               rbtn-action="redirectToSendEmail()" >Выписка</rs-header>
+        <ion-view>
+            <ion-content class="has-header bg-f0f4f5" on-scroll-complete="showMoreOperations()">
+                <rs-panel header-text="Период">
+                    <div  style="margin-bottom: 0; margin-top: 0;" class="list-block">
+                        <ul>
+                            <li>
+                                <rs-date-picker-ios upper-bound="extractDateTo" on-change-date="onChangeDate()"
+                                                    value-date="extractDateFrom" field-id="extract-date-from" title="Начало периода"/>
+                            </li>
+                            <li>
+                                <rs-date-picker-ios lower-bound="extractDateFrom" on-change-date="onChangeDate()"
+                                                    value-date="extractDateTo" field-id="extract-date-to" title="Конец периода"/>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="rs-extract-waiter" ng-if="showSpinner">
+                        <ion-spinner icon="ios-small"></ion-spinner>
+                    </div>
+                </rs-panel>
+
+                <div ng-if="extract && extract.operationList && extract.operationList.length == 0" class="table-fixed-width100pc" style="margin-top: 40px; margin-bottom: 5px;">
+                    <div class="table-row">
+                        <div class="table-cell text-gray white-space-pre-line text-align-center text-15px" style="padding-top: 5px;">
+                            <img src="img/ios/empty-result.svg" width="45px" height="45px" />
+                            За этот период нет операций
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-if="extract && extract.errorLoad" class="table-fixed-width100pc" style="margin-top: 40px; margin-bottom: 5px;">
+                    <div class="table-row">
+                        <div class="table-cell text-gray white-space-pre-line text-align-center text-15px" style="padding-top: 5px;">
+                            <img src="img/ios/empty-result.svg" width="45px" height="45px" />
+                            Не удалось загрузить
+                        </div>
+                    </div>
+                </div>
+
+                <rs-panel ng-if="extract && extract.operationList && extract.operationList.length" header-text="Расходы и статистика" style="position: relative;">
+                    <img class="picture-graduate" src="img/ios/down.svg" ui-sref="{{statisticState}}"/>
+                    <div class="percent-grad" ui-sref="{{statisticState}}">
+                        <div ng-repeat="category in extract.categoryList"
+                             class="percent-value-category"
+                             style="width:{{category.percent}}%; background-color:{{category.color}};"/>
+                    </div>
+                </rs-panel>
+
+                <rs-panel ng-if="extract && extract.operationList && extract.operationList.length">
+                    <rs-operations operations="extract.operationsDisplay" operation-state="operationState" show-operations-tab="true" show-search-bar="true"/>
+                </rs-panel>
+                <div style="height:47px;"></div>
+            </ion-content>
+            <button ng-hide="extract && (extract.errorLoad || (extract.operationList && extract.operationList.length))" ng-click="showExtract()" class="button button-full rs-button no-margin" style="height: 64px;">Показать выписку</button>
+            <button ng-show="extract && extract.errorLoad" ng-click="showExtract()" class="button button-full rs-button no-margin" style="height: 64px;">Повторить</button>
+        </ion-view>
+</div>

@@ -1,0 +1,11 @@
+<div class="modal-container flex flex-middle flex-center" ng-click="selectHide()">
+    <div class="modal-content">
+        <div class="list-block list-block-separator-hidden" style="margin:0;">
+            <ul>
+                <li class="item-content item-inner" ng-repeat="item in listForSelect" ng-click="clickItem(item)">
+                    {{item[fieldId] ? item[fieldId] : item}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

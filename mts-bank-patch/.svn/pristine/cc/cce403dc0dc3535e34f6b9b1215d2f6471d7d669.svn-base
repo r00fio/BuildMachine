@@ -1,0 +1,22 @@
+<div>
+    <rs-header lbtn-action="selectRegionPanel.hide()">Регион для платежей</rs-header>
+    <rs-spotlight-search placeholder="Город или область" ng-model="searchText.name" class="has-header"></rs-spotlight-search>
+    <ion-view>
+        <ion-content class="has-subheader">
+            <div class="list-block">
+                <ul>
+                    <li class="item-content" ng-repeat="region in regionsForPaymentArr | filter: searchText | orderBy: 'name'" ng-click="clickRegion(region)">
+                        <div class="item-inner">
+                            <div class="flex flex-middle">
+                                <div style="margin-left: 5px;"><label class="text-15px white-space-pre-line" ng-bind="region.name"/></div>
+                            </div>
+                            <div class="item-after" ng-if="selectedRegion.name == region.name">
+                                <div class="icon-selected"></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </ion-content>
+    </ion-view>
+</div>

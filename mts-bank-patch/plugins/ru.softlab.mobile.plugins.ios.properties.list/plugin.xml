@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
+           id="ru.softlab.mobile.plugins.ios.properties.list"
+      version="1.0.0">
+    <name>IOSPropertiesList</name>
+    <description>Web intents for Cordova</description>
+    <keywords>cordova</keywords>
+    <!-- fake repo -->
+    <repo>https://softlab.ru/</repo>
+    <issue>https://softlab.ru</issue>
+
+    <platform name="ios">
+        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+            <array>
+                <string>yandexnavi</string>
+                <string>yandexmaps</string>
+                <string>comgooglemaps</string>
+                <string>waze</string>
+                <string>here-route</string>
+            </array>
+        </config-file>
+        <config-file target="*-Info.plist" parent="CFBundleLocalizations">
+            <array>
+                <string>Russian</string>
+                <string>English</string>
+            </array>
+        </config-file>
+        <config-file target="*-Info.plist" parent="UIStatusBarHidden">
+            <true/>
+        </config-file>
+        <config-file target="*-Info.plist" parent="UIViewControllerBasedStatusBarAppearance">
+            <false/>
+        </config-file>
+    </platform>
+</plugin>

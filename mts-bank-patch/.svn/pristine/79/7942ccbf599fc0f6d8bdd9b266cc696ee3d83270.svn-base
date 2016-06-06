@@ -1,0 +1,126 @@
+<div ng-controller="PaymentBaseCtrl as paymentBaseCtrl">
+<div ng-controller="TransferCtrl as transferCtrl">
+    <rs-header rbtn-class="{{payment.fromTemplate && !isViewMode() ? 'icon-tuning' : ''}}" rbtn-action="payment.fromTemplate && !isViewMode() ? setEditTemplateMode($event) : 0">{{payment.paymentTitle}}</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+
+            <div ng-include="'templates/ios/payments/payment.favourite.html'"></div>
+
+            <rs-panel>
+                <div class="list-block" style="margin: 0;">
+                    <ul style="padding-top: 10px; padding-bottom: 10px;">
+                        <li ng-if="payment.sourceProduct" ng-disabled="isViewMode()" ng-click="selectProductShow(payment.paymentSourceList, 'sourceProduct')">
+                            <rs-product product="payment.sourceProduct" show-card-account="{{showCardAccount(payment.sourceProduct, payment.sourceProductTo)}}"></rs-product>
+                        </li>
+                        <li ng-if="!payment.paymentSourceList" class="item-content" style="padding: 0;">
+                            <div class="item-inner" rs-waiter="payment.paymentSourceList" style="padding: 0;"></div>
+                        </li>
+                        <li ng-if="payment.paymentSourceList && payment.sourceProduct == null"
+                            ng-disabled="isViewMode()" class="item-content item-link"
+                            ng-click="selectProductShow(payment.paymentSourceList, 'sourceProduct')">
+
+                            <div class="item-inner">
+                                <div class="item-title text-15px">Откуда перевести</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+
+            <div class="rs-content-panel">
+                <div class="rs-content-panel-header text-align-center">
+                    <img src="img/payto.svg" style="height: 4vw;" />
+                </div>
+            </div>
+
+            <div class="list-block" style="margin: 0;">
+                <ul style="padding-top: 10px; padding-bottom: 10px;">
+                    <li ng-if="payment.sourceProductTo" ng-disabled="isViewMode()" ng-click="selectProductShow(payment.paymentSourceToList, 'sourceProductTo')">
+                        <rs-product product="payment.sourceProductTo"></rs-product>
+                    </li>
+                    <li ng-if="!payment.paymentSourceToList" class="item-content" style="padding: 0;">
+                        <div class="item-inner" rs-waiter="payment.paymentSourceToList" style="padding: 0;"></div>
+                    </li>
+                    <li ng-if="payment.paymentSourceToList && payment.sourceProductTo == null"
+                        ng-disabled="isViewMode()" class="item-content item-link"
+                        ng-click="selectProductShow(payment.paymentSourceToList, 'sourceProductTo')">
+
+                        <div class="item-inner">
+                            <div class="item-title text-15px">Куда перевести</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <rs-panel>
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;">Комментарий</div>
+                                <div class="item-input">
+                                    <input ng-disabled="isViewMode()"
+                                           maxlength="255"
+                                           type="text" ng-model='payment.comment'/>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+
+            <rs-panel>
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;"
+                                     ng-bind="isDifferentCurrencies() ? 'Сумма списания' : 'Сумма'"></div>
+                                <div class="item-input">
+                                    <input ng-disabled="isViewMode()"
+                                           ng-keyup="calculateDepositSum()"
+                                           type="number" ng-model="payment.sum"/>
+                                    <span style="position: absolute; right: 0; top: 17px;" ng-if="payment.sourceProduct" currency="{{payment.sourceProduct.currency}}"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li ng-if="isDifferentCurrencies()" class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title" style="white-space: normal; width: 50%;">Сумма зачисления</div>
+                                <div class="item-input">
+                                    <input ng-disabled="isViewMode()"
+                                           ng-keyup="calculateSum()"
+                                           type="number" ng-model="payment.destSum"/>
+                                    <span style="position: absolute; right: 0; top: 17px;" ng-if="payment.sourceProductTo" currency="{{payment.sourceProductTo.currency}}"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li ng-if="isDifferentCurrencies()" class="item-content">
+                            <div class="item-inner" rs-waiter="payment.conversionRate">
+                                <div class="item-title" style="white-space: normal; width: 50%;">Курс конвертации</div>
+                                <div class="item-after" style="white-space: normal; width: 50%;">
+                                    <span class="width100pc text-align-center" ng-if="payment.conversionRate">
+                                        <conversion-rate from-currency="payment.sourceProduct.currency"
+                                                         to-currency="payment.sourceProductTo.currency"
+                                                         conversion-rate="payment.conversionRate">
+                                        </conversion-rate>
+                                    </span>
+                                    <span class="width100pc text-align-center" style="color: red;" ng-if="payment.sourceProduct && payment.sourceProductTo && !payment.conversionRate">
+                                        Не найден
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <div ng-include="'templates/ios/payments/payment.commission.html'"></div>
+                    </ul>
+                </div>
+            </rs-panel>
+
+            <div ng-include="'templates/ios/payments/payment.favourite.fields.html'"></div>
+            <div ng-include="'templates/ios/payments/payment.actions.html'"></div>
+
+        </ion-content>
+
+    </ion-view>
+</div>
+</div>

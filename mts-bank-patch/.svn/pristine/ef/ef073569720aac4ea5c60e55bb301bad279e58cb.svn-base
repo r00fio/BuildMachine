@@ -1,0 +1,75 @@
+.popover-backdrop { z-index: 9999; }
+.popover-wrapper .popover {
+    position: absolute;
+    display: block;
+    top: 25%;
+    left: -47% !important;
+    margin-top: 12px;
+    margin-left: 50% !important;
+    width: 94%;
+    height: auto;
+    z-index: 10;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    border-radius: 5px;
+}
+
+.popover-wrapper .popover .scroll-content {
+    position: relative;
+}
+
+.popup-container {
+    z-index: 10001;
+    pointer-events: all;
+}
+.popup-container .popup {
+    position: static;
+    height: auto;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.modal-backdrop { z-index: 9999; }
+.modal-backdrop.confirmation-code-modal {
+    z-index: 10000;
+}
+
+.action-sheet-backdrop { z-index: 9999; }
+.backdrop { z-index: 10001; }
+.loading-container { z-index: 10001; }
+
+/* Убирает синий полупрозрачный фон, "навязанный" fw7 с иконок в заголовке */
+.button.active-state, html:not(.watch-active-state) .button:active {
+    background: none;
+    opacity: 0.3;
+}
+
+ion-view .page {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    margin-top: -1px;
+    padding-top: 1px;
+    margin-bottom: -1px;
+    width: auto;
+    height: auto;
+}
+ion-view .page.has-header {
+    top: 44px;
+}
+
+.transcluded-chat-message {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}

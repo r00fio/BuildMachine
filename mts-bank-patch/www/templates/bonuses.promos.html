@@ -1,0 +1,33 @@
+<div wp-ptr="doRefresh()" bg-color="#F0F4F5">
+    <div class="content-block-title">Текущие</div>
+    <div class="list-block rs-promo-list no-margin">
+    <ul>
+        <li rs-waiter="currentPromos" ng-repeat="promo in currentPromos" ui-sref="promodetails({promo: promo})" rs-waiter-class="rs-promo-list-waiter">
+            <a href="#" class="item-content" ng-click="$event.preventDefault()">
+                <div ng-if="platform=='ios'" class="rs-promo-item-period">С {{promo.fromDate | dateWithMonthName}} по {{promo.toDate | dateWithMonthName}}</div>
+                <div class="rs-promo-item-picture" ng-style="{'background-image': promo.picture ? 'url({{getLogoUrl(promo.picture.url)}})' : 'none', 'background-color': promo.picture ? 'unset' : false }"></div>
+                <div ng-if="platform!='ios'" class="rs-promo-item-period">С {{promo.fromDate | dateWithMonthName}} по {{promo.toDate | dateWithMonthName}}</div>
+                <div class="rs-promo-item-desc">{{promo.shortDesc}}</div>
+            </a>
+        </li>
+        <li ng-show="currentPromos === null || currentPromos !== undefined && !currentPromos.length"><div class="item-content item-inner rs-promo-list-waiter">Предложений нет</div></li>
+    </ul>
+    </div>
+    <div class="content-block-title">Прошедшие</div>
+
+    <div class="list-block rs-promo-list no-margin">
+    <ul>
+        <li rs-waiter="currentPromos" ng-repeat="promo in pastPromos" ui-sref="promodetails({promo: promo})" rs-waiter-class="rs-promo-list-waiter">
+            <a href="#" class="item-content" ng-click="$event.preventDefault()">
+                <div ng-if="platform=='ios'" class="rs-promo-item-period">С {{promo.fromDate | dateWithMonthName}} по {{promo.toDate | dateWithMonthName}}</div>
+                <div class="rs-promo-item-picture" ng-style="{'background-image': promo.picture ? 'url({{getLogoUrl(promo.picture.url)}})' : 'none', 'background-color': promo.picture ? 'unset' : false }"></div>
+                <div ng-if="platform!='ios'" class="rs-promo-item-period">С {{promo.fromDate | dateWithMonthName}} по {{promo.toDate | dateWithMonthName}}</div>
+                <div class="rs-promo-item-desc">{{promo.shortDesc}}</div>
+            </a>
+        </li>
+        <li ng-show="pastPromos === null || pastPromos !== undefined && !pastPromos.length"><div class="item-content item-inner rs-promo-list-waiter">Нет данных</div></li>
+    </ul>
+    </div>
+
+    <ion-refresher on-refresh="doRefresh()" pulling-icon="" spinner="{{platform}}"></ion-refresher>
+</div>

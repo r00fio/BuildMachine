@@ -1,0 +1,112 @@
+<rs-panel ng-show="!payment.fromTemplate">
+    <div class="list-block" style="margin: 0;">
+        <ul>
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="item-title width100pc">Добавить в избранное</div>
+                    <div class="item-after">
+                        <rs-toggle ng-model="payment.paymentModeParams.isVisibleTemplateFields" ng-disabled="isViewMode()"></rs-toggle>
+                    </div>
+                </div>
+            </li>
+            <li ng-show="payment.paymentModeParams.isVisibleTemplateFields" class="item-content">
+                <div class="item-inner">
+                    <div class="item-title" style="white-space: normal; width: 50%;">Название</div>
+                    <div class="item-input">
+                        <input ng-disabled="isViewMode()"
+                               maxlength="255"
+                               type="text" ng-model='payment.paymentModeParams.templateName'/>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</rs-panel>
+
+<rs-panel ng-show="payment.paymentModeParams.isVisibleTemplateFields && !payment.fromTemplate">
+    <div class="list-block" style="margin: 0;">
+        <ul>
+            <li class="item-content">
+                <div class="item-inner">
+                    <div class="item-title width100pc">Сделать регулярным</div>
+                    <div class="item-after">
+                        <rs-toggle ng-model="payment.paymentModeParams.visibleRegularFields" ng-disabled="isViewMode()"></rs-toggle>
+                    </div>
+                </div>
+            </li>
+            <rs-select ng-show="payment.paymentModeParams.visibleRegularFields" header-text="Периодичность" ng-disabled="isViewMode()"
+                       ng-click="onSelectPeriodicCodifierPanel(null, 'RetailRegularPeriod', 'periodicityValue')"
+                       value-text="{{getCodifierDescByValue('RetailRegularPeriod', 'periodicityValue')}}"
+                       value-class="item-after-multiline"></rs-select>
+
+            <li ng-show="payment.paymentModeParams.visibleRegularFields && isEveryday()" class="item-content">
+                <div class="item-inner">
+                    <div class="item-title width100pc">Только рабочие дни</div>
+                    <div class="item-after">
+                        <rs-toggle ng-model="payment.periodicalPayStruct.isOnlyWorkDay" ng-change="updateNextPayDate()" ng-disabled="isViewMode()"></rs-toggle>
+                    </div>
+                </div>
+            </li>
+
+            <rs-select ng-show="payment.paymentModeParams.visibleRegularFields && isYearly()" header-text="Месяцы" ng-disabled="isViewMode()"
+                       ng-click="onSelectPeriodicCodifierPanel(null, 'Month', 'monthValue')"
+                       value-text="{{getCodifierDescByValue('Month', 'monthValue')}}"
+                       value-class="item-after-multiline"></rs-select>
+
+            <li ng-show="payment.paymentModeParams.visibleRegularFields && (isMonthly() || isYearly())" class="item-content">
+                <div class="item-inner">
+                    <div class="item-title" style="white-space: normal; width: 50%;">Число месяца</div>
+                    <div class="item-input">
+                        <input ng-disabled="isViewMode()" ng-change="updateNextPayDate()"
+                               min="1" max="31"
+                               type="number" ng-model='payment.periodicalPayStruct.dayOfMonth'/>
+                    </div>
+                </div>
+            </li>
+            <rs-select ng-show="payment.paymentModeParams.visibleRegularFields && isWeekly()" header-text="День недели" ng-disabled="isViewMode()"
+                       ng-click="onSelectPeriodicCodifierPanel(null, 'DayOfWeek', 'dayOfWeekValue')"
+                       value-text="{{getCodifierDescByValue('DayOfWeek', 'dayOfWeekValue')}}"
+                       value-class="item-after-multiline"></rs-select>
+            <li ng-if="payment.paymentModeParams.visibleRegularFields && isSingle()">
+                <rs-date-picker-ios ng-disabled="isViewMode()" on-change-date="updateNextPayDate()" lower-bound="currentDate"
+                                    value-date="extractDateFrom" field-id="payment-date-from-single" title="{{isSingle() ? 'Дата платежа' : 'Дата начала'}}"/>
+            </li>
+            <li ng-if="payment.paymentModeParams.visibleRegularFields && !isSingle()">
+                <rs-date-picker-ios ng-disabled="isViewMode()" upper-bound="extractDateTo" on-change-date="updateNextPayDate()" lower-bound="currentDate"
+                                    value-date="extractDateFrom" field-id="payment-date-from" title="{{isSingle() ? 'Дата платежа' : 'Дата начала'}}"/>
+            </li>
+            <li ng-if="payment.paymentModeParams.visibleRegularFields && !isSingle()">
+                <rs-date-picker-ios ng-disabled="isViewMode()" lower-bound="extractDateFrom" on-change-date="updateNextPayDate()"
+                                    value-date="extractDateTo" field-id="payment-date-to" title="Дата окончания"/>
+            </li>
+            <li ng-show="payment.paymentModeParams.visibleRegularFields && !isSingle()" class="item-content">
+                <div class="item-inner">
+                    <div class="item-title" style="white-space: normal; width: 50%;">Дата ближайшего платежа</div>
+                    <div class="item-after" ng-bind="payment.periodicalPayStruct.nearlyPayDay"></div>
+                </div>
+            </li>
+
+            <rs-select ng-show="payment.paymentModeParams.visibleRegularFields" header-text="Сумма операции" ng-disabled="isViewMode()"
+                       ng-click="onSelectPeriodicCodifierPanel(null, 'RegularPaySumType', 'typeSumValue')"
+                       value-text="{{getCodifierDescByValue('RegularPaySumType', 'typeSumValue')}}"
+                       value-class="item-after-multiline"></rs-select>
+
+            <li ng-show="payment.paymentModeParams.visibleRegularFields && isPercentTypeSum()" class="item-content">
+                <div class="item-inner">
+                    <div class="item-title" style="white-space: normal; width: 50%;">% от остатка собственных средств из источника</div>
+                    <div class="item-input">
+                        <input ng-disabled="isViewMode()"
+                               min="1" max="100"
+                               type="number" ng-model='payment.periodicalPayStruct.percent'/>
+                    </div>
+                </div>
+            </li>
+
+            <rs-select ng-show="payment.paymentModeParams.visibleRegularFields" header-text="Если недостаточно средств" ng-disabled="isViewMode() || isSingle()"
+                       ng-click="onSelectPeriodicCodifierPanel(null, 'RegularPayDecision', 'decisionValue')"
+                       value-text="{{getCodifierDescByValue('RegularPayDecision', 'decisionValue')}}"
+                       value-class="item-after-multiline"></rs-select>
+
+        </ul>
+    </div>
+</rs-panel>

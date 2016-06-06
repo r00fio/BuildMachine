@@ -1,0 +1,17 @@
+<footer>
+    <button ng-if="isNotFromTemplateAndVisibleFields() && isEditMode()"
+            class="rs-button-page-save flex flex-center flex-middle text-A1AEB3"
+            ng-click="validateAndSaveTemplate()">Сохранить
+    </button>
+    <button ng-if="isEditMode()" class="rs-button-page flex flex-center flex-middle bg-24A7B3"
+            ng-click="validatePayment()"
+            ng-bind="isNotFromTemplateAndVisibleFields() ? 'Сохранить и выполнить' : 'Выполнить'"></button>
+    <button ng-if="isNotFromTemplateAndVisibleFields() && payment.paymentModeParams.templateId && isEditMode()"
+            class="rs-button-page flex flex-center flex-middle"
+            ng-click="deleteTemplate() + validateAndSaveTemplate()">Удалить
+    </button>
+    <button ng-if="isViewMode() && payment.showConfirmButton"
+            class="rs-button-page flex flex-center flex-middle bg-24A7B3"
+            ng-click="confirmAndSavePayment()">Подтвердить
+    </button>
+</footer>

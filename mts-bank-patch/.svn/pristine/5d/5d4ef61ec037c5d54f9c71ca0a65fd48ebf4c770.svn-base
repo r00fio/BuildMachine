@@ -1,0 +1,92 @@
+<ion-view ng-controller="DepositOpenCtrl">
+    <rs-header>Открытие продукта</rs-header>
+    <ion-content class="has-header">
+        <rs-panel header-text="Открытие вклада">
+            <div class="list-block" style="margin: 0;">
+                <ul>
+                    <fw7-li title="Валюта вклада" item-class="item-link" ng-model="form.currency" ng-change="changeCurrency()"
+                            rs-options="form.currencyList" rs-options-show="dispname" rs-options-header="Валюта">
+                        <div>{{form.currency.dispname}}</div>
+                    </fw7-li>
+                    <fw7-li title="Сумма вклада">
+                        <div class="item-input">
+                            <input type="number" placeholder="Введите сумму" ng-model="form.amount" ng-change="changeAmount()" ng-disabled="form.readOnly">
+                        </div>
+                    </fw7-li>
+                    <fw7-li title="Срок вклада">
+                        <div class="item-input">
+                            <input type="number" placeholder="Введите срок" ng-model="form.term" ng-change="changeTerm()" ng-disabled="form.readOnly"/>
+                        </div>
+                    </fw7-li>
+                    <fw7-li title="Выплата процентов">
+                        <div>{{form.deposit.interestPayOut}}</div>
+                    </fw7-li>
+                    <fw7-li title="Проценты">
+                        <div>{{form.deposit.capitalization}}</div>
+                    </fw7-li>
+                    <fw7-li title="Ставка">{{form.deposit.rate}}% годовых</fw7-li>
+                    <fw7-li title="Дата окончания вклада">{{form.endDate | defaultDate}}</fw7-li>
+                    <fw7-li title="Ожидаемая сумма" rs-waiter="form.finalAmount" rs-waiter-class="rs-li-waiter-right">
+                        {{form.finalAmount | defaultSum:false}}<span ng-show="form.finalAmount || form.finalAmount === 0" currency="{{form.currency.value}}"></span>
+                    </fw7-li>
+                </ul>
+            </div>
+        </rs-panel>
+        <rs-panel header-text="Источник для первоначального взноса">
+            <div class="list-block" style="margin:0;">
+                <ul>
+                    <li ng-hide="form.sourceProduct" class="item-content" style="padding: 0;" rs-waiter="form.sourceProduct"></li>
+                    <li ng-show="form.sourceProduct" ng-click="selectProductShow(form.sourceProductList, 'sourceProduct')">
+                        <rs-product product="form.sourceProduct"></rs-product>
+                    </li>
+                </ul>
+            </div>
+        </rs-panel>
+        <rs-panel ng-if="form.deposit.intCreditSep" header-text="Счет для выплаты процентов">
+            <div class="list-block" style="margin:0;">
+                <ul>
+                    <li ng-show="form.accForInterests" class="item-content" style="padding: 0;" rs-waiter="form.accForInterests"
+                        ng-click="selectProductShow(form.creditAccountList, 'accForInterests')">
+                        <rs-product product="form.accForInterests"></rs-product>
+                    </li>
+                    <!-- Должна быть возможность открытия нового счёта и пустой список продуктов -->
+                    <fw7-li ng-show="!form.accForInterests && form.canOpenAccountForInterests && form.creditAccountList && form.creditAccountList.length"
+                            title="Открыть новый счет"
+                            ng-click="selectProductShow(form.creditAccountList, 'accForInterests')"></fw7-li>
+                </ul>
+            </div>
+        </rs-panel>
+        <rs-panel header-text="Счет для закрытия вклада">
+            <div class="list-block" style="margin:0;">
+                <ul>
+                    <li ng-show="form.accForClosing" ng-click="selectProductShow(form.creditAccountList, 'accForClosing')"
+                        style="padding: 0;" rs-waiter="form.accForClosing">
+                        <rs-product product="form.accForClosing"></rs-product>
+                    </li>
+                    <!-- Должна быть возможность открытия нового счёта и пустой список продуктов -->
+                    <fw7-li ng-show="!form.accForClosing && form.canOpenAccountForClosing && form.creditAccountList && form.creditAccountList.length"
+                            title="Открыть новый счет"
+                            ng-click="selectProductShow(form.creditAccountList, 'accForClosing')"></fw7-li>
+                </ul>
+            </div>
+        </rs-panel>
+        <rs-panel>
+            <div class="list-block" style="margin: 0;">
+                <ul>
+                    <fw7-li title="Пролонгация вклада">
+                        <rs-toggle ng-checked="form.deposit.extension" ng-disabled="form.readOnly"></rs-toggle>
+                    </fw7-li>
+                </ul>
+            </div>
+        </rs-panel>
+        <rs-panel header-text="Офис обслуживания">
+            <div class="list-block" style="margin:0;">
+                <ul>
+                    <rs-office-select model="form" region-list="form.regionList" read-only="form.readOnly"></rs-office-select>
+                </ul>
+            </div>
+        </rs-panel>
+        <div style="height:47px;" ng-show="showRequestButton()"></div>
+    </ion-content>
+    <button class="button rs-button no-margin" ng-click="sendOrder()" ng-show="showRequestButton()">Оформить</button>
+</ion-view>

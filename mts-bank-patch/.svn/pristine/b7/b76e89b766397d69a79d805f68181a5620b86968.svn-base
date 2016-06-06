@@ -1,0 +1,74 @@
+<rs-panel header-text="Связанные продукты">
+<div class="list-block no-margin">
+    <ul>
+        <rs-product rs-waiter="loan.linkedProducts" product="product" ng-repeat="product in loan.linkedProducts" ui-sref="{{getProductSref(product)}}" class="product-li"></rs-product>
+    </ul>
+</div>
+<div class="list-block card-info-button-block">
+    <ul>
+        <li ui-sref="loan.requisites">
+            <a href="#" class="item-content item-link">
+                <div class="item-inner">
+                    <div class="item-title">Реквизиты для погашения</div>
+                </div>
+            </a>
+        </li>
+        <li ng-click="openUrl('http://www.mtsbank.ru/personal/remote/howpay/c-credit/')">
+            <a href="#" class="item-content item-link" ng-click="$event.preventDefault()">
+                <div class="item-inner">
+                    <div class="item-title">Способы погашения кредита</div>
+                </div>
+            </a>
+        </li>
+        <li ui-sref="loan.schedule">
+            <a href="#" class="item-content item-link">
+                <div class="item-inner">
+                    <div class="item-title">График платежей</div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="list-block details-card-info">
+    <ul ng-if="!loan.isUpdatedABS">
+        <li class="item-content" style="padding-left:0px;" rs-waiter="loan.isUpdatedABS">
+        </li>
+    </ul>
+    <ul ng-if="loan && loan.isUpdatedABS">
+        <fw7-li title="Название кредита" multiline="true" ng-if="loan.desc">{{loan.desc}}</fw7-li>
+        <fw7-li title="Статус кредита" multiline="true">{{loan.stateName}}</fw7-li>
+        <fw7-li title="Размер кредита по договору" multiline="true">
+            <span ng-bind="(loan.loanAmount | defaultSum)"></span>
+            <span currency="{{loan.currency}}"></span>
+        </fw7-li>
+        <fw7-li title="Номер и дата договора" multiline="true">{{loan.agreementNumber}} от {{loan.termStart | defaultDate}}</fw7-li>
+        <fw7-li title="Плановая дата погашения" multiline="true">{{loan.termEnd | defaultDate}}</fw7-li>
+        <fw7-li title="Процентная ставка" multiline="true">{{loan.interestRate}}</fw7-li>
+        <fw7-li title="Номер счета для погашения" multiline="true">{{loan.accountNumber}}</fw7-li>
+        <fw7-li title="Полная стоимость кредита" multiline="true" ng-if="loan.psk">{{loan.psk}}%</fw7-li>
+        <fw7-li title="Остаток по основному долгу" multiline="true">
+            <span ng-bind="(loan.currentDebt | defaultSum)"></span>
+            <span currency="{{loan.currency}}"></span>
+        </fw7-li>
+        <fw7-li title="Полная сумма к погашению" multiline="true" ng-if="loan.debtTotalAmount">
+            <span ng-bind="(loan.debtTotalAmount | defaultSum)"></span>
+            <span currency="{{loan.currency}}"></span>
+        </fw7-li>
+        <fw7-li title="Дата следующего платежа" multiline="true" ng-if="loan.monthlyPaymentDate">{{loan.monthlyPaymentDate | defaultDate}}</fw7-li>
+        <fw7-li title="Плановый платеж по кредиту" multiline="true">
+            <span ng-bind="(loan.monthlyPaymentTotal | defaultSum)"></span>
+            <span currency="{{loan.currency}}"></span>
+        </fw7-li>
+        <fw7-li multiline="true" title="{{debt.description}}" ng-repeat="debt in loan.debtList" ng-hide="hideDebt(debt)">
+            {{debt.amount | defaultSum}}<span currency="{{loan.currency}}"></span>
+            <div ng-if="debt.isOverdueDebt"> c {{debt.debtCreationDate | defaultDate}}</div>
+            <div ng-if="debt.debtDays">{{debt.debtDays}}</div>
+        </fw7-li>
+        <fw7-li title="Обслуживающее подразделение" multiline="true">
+            <span ng-show="loan.branchName">{{loan.branchName}}</span>
+            <span ng-hide="loan.branchName">{{messageForMissingBranch}}</span>
+        </fw7-li>
+        <fw7-li title="Условия обслуживания" item-class="item-link" ng-if="loan.conditionsLink" ng-click="openUrl(loan.conditionsLink)"></fw7-li>
+        <fw7-li title="Тарифы на обслуживание" item-class="item-link" ng-if="loan.tariffsLink" ng-click="openUrl(loan.tariffsLink)"></fw7-li>
+    </ul>
+</div>

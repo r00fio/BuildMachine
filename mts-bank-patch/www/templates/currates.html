@@ -1,0 +1,39 @@
+<ion-view>
+    <rs-header>Курсы валют</rs-header>
+    <ion-content class="has-header bg-white">
+        <div class="table cur-rate-table">
+            <div class="table-row cur-rate-table-header">
+                <div class="table-cell"></div>
+                <div class="table-cell">{{CurrencyRatesCtrl.now | date:'dd.MM.yy':'+0300'}}</div>
+                <div class="table-cell">Покупка</div>
+                <div class="table-cell selected-col">Продажа</div>
+                <div class="table-cell"></div>
+            </div>
+
+            <div class="table-row" ng-repeat="rate in CurrencyRatesCtrl.rates">
+                <div class="table-cell"><div style="height:2px; margin:0 10px 0 0;" ng-style="{background: rate.currency == 'USD' ? '#45E660' : '#295FCC'}"></div></div>
+                <div class="table-cell cur-name-cell">{{rate.currency}}</div>
+                <div class="table-cell">{{rate.bid}}</div> <!-- Покупка -->
+                <div class="table-cell selected-col">{{rate.ask}}</div> <!-- Продажа -->
+                <div class="table-cell"><div style="height:2px; margin:0 0 0 10px;" ng-style="{background: rate.currency == 'USD' ? '#45E660' : '#295FCC'}"></div></div>
+            </div>
+        </div>
+
+        <div class="flex text-gray uppercase currate-period-select" style="height: 44px;" ng-init="activePeriod = 'month'; CurrencyRatesCtrl.getHistory(activePeriod);">
+            <div class="child-flex-1 flex flex-center flex-middle" ng-class="{'currate-active-period': activePeriod == 'month'}"
+                 ng-click="activePeriod = 'month'; CurrencyRatesCtrl.getHistory(activePeriod);">Месяц</div>
+            <div class="child-flex-1 flex flex-center flex-middle" ng-class="{'currate-active-period': activePeriod == 'quarter'}"
+                 ng-click="activePeriod = 'quarter'; CurrencyRatesCtrl.getHistory(activePeriod);">Квартал</div>
+            <div class="child-flex-1 flex flex-center flex-middle" ng-class="{'currate-active-period': activePeriod == 'half-year'}"
+                 ng-click="activePeriod = 'half-year'; CurrencyRatesCtrl.getHistory(activePeriod);">Полгода</div>
+            <div class="child-flex-1 flex flex-center flex-middle" ng-class="{'currate-active-period': activePeriod == 'year'}"
+                 ng-click="activePeriod = 'year'; CurrencyRatesCtrl.getHistory(activePeriod);">Год</div>
+        </div>
+
+        <rs-rates-graph rs-waiter="CurrencyRatesCtrl.rateHistory" rates="CurrencyRatesCtrl.rateHistory" class="currency-rates-graph"></rs-rates-graph>
+
+        <div style="height:48px;"></div>
+    </ion-content>
+
+    <button ng-show="isAuthorized" class="button no-margin rs-button" ui-sref="transfer({viewMode: 'EDIT', title: 'Обмен валют'})">Обменять валюту</button>
+</ion-view>

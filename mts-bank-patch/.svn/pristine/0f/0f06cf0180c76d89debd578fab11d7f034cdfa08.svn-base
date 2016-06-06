@@ -1,0 +1,22 @@
+<div>
+    <rs-header>Восстановление доступа</rs-header>
+    <ion-view ng-init="initializeSettings()">
+        <ion-content class="has-header" scroll="false">
+            <div ng-hide="globals.isLoginChangingForRetailClientEnabled !== undefined"
+                 rs-waiter="globals.isLoginChangingForRetailClientEnabled" style="height: 15px; margin-top: 15px"></div>
+
+            <rs-panel ng-if="globals.isLoginChangingForRetailClientEnabled" header-text="С помощью">
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <fw7-li title="Номера карты" item-class="item-inner line" ui-sref="login.restoreAccessCard"></fw7-li>
+                        <fw7-li title="Номера паспорта" item-class="item-inner line" ui-sref="login.restoreAccessPassport"></fw7-li>
+                        <fw7-li title="Номера счета" item-class="item-inner" ui-sref="login.restoreAccessAccount"></fw7-li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <div ng-if="globals.isLoginChangingForRetailClientEnabled == false" class="inaccessible-data-label">
+                Восстановление доступа недоступно, так как смена логина временно заблокирована.
+            </div>
+        </ion-content>
+    </ion-view>
+</div>

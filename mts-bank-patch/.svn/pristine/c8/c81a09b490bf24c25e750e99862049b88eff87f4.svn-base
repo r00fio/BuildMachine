@@ -1,0 +1,58 @@
+<div ng-controller="BankCardRequisitesCtrl as bankCardRequisitesCtrl">
+    <rs-header lbtn-class="icon-close" rbtn-class="icon-send" rbtn-action="showSend()">
+        Реквизиты карты
+    </rs-header>
+        <ion-view>
+            <ion-content class="has-header bg-f0f4f5">
+                <div class="list-block" style="margin:0;">
+                    <div class="list-group">
+                        <ul>
+                            <li>
+                                <rs-product product="bankCard"></rs-product>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <rs-panel>
+                    <div class="list-block" style="margin:0;">
+                        <ul>
+                            <li ng-click="openUrl('http://www.mtsbank.ru/personal/remote/howpay/cards/')">
+                                <a href="#" class="item-content" ng-click="$event.preventDefault()">
+                                    <div class="item-inner">
+                                        <div class="table-fixed-width100pc">
+                                            <div class="table-row">
+                                                <span class="table-cell white-space-pre-line">Способы пополнения карты</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+                <rs-panel ng-if="!bankCard.requisites">
+                    <div rs-waiter="bankCard.requisites"></div>
+                </rs-panel>
+                <div ng-if="bankCard.requisites" class="list-block" style="margin:0;">
+                    <rs-panel ng-if="bankCard.requisites.propertiesBank.length" header-text="{{bankCard.requisites.bankDataLabel}}">
+                        <ul>
+                            <fw7-li ng-repeat="requisite in bankCard.requisites.propertiesBank"
+                                    title="{{requisite.first}}"
+                                    multiline="true">
+                                {{requisite.second}}
+                            </fw7-li>
+                        </ul>
+                    </rs-panel>
+                    <rs-panel header-text="{{getRequisitesTitle()}}">
+                        <ul>
+                            <fw7-li ng-repeat="requisite in bankCard.requisites.propertiesAccount"
+                                    title="{{requisite.first}}"
+                                    multiline="true">
+                                {{requisite.second}}
+                            </fw7-li>
+                        </ul>
+                    </rs-panel>
+                </div>
+            </ion-content>
+        </ion-view>
+</div>

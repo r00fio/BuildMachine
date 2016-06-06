@@ -1,0 +1,10 @@
+<div ng-controller="SettingsAppCtrl">
+    <rs-header>Настройки приложения</rs-header>
+    <div class="content">
+        <div class="categories">
+            <input type="checkbox" name="visibleCloseProducts" ng-model="visibleCloseProducts" ng-change="changeVisibleCloseProducts()"/>
+            <label>Отображать закрытые продукты</label>
+        </div>
+    </div>
+    <div class="footer"></div>
+</div>

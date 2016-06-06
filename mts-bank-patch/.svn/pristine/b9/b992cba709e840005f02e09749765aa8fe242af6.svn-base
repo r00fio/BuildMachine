@@ -1,0 +1,30 @@
+<ion-view>
+    <rs-header>Задолженность</rs-header>
+    <ion-content class="has-header">
+
+        <div class="content-block-title">Описание задолженности</div>
+        <div class="list-block" style="margin:0;">
+            <ul>
+                <li ng-repeat="debt in bankCard.debtList">
+                    <div class="item-content">
+                        <div class="item-inner save-divider flex flex-column">
+                            <div class="child-flex-1 width100pc flex flex-between">
+                                <div class="fw7-li item-title" ng-bind="debt.description"></div>
+                                <div class="item-after">{{debt.amount | defaultSum}}<span currency="{{bankCard.currency}}"></span></div>
+                            </div>
+                            <div ng-if="debt.isOverdueDebt" class="child-flex-1 width100pc item-after" style="margin-left:0px;">&nbsp;c {{debt.debtCreationDate | defaultDate}}</div>
+                            <div ng-if="debt.debtDays" class="child-flex-1 width100pc item-after" style="margin-left:0px;">{{debt.debtDays}}</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="content-block-title empty-title"></div>
+        <div class="list-block" style="margin:0;">
+            <ul>
+                <fw7-li title="Сумма задолженности">{{bankCard.debt | defaultSum}}<span currency="{{bankCard.currency}}"></span></fw7-li>
+            </ul>
+        </div>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,29 @@
+<div>
+    <rs-header lbtn-class="icon-close"      lbtn-action="goBackFromField()"
+               rbtn-class="icon-check-mark" rbtn-action="changeFieldValue()">Домашний телефон</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <rs-panel>
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label text-15px">Номер</div>
+                                    <div class="item-input" style="padding-left: 0;">
+                                        <input style="color: #202426; font-size: 15px;"
+                                               type="tel"
+                                               mask-clean="true"
+                                               mask-restrict="reject"
+                                               mask="(999) 999-99-99"
+                                               ng-model="fieldValue.value"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

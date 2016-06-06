@@ -1,0 +1,9 @@
+<ion-view>
+    <rs-header>{{news.documentDate | dateWithMonthName}}</rs-header>
+    <ion-content class="has-header padding-5px border-box">
+        <div class="rs-news-item-container-title">{{news.name}}</div>
+        <img ng-if="news.picture.data" style="width:100%;"
+             ng-src="{{getLogoUrl(news.picture.url)}}" />
+        <div class="rs-news-item-container-body">{{news.desc}}</div>
+    </ion-content>
+</ion-view>

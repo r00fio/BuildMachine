@@ -1,0 +1,26 @@
+<div ng-controller="PaymentCtrl" ui-view="payment-page">
+    <rs-header>Платежи и переводы</rs-header>
+    <div class="content no-footer">
+        <div class="padding-5px">
+            <input type="text" placeholder="Поиск по друзьям, провайдерам, шаблонам" class="width100pc border-radius-3px solid-border-1px gray-border border-box text-14px padding-5px icon-search-input" style="height: 30px;"/>
+        </div>
+        <div>ИЗБРАННЫЕ ПЛАТЕЖИ</div>
+        <br>
+        <div>ПЕРЕВОДЫ</div>
+        <div ui-sref="payments.transfer">Между своими счетами</div>
+        <div>Другому клиенту банка</div>
+        <div>Друзьям</div>
+        <div>С карты на карту</div>
+        <div>По реквизитам</div>
+        <div>Обмен валют</div>
+        <br>
+        <div>ПЛАТЕЖИ</div>
+        <div>Сотовая связь</div>
+        <div>Интернет</div>
+        <div>ЖКХ</div>
+        <div>Начисления</div>
+        <div>Развлечения</div>
+        <div>Электронные кошельки</div>
+        <br>
+    </div>
+</div>

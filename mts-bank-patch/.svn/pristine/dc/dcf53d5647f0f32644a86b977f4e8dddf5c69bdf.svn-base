@@ -1,0 +1,71 @@
+<div ng-init="resetUserCodeDate()">
+    <rs-header lbtn-class="icon-close" lbtn-action="goBack()"
+               rbtn-class="icon-check-mark" rbtn-action="changeCodeDate()">Кодовая дата</rs-header>
+    <ion-view>
+        <ion-content class="has-header">
+            <rs-panel>
+                <div class="list-block next-block">
+                    <ul>
+                        <li ng-show="retailClient.isCodeDate" class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title text-15px width100pc">Изменить кодовую дату</div>
+                                <div class="item-after">
+                                    <rs-toggle ng-model="user.isCodeDate"></rs-toggle>
+                                </div>
+                            </div>
+                        </li>
+                        <li ng-hide="retailClient.isCodeDate" class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title text-15px width100pc">Задать кодовую дату</div>
+                                <div class="item-after">
+                                    <rs-toggle ng-model="user.isCodeDate"></rs-toggle>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <rs-panel ng-if="user.isCodeDate">
+                <div class="list-block list-block-separator-hidden next-block">
+                    <ul>
+                        <li>
+                            <div class="item-content item-inner">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-13px">Кодовая дата</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <input type="text" rs-date-picker
+                                                       ng-model="user.codeDateObj">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-inner">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-13px">Подсказка</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <input type="text"
+                                                       placeholder="Укажите"
+                                                       ng-model="user.codeDateHint">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

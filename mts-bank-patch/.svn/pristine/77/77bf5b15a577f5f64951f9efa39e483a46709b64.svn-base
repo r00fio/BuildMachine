@@ -1,0 +1,21 @@
+<div>
+    <rs-header>Восстановление доступа</rs-header>
+    <ion-view ng-init="initializeSettings()">
+        <ion-content class="has-header" scroll="false">
+            <div ng-hide="globals.isLoginChangingForRetailClientEnabled !== undefined"
+                 rs-waiter="globals.isLoginChangingForRetailClientEnabled" style="height: 15px; margin-top: 15px"></div>
+
+            <div ng-if="globals.isLoginChangingForRetailClientEnabled">
+                <div class="text-667980 text-15px text-align-center restore-chose">
+                    Выберите способ восстановления доступа к Мобильному банку
+                </div>
+                <a href="#" class="restore-access-btn flex flex-center flex-middle" ui-sref="login.restoreAccessCard">По номеру карты</a>
+                <a href="#" class="restore-access-btn flex flex-center flex-middle" ui-sref="login.restoreAccessPassport">По номеру паспорта</a>
+                <a href="#" class="restore-access-btn flex flex-center flex-middle" ui-sref="login.restoreAccessAccount">По номеру счета</a>
+            </div>
+            <div ng-if="globals.isLoginChangingForRetailClientEnabled == false" class="inaccessible-data-label">
+                Восстановление доступа не доступно, так как смена логина временно заблокирована.
+            </div>
+        </ion-content>
+    </ion-view>
+</div>

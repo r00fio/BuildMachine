@@ -1,0 +1,65 @@
+.icon-visa { background-image: url('../img/visa_logo.svg') !important; background-repeat: no-repeat !important; }
+.icon-mastercard { background-image: url('../img/master_logo.svg') !important; background-repeat: no-repeat !important; }
+.icon-unionpay { background-image: url('../img/unionpay_icon.svg') !important; background-repeat: no-repeat !important; }
+
+.icon-hide { background-image: url('../img/ios/hide.svg') !important; background-repeat: no-repeat !important; }
+.icon-show { background-image: url('../img/ios/show.svg') !important; background-repeat: no-repeat !important; }
+.icon-block { background-image: url('../img/ios/block.svg') !important; background-repeat: no-repeat !important; }
+.icon-unblock { background-image: url('../img/ios/unblock.svg') !important; background-repeat: no-repeat !important; }
+.icon-topup { background-image: url('../img/ios/topup.svg') !important; background-repeat: no-repeat !important; }
+.icon-close { background-image: url('../img/ios/close.svg') !important; background-repeat: no-repeat !important; }
+.icon-send { background-image: url('../img/android/send.svg') !important; background-repeat: no-repeat !important; }
+.icon-send-extract { background-image: url('../img/android/send-extract.svg') !important; background-repeat: no-repeat !important; }
+.icon-positive { background-image: url('../img/android/positive.svg') !important; background-repeat: no-repeat !important; }
+.icon-negative { background-image: url('../img/android/negative.svg') !important; background-repeat: no-repeat !important; }
+.icon-edit { background-image: url('../img/android/edit.svg') !important; background-repeat: no-repeat !important; }
+.icon-remove { background-image: url('../img/android/remove.svg') !important; background-repeat: no-repeat !important; }
+.icon-back { background-image: url('../img/android/back.svg') !important; background-repeat: no-repeat !important; }
+.icon-transfer { background-image: url('../img/android/transfer.svg') !important; background-repeat: no-repeat !important; }
+.icon-selected { background-image: url('../img/ios/selected.svg') !important; background-repeat: no-repeat !important; }
+.icon-selected-white { background-image: url('../img/ios/selected-white.svg') !important; background-repeat: no-repeat !important; }
+.icon-check-mark { background-image: url('../img/android/check-mark.svg') !important; background-repeat: no-repeat !important; }
+.icon-checked-circle { background-image: url('../img/android/checked-circle.svg') !important; background-repeat: no-repeat !important; }
+.icon-header-arrow { background-image: url('../img/android/header-arrow.svg') !important; background-repeat: no-repeat !important; }
+.icon-header-arrow-up { background-image: url('../img/android/header-arrow-up.svg') !important; background-repeat: no-repeat !important; }
+.icon-card-block { background-image: url('../img/android/card-block.svg') !important; background-repeat: no-repeat !important; }
+.icon-card-unblock { background-image: url('../img/android/card-unblock.svg') !important; background-repeat: no-repeat !important; }
+.icon-card-reissue { background-image: url('../img/android/card-reissue.svg') !important; background-repeat: no-repeat !important; }
+
+.icon-send-requisites { background-image: url('../img/android/send-requisites.svg') !important; background-repeat: no-repeat !important; }
+
+.icon-hidden { background-image: url('../img/android/hidden.svg') !important; background-repeat: no-repeat !important; }
+.icon-closed { background-image: url('../img/android/closed.svg') !important; background-repeat: no-repeat !important; }
+.icon-blocked { background-image: url('../img/android/blocked.svg') !important; background-repeat: no-repeat !important; }
+.icon-reissued { background-image: url('../img/android/reissued.svg') !important; background-repeat: no-repeat !important; }
+
+.icon-menu { background-image: url('../img/android/menu.svg') !important; background-repeat: no-repeat !important; }
+.icon-menu-dots { background-image: url('../img/android/menu-dots.svg') !important; background-repeat: no-repeat !important; }
+
+.icon-menu-more {
+    background-image: url('../img/menu-white-24.png') !important;
+    background-repeat: no-repeat !important;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.icon-tuning { background-image: url('../img/ios/tuning.svg') !important; background-repeat: no-repeat !important; }
+
+.icon-payment-settings { background-image: url('../img/android/payment-settings.svg') !important; background-repeat: no-repeat !important; }
+
+
+
+.icon-info { background-image: url('../img/android/info.svg') !important; background-repeat: no-repeat !important; }
+
+.icon-filter { background-image: url('../img/ios/icon-filter.svg') !important; background-repeat: no-repeat !important; }
+.icon-call { background-image: url('../img/android/receiver.svg') !important; background-repeat: no-repeat !important; }
+.icon-call-white { background-image: url('../img/android/receiver-white.svg') !important; background-repeat: no-repeat !important; }
+
+.icon-zoom-in { background-image: url('../img/android/zoom-in.svg') !important; background-repeat: no-repeat !important; }
+.icon-zoom-in:active { background-image: url('../img/android/zoom-in-activated.svg') !important; }
+.icon-zoom-out { background-image: url('../img/android/zoom-out.svg') !important; background-repeat: no-repeat !important; }
+.icon-zoom-out:active { background-image: url('../img/android/zoom-out-activated.svg') !important; }
+.icon-locate { background-image: url('../img/android/locate.svg') !important; background-repeat: no-repeat !important; }
+.icon-locate.activated { background-image: url('../img/android/locate-activated.svg') !important; }
+.icon-route-find { background-image: url('../img/android/route-find.svg') !important; background-repeat: no-repeat !important; }

@@ -1,0 +1,128 @@
+<rs-header>Бонусы</rs-header>
+<div >
+    <div class="content content-body" style="bottom: 0;">
+        <ion-view>
+            <ion-content class="bg-f0f4f5" ng-controller="ConnectOptionCtrl as connectOptionCtrl">
+
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li ng-if="form.sourceProduct" ng-disabled="form.requestAlreadySend" ng-click="selectProductShow(form.paymentSourceList, 'sourceProduct')"
+                            style="padding-top: 10px; padding-bottom: 10px;">
+
+                            <rs-product product="form.sourceProduct"></rs-product>
+                        </li>
+                        <li ng-if="!form.sourceProduct && form.paymentSourceList === undefined" class="item-content" style="padding: 0;">
+                            <div class="item-inner" rs-waiter="form.paymentSourceList" style="padding: 0;"></div>
+                        </li>
+                        <li ng-if="!form.sourceProduct && form.paymentSourceList !== undefined"
+                            ng-disabled="form.requestAlreadySend" class="item-content"
+                            ng-click="selectProductShow(form.paymentSourceList, 'sourceProduct')">
+
+                            <div class="item-inner">
+                                <div class="item-title text-15px text-gray">Выбрать продукт</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-media">
+                                <img ng-if="form.bonus.img" ng-src="{{getLogoUrl(bonus.img.url)}}" style="height: 16vw;"/>
+                                <img ng-if="!form.bonus.img" class="icon" ng-src="img/inbank.png" style="height: 16vw;"/>
+                            </div>
+                            <div class="item-inner">
+                                <div class="table-fixed-width100pc">
+                                    <div class="table-row">
+                                        <div class="table-cell text-15px" style="white-space: normal;" ng-bind="form.bonus.name"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <rs-panel header-text="Описание">
+                    <div class="list-block list-block-separator-hidden" style="margin: 0;">
+                        <ul>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc" style="margin-top: 5px; margin-bottom: 5px;">
+                                        <div class="table-row">
+                                            <span class="table-cell text-gray white-space-pre-line" style="padding-top: 5px;"
+                                                  ng-bind="form.bonus.desc"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+
+                <rs-panel ng-if="!form.isDeactivate">
+                    <div class="list-block list-block-separator-hidden" style="margin: 0;">
+                        <ul>
+                            <rs-select header-text="Метод оплаты" ng-if="form.payMethods.length > 1"
+                                       value-text="{{form.selectedPayMethod ? form.selectedPayMethod.desc : ''}}"
+                                       ng-click="onSelectCodifierPanel(form.payMethods, 'RetailPayMethod')"
+                                       ng-disabled="form.requestAlreadySend">
+                            </rs-select>
+
+                            <rs-select header-text="Округление" ng-if="form.roundingMethods.length > 0"
+                                       value-text="{{form.selectedRoundMethod ? form.selectedRoundMethod.desc : null}}"
+                                       ng-click="onSelectCodifierPanel(form.roundingMethods, 'RetailMoneyRound')"
+                                       ng-disabled="form.requestAlreadySend">
+                            </rs-select>
+                            <li class="item-content" ng-if="showPhoneInput()">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <input type="text"
+                                                       ng-disabled="form.requestAlreadySend"
+                                                       placeholder="Номер телефона"
+                                                       ng-model="form.phoneNumber"
+                                                       class="placeholder-gray"
+                                                       mask-clean="true" mask-restrict="reject" mask="(999) 999-99-99"
+                                                       style="font-size: 15px; padding: 0; border-bottom: 1px solid rgba(161, 174, 179, 0.16)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content" ng-if="form.selectedPayMethod && form.bonus && (form.bonus.serviceCost || form.bonus.serviceCostBonus)">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray">Стоимость</div>
+                                        </div>
+                                        <div class="item-input table-row">
+                                            <span class="table-cell item-after-multiline" ng-if="form.selectedPayMethod.value == 'MONEY'">
+                                                {{form.bonus.serviceCost}}<span currency="{{form.bonus.serviceCostCurrency}}"></span>
+                                            </span>
+                                            <span class="table-cell item-after-multiline" ng-if="form.selectedPayMethod.value != 'MONEY'" ng-bind="form.bonus.serviceCostBonus + ' балл.'"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+
+                <div ng-if="form.showButton && !form.isDeactivate" class="rs-button-page flex flex-center flex-middle bg-24A7B3"
+                     style="bottom: 0; left: 0;"
+                     ng-click="activateProductOption()">Подключить
+                </div>
+
+                <div ng-if="form.showButton && form.isDeactivate" class="rs-button-page flex flex-center flex-middle bg-24A7B3"
+                     style="bottom: 0; left: 0; background-color: #E63947;"
+                     ng-click="deactivateProductOption()">Отключить
+                </div>
+
+            </ion-content>
+
+        </ion-view>
+    </div>
+</div>

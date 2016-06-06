@@ -1,0 +1,15 @@
+<svg width="200px" height="174px" viewBox="0 0 200 174" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Imported Layers</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Cards-Copy" sketch:type="MSArtboardGroup" transform="translate(-449.000000, -414.000000)" fill="#FFFFFF">
+            <g id="Cards" sketch:type="MSLayerGroup" transform="translate(-29.000000, 0.000000)">
+                <g id="Group" transform="translate(198.000000, 262.000000)" sketch:type="MSShapeGroup">
+                    <path d="M479.670426,239 C479.670426,286.9805 440.736809,326 392.861915,326 C373.069574,326 353.667872,319.127 338.302766,306.686 C334.57,303.641 334.005745,298.16 337.000638,294.4625 C340.038936,290.7215 345.507872,290.1125 349.240638,293.1575 C361.69766,303.2495 376.80234,308.6 392.861915,308.6 C431.144468,308.6 462.308723,277.367 462.308723,239 C462.308723,200.633 431.144468,169.4 392.861915,169.4 C355.838085,169.4 325.455106,198.632 323.501915,235.3025 L338.997234,219.8165 C342.382766,216.38 347.851702,216.38 351.237234,219.8165 C354.66617,223.2095 354.66617,228.6905 351.237234,232.0835 L316.904468,266.5355 L282.571702,232.0835 C279.142766,228.6905 279.142766,223.2095 282.571702,219.8165 C285.957234,216.38 291.42617,216.38 294.811702,219.8165 L306.400638,231.3875 C310.263617,186.974 347.547872,152 392.861915,152 C440.736809,152 479.670426,191.0195 479.670426,239" id="Imported-Layers"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

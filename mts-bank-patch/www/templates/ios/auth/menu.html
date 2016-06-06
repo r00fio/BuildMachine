@@ -1,0 +1,54 @@
+<ion-view>
+    <div class="bg-app blur3px" ng-class="{'bg-app-{{background}}': true}">
+        <div class="bg-app-fill"/>
+    </div>
+    <div class="content-on-bg flex flex-middle">
+        <div>
+            <button class="appmenu-button" ng-click="menu.hide()" ui-sref="unauth_news">
+                <div class="menu-item flex flex-middle flex-between appmenu-item-animated fadeInRight"
+                     style="-webkit-animation-delay: 0s; animation-delay: 0s;">
+                    <div class="flex flex-middle" style="height: 100%;">
+                        <div class="appmenu-item-img flex flex-middle flex-center">
+                            <img class="news-item" src="img/ios/news-menu.svg">
+                        </div>
+                        <div class="appmenu-item-text">Новости</div>
+                    </div>
+                </div>
+            </button>
+            <button class="appmenu-button" ng-click="menu.hide()" ui-sref="currates">
+                <div class="menu-item flex flex-middle flex-between appmenu-item-animated fadeInRight"
+                     style="-webkit-animation-delay: 0.05s; animation-delay: 0.05s;">
+                    <div class="flex flex-middle" style="height: 100%;">
+                        <div class="appmenu-item-img flex flex-middle flex-center">
+                            <img class="courses-item" src="img/ios/courses-menu.svg">
+                        </div>
+                        <div class="appmenu-item-text">Курсы валют</div>
+                    </div>
+                </div>
+            </button>
+            <button class="appmenu-button" ng-click="menu.hide()" ui-sref="atmsandoffices">
+                <div class="menu-item flex flex-middle flex-between appmenu-item-animated fadeInRight"
+                     style="-webkit-animation-delay: 0.1s; animation-delay: 0.1s;">
+                    <div class="flex flex-middle" style="height: 100%;">
+                        <div class="appmenu-item-img flex flex-middle flex-center">
+                            <img class="atm-item" src="img/ios/atm-menu.svg">
+                        </div>
+                        <div class="appmenu-item-text">Банкоматы и офисы</div>
+                    </div>
+                </div>
+            </button>
+            <button class="appmenu-button" ng-click="redirectTransferToCard()">
+                <div class="menu-item flex flex-middle flex-between appmenu-item-animated fadeInRight"
+                     style="-webkit-animation-delay: 0.15s; animation-delay: 0.15s;">
+                    <div class="flex flex-middle" style="height: 100%;">
+                        <div class="appmenu-item-img flex flex-middle flex-center">
+                            <img class="payment-item" src="img/ios/pays-menu.svg">
+                        </div>
+                        <div class="appmenu-item-text">Перевод с карты на карту</div>
+                    </div>
+                </div>
+            </button>
+        </div>
+        <div class="icon-close icon-close-menu" ng-click="menu.hide()"/>
+    </div>
+</ion-view>

@@ -1,0 +1,83 @@
+<rs-header>Заявка на выпуск ВПК</rs-header>
+<div ng-controller="IssueVirtualCardCtrl as issueVirtualCardCtrl">
+        <ion-view>
+            <ion-content class="has-header bg-f0f4f5">
+                <rs-panel header-text="Заявка на выпуск виртуальной карты">
+                    <div class="list-block" style="margin-bottom: 0; margin-top: 0;">
+                        <ul>
+                            <li ng-hide="form.claim" class="item-content" style="padding: 0;" rs-waiter="form.claim"></li>
+                            <li ng-show="form.claim" class="item-content">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc" style="margin-top: 5px; margin-bottom: 5px;">
+                                        <div class="table-row">
+                                            <span class="table-cell text-gray white-space-pre-line"
+                                                  style="padding-top: 5px;"
+                                                  ng-bind-html="form.claim.conditions"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li ng-show="form.claim" class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title">Стоимость выпуска</div>
+                                    <div class="item-after" ng-bind="form.claim.cost"></div>
+                                </div>
+                            </li>
+                            <li ng-show="form.claim" class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title">Обслуживание</div>
+                                    <div class="item-after" ng-bind="form.claim.service"></div>
+                                </div>
+                            </li>
+                            <li ng-show="form.claim" class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title">Срок действия</div>
+                                    <div class="item-after" ng-bind="form.claim.expiryTerm | defaultDate"></div>
+                                </div>
+                            </li>
+                            <li ng-show="form.claim" class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title" style="width: 50%">Сумма пополнения</div>
+                                    <div class="item-input" style="width: 50%;">
+                                        <input ng-disabled="form.requestAlreadySend"
+                                               type="number" ng-model='form.initialAmount'/>
+                                        <span style="position: absolute; right: 0; top: 17px;" currency="RUB"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li ng-show="form.claim" class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title">Комиссия за пополнение</div>
+                                    <div class="item-after">
+                                        <div ng-if="form.commissionAmount === '0'">не взимается</div>
+                                        <div ng-if="form.commissionAmount !== '0'">
+                                            <span ng-bind="(form.commissionAmount | defaultSum)"></span>
+                                            <span currency="{{form.selectedSource.currency}}"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+                <rs-panel header-text="Источник оплаты">
+                    <div class="list-block" style="margin:0;">
+                        <ul>
+                            <li ng-hide="form.selectedSource" class="item-content" style="padding: 0;" rs-waiter="form.selectedSource"></li>
+                            <li ng-show="form.selectedSource" ng-click="selectProductShow(form.paymentSourceList, 'selectedSource')">
+                                <rs-product product="form.selectedSource"></rs-product>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+
+                <div style="background: transparent; border:none;" ng-style="{height: platform === 'ios' ? '64px' : '58px'}"></div>
+
+            </ion-content>
+                <button ng-if="form.showButton" class="button button-full rs-button no-margin"
+                        style="position: absolute; bottom: 0; left: 0; height: 64px;"
+                        ng-click="sendRetailVirtCardRequest()">Отправить заявку
+                </button>
+
+        </ion-view>
+</div>

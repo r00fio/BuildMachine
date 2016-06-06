@@ -1,0 +1,77 @@
+<div ng-controller="BankCardRequisitesCtrl as bankCardRequisitesCtrl">
+    <rs-header rbtn-class="icon-send" rbtn-action="openPopover($event)">Реквизиты карты</rs-header>
+        <ion-view>
+            <ion-content class="has-header bg-f0f4f5">
+
+                <script id="templates/card/popover.html" type="text/ng-template">
+                    <ion-popover-view>
+                        <ion-content scroll="false">
+                            <div class="list-block list-block-separator-hidden" style="font-size: large !important;">
+                                <ul>
+                                    <li class="item-content" ng-click="popoverSendSMS()">
+                                        <div class="item-inner">Отправить по СМС</div>
+                                    </li>
+                                    <li ng-if="retailClientEmail" class="item-content" ng-click="popoverSendEmailClient()">
+                                        <div class="item-inner">{{retailClientEmail}}</div>
+                                    </li>
+                                    <li class="item-content" ng-click="popoverOpenInputEmail()">
+                                        <div class="item-inner">Отправить на e-mail</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </ion-content>
+                    </ion-popover-view>
+                </script>
+
+                <div class="list-block" style="margin:0;">
+                    <div class="list-group">
+                        <ul>
+                            <li>
+                                <rs-product product="bankCard"></rs-product>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <rs-panel>
+                    <div class="list-block" style="margin:0;">
+                        <ul>
+                            <li ng-click="openUrl('http://www.mtsbank.ru/personal/remote/howpay/cards/')">
+                                <a href="#" class="item-content" ng-click="$event.preventDefault()">
+                                    <div class="item-inner">
+                                        <div class="table-fixed-width100pc">
+                                            <div class="table-row">
+                                                <span class="table-cell white-space-pre-line">Способы пополнения карты</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+                <rs-panel ng-if="!bankCard.requisites">
+                    <div rs-waiter="bankCard.requisites"></div>
+                </rs-panel>
+                <div ng-if="bankCard.requisites" class="list-block" style="margin:0;">
+                    <rs-panel ng-if="bankCard.requisites.propertiesBank.length" header-text="{{bankCard.requisites.bankDataLabel}}">
+                        <ul>
+                            <fw7-li ng-repeat="requisite in bankCard.requisites.propertiesBank"
+                                    title="{{requisite.first}}"
+                                    multiline="true">
+                                {{requisite.second}}
+                            </fw7-li>
+                        </ul>
+                    </rs-panel>
+                    <rs-panel header-text="{{getRequisitesTitle()}}">
+                        <ul>
+                            <fw7-li ng-repeat="requisite in bankCard.requisites.propertiesAccount"
+                                    title="{{requisite.first}}"
+                                    multiline="true">
+                                {{requisite.second}}
+                            </fw7-li>
+                        </ul>
+                    </rs-panel>
+                </div>
+            </ion-content>
+        </ion-view>
+</div>

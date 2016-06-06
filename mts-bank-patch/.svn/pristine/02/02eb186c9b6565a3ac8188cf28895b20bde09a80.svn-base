@@ -1,0 +1,47 @@
+<div ui-view="login-view">
+    <rs-header>Восстановление доступа</rs-header>
+    <ion-view>
+        <ion-content class="has-header">
+            <div class="text-15px text-667980 text-align-center create-new-pass-login">Создайте новые логин и пароль</div>
+            <div class="text-15px text-667980 text-align-center inform-messages-login" ng-bind="messageForChangeLoginPassword"></div>
+            <div class="list-block">
+                <ul class="item-title-label-width50pc">
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label text-15px text-gray" style="width: 45%;">Логин</div>
+                                <div class="item-input">
+                                    <input input-clear-btn type="text" ng-model="user.newLogin"/>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label text-15px text-gray" style="width: 45%;">Пароль</div>
+                                <div class="item-input">
+                                    <input input-clear-btn type="password" ng-model="user.newPassword1"/>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label text-15px text-gray" style="width: 45%;">Пароль еще раз</div>
+                                <div class="item-input">
+                                    <input input-clear-btn type="password" ng-model="user.newPassword2"/>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex flex-middle">
+                <ion-toggle class="no-background no-border width100pc text-12px text-gray" ng-model="user.setShortCode">Задать код быстрого доступа</ion-toggle>
+            </div>
+        </ion-content>
+        <button class="btn-in" ng-click="createLoginPassword()">Продолжить</button>
+    </ion-view>
+</div>

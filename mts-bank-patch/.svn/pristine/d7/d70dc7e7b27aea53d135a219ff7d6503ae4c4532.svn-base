@@ -1,0 +1,220 @@
+/* --------------------- display and alignment --------------------- */
+.flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex: none;
+}
+
+.flex-left {
+    -webkit-box-pack: start !important;
+    -webkit-justify-content: flex-start !important;
+    -ms-flex-pack: start !important;
+    justify-content: flex-start !important;
+}
+
+.flex-center {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.flex-right {
+    -webkit-box-pack: end !important;
+    -webkit-justify-content: flex-end !important;
+    -ms-flex-pack: end !important;
+    justify-content: flex-end !important;
+}
+
+.flex-start {
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.flex-middle {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.flex-end {
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+}
+
+.flex-stretch {
+    -webkit-box-align: stretch !important;
+    -webkit-align-items: stretch !important;
+    -ms-flex-align: stretch !important;
+    align-items: stretch !important;
+}
+
+.flex-vertical-end {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.flex-between {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.flex-column {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.child-flex-1 {
+    -webkit-box-flex: 1; /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 1; /* OLD - Firefox 19- */
+    -webkit-flex: 1; /* Chrome */
+    -ms-flex: 1; /* IE 10 */
+    flex: 1;
+}
+
+.child-flex-2 {
+    -webkit-box-flex: 2;
+    -moz-box-flex: 2;
+    -webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+}
+
+.flex-nowrap {
+    flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    -webkit-flex-wrap: nowrap;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+}
+
+.flex-no-shrink {
+    flex-shrink: 0 !important;
+    -ms-flex-shrink: 0 !important;
+    -webkit-flex-shrink: 0 !important;
+}
+
+.flex-no-grow {
+    flex-grow: 0 !important;
+    -ms-flex-grow: 0 !important;
+    -webkit-flex-grow: 0 !important;
+}
+
+/* ---------------------------- colors ---------------------------- */
+
+.text-white { color: white; }
+.text-silver { color: silver; }
+.text-slategray { color: slategray; }
+.text-darkgray { color: darkgray; }
+.text-00abad { color: #00abad !important; }
+.text-black { color: black; }
+.text-red { color: red; }
+.text-A1AEB3 { color: #A1AEB3; }
+.text-66777F { color: #66777F; } /* показать выписку (ios) */
+.text-2DC85B { color: #2DC85B; } /* положительное решение по оформлению продукта */
+.text-667980 { color: #667980; } /* показать детали (информация об операции) */
+.text-8D9DA6 { color: #8D9DA6; }
+.text-363D40 { color: #363D40; }
+.text-EE102E { color: #EE102E; } /* iOS, контроль расходов, цвет текста "Перерасход" */
+.text-24A7B3 { color: #24A7B3; }
+
+.bg-white { background-color: white; }
+.bg-red { background-color: red; }
+.bg-00abad { background-color: #00abad !important; }
+.bg-00ACB5 { background-color: #00ACB5; }
+.no-background { background: none !important; }
+.bg-f0f4f5 { background-color: #f0f4f5; }   /* цвет фона */
+.bg-24A7B3 { background-color: #24A7B3; } /* вот цвет шапки и фона в продуктах */
+.bg-52C2CC { background-color: #52C2CC; } /* цвет пустой карты в продукте */
+.bg-1A7780 { background-color: #1A7780; }
+.bg-A1AEB3 { background-color: #A1AEB3; } /* цвет полос в операциях */
+.bg-CCD5D9 { background-color: #CCD5D9; } /* показать выписку (ios) */
+.bg-F5F5F5 { background-color: #F5F5F5; }
+.bg-D6DEE1 { background-color: #D6DEE1; }
+.bg-D8DFE1 { background-color: #D8DFE1; } /* цвет разделителей в списках/блоках */
+.bg-E2EBEE { background-color: #E2EBEE; }
+.bg-C8D5D9 { background-color: #C8D5D9; }
+.bg-E4EDF0 { background-color: #E4EDF0; }
+.bg-E63947 { background-color: #E63947; }
+.bg-D6DEE1 { background-color: #D6DEE1; }
+
+/* ---------------------------- icons ----------------------------- */
+.icon-paper-clip-2-16 { background: url('../img/paper-clip-2-16.png') no-repeat center center; }
+/* ---------------------------- other ----------------------------- */
+.uppercase { text-transform: uppercase; }
+.text-right { text-align: right; }
+.text-small { font-size: small; }
+.text-bold {font-weight: bold;}
+
+.rotate-180 {
+    -webkit-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+}
+
+@font-face {
+    font-family: "Rouble";
+    src: url("../fonts/rouble.ttf");
+    src: url("../fonts/rouble.woff");
+}
+
+.rouble {
+    font-family: Rouble !important;
+}
+
+.white-space-pre-line { white-space: pre-line; } /* Перенос текста на новую строку */
+
+.no-margin { margin: 0 !important; }
+.min-height-33px { min-height: 33px; }
+
+.border-none { border: none; }
+
+.inline-block { display: inline-block; }
+
+.icon-22 {
+    width: 22px;
+    height: 22px;
+    background-size: contain;
+}
+.icon-25 {
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+}
+.icon-50 {
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+}
+.icon-center { background-position: center center; }
+
+.bg-size-15 { background-size: 15px !important; }
+
+/* Анимация бубликов в контроле расходов */
+.donut-swiper .swiper-slide {
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+}
+.donut-swiper .swiper-slide:not(.swiper-slide-active) {
+    -webkit-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    transform: scale(0.7);
+}

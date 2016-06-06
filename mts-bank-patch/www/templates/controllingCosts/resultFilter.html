@@ -1,0 +1,55 @@
+<ion-view>
+    <rs-header lbtn-class="icon-close" lbtn-action="goBack()" rbtn-class="icon-filter" rbtn-action="showFilter()">Результаты фильтрации</rs-header>
+    <ion-content class="has-header">
+
+        <div class="mts-controll-filter-result flex flex-column">
+            <div class="mts-controll-filter-result-period child-flex-1 flex flex-center flex-middle">
+                {{costsFilterCtrl.fromDate | dateWithMonthName}} - {{costsFilterCtrl.toDate | dateWithMonthName}}
+            </div>
+            <div class="mts-controll-filter-result-amount child-flex-1 flex flex-center flex-middle">
+                <div class="flex">
+                    <span ng-show="costsFilterCtrl.extract" ng-bind="(costsFilterCtrl.extract.totalCredit | defaultSum)"></span>
+                    <span ng-show="costsFilterCtrl.extract" currency="RUB"></span>
+                </div>
+            </div>
+        </div>
+
+        <div ng-hide="costsFilterCtrl.extract" rs-waiter="costsFilterCtrl.extract" style="height:50px"></div>
+
+        <!-- Бублик -->
+        <rs-donut ng-if="costsFilterCtrl.extract" rs-donut-data="costsFilterCtrl.donutData" style="width:100%; height:200px;" on-sector-click="onDonutSectorClick(event, sectorIndex, sectorData)"></rs-donut>
+
+        <div ng-show="costsFilterCtrl.extract" class="list-block" style="margin:0;">
+            <ul>
+                <li ng-repeat="category in costsFilterCtrl.extract.categoryList" id="expense-category-{{category.strId}}" ng-click="showCategory(category)">
+                    <div class="flex flex-center" style="display: table; height: 70px;">
+                        <div class="item-content item-inner text-15px" style="display: table-cell; vertical-align: middle;">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell">
+                                        <span class="operation-category-point" style="background-color: {{category.color}}"></span>
+                                        {{category.name}}
+                                    </div>
+                                    <div class="table-cell text-right">
+                                        <span ng-show="category.totalCredit" ng-bind="category.totalCredit | defaultSum"></span>
+                                        <span ng-show="category.totalCredit" currency="RUB"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell cell-content-middle" style="padding-right:5px;">
+                                        <rs-thermometer progress="{{category.width}}"
+                                                        bg-class="bg-F5F5F5"
+                                                        fg-style="'background-color': '{{category.color}}'"></rs-thermometer>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="category_{{category.strId}}" class="hightligth-category" style="background: transparent;"></div>
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+</ion-view>

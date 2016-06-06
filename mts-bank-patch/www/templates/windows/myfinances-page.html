@@ -1,0 +1,112 @@
+<div class="pages navbar-through toolbar-through" ng-controller="MyFinancesCtrl">
+    <rs-header ng-click="scrollToTop()">Мои финансы</rs-header>
+    <div class="page bg-f0f4f5">
+        <div class="page-content" wp-ptr="doRefresh()" bg-color="#F0F4F5">
+            <!-- winjs меню для карт (Закомментировать если отключен WinJS)-->
+            <!--
+            <div id="winjsFinancesCardMenu" class="winjs-popup" data-win-control="WinJS.UI.Menu">
+                <button data-win-control="WinJS.UI.MenuCommand" data-win-options="{label:'Заблокировать', type:'button'}"></button>
+                <button data-win-control="WinJS.UI.MenuCommand" data-win-options="{label:'Скрыть из списка', type:'button'}"></button>
+                <button data-win-control="WinJS.UI.MenuCommand" data-win-options="{label:'Переименовать', type:'button'}"></button>
+                <button data-win-control="WinJS.UI.MenuCommand" data-win-options="{label:'Пополнить', type:'button'}"></button>
+            </div>
+            -->
+            <div style="height: 100%;">
+            <!-- Карты -->
+            <rs-panel header-text="Карты" ng-if="visibleCards">
+                <div class="list-block" style="margin:0;">
+                    <div class="list-group">
+                        <ul>
+                            <li rs-waiter="cardList" ng-repeat="card in cardList | visibleProducts" winjs-menu="cardMenu">
+                                <div ui-sref="card({cardId:card.id})">
+                                    <rs-product product="card"></rs-product>
+                                </div>
+                            </li>
+
+                            <rs-cut elements="{{hiddenCards = (cardList | hiddenProducts)}}"
+                                    is-hidden="showHiddenCards"></rs-cut>
+
+                            <!-- Скрытые карты -->
+                            <li ng-repeat="card in (showHiddenCards && hiddenCards)" winjs-menu="cardMenu">
+                                <div ui-sref="card({cardId:card.id})">
+                                    <rs-product product="card" hidden-product="true"></rs-product>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </rs-panel>
+
+            <!-- Кредиты -->
+            <rs-panel header-text="Кредиты" ng-if="visibleLoans">
+                <div class="list-block" style="margin:0;">
+                    <div class="list-group">
+                        <ul>
+                            <li rs-waiter="loans" ng-repeat="loan in loans | visibleProducts">
+                                <div ui-sref="loan({loanId:loan.id})">
+                                    <rs-product product="loan"></rs-product>
+                                </div>
+                            </li>
+
+                            <rs-cut elements="{{hiddenLoans = (loans | hiddenProducts)}}"
+                                    is-hidden="showHiddenLoans"></rs-cut>
+
+                            <li ng-repeat="loan in (showHiddenLoans && hiddenLoans)">
+                                <div ui-sref="loan({loanId:loan.id})">
+                                    <rs-product product="loan" hidden-product="true"></rs-product>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </rs-panel>
+
+            <!-- Счета и вклады -->
+            <rs-panel header-text="Счета и вклады" ng-if="visibleAccsDeps">
+                <div class="list-block" style="margin:0;">
+                    <div class="list-group">
+                        <ul>
+                            <!-- Открытые счета и вклады-->
+                            <li rs-waiter="accountDepositList" ng-repeat="product in accountDepositList | visibleProducts">
+
+                                <div ui-sref="account({productId:product.id})">
+                                    <rs-product product="product"></rs-product>
+                                </div>
+                            </li>
+
+                            <rs-cut elements="{{safeStringify(hiddenAccountsDeposits = (accountDepositList | hiddenProducts))}}"
+                                    is-hidden="showHiddenAccounts"></rs-cut>
+
+                            <!-- Скрытые счета и вклады -->
+                            <li  ng-repeat="product in (showHiddenAccounts && hiddenAccountsDeposits)">
+                                <div  ui-sref="account({productId:product.id})">
+                                    <rs-product product="product" hidden-product="true"></rs-product>
+                                </div>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </rs-panel>
+            </div>
+
+            <!-- для ios/android блок высотой 47/58px для того чтобы кнопка не закрывала последний элемент на странице -->
+            <div style="background: transparent; border:none;" ng-style="{height: platform === 'ios' ? '47px' : '43px'}"></div>
+
+        </div>
+
+        <button ng-if="platform === 'ios'" class="rs-button" ui-sref="products">+ Оформить продукт или услугу</button>
+
+        <mfb-menu ng-if="platform === 'android'" class="rs-mfb-menu"
+                  position="br"
+                  toggling-method="click"
+                  resting-icon="ion-plus-round"
+                  data-mfb-state="closed"
+                  ui-sref="products">
+        </mfb-menu>
+
+    </div>
+</div>

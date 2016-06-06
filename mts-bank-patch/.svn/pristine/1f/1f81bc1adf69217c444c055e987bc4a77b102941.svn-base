@@ -1,0 +1,72 @@
+<div>
+    <rs-header lbtn-class="icon-close" lbtn-action="goBack()"
+               rbtn-class="icon-check-mark" rbtn-action="changePassword()">Сменить пароль</rs-header>
+    <ion-view>
+        <ion-content class="has-header">
+            <rs-panel>
+                <div class="rs-content-panel-header text-align-center" style="text-transform: none; text-align: justify;" ng-bind="messageForChangePassword"></div>
+                <div class="list-block list-block-separator-hidden" style="margin: 0;">
+                    <ul>
+                        <li>
+                            <div class="item-content item-inner">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-13px" style="height: 25px;">Текущий пароль</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell" style="height: 25px;">
+                                                <input input-clear-btn
+                                                       type="password"
+                                                       ng-model="user.oldPassword"
+                                                       style="color: #202426; font-size: 15px; padding: 0; height: 100%; border-bottom: 1px solid rgba(0, 0, 0, 0.16);">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-inner">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-13px" style="height: 25px;">Новый пароль</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell" style="height: 25px;">
+                                                <input input-clear-btn
+                                                       type="password"
+                                                       ng-model="user.newPassword1"
+                                                       style="color: #202426; font-size: 15px; padding: 0; height: 100%; border-bottom: 1px solid rgba(0, 0, 0, 0.16);">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-inner">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-13px" style="height: 25px;">Повторить пароль</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell" style="height: 25px;">
+                                                <input input-clear-btn
+                                                       type="password"
+                                                       ng-model="user.newPassword2"
+                                                       style="color: #202426; font-size: 15px; padding: 0; height: 100%; border-bottom: 1px solid rgba(0, 0, 0, 0.16);">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

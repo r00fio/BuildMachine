@@ -1,0 +1,46 @@
+<ion-view>
+    <rs-header>Партнёры</rs-header>
+    <ion-content class="has-header">
+        <div class="list-block no-margin">
+            <ul>
+                <li class="item-content item-inner flex-wrap flex-left" style="padding: 15px;">
+                    <div class="rs-bank-partner-picture" ng-style="{'background-image': 'url({{bankPartner.logo}})'}"></div>
+                    <div class="rs-bank-partner-name" ng-bind="bankPartner.name" style="margin-left: 15px;"></div>
+                    <div class="rs-bank-partner-desc" ng-bind="bankPartner.desc" style="padding-top: 15px;"></div>
+                    <div ng-if="bankPartner.addressList && bankPartner.addressList.length" style="padding-top: 15px;">
+                        <div class="rs-bank-partner-name" style="padding-bottom: 15px;">Контактная информация</div>
+                        <div class="rs-bank-partner-desc" ng-repeat="address in bankPartner.addressList" ng-bind="address.fullAddress"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="content-block-title">Накопление баллов и бонусов</div>
+        <div class="list-block no-margin">
+            <ul>
+                <li class="item-content item-inner flex-column flex-start" style="padding: 15px;">
+                    <div style="white-space: normal;">Оплачивайте покупки картой MasterCard "МТС" и получайте бонусные баллы!</div>
+                    <ul ng-if="bankPartner.accumulationPrograms && bankPartner.accumulationPrograms.length" style="padding-top: 15px;">
+                        <li ng-repeat="accProgram in bankPartner.accumulationPrograms">
+                            <div ng-bind="accProgram.name"></div>
+                            <div ng-repeat="condition in accProgram.conditions" ng-bind="condition"></div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="content-block-title">Трата баллов и бонусов</div>
+        <div class="list-block no-margin">
+            <ul>
+                <li class="item-content item-inner flex-column flex-start" style="padding: 15px;">
+                    <div style="white-space: normal;">Вы можете потратить баллы на покупки</div>
+                    <ul ng-if="bankPartner.spendingPrograms && bankPartner.spendingPrograms.length" style="padding-top: 15px;">
+                        <li ng-repeat="spProgram in bankPartner.spendingPrograms">
+                            <div ng-bind="spProgram.name"></div>
+                            <div ng-bind="spProgram.bonusSumCharge"></div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+</ion-view>

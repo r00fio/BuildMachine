@@ -1,0 +1,13 @@
+<svg width="36px" height="30px" viewBox="0 0 36 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>products</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Product_list_full" sketch:type="MSArtboardGroup" transform="translate(-174.000000, -3235.000000)" fill="#FFFFFF">
+            <g id="tab_bar" sketch:type="MSLayerGroup" transform="translate(0.000000, 3186.000000)">
+                <path d="M204,49 L180,49 C176.686,49 174,51.686 174,55 L174,73 C174,76.314 176.686,79 180,79 L204,79 C207.314,79 210,76.314 210,73 L210,55 C210,51.686 207.314,49 204,49 L204,49 Z M180,53 L204,53 C205.105,53 206,53.895 206,55 L206,59 L178,59 L178,55 C178,53.895 178.895,53 180,53 L180,53 Z M204,75 L180,75 C178.895,75 178,74.105 178,73 L178,63 L206,63 L206,73 C206,74.105 205.105,75 204,75 L204,75 Z" id="products" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

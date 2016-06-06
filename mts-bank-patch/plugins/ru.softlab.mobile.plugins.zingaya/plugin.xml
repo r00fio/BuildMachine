@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="ru.softlab.mobile.plugins.zingaya"
+    version="0.0.2">
+    <name>ZingayaPlugin</name>
+    <description>Zingaya Plugin</description>
+	<!-- fake repo -->
+    <repo>https://softlab.ru/</repo>
+    <issue>https://softlab.ru</issue>
+
+    <js-module src="www/zingaya.js" name="Zingaya">
+        <clobbers target="zingaya" />
+    </js-module>
+    
+	<!-- Android -->
+	<platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Zingaya" >
+                <param name="android-package" value="ru.softlab.mobile.plugins.zingaya.ZingayaPlugin"/>
+            </feature>
+        </config-file>
+		
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+			<uses-permission android:name="android.permission.RECORD_AUDIO" />
+			<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+			<uses-permission android:name="android.permission.BLUETOOTH" />
+		</config-file>
+		
+		<source-file src="src/android/libs/zingayasdk.jar" target-dir="libs" />
+		<source-file src="src/android/libs/armeabi" target-dir="libs" />
+		<source-file src="src/android/libs/armeabi-v7a" target-dir="libs" />
+		<source-file src="src/android/libs/x86" target-dir="libs" />
+		
+        <source-file src="src/android/ZingayaPlugin.java" target-dir="src/ru/softlab/mobile/plugins/zingaya" />
+		
+    </platform>
+	
+	<!-- ios -->
+	<platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="Zingaya">
+                <param name="ios-package" value="ZingayaPlugin" />
+            </feature>
+        </config-file>
+        
+        <framework src="QuartzCore.framework" />
+        <framework src="OpenGLES.framework" />
+        <framework src="CFNetwork.framework" />
+        <framework src="libc++.dylib" />
+        <framework src="UIKit.framework" />
+        <framework src="Foundation.framework" />
+        <framework src="CoreGraphics.framework" />
+        <framework src="CoreAudio.framework" />
+        <framework src="AVFoundation.framework" />
+        <framework src="AudioToolbox.framework" />
+        
+        <header-file src="src/ios/ZingayaSDKiOS_audio/include/ZingayaSDKiOS.h" />
+        <header-file src="src/ios/ZingayaSDKiOS_audio/include/ZingayaSDKProtocol.h" />
+        <header-file src="src/ios/ZingayaSDKiOS_audio/include/ZingayaTypes.h" />
+        <source-file src="src/ios/ZingayaSDKiOS_audio/lib/libilbc.a" framework="true"/>
+        <source-file src="src/ios/ZingayaSDKiOS_audio/lib/libzingaya_audio.a" framework="true"/>
+
+        <header-file src="src/ios/ZingayaPlugin.h" />
+        <source-file src="src/ios/ZingayaPlugin.m" />
+        
+    </platform>
+	
+</plugin>

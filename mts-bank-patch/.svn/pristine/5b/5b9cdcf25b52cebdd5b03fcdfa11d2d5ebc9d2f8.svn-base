@@ -1,0 +1,45 @@
+<div>
+    <div ng-if="platform == 'ios'">
+        <rs-panel ng-hide="product.operationsDisplay && !product.operationsDisplay.length" header-text="Операции за последний месяц">
+            <rs-operations operations="product.operationsDisplay" operation-state="operationState"></rs-operations>
+        </rs-panel>
+
+        <div ng-if="product.visibleBtnExtract" class="padding-5px">
+            <div class="table-cell text-align-center text-valign-middle text-A1AEB3" style="height: 90px;">
+                <span ng-if="product.showEarlyOperations">Для просмотра более ранних операций воспользуйтесь выпиской</span>
+
+                <span ng-if="product.noOperations">Операции за последний месяц отсутствуют, для просмотра более ранних операций воспользуйтесь выпиской</span>
+
+                <div ng-if="product.operationError" class="white-space-pre-line table-fixed-width100pc">
+                    <img src="img/ios/empty-result.svg" width="45px" height="45px"/>
+                    Не удалось загрузить
+                </div>
+            </div>
+            <button ui-sref="{{extractUiSref}}"
+                    class="btn-show-extract table-cell width100pc height65px text-valign-middle text-align-center bg-CCD5D9 text-66777F">
+                Показать выписку
+            </button>
+        </div>
+    </div>
+
+    <div ng-if="platform == 'android'">
+        <rs-panel ng-hide="product.operationsDisplay && !product.operationsDisplay.length" header-text="Операции за последний месяц">
+            <rs-operations operations="product.operationsDisplay" operation-state="operationState" class="operation-list"></rs-operations>
+        </rs-panel>
+
+        <div ng-if="product.visibleBtnExtract" class="no-operation-block">
+            <button ui-sref="{{extractUiSref}}" class="btn-show-extract">
+                ПОКАЗАТЬ ВЫПИСКУ
+            </button>
+
+            <div class="flex flex-center flex-middle no-operation-text">
+                <span ng-if="product.showEarlyOperations">Для просмотра более ранних операций воспользуйтесь выпиской</span>
+                <span ng-if="product.noOperations">Операции за последний месяц отсутствуют, для просмотра более ранних операций воспользуйтесь выпиской</span>
+                <div ng-if="product.operationError" class="white-space-pre-line">
+                    <img src="img/ios/empty-result.svg" width="45px" height="45px"/>
+                    Не удалось загрузить
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

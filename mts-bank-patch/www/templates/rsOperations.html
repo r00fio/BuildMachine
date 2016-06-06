@@ -1,0 +1,120 @@
+<div>
+
+    <div ng-show="showOperationsTab" class="light-tabs flex flex-center">
+        <label class="light-tab-title child-flex-1 active" style="font-weight: normal; font-size: 13px;"
+               ng-class="{active: !searchText || !searchText.sign}"
+               ng-click="searchText.sign = null">Все операции</label>
+        <label class="light-tab-title child-flex-1" style="font-weight: normal; font-size: 13px;"
+               ng-class="{active: searchText && searchText.sign == '+'}"
+               ng-click="searchText.sign = '+'">Поступления</label>
+        <label class="light-tab-title child-flex-1" style="font-weight: normal; font-size: 13px;"
+               ng-class="{active: searchText && searchText.sign == '-'}"
+               ng-click="searchText.sign = '-'">Списания</label>
+    </div>
+
+    <div ng-show="showSearchBar && operations && operations.length > 0">
+        <div ng-if="!ios" class="searchbar searchbar-init">
+            <div class="searchbar-input">
+                <input input-clear-btn type="search" ng-model="searchText.name"
+                       class="width100pc solid-border-1px gray-border border-box text-14px icon-search-input"/>
+                <a href="#" class="searchbar-clear"></a>
+            </div>
+        </div>
+        <rs-spotlight-search ng-if="ios" ng-model="searchText.name"></rs-spotlight-search>
+    </div>
+
+    <!--Верстка под ios-->
+    <div ng-if="ios" rs-waiter="operations" rs-waiter-class="rs-promo-list-waiter" ng-repeat="operation in operations | searchOperation:searchText"
+         ng-click="showOperation(operation)" style="background: white;">
+        <div ng-if="$first || isChangeDate($index)" class="operation-date" ng-class="{'operation-date-first': $first}">{{operation.operationDate | dateOperation}}</div>
+        <div ng-if="!$first && !isChangeDate($index)" style="padding-left: 86px">
+            <div style="height: 1px; background-color: #C8D5D9;"></div>
+        </div>
+
+        <div class="table">
+            <div class="table-cell padding-15px">
+                <rs-operation-logo operation="operation"></rs-operation-logo>
+            </div>
+            <div class="table-cell width100pc padding-top-15px padding-right-15px padding-bottom-15px text-valign-middle">
+                <label class="operation-name" ng-bind="operation.operationName"></label>
+                <img ng-if="operation.operationTime" src="img/clock.png"/>
+                <label ng-if="operation.operationTime" class="time-operation" ng-bind="operation.operationTime | time"></label>
+
+                <div ng-if="!forBonus && operation.transactionSum" class="flex operation-amount" ng-style="{'color': operation.colorSign}">
+                    <span ng-bind="operation.sign"></span>&nbsp;
+                    <span ng-bind="(operation.transactionSum | defaultSum)"></span>
+                    <span currency="{{operation.transactionCurrency}}"></span>
+                </div>
+                <div ng-if="forBonus && operation.programPoints[forBonus]" class="flex operation-amount" ng-style="{'color': operation.colorSign}">
+                    <span ng-bind="operation.sign"></span>&nbsp;
+                    <span ng-bind="(operation.programPoints[forBonus] | defaultSum)"></span>
+                    <span>&nbsp; балл.</span>
+                </div>
+
+                <div ng-if="forBonus">
+                    <span ng-if="operation.product.name" ng-bind="operation.product.name"></span>
+                    <span ng-if="operation.transactionSum && operation.sign === '+'" class="flex" ng-style="{float: 'right'}">
+                        за {{operation.transactionSum | defaultSum}} <span currency="{{operation.transactionCurrency}}"></span>
+                    </span>
+                </div>
+
+                <div ng-if="operation.operationDesc" ng-bind="operation.operationDesc" class="operation-desc"></div>
+                <div ng-if="operation.category" class="operation-category">
+                    <div class="operation-category-point" ng-style="{'background-color': operation.color}"></div>
+                    <div class="operation-category-name" ng-bind="operation.category"></div>
+
+                    <img ng-if="operation.isHold" src="img/ios/hold.svg" class="operation-hold" height="10px"/>
+                </div>
+                <!-- Статус операции в случае отказа либо ещё не исполнен платёж -->
+                <div ng-if="operation.isOnline && (operation.isReject || !operation.isProcessed)" class="operation-desc" ng-bind="operation.paymentState"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--Верстка под android-->
+    <div ng-if="!ios" rs-waiter="operations" rs-waiter-class="rs-promo-list-waiter" ng-repeat="operation in operations | searchOperation:searchText"
+         ng-click="showOperation(operation)" style="background: white;">
+        <div ng-if="!$first && isChangeDate($index)" class="operation-separator"></div>
+        <div ng-if="$first || isChangeDate($index)" class="operation-date">{{operation.operationDate | dateOperation}}</div>
+
+        <div class="table">
+            <div class="table-cell padding-15px operation-logo-container">
+                <rs-operation-logo operation="operation"></rs-operation-logo>
+            </div>
+            <div class="table-cell width100pc padding-top-15px padding-right-15px padding-bottom-15px text-valign-middle">
+                <label class="operation-name">
+                    <span ng-bind-html="operation.operationName"></span>
+                    <img ng-if="operation.isHold" src="img/android/hold.svg" height="14px"/>
+                </label>
+                <img ng-if="operation.operationTime" src="img/clock.png"/>
+                <label ng-if="operation.operationTime" class="time-operation" ng-bind="operation.operationTime | time"></label>
+
+                <div ng-if="!forBonus && operation.transactionSum" class="flex operation-amount" ng-style="{'color': operation.colorSign}">
+                    <span ng-bind="operation.sign"></span>&nbsp;
+                    <span ng-bind="(operation.transactionSum | defaultSum)"></span>
+                    <span currency="{{operation.transactionCurrency}}"></span>
+                </div>
+                <div ng-if="forBonus && operation.programPoints[forBonus]" class="flex operation-amount" ng-style="{'color': operation.colorSign}">
+                    <span ng-bind="operation.sign"></span>&nbsp;
+                    <span ng-bind="(operation.programPoints[forBonus] | defaultSum)"></span>
+                    <span>&nbsp; балл.</span>
+                </div>
+
+                <div ng-if="forBonus">
+                    <span ng-if="operation.product.name" ng-bind="operation.product.name"></span>
+                    <span ng-if="operation.transactionSum && operation.sign === '+'" class="flex" ng-style="{float: 'right'}">
+                        за {{operation.transactionSum | defaultSum}} <span currency="{{operation.transactionCurrency}}"></span>
+                    </span>
+                </div>
+
+                <div ng-if="operation.operationDesc" ng-bind="operation.operationDesc" class="operation-desc"></div>
+                <div ng-if="operation.category" class="operation-category">
+                    <div class="operation-category-point" ng-style="{'background-color': operation.color}"></div>
+                    <div class="operation-category-name" ng-bind="operation.category"></div>
+                </div>
+                <!-- Статус операции в случае отказа либо ещё не исполнен платёж -->
+                <div ng-if="operation.isOnline && (operation.isReject || !operation.isProcessed)" class="operation-desc" ng-bind="operation.paymentState"></div>
+            </div>
+        </div>
+    </div>
+</div>

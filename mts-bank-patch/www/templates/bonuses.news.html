@@ -1,0 +1,14 @@
+<div ng-controller="BonusNewsCtrl as bnc" ui-view="bonusnews-page">
+    <rs-header>Новости</rs-header>
+    <div class="content no-footer">
+        <rs-news ng-repeat="newsItem in bnc.news" news="newsItem" ui-sref="bonusnews.item({bniId: newsItem.id})"></rs-news>
+        <!-- div class="border-box padding-10px" ng-repeat="newsItem in bnc.news">
+            <div class="text-12px">
+                <label>{{newsItem.title}}</label> <span style="color:#f60;">{{newsItem.dateCreate | date:'HH:mm':'+0300'}}</span>
+                <div class="icon-paper-clip" style="float:right;"></div>
+                <div ng-if="newsItem.important" class="icon-flag" style="float:left;"></div>
+            </div>
+            <div class="solid-border-1px gray-border padding-5px" style="margin-top: 2px;">{{newsItem.text}}</div>
+        </div -->
+    </div>
+</div>

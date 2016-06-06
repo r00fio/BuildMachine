@@ -1,0 +1,100 @@
+<ion-view>
+    <rs-header rbtn-class="icon-check-mark" rbtn-action="applyFilter()">Фильтр</rs-header>
+    <ion-content class="has-header">
+        <div class="content-block-title">Период</div>
+        <div class="list-block">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell text-gray" style="padding-left: 5px; font-size: 16px;">С</div>
+                                </div>
+                                <div class="item-input table-row">
+                                    <input type="text" style="font-size: 16px;" readonly id="calendar-date-format-from"
+                                           upper-bound="params.dateTo" value-date="params.dateFrom" rs-date-picker-android>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell text-gray" style="padding-left: 5px; font-size: 16px;">По</div>
+                                </div>
+                                <div class="item-input table-row">
+                                    <input type="text" style="font-size: 16px;" readonly id="calendar-date-format-to"
+                                           lower-bound="params.dateFrom" value-date="params.dateTo" rs-date-picker-android>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-block-title">Тип операции</div>
+        <div class="list-block" style="margin-bottom: 0; margin-top: 0;">
+            <div class="list-group">
+                <ul>
+                    <li>
+                        <label class="label-checkbox">
+                            <div class="item-content item-inner flex flex-middle">
+                                <div class="margin-right-15px">
+                                    <input type="checkbox" ng-model="params.contract"/>
+                                    <div class="item-media">
+                                        <i class="icon icon-form-checkbox"></i>
+                                    </div>
+                                </div>
+                                <div class="child-flex-1">Договора</div>
+                            </div>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="label-checkbox">
+                            <div class="item-content item-inner flex flex-middle">
+                                <div class="margin-right-15px">
+                                    <input type="checkbox" ng-model="params.option"/>
+                                    <div class="item-media">
+                                        <i class="icon icon-form-checkbox"></i>
+                                    </div>
+                                </div>
+                                <div class="child-flex-1">Опции</div>
+                            </div>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="label-checkbox">
+                            <div class="item-content item-inner flex flex-middle">
+                                <div class="margin-right-15px">
+                                    <input type="checkbox" ng-model="params.security"/>
+                                    <div class="item-media">
+                                        <i class="icon icon-form-checkbox"></i>
+                                    </div>
+                                </div>
+                                <div class="child-flex-1">Безопасность</div>
+                            </div>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="label-checkbox">
+                            <div class="item-content item-inner flex flex-middle">
+                                <div class="margin-right-15px">
+                                    <input type="checkbox" ng-model="params.payment"/>
+                                    <div class="item-media">
+                                        <i class="icon icon-form-checkbox"></i>
+                                    </div>
+                                </div>
+                                <div class="child-flex-1">Платежи</div>
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

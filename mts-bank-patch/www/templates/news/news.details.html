@@ -1,0 +1,16 @@
+<ion-view>
+    <rs-header lbtn-class="icon-back" lbtn-action="goBack()">{{news.startDate | dateWithMonthName}}</rs-header>
+    <ion-content class="has-header">
+        <div class="news-details-block">
+            <div>
+                <span class="news-details-title" ng-bind="news.title"></span>
+            </div>
+            <div class="news-details-image-block">
+                <img class="news-details-image" ng-if="news.image" ng-src="{{getLogoUrl(news.image.url)}}"/>
+            </div>
+            <div class="news-details-text-content-block">
+                <custom-html class="news-details-text-content" data="news.text"></custom-html>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

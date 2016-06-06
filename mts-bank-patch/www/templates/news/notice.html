@@ -1,0 +1,12 @@
+<ion-view>
+    <rs-header>Лента уведомлений</rs-header>
+    <ion-content class="has-header" ng-class="{'has-fixed-button' : hasNext}">
+
+        <rs-notice ng-repeat="notice in noticeList" notice="notice" ng-click="setAsReadNotice(notice)"></rs-notice>
+        <div class="rs-waiter-centered" ng-if="showSpinner">
+            <ion-spinner icon="{{platform == 'ios' ? 'ios-small' : null }}"></ion-spinner>
+        </div>
+
+        <button ng-if="hasNext" class="button rs-button notice-button" ng-click="showMore()">Показать еще</button>
+    </ion-content>
+</ion-view>

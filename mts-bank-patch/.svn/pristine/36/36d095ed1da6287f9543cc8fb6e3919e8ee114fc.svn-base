@@ -1,0 +1,67 @@
+<ion-view ng-controller="ControllingCostsFilterCtrl as costsFilterCtrl" ui-view="controlling-costs-filter-view">
+    <rs-header lbtn-class="icon-close" lbtn-action="goBack()" rbtn-class="icon-check-mark" rbtn-action="applyFilter()">Фильтр</rs-header>
+    <ion-content class="has-header">
+
+            <div ng-if="platform=='ios'">
+                <div class="content-block-title">Период</div>
+                <div style="margin-bottom: 0; margin-top: 0;" class="list-block">
+                    <ul>
+                        <li>
+                            <rs-date-picker-ios upper-bound="costsFilterCtrl.toDate" value-date="costsFilterCtrl.fromDate"
+                                                field-id="filter-date-from" title="Начало периода" />
+                        </li>
+                        <li>
+                            <rs-date-picker-ios lower-bound="costsFilterCtrl.fromDate" value-date="costsFilterCtrl.toDate"
+                                                field-id="filter-date-to" title="Конец периода" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div ng-if="platform!='ios'" class="list-block">
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="table-fixed-width100pc">
+                                    <div class="table-row">
+                                        <div class="table-cell text-gray" style="padding-left: 5px; font-size: 16px;">С</div>
+                                    </div>
+                                    <div class="item-input table-row">
+                                        <input type="text" style="font-size: 16px;" readonly id="calendar-date-format-from"
+                                               upper-bound="costsFilterCtrl.toDate" value-date="costsFilterCtrl.fromDate" rs-date-picker-android>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="table-fixed-width100pc">
+                                    <div class="table-row">
+                                        <div class="table-cell text-gray" style="padding-left: 5px; font-size: 16px;">По</div>
+                                    </div>
+                                    <div class="item-input table-row">
+                                        <input type="text" style="font-size: 16px;" readonly id="calendar-date-format-to"
+                                               lower-bound="costsFilterCtrl.fromDate" value-date="costsFilterCtrl.toDate" rs-date-picker-android>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="content-block-title">Продукты</div>
+            <div class="list-block" style="margin:0;">
+                <div class="list-group">
+                    <ul>
+                        <li ng-repeat="product in costsFilterCtrl.productList">
+                            <rs-product product="product" show-check-box="true"></rs-product>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    </ion-content>
+</ion-view>

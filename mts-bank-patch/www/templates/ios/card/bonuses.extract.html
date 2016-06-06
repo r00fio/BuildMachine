@@ -1,0 +1,84 @@
+<ion-view>
+    <div ui-view="bonus-extract-header"><rs-header>Начисления по бонусам</rs-header></div>
+    <div ui-view="bonus-extract-content">
+        <ion-content class="has-header">
+            <div class="bg-white">
+                <div style="text-align: center;">
+                    <img ng-if="bonus.img" ng-src="{{getLogoUrl(bonus.img.url)}}" style="height: 40px; margin: 25px 0 15px 0;">
+                    <img ng-if="!bonus.img" ng-src="img/inbank.svg" style="height: 40px; margin: 25px 0 15px 0;"/>
+                </div>
+                <div class="text-14px" style="text-align: center;">
+                    <span ng-bind="bonus.name"></span>
+                </div>
+                <div class="text-18px" style="text-align: center;">
+                    <span ng-bind="bonus.totalBonusBalance + ' ' + bonus.currency"></span>
+                </div>
+                <div class="list-block no-margin">
+                    <rs-select header-text="Описание программы" ng-click="redirectToDeactivateOption()"></rs-select>
+                </div>
+            </div>
+
+            <rs-panel header-text="Подключенные продукты">
+                <div class="list-block no-margin">
+                    <div class="list-group">
+                        <ul>
+                            <li class="swipeout" ng-repeat="card in bonus.products">
+                                <div class="swipeout-content">
+                                    <rs-product product="card"></rs-product>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </rs-panel>
+
+            <!-- TODO: небоходимо отображать выписку по выбранному бонусу и общую суммы начисленных/списанных бонусов, для выбранного продукта.
+            По какой то причине она сильно отличается от обычной выписки и требует продуманных изменений как на стороне сервера, так и на клиентской. -->
+
+             <rs-panel header-text="Операции за последний месяц">
+                 <div class="list-block no-margin">
+                     <ul>
+                         <!-- Фильтр -->
+                         <!-- li ui-sref="card.bonusextract.filter">
+                             <a href="#" class="item-content item-inner" ng-click="$event.preventDefault()">
+                                 <div class="flex flex-middle width100pc" style="height:64px;">
+                                     <div class="child-flex-1 flex flex-column">
+                                         <div>Фильтр</div>
+                                         <div class="overflow-faded text-gray">{{filterParamsText || 'Не выбрано'}}</div>
+                                     </div>
+                                     <div style="width:14px;height:14px;text-align:center;" ng-click="$event.preventDefault()">x</div>
+                                 </div>
+                             </a>
+                         </li -->
+                         <!-- Итог по выписке -->
+                         <li class="item-content item-inner">
+                             <div class="flex width100pc" style="height:64px;">
+                                 <div class="child-flex-1 flex flex-column flex-center flex-middle">
+                                     <div class="text-gray">Накоплено</div>
+                                     <div style="position:relative;" rs-waiter="operationList" rs-waiter-style="{left:0,top:0}">{{totalSaved}}&nbsp;</div>
+                                 </div>
+                                 <div class="child-flex-1 flex flex-column flex-center flex-middle">
+                                     <div class="text-gray">Потрачено</div>
+                                     <div style="position:relative;" rs-waiter="operationList" rs-waiter-style="{left:0,top:0}">{{totalSpent}}&nbsp;</div>
+                                 </div>
+                             </div>
+                         </li>
+                     </ul>
+                 </div>
+
+                 <rs-operations ng-show="operationList.length" operations="operationList" operation-state="operationState" for-bonus="{{bonus.optionStrId}}"></rs-operations>
+                 <div ng-hide="operationList === undefined || operationList.length"
+                     class="bg-white flex flex-middle flex-center text-align-center text-gray text-13px"
+                     style="height: 134px; border-top: 1px solid #C8D5D9; border-bottom: 1px solid #C8D5D9; padding: 25px;">
+                     Начисление бонусных баллов за данный период не было, пожалуйста выберите другой период
+                 </div>
+
+            </rs-panel>
+
+            <div class="btn-refill plain-button-style">
+                <button ui-sref="card.bonusextract.filter">Показать выписку</button>
+            </div>
+
+        </ion-content>
+    </div>
+</ion-view>

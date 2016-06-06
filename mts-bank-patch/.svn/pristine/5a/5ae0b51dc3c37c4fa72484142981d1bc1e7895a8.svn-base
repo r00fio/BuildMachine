@@ -1,0 +1,24 @@
+<ion-view>
+    <rs-header lbtn-class="icon-close" lbtn-action="goBack()" rbtn-class="icon-check-mark" rbtn-action="IdeaBankCreateIdeaCtrl.createIdea()">Новая идея</rs-header>
+    <ion-content scroll="false" class="has-header">
+        <div ng-if="platform=='ios'" class="content-block-title empty-title"></div>
+        <div class="list-block no-margin">
+            <ul>
+                <li class="item-content" ng-class="{'item-inner': platform!='ios', 'save-divider': platform!='ios'}">
+                    <div ng-class="{'item-inner': platform=='ios', 'item-input': platform!='ios'}">
+                        <div ng-class="{'item-input': platform=='ios'}" style="width:100%;">
+                            <input input-clear-btn type="text" placeholder="Заголовок" ng-model="IdeaBankCreateIdeaCtrl.subject" />
+                        </div>
+                    </div>
+                </li>
+                <li class="item-content" ng-class="{'item-inner': platform!='ios'}">
+                    <div ng-class="{'item-inner': platform=='ios', 'item-input': platform!='ios'}">
+                        <div ng-class="{'item-input': platform=='ios'}" style="width:100%;">
+                            <textarea placeholder="Описание" ng-model="IdeaBankCreateIdeaCtrl.desc"></textarea>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+</ion-view>

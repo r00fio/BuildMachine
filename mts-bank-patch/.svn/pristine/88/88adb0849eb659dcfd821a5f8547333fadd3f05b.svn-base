@@ -1,0 +1,85 @@
+<div ng-controller="CardAdditionalOptionsConnectionCtrl as cardAdditionalOptionsConnectionCtrl">
+    <rs-header>{{form.option.name}}</rs-header>
+        <ion-view>
+            <ion-content class="has-header bg-f0f4f5">
+
+                <rs-panel header-text="{{'Опция ' + form.option.name}}" ng-if="form.option.isActive">
+                    <div class="list-block" style="margin: 0;">
+                        <ul>
+                            <li class="item-content">
+                                <div class="item-inner text-bold" style="white-space: normal;">
+                                    <span>Включено</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+
+                <rs-panel header-text="Описание" ng-if="form.option.hasDesc">
+                    <div class="list-block" style="margin: 0;">
+                        <ul>
+                            <li class="item-content">
+                                <div class="item-inner text-gray white-space-pre-line" style="white-space: normal;">
+                                    <span ng-bind="form.option.desc"></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+
+                <div class="list-block" style="margin-bottom: 0;" >
+                    <ul ng-if="!form.option.isActive">
+                        <rs-select header-text="Способ оплаты" ng-if="form.selectedPayMethod && form.payMethods.length > 1"
+                                   value-text="{{form.selectedPayMethod ? form.selectedPayMethod.desc : ''}}"
+                                   ng-click="onSelectCodifierPanel(form.payMethods, 'RetailPayMethod')"
+                                   ng-disabled="form.requestAlreadySend">
+                        </rs-select>
+
+                        <rs-select header-text="Округление" ng-if="form.selectedRoundMethod"
+                                   value-text="{{form.selectedRoundMethod ? form.selectedRoundMethod.desc : null}}"
+                                   ng-click="onSelectCodifierPanel(form.roundingMethods, 'RetailMoneyRound')"
+                                   ng-disabled="form.requestAlreadySend">
+                        </rs-select>
+                        <li class="item-content" ng-if="showPhoneInput()">
+                            <div class="item-inner">
+                                <div class="item-title" style="width: 40%">Номер телефона</div>
+                                <div class="item-input" style="width: 60%;">
+                                    <input ng-disabled="form.requestAlreadySend" style="text-align: right;"
+                                           mask-clean="true" mask-restrict="reject" mask="(999) 999-99-99"
+                                           type="text" ng-model='form.phoneNumber'/>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul ng-if="form.selectedPayMethod && form.option && (form.option.amount || form.option.bonusAmount)">
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">Обслуживание</div>
+                                <div class="item-after">
+                                    {{(form.selectedPayMethod.value == 'MONEY') ? form.option.amount : form.option.bonusAmount}}
+                                    <span ng-if="form.selectedPayMethod.value === 'MONEY'" currency="{{form.option.currency}}"></span>
+                                    <span ng-if="form.selectedPayMethod.value !== 'MONEY'"> бонусов</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <rs-panel header-text="Карта">
+                    <div class="list-block" style="margin:0;">
+                        <ul>
+                            <li>
+                                <rs-product product="form.bankCard"></rs-product>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+
+                <button ng-if="form.showButton" class="button rs-button" style="position:relative; bottom:auto; margin-top:40px !important;"
+                        ng-bind="form.option.isActive ? 'Отключить' : 'Подключить'"
+                        ng-disabled="!form.option.canChange"
+                        ng-click="sendRetailProdOptRequest()"></button>
+
+            </ion-content>
+        </ion-view>
+</div>

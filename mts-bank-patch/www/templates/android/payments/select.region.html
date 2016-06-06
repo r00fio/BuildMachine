@@ -1,0 +1,26 @@
+<rs-header rbtn-action="selectRegionPanel.hide()">Регион для платежей</rs-header>
+
+<div class="searchbar searchbar-init bar bar-subheader" style="background: #24A7B3;">
+    <div class="searchbar-input">
+        <input type="search" ng-model="searchText.name"
+               class="width100pc solid-border-1px gray-border border-box text-14px icon-search-input" placeholder="Город или область"/>
+        <a href="#" class="searchbar-clear"></a>
+    </div>
+</div>
+<ion-content class="has-subheader" scroll="true">
+    <div class="list-block list-block-separator-hidden" style="margin: 0;">
+        <ul>
+            <li class="item-content region-name" ng-repeat="region in regionsForPaymentArr | filter: searchText | orderBy: 'name'"
+                ng-click="clickRegion(region)">
+                <div class="item-inner">
+                    <div class="flex flex-middle">
+                        <div><label class="text-15px white-space-pre-line" ng-bind="region.name"/></div>
+                    </div>
+                    <div class="item-after" ng-if="selectedRegion.name == region.name">
+                        <div class="icon-selected"></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</ion-content>

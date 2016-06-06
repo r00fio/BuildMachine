@@ -1,0 +1,205 @@
+<div ng-controller="HomeCtrl as homeCtrl" ui-view="home-view">
+    <ion-view>
+        <ion-content class="has-statusbar">
+
+            <!-- Важная новость ("Вылетающая") -->
+            <script id="templates/home/importantnews.html" type="text/ng-template">
+                <div class="modal-container">
+                    <div style="position: relative; background-color: white; min-height: 40%;">
+                        <div ng-style="{background: 'url(\'img/ios/news-important-active.svg\') no-repeat center', 'background-size': 'contain'}" style="width:40px;height:40px; float:left; margin:15px;"></div>
+                        <div style="padding: 15px;">
+                            <div style="font-weight: bold; font-size: 16px;">Обратите внимание!</div>
+                            <div style="color:#98ACB3;">{{importantNews.title}}</div>
+                        </div>
+                        <div style="position:absolute; left:0; bottom:47px; padding:15px; color: #98ACB3;">{{importantNews.documentDate | dateWithMonthName}}</div>
+                        <button class="button rs-button no-margin" style="position:absolute;"
+                                ng-click="hideImportantNews() + goToState('news.details', {news: importantNews, newsId: importantNews.id})">Узнать больше</button>
+                    </div>
+                    <div ng-style="{background: 'url(\'img/ios/closed-product.svg\') no-repeat center', 'background-size': 'contain'}" style="width:30px;height:30px;position: absolute; left: 50%; top: 100%; margin: -40px 0 0 -15px;"
+                         ng-click="hideImportantNews()"></div>
+                </div>
+            </script>
+
+            <div class="home-header bg-24A7B3 width100pc"></div>
+            <div class="flex flex-middle flex-center width100pc lamp-button">
+                <div class="flex flex-center lamp-button-div">
+                    <div style="width: 100%; height: 100%;" ng-include="'templates/corona.html'"></div>
+                </div>
+                <button class="btn-corona" ui-sref="calendarevents">
+                    <div class="width100pc flex flex-middle flex-center" style="height: 100%;">
+                        <img src="img/ios/calendar_main.svg">
+                        <!--<div ng-show="countNewEvents" class="counter bg-1A7780"><label class="text-white" ng-bind="countNewEvents"></label></div>-->
+                    </div>
+                </button>
+                <div class="bg-white flex flex-middle flex-center user-photo" ui-sref="settings">
+                    <div ng-if="retailClient.foto" ng-style="{background: 'url(data:image/jpeg;base64,{{retailClient.foto}}) no-repeat center', 'background-size': 'cover'}"/>
+                    <img ng-hide="retailClient.foto" src="img/ios/avatar.svg"/>
+                </div>
+                <button class="btn-corona" ui-sref="news">
+                    <div class="width100pc flex flex-middle flex-center" style="height: 100%;">
+                        <img src="img/ios/news_main.svg">
+                        <div ng-show="countNewNews" class="counter bg-1A7780"><label class="text-white" ng-bind="countNewNews"></label></div>
+                    </div>
+                </button>
+            </div>
+
+            <div class="bg-E2EBEE width100pc balance-block" rs-waiter="balance">
+                <ion-slide-box ng-if="balance" on-slide-changed="slideHasChanged($index)" class="slider-balance" style="height: 100%;">
+                    <ion-slide align="center">
+                        <div ui-sref="myfinances" class="flex flex-middle flex-center" style="height: 100%;">
+                            <div class="width100pc">
+                                <div class="balance-header">Мои финансы</div>
+                                <div class="flex flex-center balance-height">
+                                    <span class="balance-sum" ng-show="balance.availableBalance" ng-bind="(balance.availableBalance | defaultSum)"/>
+                                    <span class="balance-sum" ng-hide="balance.availableBalance">0</span>
+                                    <span class="balance-sum" currency="RUB"/>
+                                </div>
+                                <div class="flex">
+                                    <div class="flex flex-middle flex-center balance-tbl">
+                                        <div class="width100pc">
+                                            <div class="balance-cell-text">Собственные средства</div>
+                                            <div class="flex flex-center balance-cell-summ">
+                                                <span class="text-363D40 text-15px" ng-show="balance.ownMeans" ng-bind="(balance.ownMeans | defaultSum)"/>
+                                                <span class="text-363D40 text-15px" ng-hide="balance.ownMeans">0</span>
+                                                <span class="text-363D40 text-15px" currency="RUB"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-middle flex-center balance-tbl">
+                                        <div class="width100pc">
+                                            <div class="balance-cell-text">Задолженность</div>
+                                            <div class="flex flex-center balance-cell-summ">
+                                                <span class="balance-cell-sum" ng-show="balance.debt" ng-bind="(balance.debt | defaultSum)"/>
+                                                <span class="balance-cell-sum" ng-hide="balance.debt">0</span>
+                                                <span class="balance-cell-sum" currency="RUB"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ion-slide>
+                    <ion-slide align="center">
+                        <div ng-show="balance.card" ui-sref="myfinances" class="flex flex-middle flex-center" style="height: 100%;">
+                            <div class="width100pc">
+                                <div class="balance-header">На картах</div>
+                                <div class="flex flex-center balance-height">
+                                    <span class="balance-sum" ng-show="balance.card.availableBalance" ng-bind="(balance.card.availableBalance | defaultSum)"/>
+                                    <span class="balance-sum" ng-hide="balance.card.availableBalance">0</span>
+                                    <span class="balance-sum" currency="RUB"/>
+                                </div>
+                                <div class="flex">
+                                    <div class="flex flex-middle flex-center balance-tbl">
+                                        <div class="width100pc">
+                                            <div class="balance-cell-text">Собственные средства</div>
+                                            <div class="flex flex-center balance-cell-summ">
+                                                <span class="balance-cell-sum" ng-show="balance.card.ownMeans" ng-bind="(balance.card.ownMeans | defaultSum)"/>
+                                                <span class="balance-cell-sum" ng-hide="balance.card.ownMeans">0</span>
+                                                <span class="balance-cell-sum" currency="RUB"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-middle flex-center balance-tbl">
+                                        <div class="width100pc">
+                                            <div class="balance-cell-text">Задолженность</div>
+                                            <div class="flex flex-center balance-cell-summ">
+                                                <span class="balance-cell-sum" ng-show="balance.card.debt" ng-bind="(balance.card.debt | defaultSum)"/>
+                                                <span class="balance-cell-sum" ng-hide="balance.card.debt">0</span>
+                                                <span class="balance-cell-sum" currency="RUB"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-hide="balance.card" class="flex flex-middle flex-center" style="height: 100%;">
+                            <div class="width100pc">
+                                <div class="balance-empty-text">С картами МТС банка удобно тратить и выгодно копить</div>
+                                <!-- TODO на 1м этапе не реализуется -->
+                                <!--<div class="bg-white flex flex-middle flex-center width100pc" style="height: 44px; margin-top: 20px;" ui-sref="">-->
+                                    <!--<div class="balance-empty-btn">Оформите прямо из мобильного банка</div>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+                    </ion-slide>
+                    <ion-slide align="center">
+                        <div ng-show="balance.account" ui-sref="myfinances" class="flex flex-middle flex-center" style="height: 100%;">
+                            <div>
+                                <div class="balance-header">На счетах и вкладах</div>
+                                <div class="flex flex-center">
+                                    <span class="balance-sum" ng-show="balance.account.ownMeans" ng-bind="(balance.account.ownMeans | defaultSum)"/>
+                                    <span class="balance-sum" ng-show="balance.account.ownMeans" currency="RUB"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-hide="balance.account" class="flex flex-middle flex-center" style="height: 100%;">
+                            <div class="width100pc">
+                                <div class="balance-empty-text">Вклады МТС Банка для роста сбережений и сохранения накоплений!</div>
+                                <div class="bg-white flex flex-middle flex-center width100pc" style="height: 44px; margin-top: 20px;" ui-sref="depositselect">
+                                    <div class="balance-empty-btn">Подобрать и оформить вклад</div>
+                                </div>
+                            </div>
+                        </div>
+                    </ion-slide>
+                    <ion-slide align="center">
+                        <div ng-show="balance.loan" ui-sref="myfinances" class="flex flex-middle flex-center" style="height: 100%;">
+                            <div>
+                                <div class="balance-header">Задолженность по кредитам</div>
+                                <div class="flex flex-center">
+                                    <span class="balance-sum" ng-show="balance.loan.debt" ng-bind="(balance.loan.debt | defaultSum)"/>
+                                    <span class="balance-sum" ng-show="balance.loan.debt" currency="RUB"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-hide="balance.loan" class="flex flex-middle flex-center" style="height: 100%;">
+                            <div class="width100pc">
+                                <div class="balance-empty-text">Кредит наличными на любые цели - воплощай задуманное сегодня!</div>
+                                <!-- TODO на 1м этапе не реализуется -->
+                                <!--<div class="bg-white flex flex-middle flex-center width100pc" style="height: 44px; margin-top: 20px;" ui-sref="">-->
+                                    <!--<div class="balance-empty-btn">Подайте заявку и получите решение</div>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+                    </ion-slide>
+                </ion-slide-box>
+            </div>
+
+            <!-- Новости с типом объявление -->
+            <ion-slide-box class="slider-news" ng-init="advertColors=['#295fcc', '#29b1cc', '#29cc96', '#5947b3', '#cc3380']">
+                <ion-slide class="news-slide" ng-repeat="advert in advertList" ui-sref="news.details({newsId:advert.id, news: advert})">
+                    <div class="news-slide-content" ng-style="{'background-color': advertColors[$index % 5]}">
+                        <div class="news-title">{{advert.title}}</div>
+                        <custom-html data="advert.description" class="news-text"></custom-html>
+                    </div>
+                </ion-slide>
+            </ion-slide-box>
+
+            <rs-panel header-text="Избранные платежи">
+                <div ng-show="favoritList && favoritList.length > 0" class="bg-white flex flex-middle favorit-block-home">
+                    <ion-scroll direction="x" scrollbar-x="false" style="min-width: 100%; height: 100%" delegate-handle="favourites" fix-horizontal-scroll>
+                        <div class="table-cell text-align-center relative favorit-block-home-cell" ng-repeat="favorit in favoritList" ng-click="redirectToPayment(favorit)">
+                            <rs-operation-logo operation="favorit"></rs-operation-logo>
+
+                            <div class="favorit-name-main text-363D40 text-12px text-two-lines" ng-bind="favorit.name"></div>
+                        </div>
+                    </ion-scroll>
+                </div>
+                <div ng-show="favoritList === undefined" class="bg-white favorit-block-home" rs-waiter="favoritList"/>
+                <div ng-hide="favoritList && favoritList.length > 0 || favoritList === undefined" class="flex flex-middle flex-center list-empty">
+                    Вы еще не сохранили ни одного шаблона и не осуществили ни одного платежа.<br>Попробуйте - это просто!
+                </div>
+            </rs-panel>
+
+            <rs-panel header-text="Последние онлайн-операции" class="last-payment-home">
+                <rs-operations operations="operationList"
+                               operation-state="operationState"></rs-operations>
+                <div ng-if="operationList && operationList.length == 0" class="flex flex-middle flex-center list-empty">
+                    Вы не осуществили еще ни одной операции в интернет-банке. Попробуйте оплатить, например, свой
+                    мобильный телефон.<br>Это легко!
+                </div>
+            </rs-panel>
+
+            <ion-refresher on-refresh="doRefresh()" pulling-icon="" class="white-spinner"></ion-refresher>
+        </ion-content>
+    </ion-view>
+</div>

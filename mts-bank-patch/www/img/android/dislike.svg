@@ -1,0 +1,14 @@
+<svg width="55px" height="55px" viewBox="0 0 55 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>down</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Ideas" sketch:type="MSArtboardGroup" transform="translate(-507.000000, -774.000000)" fill="#FF4C5B">
+            <g id="down" sketch:type="MSLayerGroup" transform="translate(534.500000, 801.500000) scale(1, -1) translate(-534.500000, -801.500000) translate(507.500000, 774.500000)">
+                <path d="M34.9411765,0 C31.8647647,0 31.0658824,3.03035294 30.1764706,4.76470588 C28.9725882,7.11211765 20.7836471,17.334 19.0588235,19.0588235 C17.334,20.7836471 15.2470588,22.2591176 12.7058824,22.2591176 L12.7058824,54 L39.7058824,54 C41.6117647,54 45.4187647,52.4927647 46.0588235,50.8235294 C48.3427059,44.8676471 54,29.5411765 54,27 C54,23.8235294 51.0951176,22.2352941 48.5539412,22.2352941 L41.2941176,22.2591176 C38.7529412,22.2591176 36.5294118,19.7401765 36.5294118,17.4705882 C36.5294118,15.201 39.7058824,12.7392353 39.7058824,7.94117647 C39.7058824,3.14311765 38.0175882,0 34.9411765,0" id="Fill-1" sketch:type="MSShapeGroup"></path>
+                <path d="M0.0952941176,22.2352941 L9.52941176,22.2352941 L9.52941176,54 L0.0952941176,54 L0.0952941176,22.2352941 Z" id="Fill-2" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

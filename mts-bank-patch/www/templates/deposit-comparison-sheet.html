@@ -1,0 +1,48 @@
+<div id="depositComparisonContent">
+
+    <div class="iscroll-header iscroll-fixed-col iscroll-fixed-row">
+        <div class="iscroll-scroller">
+
+            <div class="flex iscroll-row">
+                <div class="iscroll-cell">Вклады</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Параметры сравнения в фиксированной колонке -->
+    <div id="depositFixedColumnWrapper" class="iscroll-wrapper iscroll-fixed-col iscroll-scrollable-row">
+        <div class="iscroll-scroller">
+
+            <div class="flex iscroll-row" ng-repeat="param in compareParams | filter:{value: true}">
+                <div class="iscroll-cell">{{param.name}}</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="depositHeaderScroll" class="iscroll-header iscroll-wrapper iscroll-scrollable-col iscroll-fixed-row">
+        <div class="iscroll-scroller">
+
+            <div class="flex iscroll-row">
+                <div class="iscroll-cell" ng-repeat="deposit in depositList">{{deposit.desc}}</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="depositTableDataWrapper" class="iscroll-wrapper iscroll-scrollable-col iscroll-scrollable-row">
+        <div class="iscroll-scroller">
+
+            <div class="flex iscroll-row" ng-repeat="param in compareParams | filter:{value: true}">
+                <div class="iscroll-cell" ng-repeat="deposit in depositList">
+                    <div ng-bind-html="getProperValue(deposit, param.strId)" style="white-space: pre-line;"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- div id="footer"></div -->
+
+</div>

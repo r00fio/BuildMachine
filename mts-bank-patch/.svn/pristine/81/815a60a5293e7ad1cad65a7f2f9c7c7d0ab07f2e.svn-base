@@ -1,0 +1,41 @@
+<div ng-controller="SendExtractCtrl as sendExtractCtrl">
+    <rs-header>Выписка</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <rs-panel header-text="Период">
+                <div  style="margin-bottom: 0; margin-top: 0;" class="list-block">
+                    <ul>
+                        <li>
+                            <rs-date-picker-ios upper-bound="extractDateTo"
+                                                value-date="extractDateFrom" field-id="extract-date-from" title="Начало периода"/>
+                        </li>
+                        <li>
+                            <rs-date-picker-ios lower-bound="extractDateFrom"
+                                                value-date="extractDateTo" field-id="extract-date-to" title="Конец периода"/>
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="margin-bottom: 0; margin-top: 0;" class="list-block">
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-input">
+                                        <input input-clear-btn type="text" class="text-15px width100pc" placeholder="E-mail" id="send-email-address">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <div class="content-block-title text-13px" style="margin-top: 15px;">Выписка придёт на указанный адрес электронной почты.
+                Формат выписки — PDF-файл
+            </div>
+
+            <div style="height:64px;"></div>
+        </ion-content>
+        <button ng-click="sendExtract()" class="button button-full rs-button no-margin" style="height: 64px;">Отправить</button>
+    </ion-view>
+</div>

@@ -1,0 +1,54 @@
+<div ng-controller="SocialNetworkCtrl as socialNetworkCtrl">
+    <rs-header ng-show="globals.firstLaunch" lbtn-action="continueAuth()" lbtn-class="icon-close">Друзья</rs-header>
+    <rs-header ng-hide="globals.firstLaunch">Привязка соц. сетей</rs-header>
+    <ion-view>
+        <ion-content scroll="false" class="has-header bg-f0f4f5">
+            <div class="rs-content-panel">
+                <div class="rs-content-panel-header social-network-panel">
+                    Привяжите свои социальные сети, чтобы совершать переводы друзьям
+                </div>
+            </div>
+
+            <div class="list-block social-list-block" style="margin: 0;">
+                <ul>
+                    <li class="item-content" ng-repeat="social in socials" ng-disabled="social.disabled">
+                        <div class="item-media">
+                            <img class="icon icon-social-logo" ng-src="{{social.iconSrc}}"/>
+                        </div>
+                        <div class="item-inner">
+                            <div class="table">
+                                <div class="table-row">
+                                    <div class="table-cell text-15px" style="white-space: normal;" ng-bind="social.name"></div>
+                                </div>
+                                <div class="table-row" ng-if="!social.disabled && social.userExtId">
+                                    <span class="table-cell text-12px text-gray" ng-bind="social.userExtId + ' ' + (social.lastUpdateDate ? social.lastUpdateDate : '')"></span>
+                                </div>
+                            </div>
+                            <div class="item-after">
+                                <a ng-if="!social.disabled && social.isLinked" class="item-media">
+                                    <img ng-click="addSocial(social)" class="icon icon-social-refresh" ng-src="img/android/social-refresh.svg"/>
+                                </a>
+                                <a ng-if="!social.disabled && social.isLinked" class="item-media">
+                                    <img ng-click="deleteFromSocialNetwork(social)" class="icon icon-social-remove" ng-src="img/android/social-remove.svg"/>
+                                </a>
+                                <a ng-if="!social.disabled && !social.isLinked" class="item-media">
+                                    <img ng-click="addSocial(social)" class="icon icon-social-add" ng-src="img/android/social-add.svg"/>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <button ng-hide="isUpdatingContacts"
+                    class="button button-social-refr rs-button no-margin"
+                    ng-click="importUserContacts()">
+                {{globals.firstLaunch || !retailClient.hasContactsPhoneBook ? 'Импортировать контакты' : 'Обновить контакты'}}
+            </button>
+
+            <!-- С песвдоциклом вейтер идеален -->
+            <div ng-show="isUpdatingContacts" style="position: absolute; bottom: 10px; width: 100%;">
+                <div ng-repeat="i in []" rs-waiter="undefined"></div>
+            </div>
+        </ion-content>
+    </ion-view>
+</div>

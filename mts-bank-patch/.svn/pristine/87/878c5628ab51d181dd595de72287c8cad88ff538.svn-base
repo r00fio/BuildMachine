@@ -1,0 +1,57 @@
+<div class="no-shadow">
+    <rs-header>Населенный пункт</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <div class="searchbar searchbar-init">
+                <div class="searchbar-input">
+                    <input type="search" ng-model="searchText"
+                           class="width100pc solid-border-1px gray-border border-box text-14px icon-search-input"
+                           placeholder="Населенный пункт"/>
+                    <a href="#" class="searchbar-clear"></a>
+                </div>
+            </div>
+            <rs-panel>
+                <div class="list-block list-block-separator-hidden" style="margin: 0;">
+                    <ul>
+                        <li class="item-content fw7-li-select"
+                            ng-click="deleteLocality()">
+
+                            <div class="item-inner">
+                                <div class="table">
+                                    <div class="table-row">
+                                        <div class="item-title">По всем населённым пунктам</div>
+                                    </div>
+                                    <div class="table-row fw7-li-content-text">
+                                        <span>Отменить выбранный пункт</span>
+                                    </div>
+                                </div>
+                                <div class="item-after" ng-if="!selectedAddress.locality">
+                                    <div class="icon-selected"></div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="item-content fw7-li-select"
+                            ng-repeat="locality in addressList | rsUnique:'locality' | isNotEmpty:'locality' | orderBy:'locality'"
+                            ng-click="selectLocality(locality)">
+
+                            <div class="item-inner">
+                                <div class="table">
+                                    <div class="table-row">
+                                        <div class="item-title">{{locality.locality}}</div>
+                                    </div>
+                                    <div class="table-row fw7-li-content-text">
+                                        <span>{{locality | addressElement:'locality'}}</span>
+                                    </div>
+                                </div>
+                                <div class="item-after" ng-if="(locality.coderegion == selectedAddress.coderegion && locality.locality == selectedAddress.locality)">
+                                    <div class="icon-selected"></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

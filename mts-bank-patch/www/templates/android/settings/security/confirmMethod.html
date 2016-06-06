@@ -1,0 +1,44 @@
+<div>
+    <rs-header lbtn-class="icon-close"
+               rbtn-class="icon-check-mark" rbtn-action="changeConfirmation()">Способ подтверждения</rs-header>
+    <ion-view>
+        <ion-content class="has-header">
+            <rs-panel>
+                <div class="list-block list-block-separator-hidden next-block">
+                    <ul>
+                        <li ng-disabled="!retailClient.isCodeDate" class="theme-mts">
+                            <label class="label-radio item-content">
+                                <input type="radio" ng-model="user.confirmation" value="CODE_DATE">
+                                <div class="item-media">
+                                    <i class="icon icon-form-radio"></i>
+                                </div>
+                                <div class="item-inner" style="margin-left: 0">
+                                    <div class="item-title">Кодовая дата</div>
+                                </div>
+                            </label>
+                        </li>
+                        <li class="theme-mts">
+                            <label class="label-radio item-content">
+                                <input type="radio" ng-model="user.confirmation" value="SMS">
+                                <div class="item-media">
+                                    <i class="icon icon-form-radio"></i>
+                                </div>
+                                <div class="item-inner" style="margin-left: 0">
+                                    <div class="item-title">Смс-коды</div>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <rs-panel ng-show="retailClient.isCodeDate && user.confirmation === 'CODE_DATE'">
+                <div class="list-block list-block-separator-hidden next-block">
+                    <ul>
+                        <fw7-li title="Дата" multiline="true">**.**.****</fw7-li>
+                        <fw7-li title="Подсказка" multiline="true">{{retailClient.codeDateHint}}</fw7-li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

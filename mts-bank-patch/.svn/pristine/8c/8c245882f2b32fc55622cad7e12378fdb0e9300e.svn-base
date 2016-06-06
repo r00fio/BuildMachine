@@ -1,0 +1,70 @@
+<div>
+    <rs-header lbtn-class="icon-close"      lbtn-action="goBackFromField()"
+               rbtn-class="icon-check-mark" rbtn-action="changeDriverDoc()">Водительское удостоверение</rs-header>
+    <ion-view>
+        <ion-content class="has-header personal-page">
+            <rs-panel>
+                <div class="list-block next-block">
+                    <ul>
+                        <li>
+                            <div class="item-content item-inner">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-13px">Серия</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <input type="number"
+                                                       mask-restrict="reject"
+                                                       mask="9999"
+                                                       ng-model="retailClient.driverDoc.series">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-inner">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-13px">Номер</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <input type="number"
+                                                       mask-restrict="reject"
+                                                       mask="999999"
+                                                       ng-model="retailClient.driverDoc.number">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content item-inner">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-13px">Дата выдачи</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <input type="text"
+                                                       ng-model="retailClient.driverDoc.deliveryDate" rs-date-picker>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+        <div class="rs-button-del flex flex-center flex-middle" ng-click="deleteDriverDoc()">Удалить</div>
+    </ion-view>
+</div>

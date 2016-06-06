@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="ru.softlab.mobile.plugins.fingerscanner"
+    version="1.0.0">
+    <name>FingerScanner</name>
+
+    <js-module src="www/fingerscanner.js" name="FingerScanner">
+        <clobbers target="fingerscanner" />
+    </js-module>
+
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="FingerScanner" >
+                <param name="android-package" value="ru.softlab.mobile.plugins.fingerscanner.FingerScannerPlugin"/>
+            </feature>
+        </config-file>
+		
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+			<uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+		</config-file>
+		
+		<source-file src="src/android/pass-sdk-library/pass-v1.1.4.jar" target-dir="libs" />
+		<source-file src="src/android/pass-sdk-library/sdk-v1.0.0.jar" target-dir="libs" />
+		<source-file src="src/android/spongycastle-library/sc-light-jdk15on-1.47.0.3.jar" target-dir="libs" />
+        <source-file src="src/android/FingerScannerPlugin.java" target-dir="src/ru/softlab/mobile/plugins/fingerscanner" />
+		<source-file src="src/android/AndroidRsaEngine.java" target-dir="src/ru/softlab/mobile/plugins/fingerscanner" />
+		<source-file src="src/android/Crypto.java" target-dir="src/ru/softlab/mobile/plugins/fingerscanner" />
+		<source-file src="src/android/Base64.java" target-dir="src/ru/softlab/mobile/plugins/fingerscanner" />
+    </platform>
+    
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="FingerScanner">
+                <param name="ios-package" value="TouchID" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/TouchID.h" />
+        <source-file src="src/ios/TouchID.m" />
+        <framework src="LocalAuthentication.framework" />
+        <framework src="Security.framework" />
+    </platform>
+	
+</plugin>

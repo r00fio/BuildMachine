@@ -1,0 +1,31 @@
+<div>
+    <li class="item-content item-link rs-office-select" rs-options-header="Выбор региона" rs-options="regionList"
+        rs-options-show="name" ng-model="model.region" ng-disabled="readOnly" ng-click>
+        <div class="item-inner">
+            <div class="fw7-li item-title">Регион</div>
+            <div class="fw7-li item-after" rs-waiter="regionList">
+                <span ng-bind="model.region.name"></span>
+            </div>
+        </div>
+    </li>
+    <li class="item-content item-link rs-office-select" ng-show="model.region.cityList && model.region.cityList.length > 0"
+        rs-options-header="Выбор города" rs-options="model.region.cityList" rs-options-show="name"
+        ng-model="model.city" ng-disabled="readOnly" ng-click>
+        <div class="item-inner">
+            <div class="fw7-li item-title">Город</div>
+            <div class="fw7-li item-after">
+                <span ng-bind="model.city.name"></span>
+            </div>
+        </div>
+    </li>
+    <li class="item-content item-link rs-office-select" ng-show="model.city.branchList && model.city.branchList.length > 0"
+        rs-options-header="Выбор филиала" rs-options="model.city.branchList" rs-options-show="name"
+        rs-options-tpl="rs-office.html" ng-model="model.branch" ng-disabled="readOnly" ng-click>
+        <div class="item-inner">
+            <div class="fw7-li item-title">Офис</div>
+            <div class="fw7-li item-after">
+                <span ng-bind="model.branch.name"></span>
+            </div>
+        </div>
+    </li>
+</div>

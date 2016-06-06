@@ -1,0 +1,22 @@
+<svg width="36px" height="38px" viewBox="0 0 36 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Imported Layers</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Main" sketch:type="MSArtboardGroup" transform="translate(-92.000000, -241.000000)" fill="#667980">
+            <g id="calendar" sketch:type="MSLayerGroup" transform="translate(50.000000, 200.000000)">
+                <g id="Imported-Layers" transform="translate(42.000000, 41.000000)" sketch:type="MSShapeGroup">
+                    <path d="M9.333,8 C8.598,8 8,7.282 8,6.4 L8,1.6 C8,0.718 8.598,0 9.333,0 L10.667,0 C11.402,0 12,0.718 12,1.6 L12,6.4 C12,7.282 11.402,8 10.667,8 L9.333,8" id="Fill-1"></path>
+                    <path d="M25.333,8 C24.598,8 24,7.282 24,6.4 L24,1.6 C24,0.718 24.598,0 25.333,0 L26.667,0 C27.402,0 28,0.718 28,1.6 L28,6.4 C28,7.282 27.402,8 26.667,8 L25.333,8" id="Fill-2"></path>
+                    <path d="M8,2 L12,2 L12,6 L8,6 L8,2 Z" id="Fill-3"></path>
+                    <path d="M14,2 L22,2 L22,6 L14,6 L14,2 Z" id="Fill-4"></path>
+                    <path d="M32,2 L30,2 L30,6 L32,6 L32,34 L4,34 L4,6 L6,6 L6,2 L4,2 C1.8,2 0,3.8 0,6 L0,34 C0,36.2 1.8,38 4,38 L32,38 C34.2,38 36,36.2 36,34 L36,6 C36,3.8 34.2,2 32,2" id="Fill-5"></path>
+                    <path d="M24,2 L28,2 L28,6 L24,6 L24,2 Z" id="Fill-6"></path>
+                    <path d="M3,10 L33,10 L33,14 L3,14 L3,10 Z" id="Fill-7"></path>
+                    <path d="M16,30.829 L9.586,24.414 L12.414,21.586 L16,25.171 L23.586,17.586 L26.414,20.414 L16,30.829" id="Fill-8"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

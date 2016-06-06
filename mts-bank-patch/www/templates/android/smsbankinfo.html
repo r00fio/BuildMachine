@@ -1,0 +1,88 @@
+<div ng-controller="SMSBankInfoCtrl as smsbi">
+    <rs-header>{{form.option.name}}</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <div ng-hide="form.option.isActive">
+
+                <rs-panel header-text="{{'Опция ' + form.option.name}}" ng-if="form.option.isActive">
+                    <div class="list-block list-block-separator-hidden" style="margin: 0;">
+                        <ul>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc" style="margin-top: 5px; margin-bottom: 5px;">
+                                        <div class="table-row">
+                                            <div class="table-cell text-bold">Включено</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+
+                <rs-panel header-text="Описание" ng-if="form.option.hasDesc">
+                    <div class="list-block" style="margin: 0;">
+                        <ul>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc" style="margin-top: 5px; margin-bottom: 5px;">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray white-space-pre-line" ng-bind="form.option.desc"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+
+                <rs-panel header-text="Тариф">
+                    <div class="list-block" style="margin:0;">
+                        <ul>
+                            <fw7-li title="{{form.selectedTariff.desc}}"
+                                    ng-click="selectShow(form.tariffOptionList, 'selectedTariff', 'Выбор тарифа', 'desc')"></fw7-li>
+                        </ul>
+                    </div>
+                </rs-panel>
+                <rs-panel>
+                    <div class="list-block" style="margin:0;">
+                        <ul>
+                            <fw7-li title="Стоимость" multiline="true">
+                                <span class="text-12px" ng-show="form.selectedTariff.amount" ng-bind="(form.selectedTariff.amount | defaultSum)"/>
+                                <span class="text-12px" ng-show="form.selectedTariff.amount" currency="{{form.selectedTariff.currency}}"/>
+                            </fw7-li>
+                            <fw7-li title="Периодичность оплаты" multiline="true">
+                                <label class="text-12px">{{form.selectedTariff.paymentPeriod}}</label>
+                            </fw7-li>
+                            <fw7-li title="Номер телефона" multiline="true">
+                                <label class="text-12px" ng-bind="retailClient.mobileTelephone"/>
+                            </fw7-li>
+                        </ul>
+                    </div>
+                </rs-panel>
+                <rs-panel header-text="Метод оплаты" ng-if="form.isCard && form.paymentMethodList && form.paymentMethodList.length > 1">
+                    <div class="list-block" style="margin:0;">
+                        <ul>
+                            <fw7-li title="{{form.selectedMethod.desc}}"
+                                    ng-click="selectShow(form.paymentMethodList, 'selectedMethod', 'Выбор метода оплаты', 'desc')"></fw7-li>
+                        </ul>
+                    </div>
+                </rs-panel>
+            </div>
+            <div ng-show="form.option.isActive">
+                <rs-panel>
+                    <div class="list-block" style="margin:0;">
+                        <ul>
+                            <fw7-li title="Номер телефона" multiline="true">
+                                <label class="text-12px" ng-bind="retailClient.mobileTelephone"/>
+                            </fw7-li>
+                        </ul>
+                    </div>
+                </rs-panel>
+            </div>
+        </ion-content>
+        <button ng-hide="form.option.isActive" ng-click="activate()" class="button rs-button-long">Подключить</button>
+        <button ng-show="form.option.isActive" ng-click="deactivate()" class="button rs-button-long-red">Отключить</button>
+    </ion-view>
+</div>
+

@@ -1,0 +1,74 @@
+<div>
+    <rs-header>Выбор продукта</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <rs-panel header-text="Открыть новый счет" ng-if="form.canOpenAccountForInterests || form.canOpenAccountForClosing">
+                <div class="list-block no-margin">
+                    <ul>
+                        <fw7-li title="Открыть новый счет" ng-click="clickProduct(null)"></fw7-li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <rs-panel header-text="Карты" ng-if="cardList.length">
+                <div class="list-block no-margin">
+                    <ul>
+                        <li ng-repeat="product in cardList | visibleForPayments" ng-click="clickProduct(product)">
+                            <rs-product product="product"></rs-product>
+                        </li>
+
+                        <rs-cut elements="{{hiddenCards = (cardList | hiddenForPayments)}}"
+                                is-hidden="showHiddenCards"></rs-cut>
+
+                        <li ng-repeat="product in (showHiddenCards && hiddenCards)" ng-click="clickProduct(product)">
+                            <rs-product product="product" hidden-product="true"></rs-product>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <rs-panel header-text="Кредиты" ng-if="loanList.length">
+                <div class="list-block no-margin">
+                    <ul>
+                        <li ng-repeat="product in loanList | visibleForPayments" ng-click="clickProduct(product)">
+                            <rs-product product="product"></rs-product>
+                        </li>
+
+                        <rs-cut elements="{{hiddenLoans = (loanList | hiddenForPayments)}}"
+                                is-hidden="showHiddenLoans"></rs-cut>
+
+                        <li ng-repeat="product in (showHiddenLoans && hiddenLoans)" ng-click="clickProduct(product)">
+                            <rs-product product="product"></rs-product>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <rs-panel header-text="Счета и вклады" ng-if="accountList.length || depositList.length">
+                <div class="list-block no-margin">
+                    <ul>
+                        <li ng-repeat="product in accountList | visibleForPayments" ng-click="clickProduct(product)">
+                            <rs-product product="product"></rs-product>
+                        </li>
+                        <li ng-repeat="product in depositList | visibleForPayments" ng-click="clickProduct(product)">
+                            <rs-product product="product"></rs-product>
+                        </li>
+
+                        <rs-cut elements="{{safeStringify(hiddenAccountsDeposits = (accountList.concat(depositList) | hiddenForPayments))}}"
+                                is-hidden="showHiddenAccounts"></rs-cut>
+
+                        <li ng-repeat="product in (showHiddenAccounts && hiddenAccountsDeposits)" ng-click="clickProduct(product)">
+                            <rs-product product="product"></rs-product>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+
+            <!-- Появляется при выборе "Куда перевести" в переводах между своими счетами -->
+            <rs-panel ng-if="isSelectProductTo">
+                <div class="list-block no-margin">
+                    <ul>
+                        <fw7-li title="Открыть счет для обмена валюты" ng-click="openAccountForCurrencyExchange()"></fw7-li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

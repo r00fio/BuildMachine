@@ -1,0 +1,1213 @@
+html {
+    font-family: verdana, sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    -ms-user-select: none;
+}
+
+@-ms-viewport {
+    width: 320px;
+}
+
+.root-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.rs-rootpane {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: auto;
+    width: 100%;
+    overflow-: hidden;
+    background-color: #f0f4f5;
+}
+
+.rs-rootpane.has-rs-ios-tabbar {
+    bottom: 64px; /* ios tab bar = 128px / 2 */
+}
+
+.bar { border-bottom-color: transparent; }
+
+.bar-header .title, .button-clear.button-clear {
+    color: white;
+}
+
+/*.bar-header .ion-ios-arrow-back {
+    background: url('../img/android/menu.svg') no-repeat center center;
+    background-size: 18px 18px;
+}*/
+
+.bar-header .ion-android-menu {
+    background: url('../img/android/menu.svg') no-repeat center center;
+}
+
+.bar-header .ion-android-menu:before {
+    display: none;
+}
+
+.rs-backdrop-modal {
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-color: rgba(255,255,255,0.85);
+    z-index:9999;
+}
+
+.rs-waiter-modal {
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
+.ios-7 .rs-extract-waiter {
+    line-height:  180px;
+}
+.rs-extract-waiter {
+    width: 100%;
+    text-align: center;
+    line-height: calc(100vh - 300px);
+}
+
+.rs-waiter-centered {
+    width: 100%;
+    text-align: center;
+    line-height: 46px;
+    padding-top: 18px;
+}
+
+input[type=number]:not(.text-left) { text-align: right; }
+
+.login-page {
+    width: 100%;
+    height: 50%;
+    font-size: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myfinances-page {
+    position: absolute;
+    top: 0;    
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.none {
+    display: none;
+}
+
+.rs-panel-header{
+    position: absolute;
+    width: 100%;
+    height: 44px; /* Стандарт iOS для нашего разрешения (88px / 2) */
+    background: #24A7B3;
+}
+
+.rs-panel-header-default-lbtn-class {
+    background: url('../img/left-arrow-white-16.png') no-repeat center center;
+}
+
+.header {
+    position: absolute;
+    width: 100%;
+    height: 8%;
+}
+
+.header-button-left {
+    position: absolute;
+    left: 0;
+    width: 8vh; 
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-button-right {
+    position: absolute;
+    right: 0;
+    width: 8vh; 
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-label {
+    position: absolute;
+    width: 100%;    
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(0,171,173);
+    color: white;
+}
+
+.header-label > label {
+    text-transform: uppercase;
+}
+
+.content {
+    position: absolute;
+    top: 44px; /* rs-panel-header height = 44px*/
+    bottom: 64px; /* ios tab bar = 128px / 2 */
+    height: auto;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #f0f4f5;
+}
+
+.content.no-footer {
+    bottom: 0;
+}
+
+.rs-ios-tabbar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 64px; /* ios tab bar = 128px / 2 */
+    background: black;
+    color: white;
+}
+
+.rs-ios-tabbar .rs-tabbar-icon {
+    width:64px;
+    height:64px;
+    margin: 0 auto;
+    background-position: center center;
+    background-size: 20px;
+    border-bottom: 3px solid transparent;
+}
+
+.rs-ios-tabbar .rs-tabbar-icon:active {
+    opacity: 0.3;
+}
+
+.rs-ios-tabbar .rs-tabbar-icon.border-selected {
+    border-bottom: 3px solid #24A7B3;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+}
+
+.myfinances-content {
+    width: 100%;
+    height: 100%;
+}
+
+.categories {
+    width: 100%;
+    height: 50px;
+    background: gray;
+    color: white;
+}
+
+.entity-div {
+    width: 100%;
+    height: 70px;
+    background: white;
+    color: black;
+}
+
+.area-cards {
+    width: 100%;
+    height: 40%;
+    background: rgb(0,171,173);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-face {
+    width: 70%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-face-div {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.card-face-top {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-face-name {
+    width: 80%;
+}
+
+.card-face-name label {
+    width: 100%;
+    color: rgb(6,105,120);
+    font-weight: bold;
+    font-size: 3.5vw;
+}
+
+.card-face-img {
+    width: 20%;
+    height: 60%;
+    background: white;
+    border-radius: 5px;
+}
+
+.card-face-center {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.card-face-mini-label {
+    color: rgb(6,105,120);
+    font-weight: bold;
+    font-size: 2vw;
+}
+
+.card-face-balance {
+    color: white;
+    font-size: 6vw;
+}
+
+.card-face-bottom {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.card-face-debt-div {
+    width: 60%;
+}
+
+.card-face-debt {
+    color: white;
+    font-size: 4vw;
+}
+
+.card-face-bonus-div {
+    width: 40%;
+}
+
+.card-face-bonus {
+    color: white;
+    font-size: 4vw;
+}
+
+.area-tabs {
+    width: 100%;
+    height: 10%;
+    background: rgb(237,241,242);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.area-tabs-label {
+    color: rgb(152,166,173);
+    font-size: 4.2vw;
+}
+
+.area-tabs-label-active {
+    color: rgb(86,91,94);
+}
+
+.tab-content {
+    width: 100%;
+}
+
+.time-operation {
+    color: #516277;
+    display: inline-block;
+    font-size: 12px;
+    margin-left: 5px;
+    line-height: 20px;
+}
+
+.operation-comment {
+    color: #516277;
+    display: inline-block;
+    font-size: 12px;
+    font-style: italic;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: calc(100vw - 125px);
+}
+
+.operations {
+    width: 100%;
+    height: 100%;
+    background: white;
+}
+
+.operations-notice {
+    width: 100%;
+    height: 8vh;
+    display: flex;
+}
+
+.operations-notice-img-div {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.operations-notice-img {
+    width: 10vw;
+    height: 10vw;
+    background: rgb(237,241,242);
+    border-radius: 50%;
+}
+
+.operations-notice-label-div {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.operations-notice-value {
+    font-size: 4.5vw;
+}
+
+.operations-notice-desc {
+    color: rgb(152,166,173);
+    font-size: 3.5vw;
+}
+
+.operations-btn {
+    width: 100%;
+    height: 33.33vw;
+    outline: 1px solid rgb(237,241,242);
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.operations-pay-btn {
+    width: 33.33%;
+    height: 100%;
+    outline: 1px solid rgb(237,241,242);
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.operations-refill-btn {
+    width: 33.33%;
+    height: 100%;
+    outline: 1px solid rgb(237,241,242);
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.operations-trans-btn {
+    width: 33.33%;
+    height: 100%;
+    outline: 1px solid rgb(237,241,242);
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.operations-btn-label {
+    font-size: 3.5vw;
+    font-weight: bold;
+}
+
+.operations-list {
+    margin-top: 5vw;
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.date-div {
+    width: 95%;
+    height: 6vw;
+    background: rgb(237,241,242);
+    display: flex;
+    align-items: center;    
+}
+
+.date-div > label {
+    color: rgb(152,166,173);
+    font-size: 3vw;
+    padding-left: 3vw;
+}
+
+.operation-element {
+    width: 95%;
+    height: 20vw;
+    background: rgb(250,250,250);
+    border-bottom: 2px solid rgb(237,241,242);
+}
+
+.operation-div {
+    width: 100%;
+    height: 100%;    
+    display: flex;
+    align-items: center;    
+}
+
+.operation-img {
+    width: 12vw;
+    height: 12vw;
+    background: darksalmon;
+    border-radius: 100%;
+}
+
+.operation-info {
+    height: 100%;
+    width: 82vw;
+    display: flex;
+    align-items: center;
+}
+
+.operation-info-div {
+    margin-left: 3vw;
+    margin-right: 3vw;
+    width: 65%;
+}
+
+.operation-value {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    top: -100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.operation-value > label {
+    padding-right: 3vw;
+    padding-bottom: 3vw;
+    font-weight: bold;
+    font-size: 3.5vw;
+}
+
+.operation-value-positive {
+    color: rgb(121,203,61);
+}
+
+.operation-value-negative {
+    color: rgb(236,89,102);
+}
+
+.tabs .tab-title {
+    padding: 3px;
+    border: 1px solid rgb(0,171,173);
+    border-right: none;
+    color: rgb(0,171,173);
+    background-color: #eee;
+    width: 100%;
+    text-align: center;
+}
+
+.tabs .tab-title.active {
+    color: #eee;
+    background-color: rgb(0,171,173);
+}
+
+.tabs .tab-title:first-child {
+    border-radius: 3px 0 0 3px;
+}
+
+.tabs .tab-title:last-child {
+    border-right: 1px solid rgb(0,171,173);
+    border-radius: 0 3px 3px 0;
+}
+
+.table-fixed-width100pc { 
+    display: table; 
+    table-layout: fixed; 
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.inline-block { display: inline-block; }
+
+.border-box { box-sizing: border-box; }
+.width55px { width: 55px; }
+.width100pc { width: 100%; }
+.height8pc { height: 8%; }
+.height15pc { height: 15%; }
+.height100pc { height: 100%; }
+.height40px { height: 40px; }
+.height65px { height: 65px; }
+.nowrap { white-space: nowrap; }
+.overflow-hiden { overflow: hidden; }
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+.right { right: 0; }
+.padding-5px { padding: 5px; }
+.padding-7px { padding: 7px; }
+.padding-10px { padding: 10px; }
+.padding-15px { padding: 15px; }
+.padding-right-5px { padding-right: 5px; }
+.padding-right-15px { padding-right: 15px; }
+.padding-right-10px { padding-right: 10px; }
+.padding-right-20px { padding-right: 20px; }
+.padding-left-5px { padding-left: 5px; }
+.padding-left-10px { padding-left: 10px; }
+.padding-top-5px { padding-top: 10px; }
+.padding-top-10px { padding-top: 10px; }
+.padding-top-15px { padding-top: 15px; }
+.padding-top-20px { padding-top: 20px; }
+.padding-top-25px { padding-top: 25px; }
+.padding-bottom-5px { padding-bottom: 5px; }
+.padding-bottom-10px { padding-bottom: 10px; }
+.padding-bottom-15px { padding-bottom: 15px; }
+.padding-bottom-20px { padding-bottom: 20px; }
+.padding-left-20px { padding-left: 20px; }
+.margin-left-5px { margin-left: 5px; }
+.margin-right-15px { margin-right: 15px; }
+.margin-top-15px { margin-top: 15px; }
+.margin-top-30px { margin-top: 30px; }
+.margin-top-25px { margin-top: 25px; }
+.margin-top--5px { margin-top: -5px; }
+.side-margin-5px { margin: 0 5px; }
+.margin-5px { margin: 5px; }
+.margin-bottom-5px { margin:0 0 5px 0; }
+.text-align-left { text-align: left; }
+.text-align-center { text-align: center; }
+.text-valign-top { vertical-align: top; }
+.text-valign-middle { vertical-align: middle; }
+.solid-border-1px { border-style: solid; border-width: 1px; }
+.empty-border-1px { border: 1px solid transparent; }
+.no-border { border: none; }
+.border-radius-3px { border-radius: 3px; }
+.border-radius-10px { border-radius: 10px; }
+.clear {clear: both; }
+.no-display { display: none; }
+.visibility-hidden { visibility: hidden; }
+.opacity0 { opacity: 0; }
+
+.gray-border { border-color: gray; }
+
+.text-12px { font-size: 12px; }
+.text-14px { font-size: 14px; }
+.text-16px { font-size: 16px; }
+.text-18px { font-size: 18px; }
+.text-36px { font-size: 36px; }
+.text-40px { font-size: 40px; }
+.text-bold { font-weight: bold; }
+
+.background-color-eee, .bg-color-eee { background-color: #eee; }
+
+.text-color-turquoise { color: rgb(0,171,173); }
+.text-color-gray { color: gray; }
+.text-color-white { color: white; }
+
+.text-two-lines {
+    white-space: normal !important;
+    overflow: hidden;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.height-none { height:0 !important; }
+
+.icon-right-small {
+    background-position: center right;
+    background-size: 10px 10px;
+    padding-right: 15px;
+}
+
+.icon-left-small {
+    background-position: center left;
+    background-size: 10px 10px;
+    padding-left: 15px;
+}
+
+.icon-search-input { 
+    background: url('../img/search-2-16.png') no-repeat right 5px center;
+    padding-right: 25px;
+}
+
+.icon-paper-clip {
+    background: url('../img/paper-clip-2-16.png') no-repeat center center;
+    width: 16px;
+    height: 16px;
+}
+
+.icon-flag {
+    background: url('../img/flag-16.png') no-repeat center center;
+    width: 16px;
+    height: 16px;
+}
+
+.icon-guest-64 {
+    background: url('../img/guest-64.png') no-repeat center center;
+    width: 64px;
+    height: 64px;
+}
+
+.ng-modal-overlay {
+    /* полупорозрачный DIV, который охватывает весь экран */
+    position:absolute;
+    z-index:9999;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:#000000;
+    opacity: 0.8;
+}
+.ng-modal-dialog {
+    /* Отцентрированный даилог с тенью */
+    z-index:10000;
+    position: absolute;
+    width: 50%;
+
+    /* Центрирование */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+
+    background-color: #fff;
+    box-shadow: 4px 4px 80px #000;
+}
+.ng-modal-dialog-content {
+    padding:10px;
+    text-align: left;
+}
+.ng-modal-close {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 120%;
+    display: inline-block;
+    font-weight: bold;
+    font-family: 'arial', 'sans-serif';
+}
+
+.table { display: table; }
+.table-row { display: table-row; }
+.table-cell { display: table-cell; }
+.cell-content-middle { vertical-align: middle; }
+
+.standard-list-item {
+    display: block;
+    list-style-type: none;
+    padding: 10px;
+    border-top: 1px solid lightgray;
+    background: papayawhip;
+}
+
+.rs-news-container {
+    position: relative;
+    border: 1px solid silver;
+    background: white;
+    padding: 0 0 0 70px;
+}
+
+.rs-news-container:not(:first-child) {
+    border-top: none;
+}
+
+.rs-news-container-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 10px;
+    top: 40px;
+    border: 1px solid silver;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+
+.rs-news-container-header, .rs-news-container-footer {
+    height: 40px;
+}
+
+.rs-news-container-date {
+    color:slategray;
+    font: bold 12px arial, sans-serif;
+}
+
+.rs-news-container-unread {
+    margin: auto 15px auto auto;
+    overflow: hidden;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background: cornflowerblue;
+}
+
+.rs-news-container-title {
+    font: bold 16px arial, sans-serif;
+    line-height: 1.5em;
+    margin: 0 0 15px 0;
+    padding-right: 15px;
+}
+
+.rs-news-container-body {
+    font: 12px arial, sans-serif;
+    line-height: 1.7em;
+    padding-right: 15px;
+    margin: 15px 0;
+    color:slategray;
+    white-space: pre-wrap;
+
+    /* Multiline ellipsis */
+    overflow: hidden;
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.icon-percentage-16 {
+    background: url('../img/percentage-silver-16.png') no-repeat center center;
+}
+
+.rs-news-item-container-title {
+    font: bold 16px arial, sans-serif;
+    line-height: 1.5em;
+    margin: 0 0 15px 0;
+}
+
+.rs-news-item-container-body {
+    font: 12px arial, sans-serif;
+    line-height: 1.7em;
+    margin: 15px 0;
+    color:slategray;
+    white-space: pre-wrap;
+}
+
+.rs-info-panel {}
+
+.rs-info-panel-header {
+    font: 12px arial, sans-serif;
+}
+
+.rs-info-panel-content {
+    border-top: 1px solid silver;
+    border-bottom: 1px solid silver;
+    font: 12px arial, sans-serif;
+}
+
+.rs-info-panel-content > div:not(:last-child) {
+    border-bottom:1px solid silver;
+}
+
+.disabled {
+    background: darkgray;
+}
+
+.rs-thermometer-bg {
+    height: 5px;
+}
+
+.rs-li-waiter-right {
+    left: auto !important;
+    right: 0;
+    top: 0 !important;
+}
+
+.toggle input:checked + .track {
+    background-color: #24A7B3;
+    border-color: #24A7B3;
+}
+
+.item-toggle.no-label {
+    border: none;
+    padding: 0px;
+    background-color: transparent !important;
+}
+.item-toggle.no-label.toggle-large .toggle {
+    top: 0;
+    right: 3px;
+}
+.item-toggle.no-label.toggle-small .toggle {
+    top: 7px;
+    right: 5px;
+}
+
+/* --------- svg логотип поставщика и видов услуг --------- */
+.payment-category-logo svg {
+    width: 64px;
+    height: 64px;
+}
+.payment-category-logo svg path {
+    fill: #b8c6cc;
+}
+/* --------- svg логотип поставщика и видов услуг --------- */
+
+
+/* --------- Framework7 list view overrides --------- */
+.list-block .swipeout-actions-left a:after, .list-block .swipeout-actions-right a:after {
+    background-image: none !important;
+}
+
+.slider-pager .slider-pager-page {
+    width: auto;
+}
+
+.slider-pager .ion-record:before {
+    font-size: 7px;
+}
+
+.item-content.item-inner {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.item-content.item-inner .item-inner:after{
+    display: none;
+}
+
+.popover .item-media .icon {
+    width: 30px;
+    height: 30px;
+    background-size: 30px 30px !important;
+}
+
+.loan-schedule-debt-summary {
+    position: absolute;
+    bottom: 0;
+    height: 64px;
+    border-collapse: collapse;
+}
+.loan-schedule-debt-summary .table-cell {
+    border-top: 1px solid #c8c7cc;
+    vertical-align: middle;
+    text-align: center;
+    background-color: rgba(255,255,255,0.92);
+}
+.loan-schedule-debt-summary .table-cell:not(:first-child) { border-left: 1px solid #c8c7cc; }
+.loan-schedule-debt-summary-title {
+    color: #A1AEB3;
+}
+
+.percent-grad {
+    display: table;
+    height: 40px;
+    width: 100%;
+    background-color: #D5DEE0;
+}
+.percent-value-category {
+    display: table-cell;
+}
+
+.jqplot-target {
+    color: #FFF !important;
+    font-size: 15px !important;
+}
+
+.extract-statistic-table-cell {
+    border: 1px solid #D8DFE1;
+    display: table-cell;
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: middle;
+    height: 65px;
+}
+
+.hightligth-category {
+    opacity: 0.4;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.picture-state {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -30px;
+    margin-top: -30px;
+    color: #FFF;
+    width: 60px;
+    height: 60px;
+    z-index: 10;
+}
+
+.list-block .item-inner.flex-start {
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.list-block .item-inner.flex-center {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.deposit-comparison-info .deposit-comparison-header {
+    font-weight: bold;
+}
+
+.deposit-comparison-info .deposit-comparison-desc {
+    white-space: normal;
+    color: #A1AEB3;
+    max-height: 50px;
+}
+
+.deposit-comparison-info .deposit-comparison-avatar {
+    margin-right: 15px;
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+}
+
+.deposit-comparison-expected-amount { color: #A1AEB3; }
+
+.deposit-comparison-toggling .item-title {
+    font-weight: bold;
+}
+
+.list-block .item-content.deposit-comparison-toggling.activated { background-color: transparent !important; }
+
+.list-block .select-deposit-info ul {
+    padding: 0;
+}
+
+.rs-office-select .item-title {
+    overflow: visible;
+}
+.rs-office-select .item-after {
+    -webkit-flex-shrink: 1;
+    flex-shrink: 1;
+    min-width: 0;
+}
+
+.rs-office-select .item-after span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fw7-li.item-title {
+    font-size: 1.9vh;
+}
+
+.fw7-li-select .item-title {
+    font-size: 15px;
+    line-height: 25px;
+}
+
+.fw7-li-select .fw7-li-content-text {
+    color: #A1AEB3;
+    font-size: 12px;
+    line-height: 25px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.item-title-24A7B3 .item-title {
+    color: #24A7B3;
+}
+
+.test-avatar-icon {
+    background: #e9e9e9 url('../img/guest-64.png') no-repeat center center;
+    background-size: contain;
+}
+
+.item-after-multiline {
+    white-space: normal !important;
+    max-height: none !important;;
+    width: 50%;
+}
+
+.list-block ul ul {
+    padding-left: 0;
+}
+
+.list-block ul ul li {white-space: normal;}
+
+.list-block ul ul li:before {
+    display: block;
+    float: left;
+    width: 17px;
+    content: "\25cf";
+    color: #24A7B3;
+}
+
+.list-block ul ul li > div {
+    margin-left: 17px;
+}
+
+.condition-ul {
+    list-style-type: decimal !important;
+    display: list-item;
+}
+
+.expiry-date-alert {
+    background-color: red;
+    padding: 2px;
+    border-radius: 2px;
+}
+
+/* Дефолтный цвет подложки не svg логотипов */
+.bg-default-logo {
+    background-color: #d3dde2;
+}
+
+.bg-0 {
+    background: url('../img/background/bg-v-small-0.png') no-repeat center;
+    background-size: cover;
+}
+
+.bg-1 {
+    background: url('../img/background/bg-v-small-1.png') no-repeat center;
+    background-size: cover;
+}
+
+.bg-2 {
+    background: url('../img/background/bg-v-small-2.png') no-repeat center;
+    background-size: cover;
+}
+
+.bg-3 {
+    background: url('../img/background/bg-v-small-3.png') no-repeat center;
+    background-size: cover;
+}
+
+.bg-4 {
+    background: url('../img/background/bg-v-small-4.png') no-repeat center;
+    background-size: cover;
+}
+
+.bg-5 {
+    background: url('../img/background/bg-v-small-5.png') no-repeat center;
+    background-size: cover;
+}
+
+.bg-6 {
+    background: url('../img/background/bg-v-small-6.png') no-repeat center;
+    background-size: cover;
+}
+
+.bg-app-0 {
+    background: url('../img/background/bg-v-0.png') no-repeat center;
+    background-size: cover;
+}
+
+.bg-app-1 {
+    background: url('../img/background/bg-v-1.png') no-repeat center;
+    background-size: cover;
+}
+
+.bg-app-2 {
+    background: url('../img/background/bg-v-2.png') no-repeat center;
+    background-size: cover;
+}
+
+.bg-app-3 {
+    background: url('../img/background/bg-v-3.png') no-repeat center;
+    background-size: cover;
+}
+
+.bg-app-4 {
+    background: url('../img/background/bg-v-4.png') no-repeat center;
+    background-size: cover;
+}
+
+.bg-app-5 {
+    background: url('../img/background/bg-v-5.png') no-repeat center;
+    background-size: cover;
+}
+
+.bg-app-6 {
+    background: url('../img/background/bg-v-6.png') no-repeat center;
+    background-size: cover;
+}
+
+.rs-map-container {
+    height: auto;
+    min-height: calc(100% + 400px);
+    width: calc(100% + 400px);
+    margin-top: -200px;
+    margin-left: -200px;
+}
+.rs-geolocation-map .rs-map-container {
+    height: auto;
+    min-height: 100%;
+    margin-top: 0;
+    width: 100%;
+    margin-left: 0;
+}
+
+.rs-geolocation-map {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+.rs-geolocation-tooltip {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    width: 100%;
+}
+/* На общей карте копирайты отображаем над кнопкой "Результаты списком" */
+.ios .ymaps-copyrights-fix {
+    bottom: 249px !important;
+}
+.ymaps-copyrights-fix {
+    bottom: 268px !important;
+    right: 203px !important;
+}
+/* В информации о точке копирайты отображаем слева внизу */
+.rs-geolocation-map .ymaps-copyrights-fix {
+    bottom: 5px !important;
+    left: 3px !important;
+    right: auto !important;
+}
+.item-inner.line {
+    border-bottom: 1px solid #d6d6d6;
+}

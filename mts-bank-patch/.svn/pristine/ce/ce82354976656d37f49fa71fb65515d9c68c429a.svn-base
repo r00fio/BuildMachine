@@ -1,0 +1,26 @@
+<ion-view class="no-shadow help-page">
+    <rs-header>{{category.name}}</rs-header>
+    <div ng-if="platform !== 'ios'" class="has-header searchbar searchbar-init">
+        <div class="searchbar-input">
+            <input input-clear-btn type="search" placeholder="Поиск" ng-model="search.question.name" class="width100pc solid-border-1px gray-border border-box text-14px icon-search-input"/>
+            <a href="#" class="searchbar-clear"></a>
+        </div>
+    </div>
+    <rs-spotlight-search ng-if="platform === 'ios'" class="has-header" ng-model="search.question.name"></rs-spotlight-search>
+
+    <ion-content class="has-subheader">
+
+        <div ui-view="tutorscreen-answer-content">
+            <div class="list-block" style="margin-bottom: 13vw;">
+                <ul>
+                    <li rs-waiter="category.questions" ng-repeat="question in category.questions" ui-sref="tutorscreens.questions.answer({tsqId: question.id, question: question})">
+                        <a href="#" class="item-content item-link" ng-click="$event.preventDefault()">
+                            <div class="item-inner" style="white-space:normal;">{{question.name}}</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,75 @@
+<div ui-view="settings-payments-data-view">
+    <rs-header>Данные для платежей</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <rs-panel header-text="Управление контактами для переводов">
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <fw7-li-select link="true" title="Привязка социальный сетей" ui-sref="socialNetworks"></fw7-li-select>
+                    </ul>
+                </div>
+            </rs-panel>
+            <rs-panel header-text="Мои лицевые счета">
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <fw7-li-select link="true"
+                                       ng-repeat="personalAccount in retailClient.personalAccountList | personalAccounts | orderBy: 'id':true"
+                                       title="{{personalAccount.desc}}"
+                                       ng-click="selectEditablePersonalAccount(personalAccount)"
+                                       ui-sref="{{personalAccount.uiSref}}">
+                            <span ng-if="personalAccount.type === 'MOBILE_TELEPHONE'" ng-bind="personalAccount.NUMBER_MOBILE_TELEPHONE"></span>
+
+                            <span ng-if="personalAccount.type === 'HOME_TELEPHONE'" ng-bind="personalAccount.NUMBER_HOME_TELEPHONE"></span>
+
+                            <span ng-if="personalAccount.type === 'SNILS'" ng-bind="personalAccount.NUMBER_SNILS"></span>
+
+                            <span ng-if="personalAccount.type === 'POLICY_OF_OBLIGATORY_MEDICAL_INSURANCE'"
+                                  ng-bind="personalAccount.NUMBER_POLICY_OF_OBLIGATORY_MEDICAL_INSURANSE"></span>
+
+                            <span ng-if="personalAccount.type === 'INN'" ng-bind="personalAccount.NUMBER_INN"></span>
+
+                            <span ng-if="personalAccount.type === 'OTHER'" ng-bind="personalAccount.NUMBER_OTHER"></span>
+                        </fw7-li-select>
+                        <fw7-li-select link="true"
+                                       title="Добавить лицевой счёт для платежей"
+                                       ui-sref="settings.paysdata.selectCreatedPersonalAccount">
+                        </fw7-li-select>
+                    </ul>
+                </div>
+            </rs-panel>
+            <rs-panel header-text="Данные для начислений и штрафов">
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <fw7-li-select link="true"
+                                       ng-repeat="personalAccount in retailClient.personalAccountList | chargesAndFinesAccounts | orderBy: 'id':true"
+                                       title="{{personalAccount.desc}}"
+                                       ng-click="selectEditablePersonalAccount(personalAccount)"
+                                       ui-sref="{{personalAccount.uiSref}}">
+                            <span ng-if="personalAccount.type === 'DEPARTMENT_OF_MOTOR_VEHICLES_AND_TRAFFIC_CONTROL'" ng-bind="personalAccount | accountFine" />
+                            <span ng-if="personalAccount.type === 'INN'" ng-bind="personalAccount.NUMBER_INN" />
+                            <span ng-if="personalAccount.type === 'FEDERAL_BAILIFF_SERVICE'" ng-bind="personalAccount | accountFSPP" />
+                        </fw7-li-select>
+                        <fw7-li-select link="true"
+                                       title="Добавить авто или водителей"
+                                       ng-click="initPersonalAccountCreation(personalAccountFineType)"
+                                       ui-sref="{{personalAccountFineType.uiSref}}">
+
+                        </fw7-li-select>
+                        <fw7-li-select link="true"
+                                       ng-repeat="personalAccountType in personalAccountTypeList | filter:{type:'INN'}"
+                                       title="Добавить ИНН"
+                                       ng-click="initPersonalAccountCreation(personalAccountType)"
+                                       ui-sref="{{personalAccountType.uiSref}}">
+                        </fw7-li-select>
+                        <fw7-li-select link="true"
+                                       ng-repeat="personalAccountType in personalAccountTypeList | filter:{type:'FEDERAL_BAILIFF_SERVICE'}"
+                                       title="Добавить данные для ФСПП"
+                                       ng-click="initPersonalAccountCreation(personalAccountType)"
+                                       ui-sref="{{personalAccountType.uiSref}}">
+                        </fw7-li-select>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

@@ -1,0 +1,71 @@
+<rs-panel header-text="Связанные продукты"
+          ng-show="(bankCard.linkedProducts && bankCard.linkedProducts.length) || bankCard.linkedProducts === undefined">
+    <div class="list-block" style="margin:0;">
+        <div class="list-group">
+            <ul>
+                <li ng-repeat="product in bankCard.linkedProducts" ui-sref="{{getProductSref(product)}}" class="product-li">
+                    <rs-product product="product" class="product-line"></rs-product>
+                </li>
+            </ul>
+        </div>
+    </div>
+</rs-panel>
+<rs-panel ng-if="!bankCard.isVirtual || bankCard.hasBonusProgramInProduct">
+    <div class="list-block card-info-button-block">
+        <ul>
+            <li ng-if="!bankCard.isVirtual" ui-sref="card.requisites">
+                <a href="#" class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">Реквизиты для пополнения</div>
+                    </div>
+                </a>
+            </li>
+            <!-- TODO: закомменчено до исправления бонусов -->
+            <!--<li ui-sref="card.bonuses" ng-show="bankCard.hasBonusProgramInProduct">-->
+                <!--<a href="#" class="item-content">-->
+                    <!--<div class="item-inner">-->
+                        <!--<div class="item-title">Начисления по бонусам</div>-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</li>-->
+        </ul>
+    </div>
+</rs-panel>
+
+<!--Детальная информация-->
+<rs-panel>
+    <div class="list-block details-card-info">
+        <ul>
+            <fw7-li multiline="true" title="Название карты" ng-show="bankCard.desc">{{bankCard.desc}}</fw7-li>
+            <fw7-li multiline="true" title="Статус карты">{{bankCard.stateName}}</fw7-li>
+            <div ng-if="bankCard.isClosed">
+                <fw7-li multiline="true" title="Дата закрытия карты">{{bankCard.closeDate | defaultDate}}</fw7-li>
+                <fw7-li multiline="true" title="Дата закрытия договора">{{bankCard.contractCloseDate | defaultDate}}</fw7-li>
+            </div>
+            <fw7-li multiline="true" title="Номер счета карты" ng-show="bankCard.accountNumber">{{bankCard.accountNumber}}</fw7-li>
+            <fw7-li multiline="true" title="Тариф" ng-if="bankCard.desc">{{bankCard.desc}}</fw7-li>
+            <div ng-if="bankCard.isActive || bankCard.isNew">
+                <fw7-li multiline="true" title="Стоимость обслуживания в год" ng-if="bankCard.annualTariff">
+                    {{bankCard.annualTariff | defaultSum}}<span currency="{{bankCard.currency}}"></span>
+                </fw7-li>
+                <fw7-li multiline="true" title="Номер договора" ng-if="bankCard.agreementNumber">
+                    {{bankCard.agreementNumber}}
+                </fw7-li>
+                <fw7-li multiline="true" title="Дата договора" ng-show="bankCard.agreementDate">
+                    {{bankCard.agreementDate | defaultDate}}
+                </fw7-li>
+            </div>
+            <div ng-if="bankCard.isCredit">
+                <fw7-li multiline="true" title="Размер лимита кредитования">
+                    {{bankCard.debtLimit | defaultSum}}<span currency="{{bankCard.currency}}"></span>
+                </fw7-li>
+                <fw7-li multiline="true" title="Процентная ставка">{{bankCard.regularRate}}%</fw7-li>
+            </div>
+            <fw7-li multiline="true" title="{{debt.description}}" ng-if="bankCard.viewDebtList" ng-repeat="debt in bankCard.debtList">
+                {{debt.amount | defaultSum}}<span currency="{{bankCard.currency}}"></span>
+                <div ng-if="debt.isOverdueDebt"> c {{debt.debtCreationDate | defaultDate}}</div>
+                <div ng-if="debt.debtDays">{{debt.debtDays}}</div>
+            </fw7-li>
+        </ul>
+    </div>
+</rs-panel>

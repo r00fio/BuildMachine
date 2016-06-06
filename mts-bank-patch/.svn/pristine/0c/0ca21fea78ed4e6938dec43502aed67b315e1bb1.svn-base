@@ -1,0 +1,16 @@
+<div>
+    <rs-header lbtn-action="selectHide()">{{headerText}}</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <rs-panel ng-if="listForSelect.length">
+                <div class="list-block" style="margin:0;">
+                    <ul>
+                        <li class="item-content item-inner" ng-repeat="item in listForSelect" ng-click="clickItem(item)">
+                            {{item[fieldId] ? item[fieldId] : item}}
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

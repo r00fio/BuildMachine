@@ -1,0 +1,11 @@
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>help_icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Menu" sketch:type="MSArtboardGroup" transform="translate(-171.000000, -612.000000)" fill="#FFFFFF">
+            <path d="M202.949,623 C202.949,616.925 198.032,612 191.966,612 C186.222,612 181.515,616.42 181.032,622.048 C175.412,622.531 171,627.246 171,633 C171,636.124 172.306,638.938 174.394,640.94 L171,644 L180.984,644 L180.984,643.949 C181.313,643.979 181.645,644 181.982,644 C187.711,644 192.409,639.606 192.915,634 L202.949,634 L199.554,630.94 C201.643,628.938 202.949,626.124 202.949,623 L202.949,623 Z M181.982,640 C178.123,640 174.994,636.866 174.994,633 C174.994,629.134 178.123,626 181.982,626 C185.842,626 188.971,629.134 188.971,633 C188.971,636.866 185.842,640 181.982,640 L181.982,640 Z M192.533,629.971 C191.494,626.334 188.638,623.473 185.006,622.432 C185.296,618.832 188.298,616 191.966,616 C195.826,616 198.955,619.134 198.955,623 C198.955,626.674 196.127,629.682 192.533,629.971 L192.533,629.971 Z" id="help_icon" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

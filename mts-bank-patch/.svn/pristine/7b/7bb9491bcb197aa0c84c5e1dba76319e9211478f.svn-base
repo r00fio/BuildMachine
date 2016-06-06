@@ -1,0 +1,14 @@
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Oval 67 + Imported Layers</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Settings" sketch:type="MSArtboardGroup" transform="translate(-30.000000, -217.000000)">
+            <g id="Oval-67-+-Imported-Layers" sketch:type="MSLayerGroup" transform="translate(30.000000, 217.000000)">
+                <circle id="Oval-67" fill="#D8DFE1" sketch:type="MSShapeGroup" cx="30" cy="30" r="30"></circle>
+                <path d="M42,28 L32,28 L32,18 C32,16.895 31.105,16 30,16 C28.896,16 28,16.895 28,18 L28,28 L18,28 C16.896,28 16,28.895 16,30 C16,31.104 16.896,32 18,32 L28,32 L28,42 C28,43.104 28.896,44 30,44 C31.105,44 32,43.104 32,42 L32,32 L42,32 C43.105,32 44,31.104 44,30 C44,28.895 43.105,28 42,28" id="Imported-Layers" fill="#66797F" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

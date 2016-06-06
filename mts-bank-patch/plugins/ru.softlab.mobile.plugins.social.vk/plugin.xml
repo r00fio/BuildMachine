@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="ru.softlab.mobile.plugins.social.vk"
+    version="1.0.3">
+	
+	<name>VKSocial</name>
+	<description>VK Cordova plugin</description>
+	
+	<preference name="APP_ID" />
+		
+	<js-module src="www/vksocial.js" name="vksocial">
+		<clobbers target="vksocial" />
+	</js-module>
+
+	<platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="VKSocial" >
+                <param name="android-package" value="ru.softlab.mobile.plugins.social.vk.VKSocialPlugin"/>
+            </feature>
+        </config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<activity android:name="com.vk.sdk.VKOpenAuthActivity" >
+			</activity>
+		</config-file>
+		
+		<source-file src="src/android/vkconnect.xml" target-dir="res/values" />
+        <config-file target="res/values/vkconnect.xml" parent="/*">
+            <string name="vk_app_id">$APP_ID</string>
+        </config-file>
+
+		<framework src="src/android/vksdk_library" custom="true" />
+        <source-file src="src/android/VKSocialPlugin.java" target-dir="src/ru/softlab/mobile/plugins/social/vk" />
+    </platform>
+
+	<platform name="ios">
+		<config-file target="config.xml" parent="/*">
+			<feature name="VKSocial">
+                <param name="ios-package" value="VKSocial" />
+            </feature>
+        </config-file>
+        
+        <config-file target="*-Info.plist" parent="VKontakteAppID">
+            <string>$APP_ID</string>
+        </config-file>
+        
+        <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+            <array>
+                <dict>
+                    <key>CFBundleTypeRole</key>
+                    <string>Editor</string>
+                    <key>CFBundleURLName</key>
+                    <string>vk$APP_ID</string>
+                    <key>CFBundleURLSchemes</key>
+                    <array>
+                        <string>vk$APP_ID</string>
+                    </array>
+                </dict>
+            </array>
+        </config-file>
+		<config-file target="*-Info.plist" parent="NSAppTransportSecurity">
+            <dict>
+                <key>NSExceptionDomains</key>
+                <dict>
+					<key>vk.com</key>
+					<dict>
+						<key>NSExceptionRequiresForwardSecrecy</key>
+						<false/>
+						<key>NSIncludesSubdomains</key>
+						<true/>
+						<key>NSExceptionAllowsInsecureHTTPLoads</key>
+						<true/>
+					</dict>
+                </dict>
+            </dict>
+        </config-file>
+        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+            <array>
+				<string>vk</string>
+				<string>vk-share</string>
+                <string>vkauthorize</string>
+            </array>
+        </config-file>
+        
+        <header-file src="src/ios/VKSocial.h" />
+        <source-file src="src/ios/VKSocial.m" />
+        <header-file src="src/ios/AppDelegate+vk.h" />
+        <source-file src="src/ios/AppDelegate+vk.m" />
+        
+        <framework src="src/ios/vksdk/VKSdk.framework" custom="true"/>
+        <resource-file src="src/ios/vksdk/VKSdkResources.bundle" />
+    </platform>
+	
+	<platform name="windows">
+		<js-module src="src/windows/VKSocialProxy.js" name="VKSocialProxy">
+            <merges target="" />
+        </js-module>
+	</platform>
+	
+</plugin>

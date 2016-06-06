@@ -1,0 +1,41 @@
+<div>
+    <rs-header ng-if="globals.isMobilePhoneChangingEnabled"
+               lbtn-class="icon-close" lbtn-action="goBackFromField()"
+               rbtn-class="icon-check-mark" rbtn-action="changeMobileTelephone()">Мобильный телефон</rs-header>
+    <rs-header ng-if="!globals.isMobilePhoneChangingEnabled"
+               lbtn-class="icon-close" lbtn-action="goBackFromField()">Мобильный телефон</rs-header>
+    <ion-view>
+        <ion-content class="has-header personal-page">
+            <rs-panel>
+                <div class="list-block next-block">
+                    <ul>
+                        <li>
+                            <div class="item-content item-inner">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-13px">Номер</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <input type="tel"
+                                                       mask-clean="true"
+                                                       mask-restrict="reject"
+                                                       mask="(999) 999-99-99"
+                                                       ng-model="fieldValue.value"
+                                                       ng-disabled="!globals.isMobilePhoneChangingEnabled">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <div ng-if="!globals.isMobilePhoneChangingEnabled" class="inaccessible-data-label">
+                Изменение данных временно недоступно
+            </div>
+        </ion-content>
+    </ion-view>
+</div>

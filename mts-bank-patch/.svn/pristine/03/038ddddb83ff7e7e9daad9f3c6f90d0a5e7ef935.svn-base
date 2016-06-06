@@ -1,0 +1,12 @@
+<div class="rs-tip-bg">
+    <div class="relative height100pc flex flex-center flex-middle">
+
+        <div class="rs-tip-container">
+            <div class="rs-tip-logo"></div>
+            <div class="rs-tip-caption">Совет</div>
+            <div class="rs-tip-text">{{text}}</div>
+            <button class="rs-tip-button" ng-click="hide()"></button>
+        </div>
+
+    </div>
+</div>

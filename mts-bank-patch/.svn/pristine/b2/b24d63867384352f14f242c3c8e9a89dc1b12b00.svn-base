@@ -1,0 +1,16 @@
+<div ng-controller="ExtractCategoryCtrl as categoryCtrl" >
+    <rs-header ng-style="{'background-color': category.color}">{{category.name}}</rs-header>
+    <div class="bar bar-subheader disable-user-behavior" ng-style="{'background-color': category.color}">
+        <h1 class="title" style="color: white; font-size: 17px;">
+            <span ng-show="category.totalCredit" ng-bind="(category.totalCredit | defaultSum)"/>
+            <span ng-show="category.totalCredit" class="category-subheader" currency="{{category.currency}}"></span>
+        </h1>
+    </div>
+    <ion-view>
+        <ion-content class="has-subheader" on-scroll-complete="showMoreOperations()" when-scroll-ends-wp="showMoreOperations()">
+            <rs-panel ng-show="operationsDisplay && operationsDisplay.length" header-text="Операции">
+                <rs-operations operations="operationsDisplay" operation-state="operationState" show-search-bar="true"/>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

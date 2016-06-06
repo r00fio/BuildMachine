@@ -1,0 +1,110 @@
+<div ui-view="settings-personal-data-view">
+    <rs-header>Персональные данные</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <rs-panel>
+                <div class="list-block no-margin">
+                    <ul>
+                        <fw7-li-select title="Дата рождения">{{retailClient.clientBirthday | defaultDate}}</fw7-li-select>
+                        <fw7-li-select title="Паспорт">{{retailClient.passport | passport}}</fw7-li-select>
+                        <fw7-li-select title="Гражданство">{{retailClient.citizenship}}</fw7-li-select>
+                        <fw7-li-select title="Место рождения">{{retailClient.cliBirthAddress}}</fw7-li-select>
+                        <fw7-li-select title="Адрес регистрации">{{retailClient.regAddress | address}}</fw7-li-select>
+                    </ul>
+                    <div class="flex flex-middle setting-personal-label">Чтобы изменить эти данные, обратитесь в любой удобный офис МТС Банка</div>
+                </div>
+            </rs-panel>
+            <div class="list-block no-margin">
+                <ul>
+                    <fw7-li-select title="Адрес проживания" ng-if="!globals.isAddressChangeEnabled">
+                        <span ng-show="retailClient.factAddress">
+                            {{retailClient.factAddress | address}}
+                        </span>
+                        <span ng-hide="retailClient.factAddress">Не указано</span>
+                    </fw7-li-select>
+                    <fw7-li-select link="true" title="Адрес проживания" ng-if="globals.isAddressChangeEnabled" ui-sref="settings.personal.address">
+                        <span ng-show="retailClient.factAddress">
+                            {{retailClient.factAddress | address}}
+                        </span>
+                        <span ng-hide="retailClient.factAddress">Не указано</span>
+                    </fw7-li-select>
+                    <fw7-li-select link="true"
+                                   title="Электронная почта"
+                                   ng-click="(fieldValue.name = 'email'); (fieldValue.value = retailClient.email)"
+                                   ui-sref="settings.personal.email">
+                        <span ng-show="retailClient.email" ng-bind="retailClient.email"></span>
+                        <span ng-hide="retailClient.email">Не указано</span>
+                    </fw7-li-select>
+                    <fw7-li-select link="true"
+                                   title="Мобильный телефон"
+                                   ng-click="(fieldValue.name = 'mobileTelephone'); (fieldValue.value = getPhoneNumber(retailClient.mobileTelephone))"
+                                   ui-sref="settings.personal.mobileTelephone">
+                        <span ng-show="retailClient.mobileTelephone" ng-bind="retailClient.mobileTelephone"></span>
+                        <span ng-hide="retailClient.mobileTelephone">Не указано</span>
+                    </fw7-li-select>
+                    <fw7-li-select link="true"
+                                   title="Домашний телефон"
+                                   ng-click="(fieldValue.name = 'homeTelephone'); (fieldValue.value = getPhoneNumber(retailClient.homeTelephone))"
+                                   ui-sref="settings.personal.homeTelephone">
+                        <span ng-show="retailClient.homeTelephone" ng-bind="retailClient.homeTelephone"></span>
+                        <span ng-hide="retailClient.homeTelephone">Не указано</span>
+                    </fw7-li-select>
+                    <fw7-li-select link="true"
+                                   title="СНИЛС"
+                                   ng-click="(fieldValue.name = 'insuranceNumber'); (fieldValue.value = retailClient.insuranceNumber)"
+                                   ui-sref="settings.personal.insuranceNumber">
+                        <span ng-show="retailClient.insuranceNumber" ng-bind="retailClient.insuranceNumber"></span>
+                        <span ng-hide="retailClient.insuranceNumber">Не указано</span>
+                    </fw7-li-select>
+                    <fw7-li-select link="true"
+                                   title="ИНН"
+                                   ng-click="(fieldValue.name = 'inn'); (fieldValue.value = retailClient.inn)"
+                                   ui-sref="settings.personal.inn">
+                        <span ng-show="retailClient.inn" ng-bind="retailClient.inn"></span>
+                        <span ng-hide="retailClient.inn">Не указано</span>
+                    </fw7-li-select>
+                    <fw7-li-select link="true"
+                                   title="Полис ОМС"
+                                   ng-click="(fieldValue.name = 'insurancePass'); (fieldValue.value = retailClient.insurancePass)"
+                                   ui-sref="settings.personal.insurancePass">
+                        <span ng-show="retailClient.insurancePass" ng-bind="retailClient.insurancePass"></span>
+                        <span ng-hide="retailClient.insurancePass">Не указано</span>
+                    </fw7-li-select>
+                </ul>
+            </div>
+            <rs-panel header-text="ВУ и ТС">
+                <div class="list-block no-margin">
+                    <ul>
+                        <fw7-li-select link="true"
+                                       title="Водительское удостоверение"
+                                       ng-repeat="driverDoc in retailClient.driverDocList"
+                                       ng-click="selectDriverDoc()"
+                                       ui-sref="settings.personal.driverDoc">{{driverDoc.series}} {{driverDoc.number}}
+                        </fw7-li-select>
+                        <fw7-li-select link="true"
+                                       title="Транспортное средство"
+                                       ng-repeat="transportPass in retailClient.transportPassList"
+                                       ng-click="selectTransportPass()"
+                                       ui-sref="settings.personal.transportPass">{{transportPass.docNumber}}
+                        </fw7-li-select>
+                        <fw7-li-select link="true"
+                                       title="Добавить ВУ или ТС"
+                                       ng-click="(retailClient.docCreate = {})"
+                                       ui-sref="settings.personal.createDriverOrTransport">
+                        </fw7-li-select>
+                    </ul>
+                </div>
+            </rs-panel>
+            <rs-panel>
+                <div class="list-block no-margin">
+                    <ul>
+                        <fw7-li-select link="true" title="Ближайший офис" ng-click="goToNearestOfficeDetails()">
+                            <div rs-waiter="nearestOffice" style="height: 28px; width: 18px;" ng-show="nearestOffice === undefined"></div>
+                            <span>{{nearestOffice === null ? 'Нет данных' : nearestOffice.properties.name + (nearestOffice.properties.address ? ', ' + nearestOffice.properties.address : '')}}</span>
+                        </fw7-li-select>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

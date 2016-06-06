@@ -1,0 +1,42 @@
+<div ng-controller="AccountRequisitesCtrl as arc">
+    <rs-header lbtn-class="icon-close" rbtn-class="icon-send" rbtn-action="showSend()">
+        Реквизиты счета
+    </rs-header>
+        <ion-view>
+            <ion-content class="has-header bg-f0f4f5">
+                <div class="list-block" style="margin:0;">
+                    <div class="list-group">
+                        <ul>
+                            <li>
+                                <rs-product ng-hide="account.deposit" product="account"></rs-product>
+                                <rs-product ng-show="account.deposit" product="account.deposit"></rs-product>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <rs-panel ng-if="!account.requisites">
+                    <div rs-waiter="account.requisites"></div>
+                </rs-panel>
+                <div ng-if="account.requisites" class="list-block" style="margin:0;">
+                    <rs-panel header-text="{{account.requisites.bankDataLabel}}">
+                        <ul>
+                            <fw7-li ng-repeat="requisite in account.requisites.propertiesBank"
+                                    title="{{requisite.first}}"
+                                    multiline="true">
+                                {{requisite.second}}
+                            </fw7-li>
+                        </ul>
+                    </rs-panel>
+                    <rs-panel header-text="{{getRequisitesTitle()}}">
+                        <ul>
+                            <fw7-li ng-repeat="requisite in account.requisites.propertiesAccount"
+                                    title="{{requisite.first}}"
+                                    multiline="true">
+                                {{requisite.second}}
+                            </fw7-li>
+                        </ul>
+                    </rs-panel>
+                </div>
+            </ion-content>
+        </ion-view>
+</div>

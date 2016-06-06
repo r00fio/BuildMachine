@@ -1,0 +1,96 @@
+<rs-panel header-text="Связанные продукты" ng-if="(currentProduct.deposit && currentProduct.deposit.linkedProducts.length) || (currentProduct.linkedProducts.length)">
+        <div class="list-block no-margin">
+            <ul>
+                <li ng-show="currentProduct.deposit" ng-repeat="product in currentProduct.deposit.linkedProducts" ui-sref="{{getProductSref(product)}}" class="product-li">
+                    <rs-product product="product"></rs-product>
+                </li>
+                <li ng-hide="currentProduct.deposit" ng-repeat="product in currentProduct.linkedProducts" ui-sref="{{getProductSref(product)}}" class="product-li">
+                    <rs-product product="product"></rs-product>
+                </li>
+            </ul>
+        </div>
+</rs-panel>
+
+<rs-panel>
+    <div class="list-block card-info-button-block">
+        <ul>
+            <li ui-sref="account.requisites">
+                <a href="#" class="item-content item-link">
+                    <div class="item-inner">
+                        <div class="item-title">Реквизиты для пополнения</div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</rs-panel>
+
+<rs-panel>
+    <div ng-show="currentProduct.deposit" class="list-block details-card-info">
+        <ul>
+            <fw7-li title="Название вклада" multiline="true" ng-if="currentProduct.deposit.desc">{{currentProduct.deposit.desc}}</fw7-li>
+            <fw7-li title="Тип вклада" multiline="true" ng-if="currentProduct.deposit.type">{{currentProduct.deposit.type}}</fw7-li>
+            <fw7-li title="Статус вклада" multiline="true" ng-if="currentProduct.deposit.stateName">{{currentProduct.deposit.stateName}}</fw7-li>
+            <fw7-li title="Номер договора" multiline="true">{{currentProduct.deposit.agreementNumber}}</fw7-li>
+            <fw7-li title="Срок вклада" multiline="true" ng-if="currentProduct.deposit.term">{{currentProduct.deposit.term}}</fw7-li>
+            <fw7-li title="Дата открытия" multiline="true" ng-if="currentProduct.deposit.openDate">{{currentProduct.deposit.openDate | defaultDate}}</fw7-li>
+            <fw7-li title="Дата окончания" multiline="true" ng-if="currentProduct.deposit.endDate">{{currentProduct.deposit.endDate | defaultDate}}</fw7-li>
+            <fw7-li title="Дата закрытия" multiline="true" ng-if="currentProduct.deposit.closeDate">{{currentProduct.deposit.closeDate | defaultDate}}</fw7-li>
+            <fw7-li title="Номер счета вклада" multiline="true" ng-if="currentProduct.number">{{currentProduct.number}}</fw7-li>
+            <fw7-li title="{{getLabelForInterestAccountNumber()}}" multiline="true" ng-if="currentProduct.interestAccountNumber">
+                {{currentProduct.interestAccountNumber}}
+            </fw7-li>
+            <fw7-li title="Номер счета для возврата вклада" multiline="true"
+                    ng-if="currentProduct.transferAccountNumber && !equalsInterestAndTransferAccounts()">
+                {{currentProduct.transferAccountNumber}}
+            </fw7-li>
+            <fw7-li title="Неснижаемый остаток" multiline="true">
+                <span>{{currentProduct.minimumBalance | defaultSum}}</span>
+                <span currency="{{currentProduct.currency}}"></span>
+            </fw7-li>
+            <fw7-li title="Процентная ставка по вкладу" multiline="true">{{currentProduct.interestRate}}%</fw7-li>
+            <!-- CHG098964: MTS: Вклады. Скрыть поля Начисленные %% и Ожидаемая сумма -->
+            <!--<fw7-li title="Сумма процентов" multiline="true" ng-if="currentProduct.percentAmount">-->
+                <!--<span>{{currentProduct.percentAmount | defaultSum}}</span>-->
+                <!--<span currency="{{currentProduct.currency}}"></span>-->
+            <!--</fw7-li>-->
+            <fw7-li title="Дата начисления процентов" multiline="true" ng-if="currentProduct.capitalizationDate">
+                {{currentProduct.capitalizationDate | defaultDate}}
+            </fw7-li>
+            <fw7-li title="График пополнения" multiline="true" ng-if="currentProduct.deposit.lastRepaymentDate">
+                {{currentProduct.deposit.lastRepaymentDate | defaultDate}}
+            </fw7-li>
+            <fw7-li title="Возможность пополнения вклада" multiline="true" ng-if="currentProduct.deposit.creditAllowed">
+                {{currentProduct.deposit.creditAllowed}}
+            </fw7-li>
+            <fw7-li title="Возможность списания со вклада" multiline="true" ng-if="currentProduct.deposit.debitAllowed">
+                {{currentProduct.deposit.debitAllowed}}
+            </fw7-li>
+            <fw7-li title="Возможность пролонгации вклада" multiline="true" ng-if="currentProduct.deposit.renewable">
+                {{currentProduct.deposit.renewable}}
+            </fw7-li>
+            <fw7-li title="Условия обслуживания" class="item-link" ng-if="currentProduct.deposit.conditionsLink" ng-click="openUrl('{{currentProduct.deposit.conditionsLink}}')"></fw7-li>
+            <fw7-li title="Тарифы на обслуживание" class="item-link" ng-if="currentProduct.deposit.tariffsLink" ng-click="openUrl('{{currentProduct.deposit.tariffsLink}}')"></fw7-li>
+            <fw7-li title="Обслуживающее подразделение" multiline="true">
+                <span ng-show="currentProduct.deposit.branchName">{{currentProduct.deposit.branchName}}</span>
+                <span ng-hide="currentProduct.deposit.branchName">{{messageForMissingBranch}}</span>
+            </fw7-li>
+            <fw7-li title="Информация о страховании вклада" multiline="true">Застрахован</fw7-li>
+        </ul>
+    </div>
+    <div ng-hide="currentProduct.deposit" class="list-block details-card-info">
+        <ul>
+            <fw7-li title="Название счета" multiline="true" ng-if="currentProduct.desc">{{currentProduct.desc}}</fw7-li>
+            <fw7-li title="Статус счета" multiline="true">{{currentProduct.stateName}}</fw7-li>
+            <fw7-li title="Тип счета" multiline="true" ng-if="currentProduct.type">{{currentProduct.type}}</fw7-li>
+            <fw7-li title="Номер счета" multiline="true">{{currentProduct.number}}</fw7-li>
+            <fw7-li title="Дата открытия" multiline="true">{{currentProduct.openDate | defaultDate}}</fw7-li>
+            <fw7-li title="Дата начисления процентов" multiline="true" ng-if="currentProduct.capitalizationDate">{{currentProduct.capitalizationDate | defaultDate}}</fw7-li>
+            <fw7-li title="Условия обслуживания" class="item-link" ng-if="currentProduct.conditionsLink" ng-click="openUrl('{{currentProduct.conditionsLink}}')"></fw7-li>
+            <fw7-li title="Обслуживающее подразделение" multiline="true">
+                <span ng-show="currentProduct.branchName">{{currentProduct.branchName}}</span>
+                <span ng-hide="currentProduct.branchName">{{messageForMissingBranch}}</span>
+            </fw7-li>
+        </ul>
+    </div>
+</rs-panel>

@@ -1,0 +1,13 @@
+<svg width="54px" height="45px" viewBox="0 0 54 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Imported Layers</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Main-Copy-6" sketch:type="MSArtboardGroup" transform="translate(-920.000000, -1358.000000)" fill="#667980">
+            <g id="Button/Floating_Large-Copy" sketch:type="MSLayerGroup" transform="translate(887.000000, 1320.000000)">
+                <path d="M78,38 L42,38 C37.029,38 33,42.029 33,47 L33,74 C33,78.971 37.029,83 42,83 L78,83 C82.971,83 87,78.971 87,74 L87,47 C87,42.029 82.971,38 78,38 L78,38 Z M42,44 L78,44 C79.6575,44 81,45.3425 81,47 L81,53 L39,53 L39,47 C39,45.3425 40.3425,44 42,44 L42,44 Z M78,77 L42,77 C40.3425,77 39,75.6575 39,74 L39,59 L81,59 L81,74 C81,75.6575 79.6575,77 78,77 L78,77 Z" id="Imported-Layers" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

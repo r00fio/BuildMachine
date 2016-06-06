@@ -1,0 +1,70 @@
+.icon-visa { background-image: url('../img/visa_logo.svg') !important; background-repeat: no-repeat !important; }
+.icon-mastercard { background-image: url('../img/master_logo.svg') !important; background-repeat: no-repeat !important; }
+.icon-unionpay { background-image: url('../img/unionpay_icon.svg') !important; background-repeat: no-repeat !important; }
+
+.icon-hide { background-image: url('../img/ios/hide.svg') !important; background-repeat: no-repeat !important; }
+.icon-show { background-image: url('../img/ios/show.svg') !important; background-repeat: no-repeat !important; }
+.icon-block { background-image: url('../img/ios/block.svg') !important; background-repeat: no-repeat !important; }
+.icon-unblock { background-image: url('../img/ios/unblock.svg') !important; background-repeat: no-repeat !important; }
+.icon-topup { background-image: url('../img/ios/topup.svg') !important; background-repeat: no-repeat !important; }
+.icon-close { background-image: url('../img/ios/close.svg') !important; background-repeat: no-repeat !important; }
+.icon-back { background-image: url('../img/ios/back.svg') !important; background-repeat: no-repeat !important; }
+.icon-send { background-image: url('../img/ios/send.svg') !important; background-repeat: no-repeat !important; }
+.icon-send-extract { background-image: url('../img/ios/send-extract.svg') !important; background-repeat: no-repeat !important; }
+.icon-positive { background-image: url('../img/ios/positive.svg') !important; background-repeat: no-repeat !important; }
+.icon-negative { background-image: url('../img/ios/negative.svg') !important; background-repeat: no-repeat !important; }
+.icon-edit { background-image: url('../img/ios/edit.svg') !important; background-repeat: no-repeat !important; }
+.icon-remove { background-image: url('../img/ios/remove.svg') !important; background-repeat: no-repeat !important; }
+.icon-delete { background-image: url('../img/ios/delete.svg') !important; background-repeat: no-repeat !important; }
+.icon-clear-input { background-image: url('../img/ios/clear-input.svg') !important; background-repeat: no-repeat !important; }
+.icon-selected { background-image: url('../img/ios/selected.svg') !important; background-repeat: no-repeat !important; }
+.icon-selected-white { background-image: url('../img/ios/selected-white.svg') !important; background-repeat: no-repeat !important; }
+.icon-card-block { background-image: url('../img/ios/card-block.svg') !important; background-repeat: no-repeat !important; }
+.icon-card-unblock { background-image: url('../img/ios/card-unblock.svg') !important; background-repeat: no-repeat !important; }
+.icon-card-reissue { background-image: url('../img/ios/card-reissue.svg') !important; background-repeat: no-repeat !important; }
+
+.icon-send-requisites { background-image: url('../img/ios/send-requisites.svg') !important; background-repeat: no-repeat !important; }
+
+.icon-hidden { background-image: url('../img/ios/hidden.svg') !important; background-repeat: no-repeat !important; }
+.icon-closed { background-image: url('../img/ios/closed.svg') !important; background-repeat: no-repeat !important; }
+.icon-blocked { background-image: url('../img/ios/blocked.svg') !important; background-repeat: no-repeat !important; }
+.icon-reissued { background-image: url('../img/ios/reissued.svg') !important; background-repeat: no-repeat !important; }
+
+.icon-menu { background-image: url('../img/ios/menu.svg') !important; background-repeat: no-repeat !important; }
+.icon-add-header { background-image: url('../img/ios/add-header.svg') !important; background-repeat: no-repeat !important; }
+
+.icon-check-mark { background-image: url('../img/android/check-mark.svg') !important; background-repeat: no-repeat !important; }
+.icon-checked-circle { background-image: url('../img/ios/checked-circle.svg') !important; background-repeat: no-repeat !important; }
+.icon-header-arrow { background-image: url('../img/ios/header-arrow.svg') !important; background-repeat: no-repeat !important; }
+
+.icon-menu-more {
+    background-image: url('../img/ios/more_icon.svg') !important;
+    background-repeat: no-repeat !important;
+    background-size: 24px 5px !important;
+}
+
+.icon-tabbar-home { background-image: url('../img/ios/tabbar-home.svg') !important; background-repeat: no-repeat !important; }
+.icon-tabbar-home-selected { background-image: url('../img/ios/tabbar-home-selected.svg') !important; background-repeat: no-repeat !important; }
+.icon-tabbar-products { background-image: url('../img/ios/tabbar-products.svg') !important; background-repeat: no-repeat !important; }
+.icon-tabbar-products-selected { background-image: url('../img/ios/tabbar-products-selected.svg') !important; background-repeat: no-repeat !important; }
+.icon-tabbar-pays { background-image: url('../img/ios/tabbar-pays.svg') !important; background-repeat: no-repeat !important; }
+.icon-tabbar-pays-selected { background-image: url('../img/ios/tabbar-pays-selected.svg') !important; background-repeat: no-repeat !important; }
+.icon-tabbar-expenses { background-image: url('../img/ios/tabbar-expenses.svg') !important; background-repeat: no-repeat !important; }
+.icon-tabbar-expenses-selected { background-image: url('../img/ios/tabbar-expenses-selected.svg') !important; background-repeat: no-repeat !important; }
+.icon-tabbar-menu { background-image: url('../img/ios/tabbar-menu.svg') !important; background-repeat: no-repeat !important; }
+
+.icon-tuning, .icon-tuning-left { background-image: url('../img/ios/tuning.svg') !important; background-repeat: no-repeat !important; }
+.icon-filter { background-image: url('../img/ios/icon-filter.svg') !important; background-repeat: no-repeat !important; }
+
+.icon-info { background-image: url('../img/ios/info.svg') !important; background-repeat: no-repeat !important; }
+
+.icon-payment-settings { background-image: url('../img/ios/payment-settings.svg') !important; background-repeat: no-repeat !important; }
+.icon-call { background-image: url('../img/ios/receiver.svg') !important; background-repeat: no-repeat !important; }
+
+.icon-zoom-in { background-image: url('../img/ios/zoom-in.svg') !important; background-repeat: no-repeat !important; }
+.icon-zoom-in:active { background-image: url('../img/ios/zoom-in-activated.svg') !important; }
+.icon-zoom-out { background-image: url('../img/ios/zoom-out.svg') !important; background-repeat: no-repeat !important; }
+.icon-zoom-out:active { background-image: url('../img/ios/zoom-out-activated.svg') !important; }
+.icon-locate { background-image: url('../img/ios/locate.svg') !important; background-repeat: no-repeat !important; }
+.icon-locate.activated { background-image: url('../img/ios/locate-activated.svg') !important; }
+.icon-route { background-image: url('../img/ios/route-white.svg') !important; background-repeat: no-repeat !important; }

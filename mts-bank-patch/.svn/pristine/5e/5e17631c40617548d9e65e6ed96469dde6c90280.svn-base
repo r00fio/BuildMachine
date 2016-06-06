@@ -1,0 +1,68 @@
+<div ng-controller="LoanScheduleCtrl as loanScheduleCtrl">
+    <ion-view>
+        <rs-header ng-show="loan.paymentSchedule && loan.paymentSchedule.scheduleList" rbtn-class="icon-send" rbtn-action="showSend()">График платежей</rs-header>
+        <rs-header ng-hide="loan.paymentSchedule && loan.paymentSchedule.scheduleList">График платежей</rs-header>
+        <ion-content class="has-header">
+
+            <div class="content-block-title" style="margin-top: 26px;"></div>
+
+            <div ng-if="!loan.paymentSchedule" class="list-block">
+                <div rs-waiter="loan.paymentSchedule"></div>
+            </div>
+
+            <div ng-if="loan.paymentSchedule && loan.paymentSchedule.scheduleList" class="list-block">
+                <ul>
+                    <fw7-li ng-repeat="payment in loan.paymentSchedule.scheduleList | orderBy:'paymentDate'"
+                            title="{{getPaymentTitle(payment, $index)}}"
+                            item-class="{{platform ==='ios' ? 'item-link' : ''}}"
+                            ui-sref="loan.payment({payment:payment, loan:loan})">
+
+                        <span ng-style="{'color': payment.state === 'PAST_DUE' ? 'red' : 'auto'}">
+                            {{payment.state === 'RECEIVED' ? 'Выполнен' : payment.state === 'PAST_DUE' ? 'Просрочен' : ''}}
+                        </span>
+                    </fw7-li>
+                </ul>
+            </div>
+
+            <div ng-if="loan.paymentSchedule && !loan.paymentSchedule.scheduleList" class="table-fixed-width100pc" style="margin-top: 40px; margin-bottom: 5px;">
+                <div class="table-row">
+                    <div class="table-cell text-gray white-space-pre-line text-align-center text-15px" style="padding-top: 5px;">
+                        <img src="img/ios/empty-result.svg" width="45px" height="45px" />
+                        Не удалось получить информацию о графике платежей
+                    </div>
+                </div>
+            </div>
+
+            <!-- Пространство для таблицы ниже -->
+            <div style="height:64px;"></div>
+
+            <ion-refresher on-refresh="doRefresh()" pulling-icon=""></ion-refresher>
+        </ion-content>
+
+        <div ng-if="loan.paymentSchedule && loan.paymentSchedule.scheduleList" class="table-fixed-width100pc loan-schedule-debt-summary">
+            <div class="table-row">
+                <div class="table-cell">
+                    <div class="loan-schedule-debt-summary-title">Выплачено</div>
+                    <div>
+                        <span ng-bind="(loan.paymentSchedule.debtPaid + loan.paymentSchedule.interestsPaid | defaultSum)"/>
+                        <span class="text-16px" currency="{{loan.currency}}"/>
+                    </div>
+                </div>
+                <div class="table-cell">
+                    <div class="loan-schedule-debt-summary-title">По долгу</div>
+                    <div>
+                        <span ng-bind="(loan.paymentSchedule.debtPaid | defaultSum)"/>
+                        <span class="text-16px" currency="{{loan.currency}}"/>
+                    </div>
+                </div>
+                <div class="table-cell">
+                    <div class="loan-schedule-debt-summary-title">По процентам</div>
+                    <div>
+                        <span ng-show="loan.paymentSchedule.interestsPaid" ng-bind="(loan.paymentSchedule.interestsPaid | defaultSum)"/>
+                        <span class="text-16px" currency="{{loan.currency}}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-view>
+</div>

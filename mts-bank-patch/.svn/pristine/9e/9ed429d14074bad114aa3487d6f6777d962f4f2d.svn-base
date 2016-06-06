@@ -1,0 +1,113 @@
+<div>
+    <rs-header lbtn-class="icon-close" lbtn-action="goBackFromField()"
+               rbtn-class="icon-check-mark" rbtn-action="createDriverOrTransport()">Добавить ВУ или ТС</rs-header>
+    <ion-view>
+        <ion-content class="has-header personal-page">
+            <rs-panel>
+                <div class="list-block next-block">
+                    <ul>
+                        <fw7-li-select item-class="item-inner"
+                                       title="Документ"
+                                       ng-click="selectShow(docTypeList, 'docTypeCreate', 'Документ', 'desc')">
+                            <span ng-init="retailClient.docTypeCreate = docTypeList[0]" ng-bind="retailClient.docTypeCreate.desc"></span>
+                        </fw7-li-select>
+                        <li ng-if="retailClient.docTypeCreate.strId == 'driver'">
+                            <div class="item-content item-inner">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-13px">Серия</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <input type="number"
+                                                       mask-restrict="reject"
+                                                       mask="9999"
+                                                       ng-model="retailClient.docCreate.series">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li ng-if="retailClient.docTypeCreate.strId == 'driver'">
+                            <div class="item-content item-inner">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-13px">Номер</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <input type="number"
+                                                       mask-restrict="reject"
+                                                       mask="999999"
+                                                       ng-model="retailClient.docCreate.number">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li ng-if="retailClient.docTypeCreate.strId == 'driver'">
+                            <div class="item-content item-inner">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-13px">Дата выдачи</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <input type="text"
+                                                       ng-model="retailClient.docCreate.deliveryDate" rs-date-picker>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li ng-if="retailClient.docTypeCreate.strId == 'transport'">
+                            <div class="item-content item-inner">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-13px">Гос. номер</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <input type="text"
+                                                       mask-restrict="reject"
+                                                       mask="D999DD999?"
+                                                       ng-model="retailClient.docCreate.stateNumber">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li ng-if="retailClient.docTypeCreate.strId == 'transport'">
+                            <div class="item-content item-inner">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-13px">Номер свидетельства</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <input type="text"
+                                                       mask-restrict="reject"
+                                                       mask="**** 999999"
+                                                       ng-model="retailClient.docCreate.docNumber">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

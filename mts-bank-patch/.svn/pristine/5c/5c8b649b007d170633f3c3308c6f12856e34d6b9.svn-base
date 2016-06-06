@@ -1,0 +1,34 @@
+<div>
+    <rs-header ng-if="globals.isLoginChangingForRetailClientEnabled"
+               lbtn-class="icon-close"      lbtn-action="goBack()"
+               rbtn-class="icon-check-mark" rbtn-action="changeLogin()">Сменить логин</rs-header>
+    <rs-header ng-if="!globals.isLoginChangingForRetailClientEnabled"
+               lbtn-class="icon-close"      lbtn-action="goBack()">Сменить логин</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <rs-panel>
+                <div ng-if="globals.isLoginChangingForRetailClientEnabled" class="text-15px text-667980 text-align-center"
+                     style="margin-bottom: 20px;" ng-bind="messageForChangeLogin"></div>
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label text-15px">Логин</div>
+                                    <div class="item-input" style="padding-left: 0;">
+                                        <input input-clear-btn style="color: #202426; font-size: 15px;" type="text"
+                                               ng-model="user.newLogin"
+                                               ng-disabled="!globals.isLoginChangingForRetailClientEnabled" />
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <div ng-if="!globals.isLoginChangingForRetailClientEnabled" class="inaccessible-data-label">
+                Изменение данных временно недоступно
+            </div>
+        </ion-content>
+    </ion-view>
+</div>

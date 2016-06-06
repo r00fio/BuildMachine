@@ -1,0 +1,16 @@
+<button ng-if="isNotFromTemplateAndVisibleFields() && payment.paymentModeParams.templateId && isEditMode()"
+        class="button button-full rs-button no-margin"
+        style="position: relative; bottom: 0; left: 0; height: 45px; background-color: #FFF !important; color: #E63947 !important; margin-top: 40px !important; margin-bottom: 40px !important;"
+        ng-click="deleteTemplate()">Удалить</button>
+
+<button ng-if="isNotFromTemplateAndVisibleFields() && isEditMode()" class="button button-full rs-button no-margin bg-CCD5D9 text-667980"
+        style="position: relative; bottom: 0; left: 0; height: 64px; background-color: #CCD5D9 !important; color: #667980 !important;"
+        ng-click="validateAndSaveTemplate()">Сохранить</button>
+
+<button ng-if="isEditMode()" class="button button-full rs-button no-margin"
+        style="position: relative; bottom: 0; left: 0; height: 64px; margin-top: 13vw !important;" ng-click="validatePayment()"
+        ng-bind="isNotFromTemplateAndVisibleFields() ? 'Сохранить и выполнить' : 'Выполнить'"></button>
+
+<button ng-if="isViewMode() && payment.showConfirmButton" class="button button-full rs-button no-margin"
+        style="position: relative; bottom: 0; left: 0; height: 64px; margin-top: 13vw !important;;"
+        ng-click="confirmAndSavePayment()">Подтвердить</button>

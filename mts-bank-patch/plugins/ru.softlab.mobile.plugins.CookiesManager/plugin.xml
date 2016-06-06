@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="ru.softlab.mobile.plugins.CookiesManager" version="0.0.1">
+    <name>CookiesManager</name>
+    <description>Clears WebView cookies from JS</description>
+    <license>MIT</license>
+    <keywords>cordova,cookies</keywords>
+    
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/cookies.js" name="CookiesManager">
+        <clobbers target="CookiesManager" />
+    </js-module>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="CookiesManager">
+                <param name="ios-package" value="CDVCookies"/>
+            </feature>
+        </config-file>
+        <header-file src="src/ios/CDVCookies.h" />
+        <source-file src="src/ios/CDVCookies.m" />
+    </platform>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="CookiesManager" >
+                <param name="android-package" value="ru.softlab.mobile.plugins.CookieManagerPlugin"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/CookieManagerPlugin.java" target-dir="src/ru/softlab/mobile/plugins" />
+    </platform>
+	
+	<!--  <platform name="wp8">
+		<config-file target="config.xml" parent="/*">
+			<feature name="CookiesManager">
+				<param name="wp-package" value="CookiesManager"/>
+			</feature>
+		</config-file>
+
+		<source-file src="src/wp8/CookiesManager.cs" />
+	</platform>  -->
+	
+	<platform name="windows">
+		<js-module src="src/windows/CookiesManagerProxy.js" name="CookiesManagerProxy">
+            <merges target="" />
+        </js-module>
+	</platform>
+	
+</plugin>

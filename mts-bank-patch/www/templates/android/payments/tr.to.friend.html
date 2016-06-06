@@ -1,0 +1,118 @@
+<div ng-controller="PaymentBaseCtrl as paymentBaseCtrl">
+    <div ng-controller="TrToFriendCtrl as trToFriendCtrl">
+        <rs-header rbtn-class="{{payment.fromTemplate && !isViewMode() ? 'icon-tuning' : ''}}" rbtn-action="payment.fromTemplate && !isViewMode()? setEditTemplateMode($event) : 0">{{payment.paymentTitle}}</rs-header>
+        <ion-view>
+            <ion-content class="has-header bg-f0f4f5">
+
+                <div ng-include="'templates/android/payments/payment.favourite.html'"></div>
+
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li ng-if="payment.sourceProduct" ng-disabled="isViewMode()" ng-click="selectProductShow(payment.paymentSourceList, 'sourceProduct')">
+
+                            <rs-product product="payment.sourceProduct"></rs-product>
+                        </li>
+                        <li ng-if="!payment.paymentSourceList" class="item-content">
+                            <div class="item-inner" rs-waiter="payment.paymentSourceList"></div>
+                        </li>
+                        <li ng-if="payment.paymentSourceList && payment.sourceProduct == null"
+                            ng-disabled="isViewMode()" class="item-content"
+                            ng-click="selectProductShow(payment.paymentSourceList, 'sourceProduct')">
+
+                            <div class="item-inner">
+                                <div class="item-title text-15px text-gray">Выбрать продукт</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="rs-content-panel">
+                    <div class="rs-content-panel-header text-align-center">
+                        <img src="img/payto.svg" style="height: 4vw;" />
+                    </div>
+                </div>
+
+                <div class="list-block" style="margin-top: 0;">
+                    <ul>
+                        <li class="item-content" ng-disabled="isViewMode()" ng-click="onSelectCodifierPanel(payment.friendsInBank, 'SocNetworkFriend')">
+
+                            <div class="item-media">
+                                <img class="icon" style="height: 12vw; width: 12vw; border-radius: 100%;"
+                                     ng-src="{{selectedFriend.photoSrc ? selectedFriend.photoSrc : 'img/contact-nofoto.svg'}}"/>
+                            </div>
+                            <div class="item-inner">
+                                <div class="table-fixed-width100pc" style="width: 80%;">
+                                    <div class="table-row">
+                                        <div class="table-cell text-15px" style="white-space: normal;" ng-bind="selectedFriend.name"></div>
+                                    </div>
+                                    <div class="table-row" ng-if="selectedFriend.network">
+                                        <span class="table-cell text-12px text-gray" ng-bind="selectedFriend.network"></span>
+                                    </div>
+                                </div>
+                                <img class="icon" style="height: 7vw;" ng-src="img/inbank.svg"/>
+                            </div>
+
+
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="table-fixed-width100pc">
+                                    <div class="table-row">
+                                        <div class="table-cell text-gray">Комментарий</div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-cell">
+                                            <input type="text"
+                                                   ng-disabled="isViewMode()"
+                                                   maxlength="255"
+                                                   ng-model='payment.comment'
+                                                   class="placeholder-gray"
+                                                   style="font-size: 15px; padding: 0;" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <rs-panel>
+                    <div class="list-block" style="margin: 0;">
+                        <ul>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray">Сумма</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell">
+                                                <input type="number" class="placeholder-gray" style="font-size: 15px; padding: 0;"
+                                                       ng-disabled="isViewMode()"
+                                                       ng-model="payment.sum" />
+                                                <span style="position: absolute; right: 10px; top: 37px;" ng-if="payment.sourceProduct" currency="{{payment.sourceProduct.currency}}"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <div ng-include="'templates/android/payments/payment.sum.with.commission.html'"></div>
+                        </ul>
+                    </div>
+                </rs-panel>
+                <div ng-include="'templates/android/payments/payment.commission.html'"></div>
+
+                <div ng-include="'templates/android/payments/payment.favourite.fields.html'"></div>
+                <div ng-include="'templates/android/payments/payment.actions.html'"></div>
+
+            </ion-content>
+
+        </ion-view>
+    </div>
+</div>

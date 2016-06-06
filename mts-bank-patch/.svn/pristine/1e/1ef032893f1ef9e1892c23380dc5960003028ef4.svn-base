@@ -1,0 +1,37 @@
+<ion-view >
+    <rs-header>Бонусы</rs-header>
+    <ion-content class="has-header" >
+        <div class="list-block" style="margin-bottom: 0;">
+            <ul>
+                <li class="item-content">
+                    <div class="item-media">
+                        <img ng-if="bonus.img" ng-src="{{getLogoUrl(bonus.img.url)}}" style="height: 16vw;"/>
+                        <img ng-if="!bonus.img" ng-src="img/inbank.svg" style="height: 16vw;"/>
+                    </div>
+                    <div class="item-inner">
+                        <div class="table-fixed-width100pc">
+                            <div class="table-row">
+                                <div class="table-cell text-15px" style="white-space: normal;" ng-bind="bonus.name"></div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <rs-panel header-text="Описание">
+            <div class="list-block" style="margin: 0;">
+                <ul>
+                    <li class="item-content">
+                        <div class="item-inner text-gray" style="white-space: normal;">
+                            <span ng-bind="bonus.desc"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </rs-panel>
+
+    </ion-content>
+
+    <button class="button rs-button no-margin" ng-click="redirectToConnectOption()" ng-bind="isInterestingBonuses ? 'Оформить продукт' : 'Подключить'"></button>
+</ion-view>

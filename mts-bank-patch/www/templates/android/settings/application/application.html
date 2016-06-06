@@ -1,0 +1,29 @@
+<div ui-view="settings-application-view">
+    <rs-header>Настройка приложения</rs-header>
+    <ion-view class="has-header">
+        <ion-content>
+            <rs-panel>
+                <div class="list-block">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title text-15px width100pc">Отображать закрытые продукты</div>
+                                <div class="item-after">
+                                    <rs-toggle ng-model="user.showBlockedProducts" ng-change="toggleShowBlockedProducts()"></rs-toggle>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title text-15px width100pc">Избранное при встряхивании</div>
+                                <div class="item-after">
+                                    <rs-toggle ng-model="user.isOpenTemplatesByHandshake" ng-change="toggleOpenTemplatesByHandshake()"></rs-toggle>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

@@ -1,0 +1,107 @@
+<rs-header lbtn-class="icon-close" rbtn-class="icon-check-mark" rbtn-action="applyFilter()">
+    Фильтр
+</rs-header>
+<ion-view>
+    <ion-content class="has-header bg-f0f4f5">
+        <div ng-if="platform=='ios'">
+            <div class="content-block-title">Период</div>
+            <div style="margin-bottom: 0; margin-top: 0;" class="list-block">
+                <ul>
+                    <li>
+                        <rs-date-picker-ios upper-bound="dateTo" value-date="dateFrom"
+                                            field-id="payment-date-from" title="Начало периода"></rs-date-picker-ios>
+                    </li>
+                    <li>
+                        <rs-date-picker-ios lower-bound="dateFrom" value-date="dateTo"
+                                            field-id="payment-date-to" title="Конец периода"></rs-date-picker-ios>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div ng-if="platform!='ios'" class="list-block">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell text-gray" style="padding-left: 5px; font-size: 16px;">С</div>
+                                </div>
+                                <div class="item-input table-row">
+                                    <input type="text" style="font-size: 16px;" readonly id="calendar-date-format-from"
+                                           upper-bound="dateTo" value-date="dateFrom" rs-date-picker-android>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell text-gray" style="padding-left: 5px; font-size: 16px;">По</div>
+                                </div>
+                                <div class="item-input table-row">
+                                    <input type="text" style="font-size: 16px;" readonly id="calendar-date-format-to"
+                                           lower-bound="dateFrom" value-date="dateTo" rs-date-picker-android>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-block-title">Продукты</div>
+        <div class="list-block" style="margin:0;">
+            <div class="list-group">
+                <ul>
+                    <li ng-repeat="product in productList">
+                        <rs-product product="product" show-check-box="true"></rs-product>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-block-title">Тип операции</div>
+        <div class="list-block" style="margin:0;">
+            <ul>
+                <li class="item-content" ng-click="setOperationType('ALL')">
+                    <div class="item-inner">
+                        <div class="flex flex-middle">
+                            <div class="operation-category-point" style="background-color: {{codifier.color}}"/>
+                            <div style="margin-left: 5px;"><label class="text-15px white-space-pre-line">Все</label></div>
+                        </div>
+                        <div class="item-after" ng-if="operationType == 'ALL'">
+                            <div class="icon-selected"></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="item-content" ng-click="setOperationType('PAYMENTS')">
+                    <div class="item-inner">
+                        <div class="flex flex-middle">
+                            <div class="operation-category-point" style="background-color: {{codifier.color}}"/>
+                            <div style="margin-left: 5px;"><label class="text-15px white-space-pre-line">Платежи</label></div>
+                        </div>
+                        <div class="item-after" ng-if="operationType == 'PAYMENTS'">
+                            <div class="icon-selected"></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="item-content" ng-click="setOperationType('TRANSFERS')">
+                    <div class="item-inner">
+                        <div class="flex flex-middle">
+                            <div class="operation-category-point" style="background-color: {{codifier.color}}"/>
+                            <div style="margin-left: 5px;"><label class="text-15px white-space-pre-line">Переводы</label></div>
+                        </div>
+                        <div class="item-after" ng-if="operationType == 'TRANSFERS'">
+                            <div class="icon-selected"></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+</ion-view>

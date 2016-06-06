@@ -1,0 +1,23 @@
+<div>
+    <!-- Если есть редирект - нужно обрамить тегом 'a' для подсветки и иконка i -->
+    <a href="#" ng-if="uiSref" class="product-info-row" ui-sref="{{uiSref}}">
+        <div class="flex flex-between flex-middle product-info-cell">
+            <span class="product-param-name">{{label}}</span>
+            <span class="flex flex-horizontal-end product-param-value">
+                <span>{{value}}</span>
+                <span ng-if="valueCurrency" currency="{{valueCurrency}}"></span>
+                <div class="icon icon-info icon-22 margin-left-5px"></div>
+            </span>
+        </div>
+    </a>
+
+    <!-- Иначе то же самое, только без тега 'a' и иконки i -->
+    <div ng-if="!uiSref" class="flex flex-between flex-middle product-info-cell">
+        <span class="product-param-name">{{label}}</span>
+        <span class="flex flex-horizontal-end product-param-value">
+            <span>{{value}}</span>
+            <span ng-if="valueCurrency" currency="{{valueCurrency}}"></span>
+            <div ng-if="android" class="icon icon-22 margin-left-5px"></div>
+        </span>
+    </div>
+</div>

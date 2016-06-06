@@ -1,0 +1,19 @@
+<div class="modal-container flex flex-middle flex-center" ng-click="closeMe()" ng-class="cssClass ? cssClass : null">
+    <div class="modal-content">
+        <div class="list-block list-block-separator-hidden" style="margin:0;">
+            <ul>
+                <li class="item-content" ng-repeat="option in options" ng-click="select(option) + save() + closeMe()">
+                    <div class="item-inner width100pc">
+                        <div class="flex flex-middle width100pc" style="flex-wrap: wrap">
+                            <div class="item-title text-15px">{{getLabel(option)}}</div>
+                            <div class="item-title text-13px text-gray" style="white-space: normal">{{option.address}}</div>
+                        </div>
+                        <div class="item-after" ng-if="isSelected(option)">
+                            <div class="icon-selected"></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

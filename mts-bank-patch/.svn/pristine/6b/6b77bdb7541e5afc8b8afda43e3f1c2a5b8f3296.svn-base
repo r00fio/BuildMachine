@@ -1,0 +1,24 @@
+<svg width="62px" height="62px" viewBox="0 0 62 62" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Oval 35 Copy + Imported Layers Copy 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.35 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="BG" sketch:type="MSArtboardGroup" transform="translate(-524.000000, -562.000000)">
+            <g id="Oval-35-Copy-+-Imported-Layers-Copy-3" sketch:type="MSLayerGroup" transform="translate(530.000000, 566.000000)">
+                <circle id="Oval-35-Copy" stroke="#FFFFFF" stroke-width="3" fill="#24A7B3" filter="url(#filter-1)" sketch:type="MSShapeGroup" cx="25" cy="25" r="25"></circle>
+                <path d="M22.58575,34.58575 C22.07375,34.58575 21.56275,34.39075 21.17175,33.99975 L14.58575,27.41375 C13.80475,26.63275 13.80475,25.36675 14.58575,24.58575 C15.36575,23.80475 16.63275,23.80475 17.41375,24.58575 L22.58575,29.75775 L32.75775,16.58575 C33.53875,15.80475 34.80475,15.80475 35.58575,16.58575 C36.36675,17.36675 36.36675,18.63275 35.58575,19.41375 L23.99975,33.99975 C23.60875,34.39075 23.09775,34.58575 22.58575,34.58575" id="Imported-Layers-Copy-3" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

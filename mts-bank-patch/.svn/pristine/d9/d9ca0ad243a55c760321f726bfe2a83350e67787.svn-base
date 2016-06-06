@@ -1,0 +1,17 @@
+<svg width="120px" height="120px" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Oval 46 Copy + Imported Layers Copy 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Card_info-2" sketch:type="MSArtboardGroup" transform="translate(-72.000000, -312.000000)">
+            <g id="Oval-46-Copy-+-Imported-Layers-Copy-4" sketch:type="MSLayerGroup" transform="translate(72.000000, 312.000000)">
+                <circle id="Oval-46-Copy" fill="#E63947" sketch:type="MSShapeGroup" cx="60" cy="60" r="60"></circle>
+                <g id="Imported-Layers-Copy-4" transform="translate(38.500000, 31.500000)" fill="#FFFFFF" sketch:type="MSShapeGroup">
+                    <path d="M35.5333333,18.9 L35.5333333,14.85 C35.5333333,6.66225 28.7888333,0 20.5,0 C12.2111667,0 5.46666667,6.66225 5.46666667,14.85 L5.46666667,18.9 C2.46,18.9 0,21.33 0,24.3 L0,33.75 C0,44.8875 9.225,54 20.5,54 C31.775,54 41,44.8875 41,33.75 L41,24.3 C41,21.33 38.54,18.9 35.5333333,18.9 L35.5333333,18.9 Z M10.9333333,14.85 C10.9333333,9.64035 15.2260333,5.4 20.5,5.4 C25.7739667,5.4 30.0666667,9.64035 30.0666667,14.85 L30.0666667,18.9 L10.9333333,18.9 L10.9333333,14.85 L10.9333333,14.85 Z M35.5333333,33.75 C35.5333333,41.93775 28.7888333,48.6 20.5,48.6 C12.2111667,48.6 5.46666667,41.93775 5.46666667,33.75 L5.46666667,24.3 L35.5333333,24.3 L35.5333333,33.75 L35.5333333,33.75 Z" id="Fill-1"></path>
+                    <path d="M17.7666667,36.74835 L17.7666667,39.15 C17.7666667,40.635 18.9966667,41.85 20.5,41.85 C22.0033333,41.85 23.2333333,40.635 23.2333333,39.15 L23.2333333,36.74835 C24.067,36.0072 24.6,34.94475 24.6,33.75 C24.6,31.51305 22.7645667,29.7 20.5,29.7 C18.2354333,29.7 16.4,31.51305 16.4,33.75 C16.4,34.94475 16.933,36.0072 17.7666667,36.74835" id="Fill-2"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

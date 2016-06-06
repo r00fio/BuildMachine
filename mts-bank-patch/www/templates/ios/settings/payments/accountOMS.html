@@ -1,0 +1,37 @@
+<div>
+    <rs-header lbtn-class="icon-close"
+               lbtn-action="goBackFromField()"
+               rbtn-class="icon-check-mark"
+               rbtn-action="retailClient.personalAccount.isCreated ? createPersonalAccount() : changePersonalAccount()">
+        ОМС
+    </rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <rs-panel>
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <fw7-li title="Номер">
+                            <div class="item-input">
+                                <input type="text"
+                                       placeholder="Укажите"
+                                       mask-restrict="reject"
+                                       mask="9999999999999999"
+                                       ng-model="retailClient.personalAccount.NUMBER_POLICY_OF_OBLIGATORY_MEDICAL_INSURANSE"
+                                       style="color: #202426; font-size: 15px;">
+                            </div>
+                        </fw7-li>
+                        <fw7-li title="Наименование">
+                            <div class="item-input">
+                                <input type="text"
+                                       placeholder="Например, Мой ОМС"
+                                       ng-model="retailClient.personalAccount.desc"
+                                       style="color: #202426; font-size: 15px;">
+                            </div>
+                        </fw7-li>
+                    </ul>
+                </div>
+                <div class="rs-button-del flex flex-center flex-middle" ng-if="!retailClient.personalAccount.isCreated" ng-click="deletePersonalAccount()">Удалить</div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

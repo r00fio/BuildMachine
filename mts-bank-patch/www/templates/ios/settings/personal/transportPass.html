@@ -1,0 +1,42 @@
+<div>
+    <rs-header lbtn-class="icon-close" rbtn-class="icon-check-mark" rbtn-action="changeTransportPass()">Транспортное средство</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <rs-panel>
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label text-15px">Гос. номер</div>
+                                    <div class="item-input" style="padding-left: 0;">
+                                        <input style="color: #202426; font-size: 15px;"
+                                               type="text"
+                                               mask-restrict="reject"
+                                               mask="D999DD999?"
+                                               ng-model="retailClient.transportPass.stateNumber"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label text-15px">Номер свидетельства</div>
+                                    <div class="item-input" style="padding-left: 0;">
+                                        <input style="color: #202426; font-size: 15px;"
+                                               type="text"
+                                               mask-restrict="reject"
+                                               mask="**** 999999"
+                                               ng-model="retailClient.transportPass.docNumber"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rs-button-del flex flex-center flex-middle" ng-click="deleteTransportPass()">Удалить</div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

@@ -1,0 +1,58 @@
+<ion-view ng-controller="SettingBudgetCtrl">
+    <rs-header lbtn-class="icon-close" lbtn-action="cancelSettings()" rbtn-class="icon-check-mark" rbtn-action="saveSettings()">Настройки бюджета</rs-header>
+    <ion-content class="has-header">
+        <!-- Общий бюджет (информация read only) -->
+        <div class="content-block-title empty-title"></div>
+        <div class="list-block setting-budget" style="margin-bottom: 15px;">
+            <ul>
+                <li class="item-content">
+                    <div class="item-media">
+                        <div style="width:8px; height:8px; border-radius:8px; background-color:#24A7B3;"></div>
+                    </div>
+                    <div class="item-inner">
+                        <div class="item-title"><span>Общий ежемесячный бюджет</span></div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-media" style="width:6px;"></div>
+                    <div class="item-inner">
+                        <div class="item-title">Бюджет</div>
+                        <div class="item-after">
+                            <div class="item-input"><input type="number" ng-model="costs.budget" readonly /></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- информация по категориям -->
+        <div rs-waiter="categoryList" ng-repeat="category in categoryList">
+
+            <div class="list-block setting-budget" ng-style="{margin: '0 0 15px 0'}">
+                <ul>
+                    <li class="item-content">
+                        <div class="item-media">
+                            <div style="width:8px; height:8px; border-radius:8px; background-color: {{category.color}}"></div>
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title width100pc">{{category.name}}</div>
+                            <div class="item-after">
+                                <rs-toggle ng-model="category.isView"></rs-toggle>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content" ng-show="category.isView">
+                        <div class="item-media" style="width:6px;"></div>
+                        <div class="item-inner">
+                            <div class="item-title">Бюджет</div>
+                            <div class="item-after">
+                                <div class="item-input"><input type="number" ng-model="category.budget" ng-change="changeBudget()" placeholder="Сумма" /></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

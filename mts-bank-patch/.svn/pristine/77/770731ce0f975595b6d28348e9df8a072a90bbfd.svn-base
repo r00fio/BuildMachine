@@ -1,0 +1,27 @@
+<div>
+    <rs-header lbtn-class="icon-close" lbtn-action="selectPeriodicCodifierPanel.hide()">Выбор значения</rs-header>
+    <ion-view>
+        <ion-content class="has-header">
+            <div class="list-block" style="margin:0;">
+                <ul>
+                    <li class="item-content" ng-repeat="codifier in codifiers" ng-click="clickPeriodicCodifier(codifier)">
+                        <div class="item-inner">
+                            <div class="flex flex-middle">
+                                <div class="operation-category-point" style="background-color: {{codifier.color}}"/>
+                                <div style="margin-left: 5px;"><label class="text-15px white-space-pre-line" ng-bind="codifier.desc ? codifier.desc : (codifier.name ? codifier.name : codifier.value)"/></div>
+                            </div>
+                            <div class="item-after" ng-if="selectedCodifier
+                                                                && (selectedCodifier.value
+                                                                        ? selectedCodifier.value == codifier.value
+                                                                        : selectedCodifier.desc
+                                                                            ? selectedCodifier.desc == codifier.desc
+                                                                            : selectedCodifier.name ? selectedCodifier.name == codifier.name : false)">
+                                <div class="icon-selected"></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </ion-content>
+    </ion-view>
+</div>

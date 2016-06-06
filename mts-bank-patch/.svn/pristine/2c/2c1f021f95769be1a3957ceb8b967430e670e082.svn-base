@@ -1,0 +1,20 @@
+<svg width="37px" height="48px" viewBox="0 0 37 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Imported Layers</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Finance-1" sketch:type="MSArtboardGroup" transform="translate(-901.000000, -1013.000000)" fill="#E62333">
+            <g id="Head" sketch:type="MSLayerGroup" transform="translate(-2.000000, 0.000000)">
+                <g id="Card_bank-" transform="translate(0.000000, 816.000000)" sketch:type="MSShapeGroup">
+                    <g id="Card-sber" transform="translate(2.000000, 144.000000)">
+                        <g id="Imported-Layers" transform="translate(901.000000, 53.000000)">
+                            <path d="M32.0666667,16.8 L32.0666667,13.2 C32.0666667,5.922 25.9801667,0 18.5,0 C11.0198333,0 4.93333333,5.922 4.93333333,13.2 L4.93333333,16.8 C2.22,16.8 0,18.96 0,21.6 L0,30 C0,39.9 8.325,48 18.5,48 C28.675,48 37,39.9 37,30 L37,21.6 C37,18.96 34.78,16.8 32.0666667,16.8 L32.0666667,16.8 Z M9.86666667,13.2 C9.86666667,8.5692 13.7405667,4.8 18.5,4.8 C23.2594333,4.8 27.1333333,8.5692 27.1333333,13.2 L27.1333333,16.8 L9.86666667,16.8 L9.86666667,13.2 L9.86666667,13.2 Z M32.0666667,30 C32.0666667,37.278 25.9801667,43.2 18.5,43.2 C11.0198333,43.2 4.93333333,37.278 4.93333333,30 L4.93333333,21.6 L32.0666667,21.6 L32.0666667,30 L32.0666667,30 Z" id="Fill-1"></path>
+                            <path d="M16.0333333,32.6652 L16.0333333,34.8 C16.0333333,36.12 17.1433333,37.2 18.5,37.2 C19.8566667,37.2 20.9666667,36.12 20.9666667,34.8 L20.9666667,32.6652 C21.719,32.0064 22.2,31.062 22.2,30 C22.2,28.0116 20.5436333,26.4 18.5,26.4 C16.4563667,26.4 14.8,28.0116 14.8,30 C14.8,31.062 15.281,32.0064 16.0333333,32.6652" id="Fill-2"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

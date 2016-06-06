@@ -1,0 +1,213 @@
+<div ng-controller="AppmenuCtrl">
+<div ng-if="isAuthorized" class="bg-white" ng-controller="AppmenuCtrl">
+    <div class="appmenu-header appmenu-bg" ng-class="{'bg-app-{{background}}': true}">
+        <div class="header-button close-panel settings-butt" ui-sref="settings">
+            <img src="img/android/settings-menu.svg">
+        </div>
+        <div class="header-button close-panel close-butt" ng-click="exit()">
+            <img src="img/android/logout.svg">
+        </div>
+        <img ng-show="retailClient.foto" ng-src="data:image/jpeg;base64,{{retailClient.foto}}" class="appmenu-avatar" style="border-radius: 100%;"/>
+        <img ng-hide="retailClient.foto" src="img/android/avatar.svg" class="appmenu-avatar"/>
+        <label class="appmenu-client-name">{{retailClient.clientSurname}} {{retailClient.clientName}}</label>
+    </div>
+    <button class="appmenu-button close-panel" ng-class="{'selected': isActiveItem('home')}" ui-sref="home">
+        <div class="appmenu-item flex flex-middle flex-between">
+            <div class="flex flex-middle" style="height: 100%;">
+                <div class="appmenu-item-img flex flex-middle flex-center">
+                    <svg-content svg-path="img/android/home-menu.svg" svg-class="icon-home-menu"></svg-content>
+                </div>
+                <div class="appmenu-item-text">Главная</div>
+            </div>
+        </div>
+    </button>
+    <button class="appmenu-button close-panel" ng-class="{'selected': isActiveItem('myfinances')}" ui-sref="myfinances">
+        <div class="appmenu-item flex flex-middle flex-between">
+            <div class="flex flex-middle" style="height: 100%;">
+                <div class="appmenu-item-img flex flex-middle flex-center">
+                    <svg-content svg-path="img/android/products-menu.svg" svg-class="icon-products-menu"></svg-content>
+                </div>
+                <div class="appmenu-item-text">Мои финансы</div>
+            </div>
+        </div>
+    </button>
+    <div class="appmenu-button-separator"></div>
+    <button class="appmenu-button close-panel" ng-class="{'selected': isActiveItem('favourites')}" ui-sref="favourites">
+        <div class="appmenu-item flex flex-middle flex-between">
+            <div class="flex flex-middle" style="height: 100%;">
+                <div class="appmenu-item-img flex flex-middle flex-center">
+                    <svg-content svg-path="img/android/favorit-menu.svg" svg-class="icon-favorit-menu"></svg-content>
+                </div>
+                <div class="appmenu-item-text">Избранные платежи</div>
+            </div>
+        </div>
+    </button>
+    <button class="appmenu-button close-panel" ng-class="{'selected': isActiveItem('payments')}" ui-sref="payments">
+        <div class="appmenu-item flex flex-middle flex-between">
+            <div class="flex flex-middle" style="height: 100%;">
+                <div class="appmenu-item-img flex flex-middle flex-center">
+                    <svg-content svg-path="img/android/pays-menu.svg" svg-class="icon-pays-menu"></svg-content>
+                </div>
+                <div class="appmenu-item-text">Платежи и переводы</div>
+            </div>
+        </div>
+    </button>
+    <button class="appmenu-button close-panel" ng-class="{'selected': isActiveItem('controllingcosts')}" ui-sref="controllingcosts">
+        <div class="appmenu-item flex flex-middle flex-between">
+            <div class="flex flex-middle" style="height: 100%;">
+                <div class="appmenu-item-img flex flex-middle flex-center">
+                    <svg-content svg-path="img/android/control-menu.svg" svg-class="icon-control-menu"></svg-content>
+                </div>
+                <div class="appmenu-item-text">Контроль расходов</div>
+            </div>
+        </div>
+    </button>
+    <!-- TODO: закомменчено до исправления бонусов -->
+    <!--<button class="appmenu-button close-panel" ng-class="{'selected': isActiveItem('bonuses')}" ui-sref="bonuses.main">-->
+        <!--<div class="appmenu-item flex flex-middle flex-between">-->
+            <!--<div class="flex flex-middle" style="height: 100%;">-->
+                <!--<div class="appmenu-item-img flex flex-middle flex-center">-->
+                    <!--<svg-content svg-path="img/android/bonus-menu.svg" svg-class="icon-bonus-menu"></svg-content>-->
+                <!--</div>-->
+                <!--<div class="appmenu-item-text">Услуги и опции</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</button>-->
+    <button class="appmenu-button close-panel" ng-class="{'selected': isActiveItem('calendarevents')}" ui-sref="calendarevents">
+        <div class="appmenu-item flex flex-middle flex-between">
+            <div class="flex flex-middle" style="height: 100%;">
+                <div class="appmenu-item-img flex flex-middle flex-center">
+                    <svg-content svg-path="img/android/calendar-menu.svg" svg-class="icon-calendar-menu"></svg-content>
+                </div>
+                <div class="appmenu-item-text">Календарь</div>
+            </div>
+        </div>
+    </button>
+    <div class="appmenu-button-separator"></div>
+    <button class="appmenu-button close-panel" ng-class="{'selected': isActiveItem('news')}" ui-sref="news">
+        <div class="appmenu-item flex flex-middle flex-between">
+            <div class="flex flex-middle" style="height: 100%;">
+                <div class="appmenu-item-img flex flex-middle flex-center">
+                    <svg-content svg-path="img/android/news-menu.svg" svg-class="icon-news-menu"></svg-content>
+                </div>
+                <div class="appmenu-item-text">Новости</div>
+            </div>
+            <div class="counter bg-24A7B3" style="position: relative "><label class="text-white">12</label></div>
+        </div>
+    </button>
+    <button class="appmenu-button close-panel" ng-class="{'selected': isActiveItem('notice')}" ui-sref="notice">
+        <div class="appmenu-item flex flex-middle flex-between">
+            <div class="flex flex-middle" style="height: 100%;">
+                <div class="appmenu-item-img flex flex-middle flex-center">
+                    <svg-content svg-path="img/android/notice-menu.svg" svg-class="icon-notice-menu"></svg-content>
+                </div>
+                <div class="appmenu-item-text">Уведомления</div>
+            </div>
+        </div>
+    </button>
+    <button class="appmenu-button close-panel" ng-class="{'selected': isActiveItem('help')}" ui-sref="help">
+        <div class="appmenu-item flex flex-middle flex-between">
+            <div class="flex flex-middle" style="height: 100%;">
+                <div class="appmenu-item-img flex flex-middle flex-center">
+                    <svg-content svg-path="img/android/help-menu.svg" svg-class="icon-help-menu"></svg-content>
+                </div>
+                <div class="appmenu-item-text">Помощь и поддержка</div>
+            </div>
+            <div ng-show="globals.newChatMessageCount" class="counter bg-24A7B3" style="position: relative;"><label class="text-white">{{globals.newChatMessageCount}}</label></div>
+        </div>
+    </button>
+    <div class="appmenu-button-separator"></div>
+    <button class="appmenu-button close-panel" ng-class="{'selected': isActiveItem('currates')}" ui-sref="currates">
+        <div class="appmenu-item flex flex-middle flex-between">
+            <div class="flex flex-middle" style="height: 100%;">
+                <div class="appmenu-item-img flex flex-middle flex-center">
+                    <svg-content svg-path="img/android/courses-menu.svg" svg-class="icon-courses-menu"></svg-content>
+                </div>
+                <div class="appmenu-item-text">Курсы валют</div>
+            </div>
+        </div>
+    </button>
+    <button class="appmenu-button close-panel" ng-class="{'selected': isActiveItem('ideabank')}" ui-sref="ideabank">
+        <div class="appmenu-item flex flex-middle flex-between">
+            <div class="flex flex-middle" style="height: 100%;">
+                <div class="appmenu-item-img flex flex-middle flex-center">
+                    <svg-content svg-path="img/android/ideas-menu.svg" svg-class="icon-ideas-menu"></svg-content>
+                </div>
+                <div class="appmenu-item-text">Идеи и предложения</div>
+            </div>
+        </div>
+    </button>
+    <button class="appmenu-button close-panel" ng-class="{'selected': isActiveItem('atmsandoffices')}" style="margin-bottom: 2.5vw;" ui-sref="atmsandoffices">
+        <div class="appmenu-item flex flex-middle flex-between">
+            <div class="flex flex-middle" style="height: 100%;">
+                <div class="appmenu-item-img flex flex-middle flex-center">
+                    <svg-content svg-path="img/android/atm-menu.svg" svg-class="icon-atm-menu"></svg-content>
+                </div>
+                <div class="appmenu-item-text">Банкоматы и офисы</div>
+            </div>
+        </div>
+    </button>
+    <button class="appmenu-button close-panel add-product" ui-sref="products">
+        <div class="appmenu-item flex flex-middle flex-between">
+            <div class="flex flex-middle" style="height: 100%;">
+                <div class="appmenu-item-img flex flex-middle flex-center">
+                    <img src="img/android/add-menu.svg" class="icon-add-menu"/>
+                </div>
+                <div class="appmenu-item-text uppercase">Оформить продукт или услугу</div>
+            </div>
+        </div>
+    </button>
+</div>
+<div ng-if="!isAuthorized" class="bg-white">
+    <button class="appmenu-button close-panel" ng-click="goToLogin()" ng-class="{'selected': isActiveItem('login')}">
+        <div class="appmenu-item flex flex-middle flex-between">
+            <div class="flex flex-middle" style="height: 100%;">
+                <div class="appmenu-item-img flex flex-middle flex-center">
+                    <svg-content svg-path="img/android/enter-menu.svg" svg-class="icon-enter-menu"></svg-content>
+                </div>
+                <div class="appmenu-item-text">Войти</div>
+            </div>
+        </div>
+    </button>
+    <button class="appmenu-button close-panel" ui-sref="unauth_news" ng-class="{'selected': isActiveItem('unauth_news')}">
+        <div class="appmenu-item flex flex-middle flex-between">
+            <div class="flex flex-middle" style="height: 100%;">
+                <div class="appmenu-item-img flex flex-middle flex-center">
+                    <svg-content svg-path="img/android/news-menu.svg" svg-class="icon-news-menu"></svg-content>
+                </div>
+                <div class="appmenu-item-text">Новости</div>
+            </div>
+        </div>
+    </button>
+    <button class="appmenu-button close-panel" ui-sref="unauth_currates" ng-class="{'selected': isActiveItem('currates')}">
+        <div class="appmenu-item flex flex-middle flex-between">
+            <div class="flex flex-middle" style="height: 100%;">
+                <div class="appmenu-item-img flex flex-middle flex-center">
+                    <svg-content svg-path="img/android/courses-menu.svg" svg-class="icon-courses-menu"></svg-content>
+                </div>
+                <div class="appmenu-item-text">Курсы валют</div>
+            </div>
+        </div>
+    </button>
+    <button class="appmenu-button close-panel" ui-sref="unauth_atmsandoffices" ng-class="{'selected': isActiveItem('atmsandoffices')}">
+        <div class="appmenu-item flex flex-middle flex-between">
+            <div class="flex flex-middle" style="height: 100%;">
+                <div class="appmenu-item-img flex flex-middle flex-center">
+                    <svg-content svg-path="img/android/atm-menu.svg" svg-class="icon-atm-menu"></svg-content>
+                </div>
+                <div class="appmenu-item-text">Банкоматы и офисы</div>
+            </div>
+        </div>
+    </button>
+    <button class="appmenu-button close-panel" ng-click="redirectTransferToCard()" style="margin-top: 13.33vw">
+        <div class="appmenu-item flex flex-middle flex-between">
+            <div class="flex flex-middle" style="height: 100%">
+                <div class="appmenu-item-img flex flex-middle flex-center">
+                    <svg-content svg-path="img/android/pays-menu.svg" svg-class="icon-pays-menu"></svg-content>
+                </div>
+                <div class="appmenu-item-text">Переводы с карты на карту</div>
+            </div>
+        </div>
+    </button>
+</div>
+</div>

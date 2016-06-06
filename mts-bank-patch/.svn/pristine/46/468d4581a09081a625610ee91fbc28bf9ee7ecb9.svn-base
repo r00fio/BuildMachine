@@ -1,0 +1,5944 @@
+@font-face {
+    font-family: "RobotoRegular";
+    src: url("../fonts/android/Roboto/Roboto-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "RobotoLight";
+    src: url("../fonts/android/Roboto/Roboto-Light.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "RobotoMedium";
+    src: url("../fonts/android/Roboto/Roboto-Medium.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "CirceRegular";
+    src: url("../fonts/android/Circe/CRC55.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "CirceLight";
+    src: url("../fonts/android/Circe/CRC35.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+body {
+    font-family: "RobotoRegular", Arial, "Lucida Grande", sans-serif;
+    color: #202426;
+}
+
+ion-content {
+    background-color: #f0f4f5;
+}
+
+.spinner-android {
+    stroke: #24A7B3;
+}
+
+.white-spinner .spinner-android {
+    stroke: white;
+}
+
+.content {
+    bottom: 0;
+}
+
+.currency {
+    font-family: "CirceRegular", Arial, "Lucida Grande", sans-serif !important;
+}
+
+.currency-light .currency {
+    font-family: "CirceLight", Arial, "Lucida Grande", sans-serif !important;
+}
+
+/* --------------- colors ----------------- */
+.text-seagreen {
+    color: #24A7B3;
+}
+
+.text-gray {
+    color: #A1AEB3;
+}
+
+/* --------------- bg colors ----------------- */
+.bg-seagreen {
+    background-color: #24A7B3;
+}
+
+.overflow-faded {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.overflow-faded::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 100%;
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.2), rgb(255, 255, 255));
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgb(255, 255, 255));
+}
+
+.activated .overflow-faded::after {
+    background: -webkit-linear-gradient(left, rgba(215, 222, 224, 0.2), rgb(215, 222, 224));
+    background: linear-gradient(to right, rgba(215, 222, 224, 0.2), rgb(215, 222, 224));
+}
+
+/* Framework7 checkboxes color */
+label.label-checkbox input[type=checkbox]:checked + .item-media i.icon-form-checkbox,
+label.label-checkbox input[type=radio]:checked + .item-media i.icon-form-checkbox {
+    background-color: #24A7B3;
+}
+
+label.label-checkbox i.icon-form-checkbox {
+    border-radius: 3px;
+    width: 18px;
+    height: 18px;
+}
+
+/* --------- rs-header popup menu styles START --------- */
+.rs-popup-menu {
+    position: absolute;
+    z-index: 15;
+    max-height: 0;
+    overflow: hidden;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px, rgba(0, 0, 0, 0.24) 0 1px 1.5px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px, rgba(0, 0, 0, 0.24) 0 1px 1.5px;
+    border-radius: 2px;
+}
+
+.rs-popup-menu-header {
+    top: 9px;
+    left: 56px;
+}
+
+.modal-backdrop.active .rs-popup-menu,
+.rs-popup-menu.rs-popup-menu-visible {
+    max-height: 90vh;
+    transition: max-height 0.5s ease-out;
+}
+
+.rs-popup-menu .list-block {
+    margin: 0;
+    min-width: 210px;
+    font-size: 12px !important;
+}
+
+.rs-popup-menu .list-block ul {
+    padding: 5px 0;
+}
+
+.rs-popup-menu .list-block .item-inner .rs-header-menu-item-text {
+    color: #212526;
+    font-size: 12px;
+}
+
+.rs-atm-filter {
+    top: 9px;
+    right: 9px;
+}
+
+/* --------- rs-header popup menu styles END   --------- */
+
+.padding-5px {
+    padding: 5vw;
+}
+
+.popup-container .popup {
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    background-color: white;
+}
+
+.popup-container .popup .popup-head {
+    border-bottom: none;
+    padding: 10px 15px 5px 15px;
+}
+
+.popup-container .popup .popup-head .popup-title {
+    text-align: left;
+}
+
+.popup-container .popup .popup-head .popup-sub-title {
+    text-align: left;
+    margin: 25px 0 0 0;
+}
+
+.popup-container .popup .popup-body {
+    padding: 0 15px 5px 15px;
+}
+
+.popup-container .popup .popup-body input {
+    border-bottom: 1px solid #24A7B3;
+}
+
+.popup-container .popup .popup-body input::-webkit-input-placeholder {
+    /*color: #667980;*/
+}
+
+.popup-container .popup .popup-buttons {
+    padding: 10px 15px;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+    /*min-height: 45px;*/
+}
+
+.popup-container .popup .popup-buttons .button {
+    -webkit-box-flex: unset;
+    -webkit-flex: none;
+    flex: none;
+    border: none;
+    color: #24A7B3;
+    text-transform: uppercase;
+    padding: 0 5px;
+}
+
+.popup-container .popup .popup-buttons .button.activated {
+    background-color: #f0f0f0;
+}
+
+.popup-container.prompt .popup,
+.popup-container.alert .popup {
+    width: 280px;
+    box-shadow: 0 15px 3px rgba(0, 0, 0, 0.154), 0 19px 0.03vw rgba(0, 0, 0, 0.21);
+}
+
+.popup-container.prompt .popup-body,
+.popup-container.alert .popup-body {
+    white-space: pre-wrap;
+    color: #A1AEB3;
+    font-size: 16px;
+}
+
+.popup-container.prompt .popup-title,
+.popup-container.alert .popup-title {
+    font-size: 20px;
+    color: #202426;
+}
+
+.rs-panel-header-title {
+    color: white;
+    white-space: nowrap;
+}
+
+.rs-content-panel-body a:not(.swipe-item).activated {
+    background: white !important;
+}
+
+.btn-how.activated {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.slide1 {
+    width: 100vw;
+    height: 100vh;
+    background: url('../img/android/slide2.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.slide2 {
+    width: 100vw;
+    height: 100vh;
+    background: url('../img/android/slide2.png') no-repeat center center;
+    background-size: cover;
+}
+
+.slide3 {
+    width: 100vw;
+    height: 100vh;
+    background: url('../img/android/slide3.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.owl-theme {
+    position: static !important;
+    background: #333;
+}
+
+.owl-theme img.gallery-item {
+    width: 100%;
+}
+
+.owl-text-theme .owl-controls {
+    display: none !important;
+}
+
+.owl-text-theme .gallery-text-item {
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-family: "Roboto Light", RobotoLight, Roboto, verdana, sans-serif;
+}
+
+.owl-theme .owl-controls .owl-page {
+    display: inline-block;
+    zoom: 1;
+}
+
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span {
+    opacity: 1;
+}
+
+.rs-sysbutton {
+    position: fixed !important;
+    bottom: 4.44vw;
+    right: 4.44vw;
+    z-index: 1;
+    border-color: transparent;
+    background-color: #24A7B3;
+    color: white;
+    border-radius: 15.46vw !important;
+    width: 15.46vw !important;
+    height: 15.46vw !important;
+    font-size: x-large;
+    margin: 0.28vw !important;
+}
+
+.rs-sysbutton.activated {
+    background-color: #2EC4D1;
+}
+
+.rs-button.activated {
+    background-color: #2EC4D1;
+}
+
+.icon-22 {
+    width: 22px;
+    height: 22px;
+    background-size: contain;
+}
+
+.rs-button-long {
+    position: fixed;
+    z-index: 1;
+    height: 44px;
+    width: 90%;
+    left: 5%;
+    bottom: 15px;
+    border-radius: 3px;
+    border-color: transparent;
+    background: #00abad !important;
+    color: white;
+    text-transform: uppercase;
+    box-shadow: #A1AEB3 0 1px 5px;
+    -webkit-box-shadow: #A1AEB3 0 1px 5px;
+    opacity: 1 !important;
+}
+
+.rs-button-long-red {
+    position: fixed;
+    z-index: 1;
+    height: 44px;
+    width: 90%;
+    left: 5%;
+    bottom: 15px;
+    border-radius: 3px;
+    border-color: transparent;
+    background: red !important;
+    color: white;
+    text-transform: uppercase;
+    box-shadow: #A1AEB3 0 1px 5px;
+    -webkit-box-shadow: #A1AEB3 0 1px 5px;
+    opacity: 1 !important;
+}
+
+.rs-button-page.bg-24A7B3.activated {
+    background-color: #2EC4D1;
+}
+
+.expandable {
+    color: #24A7B3 !important;
+    font-family: "Roboto Regular", RobotoRegular;
+}
+
+.expandable-icon {
+    width: 16px;
+    height: 16px;
+    margin: 0 0 0 auto;
+    background: url('../img/android/arrow-up-darkgray-16.png') no-repeat center center;
+    background-size: 50%;
+}
+
+.not-expandable {
+    font-family: "Roboto Regular", RobotoRegular;
+    color: #363D40 !important;
+}
+
+/* --------- Framework7 list view overrides --------- */
+.list-block {
+    font-size: small !important;
+    box-shadow: #A1AEB3 0 1px 5px;
+    -webkit-box-shadow: #A1AEB3 0 1px 5px;
+}
+
+.list-block ul:before {
+    display: none;
+}
+
+.content-block-title,
+.list-block .list-block-label,
+.list-block .item-after,
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #A1AEB3;
+    margin-left: 0;
+}
+
+.list-block .item-link .item-inner {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%2060%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'm60%2061.5-38.25%2038.25-9.75-9.75%2029.25-28.5-29.25-28.5%209.75-9.75z'%20fill%3D'%23A1AEB3'%2F%3E%3C%2Fsvg%3E");
+    display: flex;
+}
+
+.list-block ul:after {
+    display: none;
+}
+
+.list-block .fw7-li-multiline .item-title {
+    color: #A1AEB3;
+    font-size: smaller;
+}
+
+.list-block .item-after .item-input input {
+    text-align: right;
+}
+
+.list-block .swipe-item {
+    background-size: 16px 16px !important;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.list-block .swipeout-actions-left .swipe-item {
+    background-position: 10px center !important;
+    padding: 0 36px 0 10px !important;
+}
+
+.list-block .swipeout-actions-right .swipe-item {
+    background-position: 10px center !important;
+    padding: 0 10px 0 36px !important;
+}
+
+.list-block .swipe-item-gray {
+    color: #667980 !important;
+    background-color: #CCD6D9 !important;
+}
+
+.list-block .swipe-item-red {
+    color: white !important;
+    background-color: #E63948 !important;
+}
+
+.list-block .swipe-item-seagreen {
+    color: white !important;
+    background-color: #24A7B3 !important;
+}
+
+.list-block .item-input input,
+.list-block .item-input textarea {
+    font-size: 100%;
+}
+
+.list-block .item-button .button {
+    border-radius: 0;
+    border-color: transparent;
+    color: #202426;
+    margin: 0;
+}
+
+.list-block a.item-content.activated {
+    background-color: #D7DEE0 !important;
+}
+
+.list-block .item-content.activated {
+    background-color: #D7DEE0 !important;
+}
+
+.content-block-title {
+    margin-top: 10px;
+}
+
+.theme-mts label.label-radio input[type=radio]:checked ~ .item-inner {
+    background-image: url('../img/android/selected.svg') !important;
+}
+
+.content-block-title.empty-title {
+    margin-top: 0.081vw;
+}
+
+.product-list-card-type-visa {
+    background-size: 35px !important;
+    background-position: right center !important;
+}
+
+.product-list-card-type-mastercard {
+    background-size: 30px !important;
+    background-position: right center !important;
+}
+
+.product-list-card-type-unionpay {
+    background-size: 27px !important;
+    background-position: right center !important;
+}
+
+.product-slide-box {
+    height: 210px;
+    min-width: 250px;
+    padding-top: 20px;
+    border-bottom: 1px solid #52C2CC;
+}
+
+.product-slide-box i {
+    color: white;
+    font-size: 7px;
+}
+
+.mts-product-carousel .swiper-pagination-bullet {
+    width: 6px;
+    height: 6px;
+    margin: 0 2px;
+}
+
+.mts-product-carousel .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: white;
+}
+
+.product-block {
+    position: relative;
+    border-radius: 10px;
+    padding: 5px 10px;
+    width: 100%;
+    height: 100%;
+    background: #52C2CC no-repeat;
+    background-size: cover;
+}
+
+.rs-product-carousel-container {
+    width: 240%;
+    margin-left: -70%;
+}
+
+.rs-product-slide-container {
+    padding: 5px 20px;
+    height: 46vw;
+}
+
+.rs-product-slide-left-link {
+    position: absolute;
+    width: 9px;
+    height: 30px;
+    left: 0;
+    top: 50%;
+    margin-top: -15px;
+    background: url('../img/ios/connect_ico.svg') no-repeat -9px center;
+}
+
+.rs-product-slide-right-link {
+    position: absolute;
+    width: 9px;
+    height: 30px;
+    right: 0;
+    top: 50%;
+    margin-top: -15px;
+    background: url('../img/ios/connect_ico.svg') no-repeat right -9px center;
+}
+
+.product-info {
+    background-color: #24A7B3;
+    /*height: inherit;*/
+}
+
+.product-info:before, .home-header:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    /*height: 100vh;*/
+    left: 0;
+    top: 0vh;
+    background-color: inherit;
+}
+
+/* Длинное название продукта "обрубается" многоточием */
+.product-name {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Продукт - Элемент списка START */
+
+.product-name-list {
+    flex-basis: 100%;
+    flex: auto;
+    flex-grow: 2;
+}
+.credit-summ-list {
+    flex: auto;
+    flex-basis: 30%;
+    text-align: right;
+    flex-grow: 1;
+}
+.product-line .flex-between {
+    max-width: 91.2vw;
+}
+
+.product-name-list:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 100%;
+    background: -webkit-linear-gradient(left, rgba(255, 2255, 255, 0.2), rgb(255, 255, 255));
+    background: linear-gradient(to right, rgba(255, 2255, 255, 0.2), rgb(255, 255, 255));
+}
+
+.icon-status-product {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    background-position: center center;
+    background-size: 10px 10px;
+}
+
+.right-item-product {
+    position: absolute;
+    right: 0;
+    height: 100%;
+}
+
+.card-type-image-product {
+    max-height: 15px;
+    max-width: 40px;
+}
+
+.loan-rest-product {
+    color: #A1AEB3;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    margin-left: 15px;
+}
+
+/* Продукт - Элемент списка END */
+
+/* Размер иконки типа карты Visa or MasterCard*/
+.product-card-type-label {
+    width: 40px;
+    height: 25px;
+    float: right;
+}
+
+.product-card-type-image {
+    max-height: 25px;
+    background-color: #FFF !important;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+.fin-product-card-type-image {
+    max-height: 18px;
+    padding: 2px;
+}
+
+/* ячейка таблицы параметров продукта */
+.product-info-cell {
+    height: 45px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.product-info-row.activated .product-info-cell {
+    background-color: #2EC4D1;
+}
+
+/* левый лэйбл название параметра */
+.product-param-name {
+    color: #125359;
+}
+
+/* правый лэйбл значение параметра */
+.product-param-value {
+    font-size: 16px;
+    color: white;
+    white-space: nowrap;
+}
+
+/* кнопка "Пополнить" */
+.btn-refill {
+    position: relative;
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    height: 64px;
+    color: white;
+    background-color: #24A7B3;
+}
+
+.btn-refill.plain-button-style, .btn-refill.colored-button-style {
+    background-color: transparent;
+}
+
+.btn-refill button {
+    position: relative;
+    width: 90%;
+    height: 44px;
+    border: 1px solid transparent;
+    border-radius: 3px !important;
+    background-color: white;
+    color: #444;
+    text-transform: uppercase;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.btn-refill.colored-button-style button {
+    background-color: #24A7B3;
+    color: white;
+}
+
+.btn-refill button.activated {
+    background-color: #d7dee0;
+    border-color: #a2a2a2;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-refill.colored-button-style button.activated {
+    background-color: #3AB0BB;
+}
+
+.operations {
+    width: 100%;
+    height: 100%;
+    background: #F5F5F5;
+}
+
+.operations-title {
+    width: 100%;
+    height: 8vh;
+    line-height: 8vh;
+    color: #A1AEB3;
+    padding-left: 15px;
+    border-bottom: 1px solid #A1AEB3;
+}
+
+.operation-date {
+    padding-top: 15px;
+    padding-left: 15px;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    white-space: nowrap;
+    color: #A1AEB3;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    font-family: "Roboto Medium", RobotoMedium, Roboto, RobotoRegular;
+}
+
+.operation-name {
+    font-size: 16px;
+    color: #363D40;
+    margin-right: 10px;
+}
+
+.operation-amount {
+    font-size: 16px;
+    color: #667980;
+    float: right;
+}
+
+.operation-desc {
+    font-size: 14px;
+    color: #667980;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    width: calc(100vw - 12vw - 45px);
+}
+
+.operation-desc::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 100%;
+    background: -webkit-linear-gradient(left, rgba(255, 2255, 255, 0.2), rgb(255, 255, 255));
+    background: linear-gradient(to right, rgba(255, 2255, 255, 0.2), rgb(255, 255, 255));
+}
+
+.operation-category {
+    font-size: 3.33vw;
+    color: #A1AEB3;
+    font-family: "Roboto Regular", RobotoRegular;
+}
+
+.operation-category-name {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.operation-category-point {
+    width: 1.48vw;
+    height: 1.48vw;
+    border-radius: 1.48vw;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.operation-separator {
+    height: 1px;
+    background-color: black;
+    opacity: 0.16;
+    margin-left: 4.4vw;
+}
+
+.operation-logo-container {
+    vertical-align: middle;
+}
+
+.operation-logo {
+    width: 12vw;
+    height: 12vw;
+    border-radius: 100%;
+}
+
+.operation-logo-svg {
+    width: 50%;
+    height: 50%;
+}
+
+.searchbar {
+    background: #24A7B3;
+}
+
+.searchbar .searchbar-input {
+    height: 30px;
+}
+
+.searchbar input[type=search] {
+    border-radius: 2px;
+    font-size: 3.88vw;
+}
+
+.light-tabs {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    white-space: nowrap;
+}
+
+.light-tabs.dark-tab-theme {
+    background-color: #24A7B3;
+}
+
+.light-tab-title {
+    -webkit-box-flex: 1; /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 1; /* OLD - Firefox 19- */
+    -webkit-flex: 1; /* Chrome */
+    -ms-flex: 1; /* IE 10 */
+    flex: 1;
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    color: #24A7B3;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.light-tabs.dark-tab-theme .light-tab-title {
+    color: white;
+    opacity: 0.5;
+}
+
+.light-tabs .light-tab-title.active {
+    border-bottom: 2px solid #24A7B3;
+}
+
+.light-tabs.dark-tab-theme .light-tab-title.active {
+    opacity: 1;
+    border-bottom: 2px solid #106466;
+}
+
+.dark-tabs {
+    white-space: nowrap;
+}
+
+.btn-show-extract {
+    border: none;
+}
+
+.btn-show-extract.activated {
+    background-color: #D7DEE0;
+}
+
+.list-block-separator-hidden .item-inner:after {
+    visibility: hidden;
+}
+
+.rs-panel-header-menu-btn {
+    background-size: 80% !important;
+    background-position: center center !important;
+}
+
+.rs-panel-header-send-btn {
+    background-size: 80% !important;
+    background-position: center center !important;
+}
+
+.issue-product-icon-positive {
+    width: 13px;
+    background-size: 100% 100% !important;
+}
+
+.list-block-separator-100vw .item-inner:after {
+    background-color: #A1AEB3;
+    width: 100vw;
+    left: -15px;
+    opacity: 0.16;
+}
+
+.list-block .item-inner:not(.save-divider):after {
+    background-color: #A1AEB3;
+    opacity: 0;
+}
+
+html.ios-gt-6.pixel-ratio-2 .list-block .item-inner:after {
+    -webkit-transform: scaleY(.16);
+    transform: scaleY(.16);
+}
+
+.content-block-title {
+    font-size: 14px;
+    white-space: pre-line;
+    line-height: 1.4;
+}
+
+.under-block-label {
+    margin: 15px 15px;
+    font-size: 14px;
+    color: #A1AEB3;
+}
+
+.item-title.text-wrap {
+    white-space: pre-line;
+}
+
+.item-list-toggle {
+    border: none;
+    height: 50px;
+    padding-right: 40px;
+}
+
+.item-list-toggle label.toggle {
+    right: 5px;
+}
+
+.rs-shadow {
+    box-shadow: #A1AEB3 0 1px 5px;
+    -webkit-box-shadow: #A1AEB3 0 1px 5px;
+}
+
+.operation-icon-transfer {
+    background-size: 100% !important;
+    background-position: left center !important;
+    position: absolute;
+    margin-left: 4.4vw;
+    top: 14.49vw;
+    height: 11.112vw;
+    width: 11.112vw;
+}
+
+.list-block .icon-selected {
+    width: 12px;
+    height: 10px;
+    background-size: 100% !important;
+    background-position: right center !important;
+}
+
+.picture-graduate {
+    position: absolute;
+    top: 65%;
+    left: 25px;
+    height: 16px;
+}
+
+.modal-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    width: 78%;
+    max-height: 86%;
+    background: white;
+    border-radius: 3px;
+    overflow-y: scroll;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 15px 10px 0px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 15px 10px 0px;
+}
+
+.picker-modal.modal-in {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    margin-top: 205px;
+    top: 1%;
+    left: 2%;
+    overflow: visible;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 15px 10px 0px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 15px 10px 0px;
+}
+
+.picker-calendar {
+    background: #fff;
+    height: 300px;
+    width: 95%;
+    overflow: hidden;
+}
+
+.picker-calendar-day.picker-calendar-day-selected span {
+    background: #24A7B3;
+    color: #fff;
+}
+
+.picker-calendar-day.picker-calendar-day-today span {
+    background: transparent;
+    color: #24A7B3;
+}
+
+.picker-calendar-row:after {
+    content: none;
+}
+
+.picker-modal .toolbar:before {
+    display: none;
+}
+
+.picker-calendar-week-days {
+    height: 25px;
+    color: #A1AEB3;
+    background: #FFF;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    font-size: 11px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.picker-calendar-week-days:after {
+    content: none;
+}
+
+.picker-modal .toolbar {
+    position: relative;
+    width: 100%;
+    background: #FFF;
+}
+
+.key-button.backspace-btn {
+    background: url('../img/android/backspace.svg') no-repeat center;
+    background-size: 24px 18px;
+}
+
+.key-button.backspace-btn.activated {
+    background-image: url('../img/android/backspace-activated.svg');
+}
+
+.btn-hint {
+    font-family: "RobotoMedium", "RobotoRegular", Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.code-date-hint {
+    color: #FFFFFF;
+    text-align: center;
+    position: relative;
+}
+
+.code-date-hint:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 13.33vw;
+    top: -4.58vw;
+    background-color: rgb(32, 36, 38);
+    z-index: 1;
+}
+
+.code-date-hint-text {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 3.88vw;
+    color: #FFFFFF;
+    line-height: 4.17vw;
+    padding-left: 6.67vw;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    white-space: nowrap;
+    flex-grow: 1;
+    -ms-flex-grow: 1;
+    -webkit-flex-grow: 1;
+}
+
+.code-date-hint-btn {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 3.88vw;
+    line-height: 4.17vw;
+    color: #24A7B3;
+    padding-right: 6.67vw;
+    position: relative;
+    z-index: 2;
+}
+
+.code-date-hint.activated .code-date-hint-btn {
+    color: #FFFFFF;
+}
+
+.key-button.activated {
+    color: #24A7B3;
+}
+
+/* ------------- Главная START ------------- */
+
+.slider-balance .ion-record:before {
+    color: #667980;
+}
+
+/* Наименование Избранного платежа в галерее на Главной странице */
+.favorit-name-main {
+    width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 10px;
+}
+
+/* Нотификатор/счетчик/badge */
+.counter {
+    position: absolute;
+    height: 20px;
+    min-width: 20px;
+    border-radius: 20px;
+}
+
+.counter label {
+    line-height: 20px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.btn-corona {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background-color: white;
+    border: none;
+}
+
+.btn-corona.activated {
+    background-color: #D7DEE0;
+}
+
+.balance-header {
+    color: #A1AEB3;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.balance-sum {
+    font-size: 40px;
+    font-family: "RobotoLight", "RobotoRegular", Arial, "Lucida Grande", sans-serif;
+}
+
+.balance-cell-text {
+    color: #8D9DA6;
+    font-size: 12px;
+}
+
+.balance-cell-sum {
+    color: #363D40;
+    font-size: 15px;
+}
+
+.balance-empty-text {
+    font-size: 18px;
+    color: #A1AEB3;
+}
+
+.balance-empty-btn {
+    color: #24A7B3;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.slider-balance .slider-pager {
+    bottom: 5px;
+}
+
+.list-empty {
+    background-color: white;
+    border-top: 1px solid #C8D5D9;
+    border-bottom: 1px solid #C8D5D9;
+    padding: 30px 25px;
+
+    text-align: center;
+    color: #A1AEB3;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+/* ------------- Главная END ------------- */
+
+/* ------------- Главное меню START ------------- */
+
+.panel {
+    width: 84vw;
+}
+
+.panel.panel-left.panel-cover {
+    left: -84vw;
+}
+
+body.with-panel-left-cover .panel-left {
+    -webkit-transform: translate3d(84vw, 0, 0);
+    transform: translate3d(84vw, 0, 0);
+}
+
+.appmenu-header {
+    height: 48vw;
+}
+
+.appmenu-header .header-button {
+    position: absolute;
+    top: 10vw;
+    height: 5vw;
+    width: 5vw;
+}
+
+.appmenu-header .header-button img {
+    width: 100%;
+    height: 100%;
+}
+
+.appmenu-header .header-button::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    bottom: -10px;
+    left: -10px;
+}
+
+.appmenu-avatar {
+    position: absolute;
+    top: 10vw;
+    left: 4.5vw;
+    width: 18vw;
+    height: 18vw;
+    border-radius: 100%;
+}
+
+.appmenu-avatar img {
+    width: 18vw;
+    height: 18vw;
+    border-radius: 100%;
+}
+
+.appmenu-client-name {
+    font-size: 3.3vw;
+    color: white;
+    position: absolute;
+    top: 40vw;
+    left: 4.3vw;
+}
+
+.appmenu-button-separator {
+    height: 1px;
+    background-color: black;
+    opacity: 0.16;
+    margin: 2.5vw 0;
+}
+
+.appmenu-item-img div {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+}
+
+.appmenu-button.activated, .appmenu-button.selected {
+    background-color: #F0F4F5;
+}
+
+.appmenu-button.activated .appmenu-item-text, .appmenu-button.selected .appmenu-item-text {
+    color: #24A7B3;
+}
+
+.appmenu-button.activated svg path, .appmenu-button.activated svg g, .appmenu-button.selected svg path, .appmenu-button.selected svg g {
+    fill: #24A7B3;
+}
+
+/* ------------- Главное меню END ------------- */
+
+/* ------------- Контроль расходов START ------------- */
+
+.mts-controll-total-budget {
+    height: 19.91vw;
+    box-shadow: 0 0.3vw 0.3vw 0 rgba(0,0,0,0.24), 0 0.3vw 0.37vw 0 rgba(0,0,0,0.24);
+}
+
+.mts-controll-total-budget-column {
+    padding: 0;
+    position: relative;
+    font-family: "Roboto Regular", RobotoRegular;
+    color: #202426;
+    font-size: 4.44vw;
+    line-height: 5.18vw;
+}
+
+.mts-controll-total-budget-column:not(:last-child):after {
+    content: "";
+    width: 0.3vw;
+    height: 19.91vw;
+    background: rgba(0,0,0,0.24);
+    position: absolute;
+    top: -5.095vw;
+    right: 0;
+}
+
+.mts-controll-total-budget-column div:first-child {
+    color: #667980;
+    font-size: 3.15vw;
+    height: 4.54vw;
+    line-height: 4.54vw;
+}
+
+.donut-swiper {
+    margin-top: 6.20vw;
+    margin-bottom: 6.20vw;
+}
+
+.mts-controll-category {
+    height: 20vw;
+    border-bottom: 0.3vw solid rgba(0,0,0,0.15);
+}
+
+.mts-controll-category-highlight {
+    background-color: rgba(62, 215, 159, 0.3);
+}
+
+.mts-controll-category-header {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4.44vw;
+    color: #363D40;
+    line-height: 7.08vw;
+    height: 7.08vw;
+}
+
+div.mts-controll-therm-bg {
+    background-color: #EBEFF0;
+    height: 1.48vw;
+    border-radius: 0.74vw;
+}
+
+.category-round-box {
+    width: 3.8vw;
+    text-align: left;
+}
+
+.category-round {
+    width: 1.39vw;
+    height: 1.39vw;
+    border-radius: 1.39vw;
+}
+
+.category-balance span {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 3.88vw;
+    color: #8D9DA6;
+}
+
+.category-balance .text-A1AEB3 + span {
+    color: #363D40;
+    margin-left: 0.46vw;
+}
+
+.category-balance-summ span {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 3.88vw;
+    color: #8D9DA6;
+}
+
+.category-balance-summ, .category-balance {
+    line-height: 7.58vw;
+    height: 7.58vw;
+    vertical-align: top;
+}
+
+.mts-controll-kat {
+    background-color: transparent;
+}
+
+.mts-controll-kat span {
+    z-index: 1;
+    height: 11vw;
+    line-height: 11vw;
+    min-height: 11vw;
+    width: 90vw;
+    text-align: center;
+    margin-top: 4.4vw;
+    margin-bottom: 4.4vw;
+    border-radius: 0.9vw !important;
+    border-color: transparent;
+    background: white;
+    color: #363D40;
+    text-transform: uppercase;
+    box-shadow: #A1AEB3 0 0.3vw 1.6vw;
+    -webkit-box-shadow: #A1AEB3 0 0.3vw 1.6vw;
+}
+
+.mts-category-budget-subheader.bar-subheader {
+    height: 15.91vw;
+    box-shadow: 0 0.3vw 0.3vw 0 rgba(0,0,0,0.24), 0 0.3vw 0.37vw 0 rgba(0,0,0,0.24);
+    padding: 0;
+    padding-left: 10vw;
+}
+.mts-category-budget-subheader.bar-subheader .title {
+    margin-left: 10vw;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 76.67vw;
+    color: #FFFFFF;
+}
+
+.mts-controll-filter-result {
+}
+
+.mts-controll-filter-result-period {
+    font-size: 120%;
+}
+
+.mts-controll-filter-result-amount {
+    font-size: 120%;
+    color: #667980;
+}
+
+/* ------------- Контроль расходов END   ------------- */
+
+/* ------------- Платежи и переводы START   ------------- */
+.payment-flex-container {
+    padding-left: 1vw;
+    border-top: 1px solid #D8DFE1;
+    font-size: 10px;
+    overflow: hidden;
+}
+
+.payment-flex-item {
+    width: 33vw;
+    height: 34vw;
+    padding: 4vw;
+    text-align: center;
+    border-bottom: 1px solid #D8DFE1;
+    border-right: 1px solid #D8DFE1;
+}
+
+.regular-clock {
+    background: url("../img/android/regular-clock.png") no-repeat left top;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 60px;
+    top: 10px;
+}
+
+.favorite-block {
+    width: 28vw;
+    height: 46vw;
+    padding: 2vw;
+    vertical-align: top;
+    position: relative;
+}
+
+.favorite-in-block {
+    background: #ffffff;
+    border-radius: 4px;
+    height: 100%;
+    display: table;
+}
+
+.favorite-image {
+    width: 28vw;
+    height: 28vw;
+    background: transparent;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    display: table-row
+}
+
+.favorite-logo {
+    width: 20vw;
+    height: 20vw;
+    border-radius: 100%;
+    background-color: #d3dde2;
+}
+
+.favorite-name {
+    display: table-row;
+    width: 100%;
+    vertical-align: middle;
+    -webkit-box-pack: center;
+    height: 8vw;
+    margin-top: 3vw;
+}
+
+.favorite-button {
+    text-transform: uppercase;
+    color: #000;
+    font-weight: normal; /* ближайший к 420 */
+    background: #FFF;
+    height: 15vw;
+    vertical-align: middle;
+    font-size: 12px;
+}
+
+/* ------------- Платежи и переводы END   ------------- */
+
+/* ------------- Категории START   ------------- */
+
+.category-subheader label {
+    font-size: 17px;
+}
+
+/* ------------- Категории END   ------------- */
+
+/* ------------- Настройки START   ------------- */
+
+.item-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+
+.bg {
+    width: 94.6vw;
+    height: 48.15vw;
+    margin-top: 2.7vw;
+    margin-left: 2.7vw;
+}
+
+.bg:last-child {
+    margin-bottom: 2.7vw;
+}
+
+.bg div {
+    width: 94.6vw;
+    height: 48.15vw;
+    position: absolute;
+    -webkit-box-shadow: 0 0.37vw 0.93vw 0 rgba(0,0,0,0.25);
+    box-shadow: 0 0.37vw 0.93vw 0 rgba(0,0,0,0.25);
+    border-radius: 0.74vw;
+}
+
+.bg-select:after {
+    display: block;
+    content: "";
+    width: 50%;
+    height: 50%;
+    background-image: url('../img/android/bg-select.svg') !important;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 25%;
+    left: 25%;
+}
+
+.setting-personal-label {
+    color: #A1AEB3;
+    font-size: 15px;
+    line-height: 20px;
+    padding: 20px;
+}
+
+.inaccessible-data-label {
+    color: #A1AEB3;
+    font-size: 15px;
+    line-height: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.attention-img {
+    width: 70px;
+    height: 70px;
+}
+
+.confirm-method-text {
+    font-size: 15px;
+    color: #667980;
+    line-height: 0.072vw;
+    text-align: center;
+    padding: 15px 50px 30px 50px;
+}
+
+.short-code-indicator.full {
+    opacity: 1;
+}
+
+.digit-content.activated {
+    background-color: rgba(255, 255, 255, 1);
+    color: #202426;
+}
+
+.backspace {
+    width: 100%;
+    height: 100%;
+    background: url('../img/android/backspace_1.svg') no-repeat center;
+    background-size: 100% 16px;;
+}
+
+.digit-content.activated .backspace {
+    background: url('../img/android/backspace_2.svg') no-repeat center;
+    background-size: 100% 16px;
+}
+
+.touch-id {
+    width: 75%;
+    height: 75%;
+    background: url('../img/android/fingerprint-key.svg') no-repeat center;
+    background-size: 70%;
+    opacity: 0.8;
+}
+
+/* ------------- Настройки end   ------------- */
+
+/* ------------- material-floating-button START ------------- */
+
+.rs-mfb-menu.mfb-component--br {
+    margin: 15px;
+}
+
+.rs-mfb-menu .mfb-component__wrap {
+    padding: 0;
+    margin: 0;
+    height: 56px;
+}
+
+.rs-mfb-menu .mfb-component__button--main {
+    background-color: #24A7B3;
+}
+
+.rs-mfb-menu .mfb-component__button--main.activated {
+    background-color: #2EC4D1;
+}
+
+.rs-mfb-menu .mfb-component__button--child {
+    height: 40px;
+    width: 40px;
+    background-color: white;
+    margin-right: 8px;
+}
+
+.rs-mfb-menu .mfb-component__child-icon {
+    line-height: 40px;
+}
+
+.rs-mfb-menu [data-mfb-label]:after {
+    height: 36px;
+    background-color: white;
+    font-size: 16px;
+    color: #202426;
+    padding: 0 10px;
+    line-height: 36px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+    margin-top: -18px;
+    pointer-events: auto;
+}
+
+.mfb-menu-icon {
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-size: 40%;
+}
+
+.rs-mfb-menu .mfb-component__list [data-mfb-label]:after {
+    margin-right: -8px;
+}
+
+.pays-mfb:before, .idea-mfb:before, .calendar-mfb:before, .products-mfb:before, .payment-friends-mfb:before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.pays-mfb:before {
+    background: url('../img/android/pays-mfb.svg') no-repeat center;
+    background-size: 100% 100%;
+}
+
+.idea-mfb:before {
+    background: url('../img/android/idea-mfb.svg') no-repeat center;
+    background-size: 100% 100%;
+}
+
+.calendar-mfb:before {
+    background: url('../img/android/calendar-mfb.svg') no-repeat center;
+    background-size: 100% 100%;
+}
+
+.products-mfb:before {
+    background: url('../img/android/products-mfb.svg') no-repeat center;
+    background-size: 100% 100%;
+}
+
+.payment-friends-mfb:before {
+    background: url('../img/android/payment-friends-mfb.svg') no-repeat center;
+    background-size: 100% 100%;
+}
+
+/* ------------- material-floating-button END ------------- */
+
+/* ------------- Инфосервисы: банк идей START ------------- */
+.rs-idea-container {
+    border: 1px solid #98ACB3;
+    background: white;
+    padding: 0 0 0 50px;
+    margin: 10px;
+    border-radius: 3px;
+    -webkit-box-shadow: #A1AEB3 0 1px 5px;
+    box-shadow: #A1AEB3 0 1px 5px;
+}
+
+.rs-idea-container-avatar {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin: 40px 0 0 -45px;
+    background: url('../img/android/avatar.svg') no-repeat;
+    background-size: contain;
+    overflow: hidden;
+}
+
+.rs-idea-container-header, .rs-idea-container-footer {
+    height: 40px;
+}
+
+.rs-idea-container-date {
+    color: #98ACB3;
+    font: bold 12px arial, sans-serif;
+}
+
+.rs-idea-container-new {
+    margin: auto 15px auto auto;
+    overflow: hidden;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background: #0D86FE;
+}
+
+.rs-idea-container-title {
+    font: bold 16px arial, sans-serif;
+    line-height: 1.5em;
+    margin: 0 0 15px 0;
+    padding-right: 15px;
+}
+
+.rs-idea-container-body {
+    font: 12px arial, sans-serif;
+    line-height: 1.7em;
+    padding-right: 15px;
+    color: #98ACB3;
+
+    /* Multiline ellipsis */
+    overflow: hidden;
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    /* height: 59px; */
+    /* fonts-size * line-height * -webkit-line-clamp - line-height*/
+    /*transition:0.1s linear height;*/
+}
+
+.rs-idea-container-body-expanded {
+    display: block;
+    /*height: 120px;*/
+}
+
+.rs-idea-container-footer-pro {
+    margin: auto 0;
+    padding-left: 20px;
+    height: 24px;
+    background: url('../img/android/like-gray.svg') no-repeat;
+    background-size: 17px 17px;
+    line-height: 1.7em;
+}
+
+.rs-idea-container-footer-pro.rs-idea-my-answer {
+    background-image: url('../img/android/like.svg');
+}
+
+.rs-idea-container-footer-contra {
+    margin: auto 20px;
+    padding-left: 20px;
+    height: 24px;
+    background: url('../img/android/dislike-gray.svg') no-repeat 0 7px;
+    background-size: 17px 17px;
+    line-height: 1.7em;
+}
+
+.rs-idea-container-footer-contra.rs-idea-my-answer {
+    background-image: url('../img/android/dislike.svg');
+}
+
+.rs-idea-container-footer-more {
+    margin: auto 15px auto auto;
+    overflow: hidden;
+    width: 20px;
+    height: 20px;
+    background: url('../img/android/arrow-down-filled.svg') no-repeat center center;
+    background-size: 50%;
+
+    -webkit-transition: 0.1s linear -webkit-transform;
+    transition: 0.1s linear transform;
+}
+
+.rs-idea-container-footer-more-rotate {
+    -webkit-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+}
+
+/* ------------- Инфосервисы: банк идей END ------------- */
+
+/* ----------- Инфосервисы: Курсы валют START ---------- */
+.cur-rate-table {
+    width: 100%;
+    box-sizing: border-box;
+    table-layout: fixed;
+}
+
+.cur-rate-table .table-row {
+    height: 44px;
+}
+
+.cur-rate-table .table-row.cur-rate-table-header {
+    height: 36px;
+}
+
+.cur-rate-table-header {
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #A1AEB3;
+}
+
+.cur-rate-table-header .table-cell.selected-col {
+    position: relative;
+    color: #202426;
+}
+
+.cur-rate-table-header .table-cell.selected-col:after {
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: #24A7B3;
+}
+
+.cur-rate-table > div:first-child > div, .cur-rate-table > div:last-child > div {
+    border-bottom: 1px solid #D8DFE1;
+}
+
+.cur-rate-table > div.table-row:last-child > div.table-cell.selected-col {
+    border-bottom: none;
+}
+
+.cur-rate-table > div.table-row > div.table-cell.selected-col {
+    border-left: 1px solid #D8DFE1;
+    border-right: 1px solid #D8DFE1;
+}
+
+.cur-rate-table > div > div {
+    vertical-align: middle;
+    text-align: center;
+    width: 25%;
+    height: 30px;
+}
+
+.cur-name-cell {
+    font-weight: bold;
+    color: #202426;
+}
+
+.currate-period-select .currate-active-period {
+    position: relative;
+    color: #24A7B3;
+}
+
+.currate-period-select .currate-active-period:after {
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: #24A7B3;
+}
+
+.currency-rates-graph .jqplot-axis, .currency-rates-graph .jqplot-xaxis-tick {
+    font-size: 0.75em;
+    font-family: Roboto;
+    font-size: 14px;
+    color: #363D40;
+}
+
+.currency-rates-graph .jqplot-xaxis {
+    margin-top: 10px;
+}
+
+.currency-rates-graph .jqplot-highlighter-tooltip {
+    border: 0;
+    white-space: nowrap;
+    background: #ffffff;
+    padding: 0px;
+}
+
+/* ----------- Инфосервисы: Курсы валют END ------------ */
+
+/* ----------- Инфосервисы: Новости и уведомления START ------------ */
+/* Объявления */
+.slider-news {
+    width: 100%;
+}
+
+.slider-news .ion-record:before {
+    color: white;
+}
+
+.slider-news .news-slide {
+    height: 46vw;
+    padding: 2.25vw;
+}
+
+.slider-news .news-slide-content {
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+    padding: 4.4vw;
+    box-shadow: #A1AEB3 0 1px 5px;
+    -webkit-box-shadow: #A1AEB3 0 1px 5px;
+}
+
+.slider-news .news-title {
+    max-height: 12.2vw;
+    overflow: hidden;
+    line-height: 6.1vw;
+    font-size: 4.4vw;
+    color: white;
+}
+
+.slider-news .news-text {
+    /* Multiline ellipsis */
+    overflow: hidden;
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    margin-top: 10px;
+    max-height: 15.6vw;
+    line-height: 5.2vw;
+    font-size: 3.3vw;
+    opacity: 0.6;
+    color: white;
+}
+
+/* Новости */
+.rs-news-container {
+    border: 1px solid #98ACB3;
+    background: white;
+    padding: 0 0 0 50px;
+    margin: 10px;
+    border-radius: 3px;
+    -webkit-box-shadow: #A1AEB3 0 1px 5px;
+    box-shadow: #A1AEB3 0 1px 5px;
+}
+
+.rs-news-icon-container {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin: 40px 0 0 -45px;
+    overflow: hidden;
+}
+
+.rs-news-container-header, .rs-news-container-footer {
+    height: 40px;
+}
+
+.rs-news-container-date {
+    color: #98ACB3;
+    font: bold 12px arial, sans-serif;
+}
+
+.rs-news-container-new {
+    margin: auto 15px auto auto;
+    overflow: hidden;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background: #0D86FE;
+}
+
+.rs-news-container-title {
+    font: bold 16px arial, sans-serif;
+    line-height: 1.5em;
+    margin: 0 0 15px 0;
+    padding-right: 15px;
+}
+
+.rs-news-container-body {
+    font: 12px arial, sans-serif;
+    line-height: 1.7em;
+    padding-right: 15px;
+    color: #98ACB3;
+
+    /* Multiline ellipsis */
+    overflow: hidden;
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    /* height: 59px; */
+    /* fonts-size * line-height * -webkit-line-clamp - line-height*/
+}
+
+/* Уведомления */
+.rs-notice {
+    padding: 15px;
+    border: 1px solid #98ACB3;
+    background: white;
+    margin: 10px;
+    border-radius: 3px;
+    -webkit-box-shadow: #A1AEB3 0 1px 5px;
+    box-shadow: #A1AEB3 0 1px 5px;
+}
+
+.rs-notice .rs-notice-date {
+    color: #98ACB3;
+    padding: 10px 0;
+}
+
+.rs-notice .rs-notice-type {
+}
+
+.rs-notice .rs-notice-message {
+    color: #98ACB3;
+}
+
+.rs-notice .rs-notice-result {
+    padding: 10px 0 10px 20px;
+    background-repeat: no-repeat;
+    background-size: 12px;
+    background-position: left 13px;
+}
+
+.rs-notice .rs-notice-success {
+    color: #2DC85B;
+    background-image: url(../img/ios/positive.svg)
+}
+
+.rs-notice .rs-notice-failure {
+    color: #EE102E;
+    background-image: url(../img/ios/negative.svg)
+}
+
+/* ----------- Инфосервисы: Новости и уведомления END -------------- */
+
+/* ----------- Инфосервисы: Общение с банком (Онлайн чат) START -------------- */
+.rs-online-chat.page {
+    background: unset;
+}
+
+.rs-online-chat .message .message-text {
+    padding: 0;
+    border-radius: 0 !important;
+    white-space: pre-line;
+}
+
+.rs-online-chat .message .message-text .message-text-inner {
+    margin: 8px 16px 16px 16px;
+}
+
+.rs-online-chat .message-received .message-text .message-text-inner.message-has-attachments {
+    padding-left: 18px;
+    text-indent: 3px;
+    background: url('../img/ios/attach.svg') no-repeat left top;
+    background-size: 18px 18px;
+}
+
+.rs-online-chat .message-received .message-text .message-text-inner div {
+    padding-left: 7px;
+}
+
+.rs-online-chat .message-sent .message-text .message-text-inner.message-has-attachments {
+    padding-left: 18px;
+    text-indent: 3px;
+    background: url('../img/ios/attach.svg') no-repeat left top;
+    background-size: 18px 18px;
+}
+
+.rs-online-chat .message-sent .message-text .message-text-inner div {
+    padding-right: 7px;
+}
+
+.rs-online-chat .message-received .message-text {
+    background-color: #52C2CC;
+    color: white;
+    -webkit-mask-box-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' height='35' viewBox='0 0 96 70' width='48'><path xmlns='http://www.w3.org/2000/svg' d='M0,70 L0,5 A5,5 0 0,1 5,0 L91,0 A5,5 0 0,1 96,5 L96,50 A5,5 0 0,1 91,55 L15,55 Z'/></svg>") 49% !important;
+}
+
+.rs-online-chat .message-sent .message-text {
+    background-color: #D8DFE1;
+    color: #667980;
+    -webkit-mask-box-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' height='35' viewBox='0 0 96 70' width='48'><path xmlns='http://www.w3.org/2000/svg' transform='scale(-1,1) translate(-96,0)' d='M0,70 L0,5 A5,5 0 0,1 5,0 L91,0 A5,5 0 0,1 96,5 L96,50 A5,5 0 0,1 91,55 L15,55 Z'/></svg>") 49% !important;
+}
+
+.rs-online-chat .message.message-pic img {
+    border-radius: 0;
+}
+
+.rs-online-chat .message-label {
+    color: #A1AEB3;
+    margin-top: -4px;
+}
+
+.rs-online-chat .message-received .message-label {
+    margin-left: 10px;
+}
+
+.rs-online-chat .message-sent .message-label {
+    margin-right: 10px;
+}
+
+.rs-online-chat .toolbar.messagebar {
+    background-color: white;
+}
+
+.rs-online-chat .toolbar.messagebar:before {
+    background-color: #A1AEB3;
+}
+
+.rs-online-chat .toolbar.messagebar #link-photo {
+    width: 20px;
+    margin: 0 5px 0 10px;
+    background: url(../img/android/camera.svg) no-repeat 0 45%;
+    background-size: contain;
+}
+
+.rs-online-chat .toolbar.messagebar #link-send {
+    text-indent: -500%;
+    width: 20px;
+    background: url(../img/android/send-msg.svg) no-repeat 0 45%;
+    background-size: contain;
+}
+
+.rs-online-chat .toolbar.messagebar textarea {
+    border: 1px solid transparent;
+}
+
+.rs-online-chat-popover {
+    width: auto !important;
+}
+
+.rs-online-chat-popover.popover-bottom .popover-arrow {
+    height: 15px;
+    bottom: -15px;
+}
+
+.rs-online-chat-popover.popover-bottom .popover-arrow:after {
+    top: -15px;
+}
+
+/* ----------- Инфосервисы: Общение с банком (Онлайн чат) END ---------------- */
+
+/* ----------- Инфосервисы: Звонок онлайн START ---------------- */
+.rs-online-call-mute {
+    width: 40px;
+    height: 40px;
+    background: url(../img/android/mute.svg) no-repeat center center;
+    background-size: 50%;
+    border-radius: 100%;
+}
+
+.rs-online-call-mute-pressed {
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.1);
+}
+
+/* ----------- Инфосервисы: Звонок онлайн  END  ---------------- */
+
+/* ----------- Инфосервисы: Контакты и реквизиты банка (Банкоматы и офисы) START -------------- */
+
+.zoom-control {
+    position: absolute;
+    right: 200px;
+    margin-right: 15px;
+    top: calc(50vh + 140px);
+    margin-top: -61px;
+}
+
+button.icon-zoom-in,
+button.icon-zoom-out {
+    display: block;
+    opacity: 1 !important;
+}
+
+button.icon-zoom-in {
+    margin-bottom: 22px;
+}
+
+button.offices-result-type {
+    background: white !important;
+    color: #444;
+    opacity: 1 !important;
+}
+
+button.offices-result-type.activated {
+    background-color: #d7dee0 !important;
+}
+
+button.offices-result-type-hidden {
+    display: none;
+}
+
+.rs-geolocation-balloon-panel-up .rs-geolocation-button {
+    top: -65px;
+    transition: top 0.3s ease-out;
+}
+
+.rs-geolocation-button {
+    position: absolute;
+    top: -160px;
+    left: 15px;
+}
+
+.rs-geolocation-button img {
+    width: 50px;
+    height: 50px;
+}
+
+.rs-geolocation-balloon-panel {
+    transition: all 0.3s ease-out;
+    position: absolute;
+    pointer-events: all;
+    background: #FFFFFF;
+    padding: 15px 15px 0 15px;
+    z-index: 2;
+    top: calc(100% + 32px);
+    width: 100%;
+}
+
+.rs-geolocation-balloon-panel-up {
+    transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+}
+
+.rs-geolocation-balloon-panel:after {
+    content: '';
+    display: block;
+    height: 12px;
+}
+
+.rs-geolocation-balloon-panel-addr {
+    font-size: 16px;
+    padding-right: 64px;
+}
+
+.rs-geolocation-balloon-panel-desc {
+    margin-top: 10px;
+    color: #A1AEB3;
+}
+
+.rs-geolocation-balloon-panel-hours {
+    color: #A1AEB3;
+    margin-top: 10px;
+    padding-left: 25px;
+    background: url(../img/ios/clock.svg) no-repeat left 2px;
+    background-size: 16px;
+}
+
+.rs-geolocation-balloon-panel-footer {
+    position: absolute;
+    box-sizing: border-box;
+    width: 64px;
+    top: -32px;
+    right: 15px;
+    text-align: center;
+    color: #A1AEB3;
+    white-space: nowrap;
+    font-size: 12px;
+}
+
+.rs-geolocation-balloon-panel-footer:before {
+    content: '';
+    display: block;
+    height: 64px;
+    background: url(../img/android/route-find.svg) no-repeat;
+    background-size: contain;
+}
+
+.rs-geolocation-map {
+    min-height: 160px;
+}
+
+.rs-geolocation-tooltip {
+    padding-bottom: 64px;
+}
+
+.rs-geolocation-tooltip .list-block {
+    margin-bottom: 3px !important;
+}
+
+.rs-geolocation-object-property {
+    white-space: normal;
+    font-size: 4.44vw;
+}
+
+.rs-geolocation-object-property.text-A1AEB3 {
+    font-size: 3.88vw;
+}
+
+.rs-geolocation-object-property.white-space-pre-line {
+    white-space: pre-line;
+}
+
+.rs-atmsandoffices-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+}
+
+/* Попап с растоянием до офиса */
+.rs-distance-balloon {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    padding: 0 8px;
+    height: 25px;
+    line-height: 25px;
+    color: #8d9da6;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px #8d9da6;
+    background-color: #FFFFFF;
+}
+
+button.icon-zoom-in,
+button.icon-zoom-out,
+button.icon-locate {
+    border: none;
+    background-color: transparent;
+}
+
+/* Банкоматы и офисы */
+.rs-geolocation-list .item-inner {
+    padding-bottom: 0;
+    font-size: 16px;
+    min-height: 30px;
+    padding-top: 15px;
+}
+
+.rs-geolocation-list:after {
+    background-color: #A1AEB3;
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: auto;
+    top: auto;
+    height: 1px;
+    width: 100%;
+    background-color: #c8c7cc;
+    display: block;
+    z-index: 15;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+}
+
+.rs-geolocation-list-address {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #A1AEB3;
+    display: inline;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    font-size: 14px;
+}
+
+/* ----------- Инфосервисы: Контакты и реквизиты банка (Банкоматы и офисы) END ---------------- */
+
+/* ----------- Инфосервисы: Туториал START -------------- */
+.modal-wrapper .rs-tutorial-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #24A7B3;
+    color: white;
+}
+
+.rs-tutorial-close {
+    position: absolute;
+    width: 31px;
+    height: 31px;
+    margin: 13px 0 0 13px;
+    background-position: center center;
+    background-size: 50%;
+}
+
+.rs-tutorial-content {
+    position: absolute;
+    width: 100%;
+    top: 44px;
+    bottom: 64px;
+}
+
+.rs-tutorial-content .slider-slide {
+    padding: 10px 0 40px 0;
+}
+
+.rs-tutorial-content .slider-pager .slider-pager-page {
+    width: 12px;
+}
+
+.rs-tutorial-content .slider-pager-page {
+    color: white;
+}
+
+.rs-tutorial-content .slider-pager-page .ion-record:before {
+    font-size: 10px;
+}
+
+.rs-tutorial-image {
+    width: 80%;
+    height: 60%;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.rs-tutorial-desc {
+    padding: 25px 10px;
+}
+
+.rs-tutorial-caption {
+    text-align: center;
+    font-size: x-large;
+}
+
+.rs-tutorial-text {
+    text-align: center;
+    opacity: 0.75;
+}
+
+.rs-button.rs-tutorial-bottom-btn {
+    color: #444;
+    background-color: white;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    border: 1px solid transparent;
+}
+
+.rs-button.rs-tutorial-bottom-btn.activated {
+    background-color: #d7dee0;
+    border-color: #a2a2a2;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ----------- Инфосервисы: Туториал END ---------------- */
+
+/* Инфосервисы: Обслуживание в интернет-банке START */
+.rs-service-container {
+    background: white;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 3px;
+}
+
+.rs-service-date {
+    color: #98ACB3;
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.rs-service-title {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.rs-service-desc {
+    font-size: 12px;
+    color: #98ACB3;
+}
+
+.rs-service-solution {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.rs-service-solution-positive {
+    color: #2DC85B;
+}
+
+.rs-service-solution-negative {
+    color: #EB3642;
+}
+
+.rs-service-solution-other {
+    color: #A1AEB3;
+}
+
+.rs-service-solution-icon {
+    width: 13px;
+    background-size: 100% 100% !important;
+    margin-right: 5px;
+}
+
+/* Инфосервисы: Обслуживание в интернет-банке END */
+
+/* ----------- Инфосервисы: Полезные советы START -------------- */
+.rs-tip-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.rs-tip-container {
+    position: relative;
+    overflow: hidden;
+    margin: 30px;
+    background-color: white;
+    padding: 30px 30px 74px 30px;
+    border-radius: 3px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.5);
+}
+
+.rs-tip-logo {
+    width: 80px;
+    height: 80px;
+    background: url(../img/ios/quote-ico.svg) no-repeat;
+    background-size: contain;
+    margin: 0 auto;
+}
+
+.rs-tip-caption {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0 10px 0;
+}
+
+.rs-tip-text {
+    font-size: 16px;
+    color: #98ACB3;
+    text-align: center;
+}
+
+.rs-tip-button {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 64px;
+    background-color: white;
+    color: #24A7B3;
+    border: none;
+}
+
+.rs-tip-button:before {
+    content: 'Закрыть';
+    text-transform: uppercase;
+}
+
+/* ----------- Инфосервисы: Полезные советы END   -------------- */
+
+/* ----------- Инфосервисы: Справочный центр START   -------------- */
+.rs-tutorscreens-fullsearch {
+    position: absolute;
+    left: 0;
+    top: 88px;
+    width: 100%;
+    bottom: 0;
+    background-color: #f0f4f5;
+}
+
+/* ----------- Инфосервисы: Справочный центр END     -------------- */
+
+/* ----------- Лояльность (бонусы, акции и спец предложения) START   -------------- */
+.rs-loyalty-bonus-name {
+}
+
+.rs-loyalty-bonus-desc {
+    white-space: normal;
+}
+
+.rs-promo-list-waiter {
+    background-color: white;
+}
+
+.list-block.rs-promo-list {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.list-block.rs-promo-list ul {
+    background-color: transparent;
+}
+
+.list-block.rs-promo-list .item-content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+
+    padding: 0;
+    margin: 15px;
+    background-color: white;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: #A1AEB3 0 1px 5px;
+    -webkit-box-shadow: #A1AEB3 0 1px 5px;
+}
+
+.rs-promo-item-period {
+    color: #98ACB3;
+    margin: 15px 15px 0 15px;
+}
+
+.rs-promo-item-picture {
+    width: 100%;
+    height: 25vh;
+    background: rgba(0, 0, 0, 0.05) no-repeat center center;
+    background-size: contain;
+}
+
+.rs-promo-item-desc {
+    margin: 15px;
+}
+
+.list-block .item-inner.rs-points-info {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.rs-bank-partner-picture {
+    width: 40px;
+    height: 40px;
+    background: transparent no-repeat center center;
+    background-size: contain;
+}
+
+.rs-bank-partner-desc, .list-block .item-text.rs-bank-partner-desc {
+    height: auto;
+    -webkit-line-clamp: 3;
+    font-size: 100%;
+    white-space: normal;
+}
+
+.rs-bank-partner-name {
+    font-size: 130%;
+}
+
+/* ----------- Лояльность (бонусы, акции и спец предложения) END     -------------- */
+
+/* ------------- Календарь событий start   ------------- */
+
+.calendar-header.activated {
+    opacity: 0.3;
+}
+
+.rs-calendar .day {
+    width: calc(90vw / 7);
+    max-width: calc(90vw / 7);
+    height: 13.24vw;
+    line-height: 13.24vw;
+    position: relative;
+}
+
+.rs-calendar .day-number {
+    width: 8.89vw;
+    height: 8.89vw;
+    max-height: 8.89vw;
+    border-radius: 100%;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4.44vw;
+}
+
+.rs-calendar .with-events {
+    position: absolute;
+    width: 1.215vw;
+    height: 1.215vw;
+    border-radius: 1.215vw;
+    left: 6vw;
+    bottom: 1.85vw;
+}
+
+.week-calendar {
+    color: #363D40;
+    margin-bottom: 13vw;
+}
+
+.week-calendar .today {
+    border: 0.56vw solid #C7D4D9;
+}
+
+.rs-calendar-shadow .swiper-container {
+    box-shadow: 0 0.3vw 0.3vw 0 rgba(0,0,0,0.24), 0 0.3vw 0.37vw 0 rgba(0,0,0,0.12);
+}
+
+.month-calendar .swiper-container {
+    border-bottom: 0.3vw solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 0.3vw 0.3vw 0 rgba(0, 0, 0, 0.24), 0 0.3vw 0.4vw 0 rgba(0, 0, 0, 0.12);
+}
+
+.week-calendar .selected {
+    color: white;
+    background-color: #24A7B3;
+    border: 0;
+}
+
+.week-calendar .day-another-month {
+    color: #D8DFE1;
+}
+
+.week-calendar .with-events {
+    background-color: #24A7B3;
+}
+
+.month-calendar {
+    background-color: #24A7B3;
+    color: rgb(255, 255, 255);
+}
+
+.month-calendar .day-week {
+    width: calc(90vw / 7);
+    height: 12.22vw;
+    font-size: 4.44vw;
+    line-height: 12.22vw;
+    font-family: "Roboto Regular", RobotoRegular;
+}
+
+.month-calendar .days-week {
+    padding-top: 1.02vw;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.month-calendar .today {
+    border: 0.56vw solid rgba(255, 255, 255, 0.3);
+}
+
+.month-calendar .selected {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.month-calendar .with-events {
+    background-color: rgb(255, 255, 255);
+}
+
+.month-calendar .day-another-month {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.month-calendar .day:first-child {
+    margin-left: 5vw;
+}
+
+.item-img-calendar-color, .item-img-calendar-pic {
+    width: 11.112vw;
+    height: 11.112vw;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 11vw;
+}
+
+.item-img-calendar {
+    max-width: 5.583vw;
+    vertical-align: middle;
+}
+
+.week-calendar .list-block .item-inner:after {
+    left: 0;
+    width: 100vw;
+    background-color: #000000;
+    opacity: 0.15;
+}
+.event-name-item span {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4.4vw;
+    color: #212526;
+    line-height: 4.81vw;
+}
+.event-summ-item span {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4.26vw;
+    color: #363D40;
+    line-height: 4.63vw;
+}
+.icon-close-calendar-events {
+    width: 44px;
+    height: 44px;
+    background-size: 11px;
+    background-position: center;
+    position: absolute;
+}
+
+.events-swiper {
+    height: 100%;
+    width: 100%;
+}
+
+.event-content {
+    width: 78vw;
+    background: white;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 15px 10px 0px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0px 15px 10px 0px;
+}
+
+.event-logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    margin-top: 25px;
+}
+
+.event-date {
+    color: #A1AEB3;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.event-name {
+    font-size: 20px;
+    line-height: 20px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.event-product-name {
+    font-size: 15px;
+    line-height: 15px;
+    color: #A1AEB3;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.event-sum {
+    font-size: 30px;
+    line-height: 30px;
+    margin-top: 20px;
+}
+
+.event-btns {
+    padding: 10px 15px;
+}
+
+.event-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #24A7B3;
+    padding: 10px 15px;
+    border-radius: 3px;
+}
+
+.event-product {
+    background-color: #F0F4F5;
+}
+
+.event-product .fade,
+.event-product .product-name-list::after {
+    background: -webkit-linear-gradient(left, rgba(240, 244, 245, 0.2), rgb(240, 244, 245));
+    background: linear-gradient(to right, rgba(240, 244, 245, 0.2), rgb(240, 244, 245));
+}
+
+.event-btn.activated {
+    background-color: #F0F4F5;
+}
+
+/* ------------- Календарь событий end   ------------- */
+
+/* ------------- Авторизация, восстановление достпа, неавторизованная зона start   ------------- */
+
+.bg-app {
+    position: absolute;
+    height: calc(100% + 10px);
+    width: calc(100% + 10px);
+    top: -5px;
+    left: -5px;
+}
+
+.bg-app-fill {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(25, 25, 25, 0.3);
+}
+
+/* Контент поверх фона */
+.content-on-bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.use-touchid {
+    height: 100%;
+    text-align: center;
+}
+
+.fingerprint-icon {
+    height: 72px;
+    background: url('../img/android/fingerprint.svg') no-repeat center;
+    background-size: 72px 72px;
+    margin-bottom: 10px;
+}
+
+.use-touchid-title {
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.use-touchid-text {
+    font-size: 16px;
+    color: #A1AEB3;
+}
+
+/* ------------- Авторизация, восстановление достпа, неавторизованная зона end   ------------- */
+
+/* ------------- Панель подтверждения смс-кодом/кодовой датой start   ------------- */
+.confirmation-code-input.isActive {
+    border-bottom: 0.37vw solid #24A7B3;
+}
+
+.confirmation-code-input.invalid {
+    border-bottom: 0.37vw solid #FD3747;
+}
+
+.mock-input.showCursor:after {
+    color: #24A7B3;
+    content: '|';
+    font-size: 15px;
+    -webkit-animation: blinker 0.4s ease-in-out infinite alternate;
+    animation: blinker 0.4s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes blinker {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes blinker {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* ------------- Панель подтверждения смс-кодом/кодовой датой end   ------------- */
+
+/* ------------- Короткий код (модальное окно ввода КК) START ------------- */
+
+.rs-short-code-content {
+    position: absolute;
+    top: 13vh;
+    height: calc(100% - 13vh);
+    width: 100%;
+}
+
+.rs-short-code-text {
+    padding-top: 3vh;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+}
+
+.icon-back-short-code {
+    background-size: contain;
+    position: absolute;
+    top: 12.48vw;
+    left: 5vw;
+    width: 5vw;
+    height: 5vw;
+    background-position: left center;
+}
+.icon-back-short-code:after {
+    position: absolute;
+    top: -5vw;
+    right: -5vw;
+    bottom: -5vw;
+    left: -5vw;
+    content: ' ';
+}
+
+/* ------------- Короткий код (модальное окно ввода КК) END --------------- */
+
+/* --------- rs-navigation-popup-menu styles START --------- */
+
+.rs-navigators-popup {
+    bottom: 16px;
+    right: 16px;
+}
+
+/* --------- rs-navigation-popup-menu styles END   --------- */
+
+/*Верста для андроид утсройств*/
+.active .modal-backdrop-bg {
+    opacity: 0;
+}
+
+.table-cell .input-clear-container,
+.searchbar-input .input-clear-container {
+    height: 100%;
+}
+
+.input-clear-container {
+    position: relative;
+}
+
+.input-has-button .input-clear-btn {
+    display: block;
+}
+
+.searchbar-input .input-clear-btn {
+    background-position-x: left;
+}
+
+.loading-container .loading {
+    background-color: transparent;
+}
+
+/* Требуется для корректной работы увеличения области нажатия */
+.bar-header .button.button-icon {
+    overflow: visible;
+}
+
+/*Исправление ошибок*/
+.backdrop-loading {
+    background-color: transparent;
+}
+.loading-container {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+}
+.loading-container .loading {
+    padding: 0;
+    margin-top: 120px;
+}
+.android-preloader {
+    background-color: #fff;
+    border-radius: 100%;
+    display: flex;
+    /*
+    width: 11.112vw;
+    height: 11.112vw;
+    border: 0.09vw solid rgba(0,0,0,0.02);
+    box-shadow: 0 0.3vw 0.3vw 0 rgba(0,0,0,0.24), 0 0.3vw 0.37vw 0 rgba(0,0,0,0.12);
+     border: 1px solid rgba(0,0,0,0.02);
+    */
+    width: 42px;
+    height: 42px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 1.5px 3px rgba(0,0,0,0.23);
+}
+.android-preloader .spinner-android {
+    line-height: 0;
+    display: block;
+    margin: auto;
+    stroke: #667980;
+}
+.android-preloader .spinner-android svg {
+    width: 22px;
+    height: 22px;
+}
+
+/*1*/
+/*Авторизация*/
+.bar-header {
+    height: 15.83vw;
+    padding: 0;
+    background: #24A7B3;
+    border-bottom: 0.3vw solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 0.3vw 0.3vw 0 rgba(0, 0, 0, 0.24), 0 0.3vw 0.4vw 0 rgba(0, 0, 0, 0.12);
+}
+
+#homepane .bar-header, .no-shadow .bar-header {
+    border: 0;
+    box-shadow: none;
+}
+
+.bg-00ACB5 {
+    background: #24A7B3;
+}
+
+.platform-android .bar .title, .bar .title {
+    font-size: 5.56vw;
+    line-height: 15.83vw;
+    height: 15.83vw;
+    font-family: "Roboto Medium", RobotoMedium;
+    margin-left: 10vw;
+    left: 10.28vw !important;
+    right: auto !important;
+    max-width: 67vw;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.bar-header .button.button-icon, .bar-header .button.button-icon.activated, .bar-header .button.button-icon:active {
+    width: 5vw;
+    height: 3.33vw;
+    background-position: center center;
+    min-height: 5vw;
+    max-height: 3.33vw;
+    border-radius: 0;
+    background-size: contain;
+    margin-top: 5.7vw;
+    margin-left: 5vw;
+    border: 0;
+    padding: 0;
+}
+
+.second-topbar-title {
+    font-size: 5.56vw;
+    line-height: 20vw;
+    height: 20vw;
+    font-family: RobotoMedium;
+    color: #FFFFFF;
+    margin-left: 20vw;
+}
+
+.bar .title + .button:last-child, .bar > .button + .button:last-child, .bar > .button.pull-right, .bar .buttons.pull-right, .bar .title + .buttons,
+.button.button-clear.button-icon.icon-tuning {
+    position: absolute;
+    top: 0px;
+    right: 5vw;
+    bottom: auto;
+}
+
+.content {
+    position: absolute;
+    top: 15.83vw;
+    bottom: 0;
+    height: auto;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #f0f4f5;
+}
+
+.bar-header .button.button-icon:after {
+    top: -5vw;
+    right: -5vw;
+    bottom: -5vw;
+    left: -5vw;
+}
+
+.has-header {
+    top: 15.83vw;
+}
+
+.tabbar-fixed .page-content, .tabbar-through .page-content, .toolbar-fixed .page-content, .toolbar-through .page-content {
+    padding-bottom: 0;
+}
+
+.navbar-fixed .page-content, .navbar-through .page-content {
+    padding-top: 15.83vw;
+}
+
+.list-block {
+    margin: 0;
+    -webkit-box-shadow: #A1AEB3 0 0.3vw 0.9vw;
+}
+
+.list-block .item-inner {
+    padding-right: 0vw;
+    padding-top: 0;
+    padding-bottom: 0vh;
+    min-height: 5.46vw;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4.4vw;
+    color: #363D40;
+}
+
+.list-height {
+    height: 7vw;
+}
+
+.list-block input[type=time], .list-block input[type=number],
+.list-block input[type=search], .list-block input[type=text],
+.list-block input[type=password], .list-block input[type=email],
+.list-block input[type=tel], .list-block input[type=url], .list-block input[type=date],
+.list-block input[type=datetime-local], .list-block select, .list-block textarea, .input-style,
+.list-block input {
+    color: #202426;
+    font-size: 4.44vw;
+    line-height: 8vw;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    border: 0;
+    min-height: 8vw;
+}
+
+.input-clear-container:after, .title-simple-value:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1.48vw;
+    height: 0.3vw;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.rs-content-panel-header {
+    min-height: 13vw;
+}
+
+.short-code-add {
+    margin-top: 13vw;
+}
+
+.rs-content-panel-header {
+    text-transform: uppercase;
+    padding: 0;
+    color: #a1aeb3;
+    font-size: 5vw;
+}
+
+.rs-content-panel-body .list-block .item-content {
+    min-height: 5.46vw;
+}
+
+.list-block .item-content, .pay-and-transfers-page .list-block .item-content {
+    min-height: 5.46vw;
+    padding: 3.88vw 4.4vw;
+    position: relative;
+}
+.list-block li.item-link {
+    min-height: 5.46vw;
+    padding: 3.88vw 4.4vw;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4.4vw;
+    color: #363D40;
+}
+.rs-content-panel-body .list-block .item-inner {
+    min-height: 5.46vw;
+}
+
+.text-15px {
+    font-size: 4vw;
+}
+
+.item-toggle.no-label.toggle-small .toggle {
+    top: 4.4vw;
+    right: 5vw;
+    padding: 0;
+    margin: 0;
+}
+
+.item {
+    position: static;
+}
+
+.toggle {
+    position: relative;
+    display: inline-block;
+    pointer-events: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.toggle-small .track {
+    border: 0;
+    width: 9.47vw;
+    height: 3.91vw;
+    background: #bdbdbd;
+}
+
+.toggle-small .handle {
+    top: -0.5vw;
+    left: 0vw;
+    width: 5.6vw;
+    height: 5.6vw;
+    box-shadow: 0 0.3vw 1vw rgba(0, 0, 0, 0.5);
+    border-radius: 100%;
+}
+
+.scroll-content {
+    padding: 0;
+    margin: 0;
+}
+.auth-page-android .scroll {
+    height: 100%;
+}
+
+.restore-access {
+    min-height: 50vw;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    height: calc(100% - 85vw);
+    flex-direction: column-reverse;
+    display: flex;
+    margin-bottom: 20vw;
+}
+
+.auth-block-img {
+    height: 13.058vw;;
+    width: 13.058vw;;
+    margin-bottom: 5vw;
+    box-shadow: 0 0.3vw 0.3vw 0 rgba(0,0,0,0.26), 0 0.3vw 0.37vw 0 rgba(0,0,0,0.16);
+    border-radius: 100%;
+    background: #ffffff;
+}
+
+.md-button {
+    transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+
+.rs-button.btn-log {
+    position: fixed;
+    bottom: 4.4vw;
+    left: 5vw;
+    background-color: #24A7B3;
+    color: white;
+    box-shadow: 0 0.3vw 0.1vw rgba(0, 0, 0, 0.168), 0 0.3vw 0.2vw rgba(0, 0, 0, 0.112);
+    font-family: "Roboto Medium", RobotoMedium;
+}
+
+.rs-button {
+    box-sizing: border-box;
+    width: 90vw;
+    color: #fff;
+    background-color: #24A7B3;
+    height: 11vw;
+    min-height: 11vw;
+    line-height: 11vw;
+    margin: 0 auto;
+    font-size: 3.33vw;
+    text-transform: uppercase;
+    position: fixed;
+    bottom: 4.4vw;
+    left: 5vw;
+}
+.a.md-button.md-raised.rs-button, .md-button.md-raised.rs-button {
+    background-color: #24A7B3;
+    color: #fff;
+}
+.md-button.md-raised.rs-button.activated {
+    background-color: #089AA8;
+}
+a.md-button.md-raised:not([disabled]):hover, .md-button.md-raised:not([disabled]):hover {
+    background-color: #2EC4D1;
+}
+
+.restore-access-text {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 3.8vw;
+    color: #667980;
+    line-height: 5.19vw;
+}
+
+input[type="password"] {
+    border-bottom: 0.3vw solid rgba(0,0,0,0.15);
+}
+
+md-input-container {
+    background: #FFFFFF;
+    padding: 4.4vw;
+    padding-bottom: 2.4vw;
+    padding-top: 2.4vw;
+}
+
+md-input-container label {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4.4vw;
+    line-height: 4.63vw;
+    color: #A1AEB3;
+    padding: 0;
+}
+
+md-input-container input {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4.4vw;
+    color: #212526;
+    padding: 0;
+}
+
+md-input-container.md-input-has-value label {
+    opacity: 0.6;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 3.33vw;
+    line-height: 4.63vw;
+    color: #667980 !important;
+    padding: 0;
+}
+
+md-input-container.md-input-has-value input {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4.4vw;
+    color: #212526;
+    padding: 0;
+}
+
+md-input-container.md-input-focused label {
+    opacity: 0.6;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 3.33vw;
+    line-height: 4.63vw;
+    color: #667980 !important;
+    padding: 0;
+}
+md-input-container .md-input {
+    border-bottom: 0.3vw solid rgba(0,0,0,0.15);
+    padding: 0;
+    height: 10vw;
+}
+md-input-container.md-input-focused input.md-input {
+    border-bottom: 0.37vw solid #24A7B3 !important;
+    padding: 0;
+}
+
+.md-input-container-shadow {
+    box-shadow: #A1AEB3 0 0.3vw 0.9vw;
+    -webkit-box-shadow: #A1AEB3 0 0.3vw 0.9vw;
+}
+
+
+.rs-button.notice-button {
+    position: static;
+    background-color: #CCD5D9 !important;
+    color: #66777F;
+    margin: 0 auto;
+    margin-bottom: 6vw;
+}
+
+.rs-button-del {
+    position: fixed;
+    z-index: 1;
+    height: 11vw;
+    min-height: 11vw;
+    width: 90vw;
+    left: 5vw;
+    right: 5vw;
+    bottom: 4.4vw;
+    border-radius: 0.9vw !important;
+    border-color: transparent;
+    background: white;
+    color: #E53948;
+    text-transform: uppercase;
+    box-shadow: #A1AEB3 0 0.3vw 1.6vw;
+    -webkit-box-shadow: #A1AEB3 0 0.3vw 1.6vw;
+}
+
+.rs-button-del.activated {
+    background-color: #D7DEE0;
+}
+
+.toggle-small input:checked + .track .handle {
+    background: #24A7B3;
+    left: -0.6vw;
+}
+
+.mts-logo {
+    position: absolute;
+    top: 7.92vw;
+    width: 100%;
+    height: 15.56vw;
+    background: url('../img/android/logo.svg') no-repeat center;
+    background-size: contain;
+}
+.icon-menu-main:after {
+    content: '';
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    top: calc(50% - 22px);
+    left: calc(50% - 22px);
+}
+
+.owl-text-theme {
+    position: absolute !important;
+    width: 200% !important;
+    left: -50%;
+    top: 33vw;
+}
+
+.slider-text-big {
+    color: white;
+    font-family: "Roboto Light", RobotoLight;
+    font-size: 9.44vw;
+    line-height: 10vw;
+}
+
+.slider-text-small {
+    color: white;
+    font-family: "Roboto Light", RobotoLight;
+    font-size: 3.88vw;
+    line-height: 4.8vw;
+    margin-top: 3.19vw;
+}
+
+.btn-in {
+    position: absolute;
+    bottom: 4.4vw;
+    left: 5vw;
+    right: 5vw;
+    width: 90vw;
+    background-color: #24A7B3;
+    min-height: 13.33vw;
+    height: 13.33vw;
+    line-height: 13.33vw;
+    border-radius: 0.6vw;
+    color: white;
+    font-size: 3.88vw;
+    text-transform: uppercase;
+    border: none;
+    box-shadow: 0 0.3vw 0.1vw rgba(0, 0, 0, 0.168), 0 0.3vw 0.2vw rgba(0, 0, 0, 0.112);
+    font-family: "Roboto Medium", RobotoMedium;
+}
+
+.btn-how {
+    position: absolute;
+    bottom: 22.22vw;
+    width: 90vw;
+    left: 5vw;
+    right: 5vw;
+    background-color: rgba(255, 255, 255, 0.2);
+    min-height: 10vw;
+    height: 10vw;
+    line-height: 10vw;
+    border-radius: 0.6vw;
+    color: white;
+    font-size: 3.88vw;
+    text-transform: uppercase;
+    border: none;
+    box-shadow: 0 0.3vw 0.1vw rgba(0, 0, 0, 0.168), 0 0.3vw 0.2vw rgba(0, 0, 0, 0.112);
+    font-family: "Roboto Medium", RobotoMedium;
+}
+
+.a.md-button.md-raised.rs-button.btn-how, .md-button.md-raised.rs-button.btn-how {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.md-button.md-raised.rs-button.btn-how.activated {
+    background-color: #CAD3D6;
+    color: #212526;
+}
+
+a.md-button.md-raised.btn-how:not([disabled]):hover, .md-button.md-raised.btn-how:not([disabled]):hover {
+    background-color: #D7DEE0;
+    color: #212526;
+}
+
+.owl-theme .owl-controls {
+    position: absolute;
+    width: 100%;
+    bottom: 36.78vw;
+    margin-top: 0;
+    text-align: center;
+}
+
+.owl-theme .owl-controls .owl-page span {
+    display: block;
+    width: 1.39vw;
+    height: 1.39vw;
+    margin: 0;
+    margin-left: 1.11vw;
+    margin-right: 1.11vw;
+    opacity: 0.5;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    background: white;
+}
+
+.appmenu-button {
+    background: none;
+    border: none;
+    height: 13.33vw;
+    width: 100%;
+    padding: 0;
+}
+
+.appmenu-item {
+    height: 100%;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+.appmenu-button .appmenu-item-img {
+    max-width: 6vw;
+    width: 6vw;
+    height: 6vw;
+}
+
+.appmenu-button .appmenu-item-img svg {
+    width: 6vw;
+    height: 6vw;
+}
+
+.appmenu-button .appmenu-item-img .icon-news-menu svg, .appmenu-button .appmenu-item-img .icon-news-menu {
+    width: 6vw;
+    height: 5vw;
+}
+
+.appmenu-button .appmenu-item-img .icon-courses-menu svg, .appmenu-button .appmenu-item-img .icon-courses-menu {
+    width: 5vw;
+    height: 5vw;
+}
+
+.appmenu-button .appmenu-item-img .icon-atm-menu svg, .appmenu-button .appmenu-item-img .icon-atm-menu {
+    width: 5vw;
+    height: 5vw;
+}
+
+.appmenu-item-img {
+    margin-right: 9vw;
+}
+
+.appmenu-item-text {
+    color: #212526;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 3.33vw;
+    line-height: normal;
+}
+
+.rs-content-panel .rs-content-panel-header {
+    text-transform: uppercase;
+    padding: 0;
+    color: #a1aeb3;
+    font-size: 3.7vw;
+    height: 13vw;
+    line-height: 13vw;
+    margin-left: 5vw;
+    margin-top: 0.6vw;
+    font-family: "Roboto Medium", RobotoMedium;
+    letter-spacing: 0.14vw;
+}
+
+.rs-content-panel .rs-content-panel-header.social-network-panel {
+    text-transform: none;
+    padding-top: 6vw;
+    padding-bottom: 6vw;
+    text-align: center;
+    height: auto;
+    line-height: normal;
+}
+
+.rs-content-panel .rs-content-panel-header-small {
+    text-transform: uppercase;
+    padding: 0;
+    color: #a1aeb3;
+    font-size: 3.33vw;
+    min-height: 13vw;
+    height: auto;
+    line-height: 6vw;
+    margin-left: 5vw;
+    font-family: "Roboto Regular", RobotoRegular;
+}
+
+.fw7-li.item-title {
+    font-size: 4vw;
+}
+
+.text-13px {
+    font-size: 3.33vw;
+    line-height: 4.63vw;
+}
+
+.margin-card {
+}
+
+.dark-tab-title {
+    display: block;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+    background-color: #24A7B3;
+    font-size: 4vw;
+    font-family: RobotoRegular;
+}
+
+.dark-tabs .dark-tab-title.active {
+    border-bottom: 0.6vw solid #106566;
+    color: rgba(255, 255, 255, 1);
+}
+
+.call-img {
+    height: 17vw;
+    width: 17vw;
+    margin-top: 20vw;
+    margin-bottom: 6.9vw;
+}
+
+.how-connect-info {
+    width: 100vw;
+    text-align: center;
+    font-size: 4.4vw;
+    margin: 0 auto;
+    line-height: 6.9vw;
+    color: #A1AEB3;
+    font-family: RobotoRegular;
+    padding: 0;
+}
+
+.how-connect-info .text-24A7B3 {
+    font-size: 5vw;
+}
+
+.how-connect-info-down {
+    width: 100vw;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 3vw;
+    line-height: 5.9vw;
+    color: #A1AEB3;
+    font-family: RobotoRegular;
+    padding: 0;
+}
+
+.absolute-how {
+    position: absolute;
+    bottom: 12vw;
+}
+
+.atm-img {
+    height: 17vw;
+    width: 17vw;
+    margin-top: 20vw;
+    margin-bottom: 6.9vw;
+}
+
+.enter-short-code {
+    padding-top: 11.76vw;
+    color: white;
+    font-size: 3.88vw;
+    font-family: "Roboto Regular", RobotoRegular;
+    text-align: center;
+}
+
+.short-code-block {
+    position: absolute;
+    top: 22.22vw;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.short-code-indicator {
+    width: 3.333vw;
+    height: 3.333vw;
+    border-radius: 100%;
+    background-color: #ffffff;
+    opacity: 0.3;
+    margin-top: 5.65vw;
+    margin-right: 2.24vw;
+    margin-left: 2.24vw;
+    margin-bottom: 0vw;
+}
+
+.digit-block {
+    height: calc(100% - 37vw);
+    align-items: center;
+}
+
+.digit-content {
+    width: 20vw;
+    height: 20vw;
+    border-radius: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+    font-size: 9.44vw;
+    color: white;
+    font-family: "Roboto Light", RobotoLight;
+}
+
+.digit {
+    width: 20vw;
+    height: 20vw;
+    margin-top: 2.31vw;
+    margin-bottom: 2.31vw;
+    margin-left: 3.33vw;
+    margin-right: 3.33vw;
+}
+
+.cancel-short-code {
+    color: white;
+    font-size: 3.88vw;
+    text-align: center;
+    position: absolute;
+    bottom: 6.94vw;
+    text-transform: uppercase;
+    width: 32vw;
+    margin-left: 35.05vw;
+    font-family: "Roboto Medium", RobotoMedium;
+}
+
+.backspace {
+    width: 100%;
+    height: 100%;
+    background: url('../img/android/backspace_1.svg') no-repeat center;
+    background-size: 100% 5vw;
+}
+
+.confirmation-modal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(56, 66, 70, 0.98);
+}
+
+.confirm-code {
+    margin-top: 12.48vw;
+    margin-bottom: 5vw;
+    margin-left: 5vw;
+}
+
+.confirm-code img {
+    width: 5.9vw;
+    height: 5vw;
+    margin-right: 9vw;
+    float: left;
+}
+
+.confirm-code span {
+    font-size: 5vw;
+    line-height: 5.9vw;
+}
+
+.enter-text-confirm {
+    margin-top: 17vw;
+    margin-left: 5vw;
+}
+
+.enter-text-confirm span {
+    font-size: 4vw;
+    opacity: 0.8;
+}
+.confirmation-date {
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.25vw;
+}
+.confirmation-date::selection {
+    background: transparent;
+ }
+.confirmation-date::-webkit-input-placeholder {
+    -webkit-text-fill-color: unset;
+}
+.code-date-container {
+    position: relative;
+}
+.confirmation-code-masked {
+    position: absolute;
+    top: 0;
+    left: 5vw;
+    height: 10.9vw;
+    line-height: 10.9vw;
+    font-size: 5vw;
+    letter-spacing: 0.1vw;
+    font-family: "Roboto Regular", RobotoRegular, Roboto;
+    color: #FFFFFF;
+    pointer-events: none;
+}
+input.confirmation-code-input {
+    height: 10.9vw;
+    background: none;
+    width: 90%;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    font-size: 5vw;
+    line-height: 10.9vw;
+    color: #FFFFFF;
+    font-family: "Roboto Regular", RobotoRegular, Roboto;
+    border-bottom: 0.3vw solid rgba(255, 255, 255, 0.16);
+}
+
+input.confirmation-code-input:focus {
+    border-bottom: 0.37vw solid #24A7B3;
+}
+
+input.confirmation-code-input.invalid {
+    border-bottom: 0.37vw solid #FD3747;
+}
+
+.invalide-code {
+    padding-left: 5vw;
+}
+
+.invalide-code span {
+    color: #FD3747;
+}
+
+.confirmation-modal .rs-button {
+    box-shadow: rgba(0,0,0,0.6) 0 0.3vw 1.6vw;
+    -webkit-box-shadow: rgba(0,0,0,0.6) 0 0.3vw 1.6vw;
+}
+
+.state-enter {
+    margin-top: 10vw;
+}
+
+.state-enter div {
+    color: #FFFFFF;
+    font-size: 4vw;
+    text-transform: uppercase;
+}
+
+.input-keyboard {
+    width: 100%;
+    background: transparent;
+    display: table;
+    padding-top: 0;
+}
+
+.row-keyboard {
+    height: 21vw;
+    min-height: 21vw;
+    width: 100%;
+    display: table-row;
+    flex-wrap: nowrap;
+}
+
+.key-button {
+    font-family: "RobotoLight", "RobotoRegular", Arial, "Lucida Grande", sans-serif;
+    font-size: 9vw;
+    display: table-cell;
+    text-align: center;
+    vertical-align: bottom;
+    padding: 0;
+    height: 21vw;
+    min-height: 21vw;
+    line-height: 9vw;
+    color: #FFF;
+}
+
+.row-keyboard > div {
+    width: 33%;
+}
+
+.key-button.backspace-btn {
+    background: url('../img/android/backspace.svg') no-repeat center 14vw;
+    background-size: 7.5vw 6vw;
+}
+
+.fingerprint-icon {
+    height: 0.206vw;
+    background: url('../img/android/fingerprint.svg') no-repeat center;
+    background-size: 20.6vw 20.6vw;
+    margin-bottom: 4vw;
+}
+
+.use-touchid-title {
+    font-size: 6vw;
+    line-height: 9vw;
+    color: #000000;
+    width: 69vw;
+    margin: 0 auto;
+    margin-bottom: 3vw;
+}
+
+.use-touchid-text {
+    font-size: 4.4vw;
+    color: #A1AEB3;
+    width: 69vw;
+    margin: 0 auto;
+    line-height: 6vw;
+}
+
+.mock-input.showCursor:after {
+    color: #24A7B3;
+    content: '|';
+    font-size: 5vw;
+    -webkit-animation: blinker 0.4s ease-in-out infinite alternate;
+    animation: blinker 0.4s ease-in-out infinite alternate;
+}
+
+.input-has-button input {
+    padding-right: 8vw !important;
+}
+
+.input-clear-btn {
+    display: none;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    background: url('../img/android/clear-input.svg') center right no-repeat;
+    background-size: 5vw 5vw;
+    width: 5vw;
+}
+
+.rs-message-version {
+    text-transform: uppercase;
+    padding: 0;
+    color: #a1aeb3;
+    font-size: 3vw;
+    line-height: 6vw;
+    margin-left: 5vw;
+    text-align: left;
+    margin-bottom: 1.6vw;
+}
+
+.popup-container.prompt .popup, .popup-container.alert .popup {
+    width: 79vw;
+    box-shadow: 0 5vw 0.9vw rgba(0, 0, 0, 0.154), 0 5.9vw 3vw rgba(0, 0, 0, 0.21);
+    padding: 6.9vw;
+    margin: 0 auto;
+}
+
+.popup-container .popup .popup-head {
+    border-bottom: none;
+    padding: 0;
+    margin-bottom: 4vw;
+}
+
+.popup-container.prompt .popup-title, .popup-container.alert .popup-title {
+    font-size: 4vw;
+    line-height: 6vw;
+    color: #202426;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 5.18vw;
+}
+
+.popup-container.prompt .popup-body, .popup-container.alert .popup-body {
+    white-space: pre-wrap;
+    color: #A1AEB3;
+    font-size: 4.3vw;
+    line-height: 7.2vw;
+    font-family: "Roboto Regular", RobotoRegular;
+}
+
+.popup-container .popup .popup-body {
+    padding: 0;
+}
+
+.popup-container .popup .popup-buttons {
+    padding: 0;
+    min-height: 4.4vw;
+    margin-top: 9vw;
+}
+
+.popup-container .popup .popup-buttons .button {
+    padding: 0;
+    min-height: 4.4vw;
+    line-height: 4.4vw;
+    height: 4.4vw;
+    font-size: 4.4vw;
+}
+
+/*Главная страница, меню*/
+.appmenu-header {
+    height: 48vw;
+}
+
+.appmenu-avatar {
+    position: absolute;
+    top: 10.9vw;
+    left: 5vw;
+    width: 18vw;
+    height: 18vw;
+    border-radius: 100%;
+}
+
+.appmenu-client-name {
+    font-size: 3vw;
+    color: white;
+    position: absolute;
+    top: 39vw;
+    left: 5vw;
+    font-family: "Roboto Regular", RobotoRegular;
+}
+
+.appmenu-header .header-button {
+    position: absolute;
+    top: 9.7vw;
+    height: 6vw;
+    width: 6vw;
+}
+
+.settings-butt {
+    right: 4vw;
+}
+
+.close-butt {
+    right: 17vw;
+}
+
+.appmenu-button-separator {
+    height: 0.3vw;
+    background-color: #000000;
+    opacity: 0.16;
+    margin: 2.5vw 0;
+}
+
+.counter {
+    position: absolute;
+    height: 5vw;
+    min-width: 6.9vw;
+    border-radius: 2.2vw;
+}
+
+.counter label {
+    line-height: 5vw;
+    margin: 0;
+    font-size: 3vw;
+    vertical-align: top;
+    font-family: "Roboto Regular", RobotoRegular;
+}
+
+.add-product {
+    background-color: #24A7B3;
+}
+
+.add-product .appmenu-item-text {
+    color: #FFFFFF;
+    font-size: 3vw;
+    text-transform: uppercase;
+    font-family: "Roboto Medium", RobotoMedium;
+}
+
+img.icon-add-menu {
+    width: 5.9vw;
+    height: 6vw;
+}
+
+/*Главная страница*/
+.home-header {
+    height: 36.6vw;
+}
+
+.user-contorol {
+    position: absolute;
+    top: 0;
+}
+
+.btn-corona {
+    position: relative;
+    min-width: 19vw;
+    width: 19vw;
+    height: 19vw;
+    border-radius: 19vw;
+    background-color: white;
+    border: none;
+    padding: 0;
+    margin-bottom: 7.5vw;
+}
+
+.user-photo {
+    position: relative;
+    min-width: 34.4vw;
+    width: 34.4vw;
+    height: 34.4vw;
+    border-radius: 34.4vw;
+    margin-left: 7.2vw;
+    margin-right: 7.2vw;
+    max-width: 34.4vw;
+}
+
+.user-photo img {
+    width: 31.25vw;
+    height: 31.25vw;
+    border-radius: 31.25vw;
+}
+
+.user-photo div {
+    width: 31.25vw;
+    height: 31.25vw;
+    border-radius: 31.25vw;
+}
+
+.btn-corona img {
+    height: 7.2vw;
+    width: 7.2vw;
+}
+
+.lamp-button {
+    position: absolute;
+    top: 0;
+    height: 52.5vw;
+    align-items: flex-end;
+}
+
+.lamp-button-div {
+    position: absolute;
+    left: 0;
+    top: -8vw;
+    right: 0;
+}
+
+.balance-header {
+    color: #A1AEB3;
+    font-size: 4vw;
+    text-transform: uppercase;
+    letter-spacing: 0.1vw;
+    font-family: "Roboto Medium", RobotoMedium;
+}
+
+.balance-sum {
+    font-size: 8.1vw;
+    font-family: "RobotoLight", "RobotoRegular", Arial, "Lucida Grande", sans-serif;
+    color: #212526;
+}
+
+.balance-height {
+    height: 15.83vw;
+    align-items: center;
+}
+
+.balance-slider-block {
+    padding-top: 22vw;
+    height: 72vw;
+}
+
+.balance-tbl {
+    width: 50%;
+    height: 20.6vw;
+    border: 0.3vw solid rgba(0, 0, 0, 0.15);
+    border-left: none;
+}
+
+.balance-tbl + .balance-tbl {
+    border-left: none;
+    border-right: none;
+}
+
+.balance-cell-text {
+    color: #A1AEB3;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4vw;
+    line-height: 6vw;
+}
+
+.balance-cell-sum {
+    color: #212526;
+    font-size: 5vw;
+    font-family: "Roboto Regular", RobotoRegular;
+    line-height: 6vw;
+}
+
+.slider-balance .slider-pager {
+    bottom: 1.6vw;
+}
+
+.slider-pager .slider-pager-page {
+    margin: 0 0.9vw;
+}
+
+.slider-pager .ion-record:before {
+    font-size: 2.2vw;
+}
+
+.favorit-block-home .scroll {
+    min-height: 4.4vw;
+    margin-left: 1.6vw;
+}
+
+.favorit-block-home .rs-content-panel-header {
+    margin-top: 5vw;
+}
+
+.favorite-block {
+    width: 27.5vw;
+    max-width: 27.5vw;
+    min-width: 27.5vw;
+    height: 42vw;
+    padding: 0 1.25vw;
+    vertical-align: top;
+    position: relative;
+}
+
+.favorite-in-block {
+    background: #ffffff;
+    border-radius: 0.9vw;
+    height: 100%;
+    display: table;
+    width: 100%;
+}
+
+.favorite-image {
+    width: 100%;
+    height: 28vw;
+    background: transparent;
+    border-top-left-radius: 0.9vw;
+    border-top-right-radius: 0.9vw;
+    display: table;
+}
+
+.favorite-image .svg-logo, .favorite-image .favorite-logo {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    border-top-left-radius: 0.9vw;
+    border-top-right-radius: 0.9vw;
+}
+
+.operation-logo-svg {
+    width: 40%;
+    height: 40%;
+}
+
+.favorite-name {
+    display: table-row;
+    width: 100%;
+    vertical-align: middle;
+    color: #363D40;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 3vw;
+    padding-left: 1.6vw;
+    padding-right: 1.6vw;
+}
+
+/*Последние операции*/
+.operation-list {
+    border-top: 0.3vw solid rgba(0, 0, 0, 0.15);
+    margin-bottom: 13vw;
+    border-bottom: 0.3vw solid rgba(0, 0, 0, 0.15);
+}
+
+.operation-date {
+    padding-top: 6.9vw;
+    padding-left: 12.8vw;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    white-space: nowrap;
+    color: #A1AEB3;
+    font-size: 4vw;
+    letter-spacing: 0.1vw;
+    font-family: "Roboto Medium", RobotoMedium;
+}
+
+.operation-logo-container {
+    padding: 0;
+    padding-left: 4.4vw;
+    padding-right: 4vw;
+}
+
+.text-valign-middle {
+    padding: 0;
+    padding-right: 4.4vw;
+    height: 27vw;
+}
+
+.operation-name {
+    font-size: 4.4vw;
+    color: #212526;
+    margin-right: 3vw;
+    font-family: "Roboto Regular", RobotoRegular;
+}
+
+.operation-logo {
+    width: 11.9vw;
+    height: 11.9vw;
+    border-radius: 11.9vw;
+}
+
+.operation-desc {
+    font-size: 4vw;
+    color: #667980;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 75.9vw;
+    font-family: "Roboto Regular", RobotoRegular;
+}
+
+.operation-amount {
+    font-size: 5vw;
+    line-height: 5vw;
+    color: #212526;
+    float: right;
+    font-family: "Roboto Regular", RobotoRegular;
+}
+
+.operation-separator {
+    height: 0.3vw;
+    background-color: #000000;
+    opacity: 0.15;
+    margin-left: 4.4vw;
+}
+
+.mfb-component__button--main {
+    height: 17.5vw;
+    width: 17.5vw;
+}
+
+.mfb-component__icon, .mfb-component__main-icon--active, .mfb-component__main-icon--resting, .mfb-component__child-icon {
+    font-size: 6vw;
+    line-height: 17.5vw;
+}
+
+.rs-mfb-menu .mfb-component__wrap {
+    height: 17.5vw;
+}
+
+/*Страница Мои финансы*/
+.list-block .item-inner.product-line {
+    /*border-bottom: 0.3vw solid rgba(0, 0, 0, 0.15);*/
+}
+
+.list-block .list-group-title {
+    padding: 4.4vw;
+    color: #212526;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4vw;
+}
+
+.list-block .list-group-title.expandable {
+    border-bottom: 0.3vw solid rgba(0, 0, 0, 0.15);
+}
+
+/*Карты*/
+.card-finance-block {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.product-name-list {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 4.4vw;
+    line-height: 5vw;
+    color: #212526;
+    font-family: "Roboto Regular", RobotoRegular;
+}
+
+.number-card-finance-block {
+    color: #A1AEB3;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4vw;
+    line-height: 4.4vw;
+    margin-top: 0.6vw;
+}
+
+.balance-card-finance-block {
+    margin-top: 0.6vw;
+}
+
+.balance-card-finance-block span {
+    color: #363D40;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4vw;
+    line-height: 4.4vw;
+}
+
+.card-type-image-product {
+    max-height: 3vw;
+    max-width: 10vw;
+}
+
+.icon-status-product {
+    width: 4vw;
+    height: 4vw;
+    position: relative;
+    background-position: center center;
+    background-size: contain;
+    margin-right: 3vw;
+}
+
+.product-li:last-child .item-inner.product-line {
+    border-bottom: 0;
+}
+
+.expandable-icon {
+    width: 2.5vw;
+    height: 1.9vw;
+    background-size: cover;
+}
+
+/*Кредит*/
+.credit-finance-block {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.credit-summ-list span {
+    font-size: 4.4vw;
+    line-height: 5vw;
+    color: #212526;
+    font-family: "Roboto Regular", RobotoRegular;
+}
+
+.rs-thermometer-bg {
+    height: 0.9vw;
+    display: table;
+    width: 100%;
+    border-radius: 0.9vw;
+}
+
+.loan-rest-product {
+    color: #A1AEB3;
+    font-size: 4vw;
+    margin-left: 5vw;
+    font-family: "Roboto Regular", RobotoRegular;
+    line-height: 5vw;
+}
+
+.credit-thermometer {
+    width: 56vw;
+    height: 5vw;
+    padding-top: 2vw;
+}
+
+.plan-pay-credit span {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4vw;
+    line-height: 4.4vw;
+}
+
+/*Счет*/
+.account-finance-block {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.number-account-finance-block {
+    color: #A1AEB3;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4vw;
+    line-height: 4.4vw;
+    margin-top: 0.6vw;
+}
+
+.balance-account-finance-block {
+    margin-top: 0.6vw;
+}
+
+.balance-account-finance-block span {
+    color: #363D40;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4vw;
+    line-height: 4.4vw;
+}
+
+/*Вклад*/
+.deposit-finance-block {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.rate-deposit-finance-block {
+    overflow: hidden;
+    font-size: 4.4vw;
+    line-height: 5vw;
+    height: 5vw;
+    text-align: right;
+}
+
+.rate-deposit-finance-block span {
+    color: #A1AEB3;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4.4vw;
+}
+
+.deposit-end-date-finance-block {
+    color: #A1AEB3;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4vw;
+    line-height: 4.4vw;
+    margin-top: 0.6vw;
+}
+
+.balance-deposit-finance-block {
+    margin-top: 0.6vw;
+    line-height: 4.4vw;
+    height: 4.4vw;
+    text-align: right;
+}
+
+.balance-deposit-finance-block span {
+    color: #363D40;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4vw;
+    line-height: 4.4vw;
+    text-align: right;
+}
+
+.bottom-line-for-block {
+    height: 12vw;
+}
+
+.list-block .swipe-item {
+    background-size: 4vw 6vw !important;
+}
+
+.list-block .swipeout-actions-left .swipe-item {
+    background-position: 5vw center !important;
+    padding: 0 !important;
+    width: 23vw;
+}
+
+.list-block .swipeout-actions-right .swipe-item {
+    background-position: 70vw center !important;
+    padding: 0 !important;
+    width: 80vw;
+}
+
+/*Продукты*/
+button.button-clear.button-icon.icon-menu-more, .bar .title + .button:last-child.icon-menu-more {
+    width: 5vw;
+    height: 1.9vw;
+    background-size: cover;
+    min-height: 5vw;
+    top: 5vw;
+    right: 6vw;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background-position: left top;
+    max-height: 5vw;
+    display: inline-block;
+}
+
+.product-info {
+    background-color: #24A7B3;
+}
+
+.rs-product-slide-container {
+    padding: 0;
+    padding-left: 6vw;
+    height: 47vw;
+    padding-right: 6vw;
+}
+
+.product-block {
+    position: relative;
+    border-radius: 1.6vw;
+    padding-left: 6vw;
+    padding-top: 3vw;
+    padding-right: 4.4vw;
+    padding-bottom: 6vw;
+    width: 100%;
+    height: 100%;
+    background: #52C2CC no-repeat;
+    background-size: cover;
+}
+
+.product-card-block-small {
+    height: 8.4vw;
+}
+
+.product-name {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-family: "Roboto Regular", RobotoRegular;
+    color: #ffffff;
+    font-size: 4.63vw;
+    line-height: 8vw;
+}
+.product-name.credit-name {
+    color: #125359;
+}
+
+.product-card-type-label {
+    width: 14vw;
+    height: 8.4vw;
+    float: right;
+}
+
+.product-card-type-image {
+    max-height: 8.4vw;
+    background-color: #FFF !important;
+    padding: 2vw;
+    border-radius: 0.6vw;
+    max-width: 14vw;
+}
+
+.product-name-dop {
+    font-family: "Roboto Regular", RobotoRegular;
+    color: #FFFFFF;
+    font-size: 3vw;
+    line-height: 4vw;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.product-card-number {
+    font-family: "Roboto Regular", RobotoRegular;
+    color: #FFFFFF;
+    font-size: 5vw;
+    line-height: 17vw;
+}
+
+.product-credit-number {
+    font-family: "Roboto Regular", RobotoRegular;
+    color: #FFFFFF;
+    font-size: 3.88vw;
+    line-height: 15vw;
+}
+
+.product-name-date {
+    font-family: "Roboto Regular", RobotoRegular;
+    color: #FFFFFF;
+    font-size: 3vw;
+    line-height: 4vw;
+}
+
+.left-to-pay span {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 3.88vw;
+    color: #FFFFFF;
+    line-height: 4.17vw;
+}
+
+.left-to-pay span + span {
+    float: right;
+}
+
+.product-block .rs-thermometer-bg {
+    height: 1.11vw;
+    display: table;
+    width: 100%;
+    border-radius: 0.74vw;
+    margin-top: 1.39vw;
+}
+
+.product-name-summ {
+    display: inline-block;
+}
+
+.product-name-summ span {
+    font-family: "Roboto Light", RobotoLight;
+    font-size: 6vw;
+    color: #FFFFFF;
+    line-height: 6vw;
+}
+
+.product-card-info-date {
+    height: 6vw;
+}
+
+.mts-product-carousel .swiper-pagination {
+    height: 14vw;
+    border-bottom: 0.3vw solid rgba(255, 255, 255, 0.4);
+    line-height: 13vw;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.mts-product-carousel .swiper-pagination-bullet {
+    width: 1.9vw;
+    height: 1.9vw;
+    margin: 0 0.8vw;
+}
+
+.product-info-cell {
+    height: 13vw;
+    padding-left: 4.4vw;
+    padding-right: 4.4vw;
+}
+
+.product-param-name {
+    color: #176B73;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 3.88vw;
+    line-height: 3.61vw;
+}
+
+.product-param-value, .product-param-value span {
+    font-size: 4.26vw;
+    color: #FFFFFF;
+    white-space: nowrap;
+    font-family: "Roboto Regular", RobotoRegular;
+    line-height: 3.61vw;
+    height: 4.4vw;
+}
+
+.icon-info.icon-22, .icon.icon-22 {
+    width: 5vw;
+    height: 6vw;
+    margin: 0;
+    background-size: contain;
+    margin-left: 5vw;
+    margin-top: -0.6vw;
+}
+
+.product-tabs {
+    background-color: #24A7B3;
+    color: white;
+    white-space: nowrap;
+    padding: 0;
+    padding-left: 1.3vw;
+    padding-right: 1.3vw;
+    box-shadow: 0 0.3vw 0.3vw 0 rgba(0,0,0,0.12), 0 0.3vw 0.37vw 0 rgba(0,0,0,0.24);
+}
+
+.product-tab-title {
+    height: 13.15vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    opacity: 0.5;
+    width: auto;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 3.88vw;
+    font-family: "Roboto Regular", RobotoRegular;
+    box-sizing: border-box;
+    display: inline-block;
+    line-height: 13.15vw;
+}
+
+.product-tabs .product-tab-title.active {
+    border-bottom: 0.6vw solid #106466;
+}
+
+.mts-controll-month {
+    background-color: #24A7B3;
+    color: white;
+    white-space: nowrap;
+    padding: 0;
+    padding-left: 1.3vw;
+    padding-right: 1.3vw;
+    box-shadow: 0 0.3vw 0.3vw 0 rgba(0,0,0,0.24), 0 0.3vw 0.37vw 0 rgba(0,0,0,0.24);
+}
+.mts-controll-month .swiper-slide .swiper-slide-inner {
+    padding-top: 4.4vw;
+    padding-bottom: 4.4vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    opacity: 0.5;
+    width: auto;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 4vw;
+    font-family: "Roboto Regular", RobotoRegular;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.mts-controll-month .swiper-slide.swiper-slide-active .swiper-slide-inner {
+    border-bottom: 0.6vw solid #106466;
+    opacity: 1;
+}
+
+.no-operation-block {
+    margin: 4.4vw;
+    margin-bottom: 0;
+}
+
+.btn-show-extract {
+    width: 100%;
+    height: 9vw;
+    border-radius: 0.9vw;
+    color: #667980;
+    font-family: "Roboto Medium", RobotoMedium;
+    font-size: 3vw;
+    text-transform: uppercase;
+    background: #FFFFFF;
+    box-shadow: 0 0.3vw 0.3vw 0 rgba(0, 0, 0, 0.26), 0 0.3vw 0.4vw 0 rgba(0, 0, 0, 0.16);
+    margin-bottom: 6vw;
+}
+
+.no-operation-text {
+    margin-bottom: 29vw;
+}
+
+.no-operation-text span {
+    line-height: 7.5vw;
+    color: #A1AEB3;
+    font-size: 4.4vw;
+    text-align: center;
+    width: 73vw;
+    font-family: "Roboto Regular", RobotoRegular;
+}
+
+.operations {
+    width: 100%;
+    height: auto;
+    background: #F5F5F5;
+}
+
+.card-info-button-block {
+    margin-top: 13vw;
+    margin-bottom: 13vw;
+    box-shadow: 0 0.3vw 0.3vw 0 rgba(0, 0, 0, 0.24), 0 0.3vw 0.4vw 0 rgba(0, 0, 0, 0.12);
+}
+
+.list-block .item-title {
+    color: #363D40;
+    font-size: 4.44vw;
+    font-family: "Roboto Regular", RobotoRegular;
+}
+
+.details-card-info {
+    box-shadow: 0 0.3vw 0.9vw 0 rgba(0, 0, 0, 0.24);
+    margin-bottom: 12vw;
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+    background: #ffffff;
+}
+
+.fw7-li-multiline.min-height-33px {
+    /*min-height: 19vw;*/
+}
+
+.list-block .fw7-li-multiline .item-title {
+    color: #A1AEB3;
+    font-size: 3vw;
+    vertical-align: bottom;
+    display: table-cell;
+    font-family: "Roboto Regular", RobotoRegular;
+    padding-bottom: 1.6vw;
+    line-height: 4vw;
+}
+
+.list-block .fw7-li-content-text span {
+    color: #212526;
+    font-size: 4.4vw;
+    line-height: 5vw;
+    font-family: "Roboto Regular", RobotoRegular;
+    white-space: normal;
+}
+
+.options-block-product .item-inner:after, .options-block-product .list-block .item-inner:not(.save-divider):after {
+    background-color: #000000;
+    width: 100vw;
+    left: -4.4vw;
+    opacity: 0.15;
+}
+
+.options-block-product .item-inner {
+    font-size: 4.4vw;
+    font-family: "Roboto Regular", RobotoRegular;
+    color: #363D40;
+}
+
+.options-block-product {
+    padding-bottom: 12vw;
+}
+
+.expiry-date-alert {
+    background-color: #E53948;
+    padding: 0.6vw 1.3vw;
+    border-radius: 0.6vw;
+}
+
+.picture-state {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -11vw;
+    margin-top: -11vw;
+    color: #FFF;
+    width: 22vw;
+    height: 22vw;
+    z-index: 10;
+}
+
+.picture-state + .product-block label, .picture-state + .product-block span,
+.picture-state + .product-block div, .picture-state + .product-block img {
+    opacity: 0.7;
+}
+
+/*Избранные платежи*/
+.favorit-list .item-content {
+    position: relative;
+}
+
+.list-block .item-media + .item-inner {
+    margin-left: 3.75vw;
+}
+
+.favorit-list .item-content:after {
+    content: "";
+    position: absolute;
+    height: 0.3vw;
+    background: rgba(0, 0, 0, 0.15);
+    left: 20vw;
+    right: 0;
+    bottom: 0;
+}
+
+.favorit-list li.item-content:last-child:after{
+    background: transparent;
+}
+
+.favorit-list .favorite-image {
+    height: 100%;
+    border-top-left-radius: 0vw;
+    border-top-right-radius: 0vw;
+}
+
+.favorit-list .svg-logo, .favorit-list .favorite-logo {
+    width: 11.25vw;
+    height: 11.25vw;
+    border-radius: 11.25vw;
+}
+
+.regular-clock {
+    background: url("../img/android/regular-clock.png") no-repeat left top;
+    width: 3.46vw;
+    height: 3.46vw;
+    position: absolute;
+    left: 12.11vw;
+    top: 4.95vw;
+    background-size: contain;
+}
+
+.favorit-text {
+    font-size: 4.14vw;
+    color: #363D40;
+    font-family: "Roboto Regular", RobotoRegular;
+}
+
+/*Платежи*/
+.searchbar {
+    height: 15.73vw;
+    padding: 0 2.13vw;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+    padding-bottom: 2.19vw;
+}
+.searchbar input[type=search] {
+    border-radius: 0.625vw;
+    padding: 0;
+    padding-left: 18.17vw;
+    padding-right: 8.75vw;
+    -webkit-background-size: 5vw 5vw;
+    background-size: 5vw 5vw;
+    background-position: 5.37vw center;
+}
+.searchbar .searchbar-input {
+    height: 13.54vw;
+}
+.bar-subheader {
+    top: 15.83vw;
+}
+.pay-and-transfers-page .bar-header {
+    border: 0;
+    box-shadow: 0;
+}
+.has-subheader {
+    top: 31.73vw;
+}
+.pay-and-transfers-page .scroll {
+    min-height: 43vw;
+}
+.pay-and-transfers-page .regular-clock, #homepane .regular-clock {
+    width: 5.3vw;
+    height: 5.3vw;
+    left: 19.06vw;
+    top: 1.875vw;
+}
+.favorit-list .regular-clock {
+    width: 3.46vw;
+    height: 3.46vw;
+    left: 12.11vw;
+    top: 4.95vw;
+}
+.payment-flex-container {
+    padding-left: 0;
+    border-top: 0;
+    background: #FFFFFF;
+    box-shadow: 0px 0.3vw 0.3vw 0px rgba(0,0,0,0.24), 0px 0.3vw 0.32vw 0px rgba(0,0,0,0.12), 0px 0.3vw 0.94vw 0 rgba(0,0,0,0.24);
+    font-size: 3.33vw;
+    overflow: hidden;
+    width: 100vw;
+}
+.payment-flex-item {
+    width: 33.3vw;
+    height: 33.56vw;
+    padding: 2.13vw;
+    text-align: center;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    border-right: 1px solid rgba(0,0,0,0.15);
+}
+.payment-flex-item img, .payment-flex-item .payment-category-logo svg {
+    margin-top: 5.25vw;
+    max-height: 11vw;
+    height: 11vw;
+    vertical-align: bottom;
+}
+.payment-category-logo svg {
+    margin-top: 0;
+    max-height: 11vw;
+    height: 11vw;
+    width: auto;
+    vertical-align: bottom;
+}
+.payment-category-logo svg path, .payment-category-logo svg g {
+    fill: #24A7B3;
+}
+.payment-flex-item div {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 3.33vw;
+    color: #363D40;
+    line-height: 3.89vw;
+    margin-top: 5.06vw;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}
+.favorit-block-home .scroll-view {
+    overflow: visible;
+}
+.payment-flex-item .payment-category-logo{
+    margin: 0;
+    line-height: normal;
+}
+.payment-flex-item:nth-child(3) {
+    border-right: 0;
+}
+.history-button {
+    height: 11vw;
+    max-height: 11vw;
+    min-height: 11vw;
+    margin-bottom: 4.4vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    box-sizing: border-box;
+    width: 100%;
+}
+.history-button .table-cell {
+    font-size: 3.44vw;
+    color: #212526;
+    text-transform: uppercase;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 0.9vw;
+    background: #ffffff;
+    box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.26), 0px 3px 4px 0px rgba(0,0,0,0.16);
+    -webkit-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.26), 0px 3px 4px 0px rgba(0,0,0,0.16);
+}
+.item-content.region-name {
+}
+.item-content.region-name label {
+    font-size: 4.17vw;
+}
+.list-block .icon-selected {
+    width: 3.97vw;
+    height: 2.63vw;
+    background-size: cover !important;
+    background-position: right center !important;
+}
+/*Избранный платеж*/
+.favorit-list-box, .favorit-list-box ul {
+    background: #f0f4f5;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    margin-bottom: 0.2vw;
+}
+.favorit-list-box .favorite-image {
+    height: 23.38vw;
+    width: 12.11vw;
+    position: relative;
+}
+.favorit-list-box .favorite-image .svg-logo, .favorit-list-box .favorite-logo {
+    width: 11.112vw;
+    height: 11.112vw;
+    border-radius: 11.112vw;
+    margin-top: 6.44vw;
+}
+.favorit-list-box .regular-clock {
+    left: 12.41vw;
+    top: 6.25vw;
+}
+.favorit-list-box.list-block .item-media {
+    padding: 0;
+}
+.favorit-list-box.list-block .table-cell {
+    color: #363D40;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4.44vw;
+    line-height: 4.63vw;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+}
+.pay-to-svg {
+    width: 2.78vw;
+    height: 3.89vw;
+    margin-right: 5vw;
+    margin-top: 5vw;
+}
+.payment-category-logo-img {
+    width: 11.112vw;
+    height: 11.112vw;
+}
+.list-block .item-media.category-logo-pay {
+    padding: 0;
+    width: 12.11vw;
+    position: relative;
+}
+.list-block.telephone-number-for-pay {
+    position: absolute;
+    height: 5.28vw;
+    min-height: 5.28vw;
+    z-index: 1;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    left: 20.1vw;
+    top: -10.5vw;
+}
+.list-block.telephone-number-for-pay .item-inner, .rs-content-panel-body .list-block.telephone-number-for-pay .item-content {
+    min-height: 5.28vw;
+    padding: 0;
+}
+.telephone-number-for-pay ul li input[type=text] {
+    border: 0;
+    height: 5.28vw;
+    line-height: 5.28vw;
+    color: #A1AEB3;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 3.89vw;
+    width: auto;
+}
+.relative {
+    position: relative;
+    margin-bottom: 13vw;
+}
+.name-product-for-pay {
+    color: #363D40;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4.44vw;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 75vw;
+    max-width: 75vw;
+    overflow: hidden;
+}
+.field-product-for-pay {
+    min-width: 75vw;
+    max-width: 75vw;
+    display: table-row;
+}
+.field-product-for-pay input {
+    max-width: 75vw;
+    margin-bottom: 1vw !important;
+}
+.summ-block-for-pay.list-block .item-inner {
+}
+.summ-block-for-pay .text-gray, .placeholder-gray {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4vw;
+    color: #A1AEB3;
+}
+.rs-button-page {
+    height: 11vw;
+    min-height: 11vw;
+    margin-top: 4.4vw;
+    margin-bottom: 4.4vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    border-radius: 0.9vw !important;
+    border-color: transparent;
+    background: #24A7B3;
+    color: white;
+    text-transform: uppercase;
+    box-shadow: #A1AEB3 0 0.3vw 1.6vw;
+    -webkit-box-shadow: #A1AEB3 0 0.3vw 1.6vw;
+    font-size: 3.44vw;
+    padding: 0;
+    box-sizing: border-box;
+    width: 90vw;
+}
+.rs-button-page-save {
+    height: 11vw;
+    min-height: 11vw;
+    margin-top: 4.4vw;
+    margin-bottom: 4.4vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    border-radius: 0.9vw !important;
+    border-color: transparent;
+    background: #FFFFFF;
+    color: #667980;
+    text-transform: uppercase;
+    box-shadow: 0 0.3vw 0.3vw 0 rgba(0,0,0,0.26), 0 0.3vw 0.37vw 0 rgba(0,0,0,0.16);
+    -webkit-box-shadow: 0 0.3vw 0.3vw 0 rgba(0,0,0,0.26), 0 0.3vw 0.37vw 0 rgba(0,0,0,0.16);
+    font-size: 3.44vw;
+    padding: 0;
+    box-sizing: border-box;
+    width: 90vw;
+}
+.list-block.next-block {
+    margin-top: 13vw;
+}
+.add-to-favorit {
+    border-bottom: 0.3vw solid rgba(0,0,0,0.15);
+}
+.title-with-line {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4.4vw;
+    color: #A1AEB3;
+    height: 17.79vw;
+    border-bottom: 0.3vw solid rgba(0,0,0,0.15);
+    vertical-align: bottom;
+    box-sizing: border-box;
+    padding-bottom: 3.24vw;
+}
+.title-product-item input, .list-block .title-product-item input[type=text] {
+    border: 0;
+    min-height: 14vw;
+    color: #363D40;
+    font-size: 4.44vw;
+    font-family: "Roboto Regular", RobotoRegular;
+}
+.title-simple-item {
+    opacity: 0.6;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 3.33vw;
+    line-height: 4.63vw;
+    color: #667980;
+    height: 4.63vw;
+}
+.title-simple-value, .list-block .title-simple-value input[type=text], .list-block .title-simple-value input[type=number], .list-block .title-simple-value input {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4.44vw;
+    color: #212526;
+}
+.list-block .title-simple-value input[type=text], .list-block .title-simple-value input[type=number], .list-block .title-simple-value input {
+    opacity: 1;
+}
+.title-simple-value {
+    position: relative;
+}
+.summ-currency-for-inp {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4.44vw;
+    line-height: 4.63vw;
+    color: #212526;
+    position: absolute;
+    right: 0;
+    bottom: 1.8vw;
+}
+.subpayment-page .payment-field-height, .list-block .payment-field-height .item-inner {
+}
+/*.list-block.next-block li:last-child {*/
+    /*padding-bottom: 1.53vw;*/
+/*}*/
+/* --------- rs-navigation-popup-menu styles END   --------- */
+
+/* ---------- Инфосервисы: Детальная информация по новостям START ----------*/
+.news-details-block {
+    margin-top: 7%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.news-details-title {
+    font-size: 24px;
+    line-height: normal;
+}
+
+.news-details-image-block {
+    margin-top: 5%;
+    width: 100%;
+    height: 25%;
+}
+
+.news-details-image-block .news-details-image {
+    object-fit: cover;
+    width: inherit;
+    height: inherit;
+}
+
+.news-details-text-content-block {
+    margin-top: 5%;
+}
+.personal-page .text-valign-middle {
+    height: auto;
+}
+.personal-page .fw7-li-select {
+    min-height: 20.09vw;
+    height: 20.09vw;
+    border-bottom: 0.3vw solid rgba(0,0,0,0.15);
+}
+.personal-page .fw7-li-select:last-child {
+    border-bottom: 0;
+}
+.personal-page .fw7-li-content-text span, .personal-page .fw7-li-content-text input {
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #8D9DA6;
+    font-size: 3.89vw;
+    line-height: 5.09vw;
+    font-family: "Roboto Regular", RobotoRegular;
+    border: 0;
+}
+.personal-page .item-title {
+    color: #363D40;
+    font-size: 4.44vw;
+    font-family: "Roboto Regular", RobotoRegular;
+}
+.setting-personal-label {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4.4vw;
+    color: #A1AEB3;
+    line-height: 6.67vw;
+    padding-left: 4.4vw;
+    padding-right: 4.4vw;
+    height: 24.44vw;
+    display: inline-block;
+    vertical-align: bottom;
+    padding-bottom: 2.78vw;
+}
+.personal-page .item-title-24A7B3 {
+    border-bottom: 0.3vw solid rgba(0,0,0,0.15);
+}
+.personal-page .small-conteiner {
+    height: 13.43vw;
+    border-bottom: 0.3vw solid rgba(0,0,0,0.15);
+}
+.personal-page .item-content {
+    border-bottom: 0.3vw solid rgba(0,0,0,0.15);
+}
+.personal-page .item-content:last-child {
+    border-bottom: 0;
+}
+.help-page .item-content {
+    border-bottom: 0.3vw solid rgba(0,0,0,0.15);
+}
+.help-page li:last-child .item-content {
+    border-bottom: 0;
+}
+.help-page .flex.flex-column {
+    margin-left: 3.75vw;
+}
+.help-page .flex.flex-column div {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4.4vw;
+}
+.help-page .flex.flex-column div + div {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 3.88vw;
+}
+.personal-page .item-title-24A7B3 div {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4.4vw;
+    color: #24A7B3;
+}
+.next-block-small, .content-block-title+.list-block {
+    margin-top: 2.78vw;
+}
+.last-block {
+    margin-bottom: 13vw;
+}
+.item-img {
+    width: 11.112vw;
+    height: 11.112vw;
+    border-radius: 11.112vw;
+}
+
+.platform-android .action-sheet-backdrop.active {
+    background-color: rgba(0, 0, 0, 0);
+}
+.action-sheet-wrapper {
+    top: 0;
+}
+.action-sheet-backdrop.active {
+    background-color: rgba(0, 0, 0, 0);
+}
+.action-sheet {
+    margin: 0;
+    overflow: visible;
+}
+.action-sheet-group.action-sheet-options {
+    margin: 0;
+    box-shadow: 0 0.3vw 0.3vw 0 rgba(0,0,0,0.12), 0 0.3vw 0.37vw 0 rgba(0,0,0,0.24);
+    border-radius: 0.56vw;
+    background-color: #ffffff;
+    width: 57.59vw;
+    margin-left: 4.4vw;
+    margin-top: 16.57vw;
+    overflow: visible;
+    border: 0.3vw solid rgba(0,0,0,0.12);
+    padding-top: 4.4vw;
+    padding-bottom: 4.4vw;
+}
+.action-sheet .button {
+    display: block;
+    padding-left: 4.4vw;
+    padding-right: 4.4vw;
+    height: 13.43vw;
+    line-height: 13.43vw;
+    width: 100%;
+    border-radius: 0;
+    border: 0;
+    background-color: transparent;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 3.89vw;
+    color: #212526;
+}
+.action-sheet .button + .button + .button {
+    color: #E53948;
+}
+.social-list-block {
+    padding-top: 2.22vw;
+    padding-bottom: 2.22vw;
+    background: #FFFFFF;
+}
+.icon-social-logo {
+    width: 11.112vw;
+    height: 11.112vw;
+}
+.icon-social-refresh {
+    width: 5vw;
+    height: 5vw;
+    position: absolute;
+    right: 7vw;
+    top: 7.55vw;
+}
+.icon-social-remove {
+    width: 5vw;
+    height: 5vw;
+}
+.icon-social-add {
+    width: 5vw;
+    height: 5vw;
+}
+.social-list-block .text-15px {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4.44vw;
+    color: #363D40;
+}
+.social-list-block .text-12px {
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 3.89vw;
+    color: #8D9DA6;
+    line-height: 5.09vw;
+}
+.button-social-refr {
+    position: fixed;
+    z-index: 1;
+    height: 11vw;
+    min-height: 11vw;
+    width: 90vw;
+    left: 5vw;
+    right: 5vw;
+    bottom: 4.4vw;
+    border-radius: 0.9vw !important;
+    border-color: transparent;
+    background: white;
+    color: #363D40;
+    text-transform: uppercase;
+    box-shadow: #A1AEB3 0 0.3vw 1.6vw;
+    -webkit-box-shadow: #A1AEB3 0 0.3vw 1.6vw;
+}
+.button-social-refr.activated {
+    background-color: #D7DEE0;
+}
+.icon-header-arrow {
+    top: -2.3vw;
+}
+.item-content.rs-geolocation-list {
+
+}
+.rs-geolocation-list-address {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #A1AEB3;
+    display: inline-block;
+    font-size: 3.88vw;
+    padding: 0;
+}
+.rs-atmsandoffices-content .list-block {
+    margin-bottom: 21vw;
+}
+.single-border-bottom {
+    border-bottom: 0.3vw solid rgba(0,0,0,0.15);
+}
+.single-border-bottom input[type=number] {
+    border-bottom: 0;
+    text-align: left !important;
+}
+.settings-budget-panel .list-block .item-content, .settings-budget-panel .list-block .item-inner {
+
+}
+.settings-budget-panel input[type=number] {
+    border-bottom: 0;
+    text-align: left !important;
+}
+.settings-budget-panel .list-block .border .item-inner:after{
+    left: -5.23vw;
+    opacity: 0.15;
+    background: #000000;
+    width: 100vw;
+    bottom: -3.88vw;
+}
+.category-list-padget-panel:last-child {
+    margin-bottom: 13vw;
+}
+.calendar-create-panel .text-valign-middle{
+    height: auto;
+}
+.calendar-create-panel .fw7-li-select .fw7-li-content-text span, .fw7-li-select .fw7-li-content-text {
+    color: #A1AEB3;
+    font-size: 3.88vw;
+    line-height: 4.5vw;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.popover-wrapper .popover {
+    position: absolute;
+    display: block;
+    top: 25%;
+    left: -47% !important;
+    margin-top: -7.22vw;
+    margin-left: 49.5% !important;
+    width: 95vw;
+    height: auto;
+    z-index: 10;
+    background-color: #fff;
+    box-shadow: 0 0.3vw 0.3vw 0 rgba(0,0,0,0.12), 0 0.3vw 0.37vw 0.3vw rgba(0,0,0,0.24);
+    opacity: 0;
+    border-radius: 0.56vw;
+}
+.popover .item-media .icon {
+    width: 11.112vw;
+    height: 11.112vw;
+    background-size: contain !important;
+}
+.popover-backdrop .list-block .item-inner {
+    padding-right: 0vw;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 3.88vw;
+    color: #212526;
+    line-height: 4.17vw;
+}
+.popover-backdrop .list-block .item-content {
+    padding: 4.4vw;
+    padding-bottom: 0;
+    min-height: 11.112vw;
+    position: relative;
+}
+.popover-backdrop .item-content.save-divider, .popover-backdrop .item-inner.save-divider {
+    padding-bottom: 4.4vw;
+}
+.popover-backdrop .list-block .item-media {
+    padding: 0;
+}
+.list-block .item-inner:after {
+    background: rgba(0,0,0,0.15);
+    height: 0.3vw;
+}
+.popover-backdrop .item-inner.save-divider:after {
+    width: 100vw;
+}
+.popover-backdrop .list-block .item-media + .item-inner {
+    margin-left: 4.44vw;
+}
+.popover-backdrop .item-inner.save-divider {
+    margin-left: 15.552vw;
+}
+.popover-backdrop .item-content.item-inner.save-divider {
+    margin-left: 0;
+}
+.popover-backdrop .list-block .item-title {
+    padding-right: 0vw;
+    padding-top: 0;
+    padding-bottom: 0vh;
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 3.88vw;
+    color: #212526;
+}
+.popover-backdrop .list-block ul {
+    margin-bottom: -0.3vw;
+}
+.product-li {
+    border-bottom: 0.3vw solid rgba(0,0,0,0.15);
+}
+.product-li:last-child {
+    border-bottom: 0;
+}
+/* ---------- Инфосервисы: Детальная информация по новостям END ----------*/
+/*Натив*/
+.bar-header .button.ion-android-menu,.button.active-state, html:not(.watch-active-state) .button:active {
+    background: url('../img/android/menu.svg') no-repeat center center;
+}
+md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
+    min-height: inherit;
+}
+md-tabs-canvas {
+    height: 13.33vw;
+    background-color: #24A7B3;
+}
+md-tabs .md-tab {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: "Roboto Regular", RobotoRegular;
+    font-size: 4vw;
+    width: 50vw;
+}
+.md-tab {
+    font-size: 4vw;
+    line-height: 13.33vw;
+    padding: 0;
+    font-weight: normal;
+}
+md-tabs .md-tab.md-active, md-tabs .md-tab.md-focused {
+    color: rgba(255, 255, 255, 1);
+}
+md-tabs md-ink-bar {
+    color: #106566;
+    background: #106566;
+}
+md-ink-bar {
+    height: 0.6vw;
+}
+md-tabs md-tabs-wrapper {
+    box-shadow: #A1AEB3 0 0.3vw 0.46vw;
+    -webkit-box-shadow: #A1AEB3 0 0.3vw 0.46vw;
+}
+md-tabs .md-tab .md-ripple-container {
+    color: #2EC4D1;
+}
+.md-button.icon-shadow-effect {
+    border-radius: 100%;
+    position: absolute;
+    top: 9.335vw;
+    left: 2.51vw;
+    min-width: 10vw;
+    padding: 0;
+    min-height: 10vw;
+    margin: 0;
+}
+.icon-shadow-effect .md-ripple-container {
+    border-radius: 10vw;
+}
+a.md-button.icon-shadow-effect:not([disabled]):hover, .md-button.icon-shadow-effect:not([disabled]):hover {
+    background-color: transparent;
+}
+.icon-menu-main {
+    position: absolute;
+    top: 3.355vw;
+    left: 2.49vw;
+    width: 5.02vw;
+    height: 3.29vw;
+    background-size: contain;
+    background-position: left center;
+}
+.md-button.md-icon-button.icon-back {
+    width: 5.02vw;
+    height: 5vw;
+    background-size: contain;
+    background-position: center center;
+}
+.md-button.icon-shadow-effect-standart {
+    position: relative;
+    left: 0vw;
+    height: 15.83vw;
+    width: 15.83vw;
+    min-height: 15.83vw;
+    min-width: 15.83vw;
+    line-height: 15.83vw;
+    padding: 0;
+    margin: 0;
+}
+.title + .icon-shadow-effect-standart.md-button {
+    right: 0;
+    position: absolute;
+    left: auto;
+}
+.bar-header .button.button-icon, .bar-header .button.button-icon.activated, .bar-header .button.button-icon:active {
+    padding: 0;
+    margin: 0 auto;
+    border: 0;
+}
+.icon-shadow-effect-standart .md-ripple-container {
+    border-radius: 10vw;
+}
+
+md-icon {
+    height: 5vw;
+    width: 5vw;
+}
+.menu-list-button md-icon {
+    width: 5.02vw;
+    height: 3.29vw;
+}
+.bar-header .icon-menu-stand {
+    width: 5vw;
+    height: 5vw;
+    border: none;
+    padding: 0;
+    margin: 0;
+    background-size: contain;
+    background-color: transparent;
+    background-position: center center;
+    display: block;
+    margin: 0 auto;
+}
+.bar-header .icon-menu-stand.ion-android-menu {
+    width: 5vw;
+    height: 3.33vw;
+}
+.bar-header .icon-menu-stand.icon-back, .back-btn.menu-list-button md-icon {
+    width: 4.81vw;
+    height: 4.81vw;
+}
+.md-button.md-icon-button.menu-list-button {
+    position: absolute;
+    top: 7.5vw;
+    left: 0vw;
+    height: 15.46vw;
+    width: 15.46vw;
+    line-height: 15.46vw;
+}
+md-pagination-wrapper {
+    height: 13.33vw;
+}
+.md-button.icon-shadow-effect-standart.second-right-btn {
+    position: absolute;
+    top: 0px;
+    right: 0vw;
+    bottom: auto;
+    left: auto;
+}
+.md-button.icon-shadow-effect-standart .icon-tuning {
+    width: 5vw;
+    height: 5vw;
+}

@@ -1,0 +1,17 @@
+<div class="list-block no-margin" ng-show="monthData.costs.categoryList.length">
+    <ul>
+        <rs-expense-category-li ng-if="monthData.costs && monthData.costs.totalCredit" rs-category="monthData.costs"></rs-expense-category-li>
+        <rs-expense-category-li ng-repeat="category in (monthData.costs.categoryList) | filter:{isActive: true} | orderBy:['-totalCredit','name']"
+                                rs-category="category" ng-click="showBudgetCategory(category)">
+        </rs-expense-category-li>
+        <rs-expense-category-li ng-repeat="category in (monthData.costs.categoryList) | filter:{isHide: true} | orderBy:'name'"
+                                rs-category="category" ng-click="showBudgetCategory(category)"
+                                ng-show="showHiddenCategories">
+        </rs-expense-category-li>
+    </ul>
+</div>
+<!-- Кат для просмотра скрытых категорий -->
+<div class="mts-controll-kat flex flex-center flex-middle" ng-show="(monthData.costs.categoryList | filter:{isHide: true}).length"
+     ng-click="showHiddenCategories = !showHiddenCategories">
+    <span>{{showHiddenCategories ? 'Скрыть' : 'Показать скрытые категории'}} ({{(monthData.costs.categoryList | filter:{isHide: true}).length}})</span>
+</div>

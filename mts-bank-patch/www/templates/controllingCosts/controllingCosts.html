@@ -1,0 +1,67 @@
+<ion-view ng-controller="ControllingCostsCtrl" class="no-shadow">
+    <rs-header ng-if="platform=='ios'" lbtn-class="icon-tuning-left" lbtn-action="showBudgetSetting()" rbtn-class="icon-filter" rbtn-action="showBudgetFilter()">Контроль расходов</rs-header>
+    <rs-header ng-if="platform!='ios'" rbtn-class="icon-filter" rbtn-action="showBudgetFilter()">
+        <div class="flex flex-middle flex-between" style="width: 70vw;">
+            <span>Контроль расходов</span>
+        </div>
+        <md-button class="icon-shadow-effect-standart md-icon-button md-button md-ink-ripple second-right-btn" ng-click="showBudgetSetting()">
+            <button class="icon-menu-stand icon-tuning"></button>
+        </md-button>
+    </rs-header>
+    <ion-content class="has-header" wp-ptr="doRefresh()" bg-color="#F0F4F5">
+        <div class="mts-controll-subheader">
+
+            <!-- Карусель для выбора месяца -->
+            <div class="swiper-container mts-controll-month month-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide flex flex-center flex-middle" ng-repeat="month in monthsData | orderBy:sortByChronologicalOrder">
+                        <div class="swiper-slide-inner">{{month.name}}</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Общий итог по расходам (за выбранный месяц, 3 колонки) -->
+            <div class="flex flex-center flex-middle mts-controll-total-budget ">
+                <div class="child-flex-1 flex flex-column flex-center flex-middle mts-controll-total-budget-column">
+                    <div class="child-flex-1 flex flex-center flex-middle">Поступление</div>
+                    <div class="flex">
+                        <span ng-bind="(monthsData[selectedMonthIdx].costs.totalDebit | defaultSum)"></span>
+                        <span currency="RUB"></span>
+                    </div>
+                </div>
+                <div class="child-flex-1 flex flex-column flex-center flex-middle mts-controll-total-budget-column">
+                    <div class="child-flex-1 flex flex-center flex-middle">Списание</div>
+                    <div class="flex">
+                        <span ng-bind="(monthsData[selectedMonthIdx].costs.totalCredit | defaultSum)"></span>
+                        <span currency="RUB"></span>
+                    </div>
+                </div>
+                <div class="child-flex-1 flex flex-column flex-center flex-middle mts-controll-total-budget-column">
+                    <div class="child-flex-1 flex flex-center flex-middle">Итого</div>
+                    <div class="flex">
+                        <span ng-bind="(monthsData[selectedMonthIdx].costs.totalSum | defaultSum)"></span>
+                        <span currency="RUB"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Карусель бубликов -->
+        <div style="width:100vw; overflow: hidden">
+        <div style="width: 170%; margin-left: -35%;">
+            <div class="swiper-container donut-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" ng-repeat="monthData in monthsData | orderBy:sortByChronologicalOrder">
+                        <!-- Бублик -->
+                        <rs-donut rs-donut-data="monthData.donut" style="width:100%; height: 62.5vw;" on-sector-click="onDonutSectorClick(event, sectorIndex, sectorData)"></rs-donut>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <expense-monthly-data rs-waiter="monthsData[selectedMonthIdx].costs" ng-show="selectedMonthIdx==d.idx" ng-repeat="d in monthsData track by d.idx" month-data="d"></expense-monthly-data>
+
+        <ion-refresher on-refresh="doRefresh()" pulling-icon=""></ion-refresher>
+    </ion-content>
+</ion-view>

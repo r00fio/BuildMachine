@@ -1,0 +1,171 @@
+<div class="operations"> <!-- ng-controller="OperationsCtrl"> -->
+	<div class="operations-notice">
+		<div class="operations-notice-img-div">
+			<div class="operations-notice-img"></div>
+		</div>
+		<div class="operations-notice-label-div">
+			<div>
+				<div>
+					<label class="operations-notice-value">{{currentCardId}}</label>
+				</div>
+				<div>
+					<label class="operations-notice-desc">ID Карты</label>
+				</div>
+			</div>
+		</div>	
+	</div>
+	<div class="operations-notice">
+		<div class="operations-notice-img-div">
+			<div class="operations-notice-img"></div>
+		</div>
+		<div class="operations-notice-label-div">
+			<div>
+				<div>
+					<label class="operations-notice-value">{{currentCardName}}</label>
+				</div>
+				<div>
+					<label class="operations-notice-desc">Наименование Карты</label>
+				</div>
+			</div>
+		</div>	
+	</div>
+	<div class="operations-notice">
+		<div class="operations-notice-img-div">
+			<div class="operations-notice-img"></div>
+		</div>
+		<div class="operations-notice-label-div">
+			<div>
+				<div>
+					<label class="operations-notice-value">{{currentCardBalance}}</label>
+				</div>
+				<div>
+					<label class="operations-notice-desc">БАЛАНС</label>
+				</div>
+			</div>
+		</div>	
+	</div>
+	<div class="operations-notice">
+		<div class="operations-notice-img-div">
+			<div class="operations-notice-img"></div>
+		</div>
+		<div class="operations-notice-label-div">
+			<div>
+				<div>
+					<label class="operations-notice-value">{{currentCardTotalDebt}}</label>
+				</div>
+				<div>
+					<label class="operations-notice-desc">Задолженность</label>
+				</div>
+			</div>
+		</div>	
+	</div>
+	<div class="operations-btn">
+	    <div class="operations-pay-btn">
+	    	<label class="operations-btn-label">ОПЛАТИТЬ</label>
+	    </div>
+    	<div class="operations-refill-btn">
+    		<label class="operations-btn-label">ПОПОЛНИТЬ</label>
+    	</div>
+    	<div class="operations-trans-btn">
+    		<label class="operations-btn-label">ПЕРЕВЕСТИ</label>
+    	</div>
+	</div>
+	<div class="operations-list">
+		<div class="date-div">
+			<label>12 сентября, сегодня</label>
+		</div>
+		<div class="operation-element">
+			<div class="operation-div">
+				<div class="operation-img"></div>
+				<div class="operation-info">
+					<div class="operation-info-div">
+						<div>
+							<label class="operation-name">Перевод на карту сбербанка</label>
+						</div>
+						<div>
+							<label class="operation-desc">4579 **** **** 4511</label>
+						</div>
+					</div>
+				</div>				
+			</div>
+			<div class="operation-value">
+				<label class="operation-value-negative">- 20 200 ₽</label>
+			</div>
+		</div>
+		<div class="operation-element">
+			<div class="operation-div">
+				<div class="operation-img"></div>
+				<div class="operation-info">
+					<div class="operation-info-div">
+						<div>
+							<label class="operation-name">Пополнение счета</label>
+						</div>
+						<div>
+							<label class="operation-desc">4579 **** **** 4511</label>
+						</div>
+					</div>
+				</div>				
+			</div>
+			<div class="operation-value">
+				<label class="operation-value-positive">+ 20 200 ₽</label>
+			</div>
+		</div>
+		<div class="date-div">
+			<label>11 сентября, вчера</label>
+		</div>
+		<div class="operation-element">
+			<div class="operation-div">
+				<div class="operation-img"></div>
+				<div class="operation-info">
+					<div class="operation-info-div">
+						<div>
+							<label class="operation-name">Магазин "Ашан"</label>
+						</div>
+						<div>
+							<label class="operation-desc">4579 **** **** 4511</label>
+						</div>
+					</div>
+				</div>				
+			</div>
+			<div class="operation-value">
+				<label class="operation-value-negative">- 748 ₽</label>
+			</div>
+		</div>
+		<div class="operation-element">
+			<div class="operation-div">
+				<div class="operation-img"></div>
+				<div class="operation-info">
+					<div class="operation-info-div">
+						<div>
+							<label class="operation-name">Зак Галифианакис</label>
+						</div>
+						<div>
+							<label class="operation-desc">Ну ты понял, бро!</label>
+						</div>
+					</div>
+				</div>				
+			</div>
+			<div class="operation-value">
+				<label class="operation-value-positive">+ 500 ₽</label>
+			</div>
+		</div>
+		<div class="operation-element">
+			<div class="operation-div">
+				<div class="operation-img"></div>
+				<div class="operation-info">
+					<div class="operation-info-div">
+						<div>
+							<label class="operation-name">Шаблон "Себе на телефон"</label>
+						</div>
+						<div>
+							<label class="operation-desc">4579 **** **** 4511</label>
+						</div>
+					</div>
+				</div>				
+			</div>
+			<div class="operation-value">
+				<label class="operation-value-negative">- 200 ₽</label>
+			</div>
+		</div>
+	</div>
+</div>

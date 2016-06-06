@@ -1,0 +1,4528 @@
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url("../fonts/ios/HelveticaNeue/HelveticaNeue.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "HelveticaNeue-Bold";
+    src: url("../fonts/ios/HelveticaNeue/HelveticaNeue-Bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "HelveticaNeue-Medium";
+    src: url("../fonts/ios/HelveticaNeue/HelveticaNeue-Medium.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "HelveticaNeue-Light";
+    src: url("../fonts/ios/HelveticaNeue/HelveticaNeue-Light.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "HelveticaNeue-Thin";
+    src: url("../fonts/ios/HelveticaNeue/HelveticaNeue-Thin.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url("../fonts/ios/HelveticaNeue/HelveticaNeue-Light.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "CirceRegular";
+    src: url("../fonts/ios/Circe/CRC55.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "CirceRegular";
+    src: url("../fonts/ios/Circe/CRC35.otf") format("opentype");
+    font-style: normal;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "CirceLight";
+    src: url("../fonts/ios/Circe/CRC35.otf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+body {
+    font-family: "Helvetica Neue", "Helvetica Neue Light", "HelveticaNeue-Light", Helvetica, Arial, "Lucida Grande", sans-serif;
+    color: #202426;
+}
+
+ion-content { background-color: #f0f4f5; }
+
+/* Топбар + кнопки BEGIN */
+.bar-header {
+    background: #24A7B3 none;
+}
+
+.bar-header .title {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: "Helvetica Neue Medium", "HelveticaNeue-Medium", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: normal;
+    left: 0 !important;
+    right: 0 !important;;
+}
+
+.bar-header .button,
+.bar-header .button:active {
+    width: 31px;
+    background-position: center !important;
+}
+
+.bar-header .button-icon.button-icon,
+.bar-header .button-icon.button-icon:active {
+    background-size: 17px 17px;
+}
+/* Левая кнопка в топбаре */
+.bar-header .button.button-icon:first-child {
+    margin-left: 8px;
+}
+.bar-header .button.icon-back {
+    margin-left: 6px;
+}
+
+.bar-header .button.icon-back,
+.bar-header .button.icon-back:active {
+    background-size: 10px 16px;
+}
+.bar-header .button.icon-route,
+.bar-header .button.icon-route:active {
+    background-size: 13px;
+}
+.bar-header .button.icon-header-arrow {
+    background-size: 10px;
+    -webkit-transition: -webkit-transform 300ms ease;
+    transition: transform 300ms ease;
+}
+.bar-header .button.icon-header-arrow-up {
+    -webkit-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+}
+.bar-header .button.icon-menu-more {
+    margin-right: 3px;
+}
+
+.bar-header .button-icon.button-icon-tuning,
+.bar-header .button-icon.button-icon-tuning:active {
+    background-size: 13px 13px;
+}
+
+/* Правая кнопка в топбаре */
+.bar-header .title + .button:last-child {
+    right: 13px;
+}
+.bar-header .title + .button.icon-route:last-child {
+    right: 10px;
+}
+
+.bar-header button+.title {
+    margin: 0 45px;
+}
+
+/* Топбар + кнопки END */
+
+.white-spinner .spinner-ios {
+    stroke: white;
+}
+
+[currency="RUB"] .currency {
+    font-family: "CirceRegular", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+[currency="RUB"] .currency-light .currency,
+.mts-category-budget-subheader [currency="RUB"] .currency {
+    font-family: "CirceLight", "Helvetica Neue Light", "HelveticaNeue-Light", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+/* --------------- colors ----------------- */
+.text-seagreen { color: #24A7B3; }
+.text-gray { color: #A1AEB3; }
+
+/* --------------- bg colors ----------------- */
+.bg-seagreen { background-color: #24A7B3; }
+
+.overflow-faded {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.overflow-faded::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 100%;
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.2), rgb(255, 255, 255));
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgb(255, 255, 255));
+}
+.activated .overflow-faded::after {
+    background: -webkit-linear-gradient(left, rgba(215, 222, 224, 0.2), rgb(215, 222, 224));
+    background: linear-gradient(to right, rgba(215, 222, 224, 0.2), rgb(215, 222, 224));
+}
+
+/* Framework7 checkboxes color */
+label.label-checkbox input[type=checkbox]:checked+.item-media i.icon-form-checkbox,
+label.label-checkbox input[type=radio]:checked+.item-media i.icon-form-checkbox {
+    background-color: #24A7B3;
+}
+
+.bar-header .button.button-icon.icon-small {
+    background-position: center 55%;
+}
+
+/* --------- rs-header popup menu styles START --------- */
+.rs-popup-menu-header {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+    -webkit-transition: -webkit-transform 300ms ease;
+    transition: transform 300ms ease;
+    z-index: 3;
+}
+.rs-atm-filter .item-content,
+.rs-popup-menu .item-content {
+    font-size: 15px;
+}
+.rs-popup-menu-header.rs-popup-menu-visible {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
+.rs-popup-menu-header .list-block { margin: 0; }
+.rs-popup-menu-header .list-block ul { background-color: rgba(255,255,255,0.93); }
+.rs-popup-menu-header .list-block .item-inner .rs-header-menu-item-text {
+    width: 100%;
+    text-align: center;
+}
+/* --------- rs-header popup menu styles END   --------- */
+
+.popup-container .popup {
+    border-radius: 6px;
+    background-color: #F9F9F9;
+}
+
+.popup-container .popup .popup-head { border-bottom: none; }
+
+.popup-container .popup .popup-body {
+    padding: 5px 15px 15px 15px;
+}
+
+.popup-container .popup .popup-body input {
+    border: 1px solid #667980;
+    border-radius: 0;
+    text-indent: 15px;
+}
+
+.popup-container .popup .popup-body input::-webkit-input-placeholder {
+    color: #667980;
+    text-indent: 15px;
+}
+
+.popup-container.alert .popup {
+    width: 270px;
+    color: #000000;
+    background-color: #FFFFFF;
+}
+
+.popup-container.alert .popup .popup-body {
+    white-space: pre-wrap;
+    font-size: 14px;
+    text-align: center;
+}
+
+.popup-container.alert .popup-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.popup-container .popup .popup-buttons {
+    min-height: 45px;
+    font-size: 16px;
+    padding: 0;
+}
+
+.popup-container .popup .popup-buttons .button {
+    border-radius: 0;
+    border: none;
+    border-top: 1px solid lightgray;
+    margin: 0;
+}
+.popup-container .popup .popup-buttons .button:not(:last-child) {
+    border-right: 1px solid lightgray;
+}
+
+.popup-container .popup .popup-buttons .button.activated {
+    background-color: rgba(0,122,255,.15);
+}
+
+.popup-container .popup .popup-buttons .button:hover {
+    color: #007aff;
+}
+
+.rs-panel-header-title {
+    color: white;
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.rs-content-panel-header {
+    text-transform: uppercase;
+    padding: 0 15px;
+    color: #A1AEB3;
+    font-size: 10px;
+    font-weight: normal;
+    line-height: 31px;
+    height: 31px;
+    font-family: "Helvetica Neue Medium", "HelveticaNeue-Medium", Helvetica, Arial, "Lucida Grande", sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.rs-content-panel-body a:not(.swipe-item).activated {
+    background: white !important;
+}
+
+.rs-thermometer-bg, .rs-thermometer-fg {
+    border-radius: 2px;
+}
+
+.modal-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: calc(100% - 64px);
+    background: rgba(24, 35 ,38 , 0.7);
+}
+
+.blur15px {
+    filter: blur(15px);
+     -webkit-filter: blur(15px);
+}
+
+.blur30px {
+    filter: blur(30px);
+    -webkit-filter: blur(30px);
+}
+
+.blur3px {
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+}
+
+.btn-in {
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(36, 167, 179);
+    width: 100%;
+    height: 64px;
+    color: white;
+    font-size: 15px;
+    border: none;
+    z-index: 15;
+}
+
+.btn-in.activated {
+    background-color: #2EC4D1;
+}
+
+.btn-how {
+    position: absolute;
+    bottom: 85px;
+    background-color: rgba(255,255,255,0.2);
+    width: 100%;
+    height: 44px;
+    color: white;
+    font-size: 15px;
+    border: none;
+    font-family: "Helvetica Neue Medium", "HelveticaNeue-Medium", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.btn-how.activated {
+    background-color: rgba(255,255,255,0.5);
+}
+
+.btn-menu {
+    width: 19px;
+    height: 90px;
+    background: url('../img/ios/menu_icon.png') no-repeat center;
+    background-size: 90%;
+    position: absolute;
+    top: 0;
+    right: 25px;
+}
+
+.logo {
+    width: 50%;
+    height: 90px;
+    background: url('../img/ios/logo.png') no-repeat center;
+    background-size: 100%;
+    position: absolute;
+    top: 0;
+    left: 25%;
+}
+
+.slide1 {
+    width: 100vw;
+    height: 100vh;
+    background: url('../img/ios/slide1.png') no-repeat top;
+    background-size: 100%;
+}
+
+.slide2 {
+    width: 100vw;
+    height: 100vh;
+    background: url('../img/ios/slide2.png') no-repeat top;
+    background-size: 100%;
+}
+
+.slide3 {
+    width: 100vw;
+    height: 100vh;
+    background: url('../img/ios/slide3.png') no-repeat top;
+    background-size: 100%;
+}
+
+.slider-text-big {
+    color: #FFFFFF;
+    font-size: 30px;
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.slider-text-small {
+    color: #FFFFFF;
+    font-size: 15px;
+    opacity: 0.6;
+    font-family: "Helvetica Neue Medium", "HelveticaNeue-Medium", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.owl-theme {
+    position: static !important;
+    background: #333;
+}
+
+.owl-theme img.gallery-item {
+    width: 100%;
+}
+
+.owl-theme .owl-controls {
+    position: absolute;
+    width: 100%;
+    bottom: 20%;
+}
+
+.owl-text-theme {
+    position: absolute !important;
+    width: 200% !important;
+    left: -50%;
+    top: 16%;
+}
+
+.owl-text-theme .owl-controls {
+    display: none !important;
+}
+
+.owl-text-theme .gallery-text-item {
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+.owl-theme .owl-controls {
+    position: absolute;
+    width: 100%;
+    bottom: 135px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.owl-theme .owl-controls .owl-page{
+    display: inline-block;
+    zoom: 1;
+}
+.owl-theme .owl-controls .owl-page span{
+    display: block;
+    width: 5px;
+    height: 5px;
+    margin: 3px;
+    opacity: 0.3;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    background: white;
+}
+
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span{
+    opacity: 1;
+}
+
+.rs-button {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    bottom: 0;
+    border-radius: 0 !important;
+    border-color: transparent;
+    background: #24A7B3;
+    color: white;
+    padding: 0;
+}
+
+.rs-button.activated {
+    background-color: #2EC4D1;
+}
+
+.rs-button-red {
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    border-radius: 0 !important;
+    border-color: transparent;
+    background: red !important;
+    color: white;
+    opacity: 1 !important;
+}
+
+.rs-button-page {
+    height: 64px;
+    color: white;
+    margin-top: 39px;
+    width: 100%;
+    border: none;
+    opacity: 1 !important;
+}
+
+.rs-button-page.bg-24A7B3.activated {
+    background-color: #2EC4D1;
+}
+
+.rs-button-del {
+    height: 45px;
+    color: #E63947;
+    font-size: 15px;
+    background-color: white;
+    margin-top: 39px;
+    width: 100%;
+    border-top: 1px solid #CCD5D9;
+    border-bottom: 1px solid #CCD5D9;
+}
+
+.rs-button-del.activated {
+    background-color: #D7DEE0;
+}
+
+.rs-button-space {
+    height: 47px;
+}
+
+.rs-button-demo {
+    height: 45px;
+    color: #667980;
+    font-size: 15px;
+    background-color: white;
+    width: 100%;
+    border-top: 1px solid #CCD5D9;
+    border-bottom: 1px solid #CCD5D9;
+}
+
+.rs-button-demo.activated {
+    background-color: #D7DEE0;
+}
+
+.expandable { text-indent: -9999px; }
+
+.expandable-icon {
+    width: 16px;
+    height: 16px;
+    margin: 0 auto;
+    background: url('../img/ios/btn_hide.svg') no-repeat center center;
+    background-size: 60%;
+}
+
+.not-expandable{
+    font-family: "Helvetica Neue";
+    color: #667980 !important;
+    -webkit-justify-content: center !important;
+}
+
+.not-expandable .expandable-icon{
+    display: none;
+}
+
+.product-slide-box {
+    height: 210px;
+    min-width: 250px;
+    padding-top: 20px;
+}
+
+.product-slide-box i {
+    color: white;
+    font-size: 7px;
+}
+
+.mts-product-carousel .swiper-pagination-bullet {
+    width: 6px;
+    height: 6px;
+    margin: 0 2px;
+}
+.mts-product-carousel .swiper-pagination-bullet.swiper-pagination-bullet-active { background: white; }
+
+.product-block {
+    position: relative;
+    border-radius: 7px;
+    padding: 5px 10px;
+    width: 245px;
+    height: 150px;
+    margin: auto;
+    background: #52C2CC no-repeat;
+    background-size: cover;
+}
+
+/* Фикс для iOS < 8 */
+.ios-7 .product-block {
+    background-size: 100% auto;
+}
+
+.rs-product-carousel-container {
+    width: calc(100% + 500px);
+    margin-left: -250px;
+}
+
+.rs-product-slide-container {
+    padding: 5px 0;
+}
+
+.rs-product-slide-left-link {
+    position: absolute;
+    width: 9px;
+    height: 30px;
+    left: 0;
+    top: 50%;
+    margin-top: -15px;
+    background: url('../img/ios/connect_ico.svg') no-repeat -9px center;
+}
+
+.rs-product-slide-right-link {
+    position: absolute;
+    width: 9px;
+    height: 30px;
+    right: 0;
+    top: 50%;
+    margin-top: -15px;
+    background: url('../img/ios/connect_ico.svg') no-repeat right -9px center;
+}
+
+.product-info {
+    background-color: #24A7B3;
+    /*height: inherit;*/
+}
+.product-info:before, .home-header:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: -100vh;
+    background-color: inherit;
+}
+
+/* Кнопка "Информация" на странице продукта */
+.btn-product-info {
+    width: 50%;
+    height: 65px;
+    border: 1px solid #52C2CC;
+    border-left: none;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.btn-product-info.activated {
+    background-color: #52C2CC;
+}
+
+/* Кнопка "Услуги и сервисы" на странице продукта */
+.btn-product-services {
+    width: 50%;
+    height: 65px;
+    border: 1px solid #52C2CC;
+    border-left: none;
+    border-right: none;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.btn-product-services.activated {
+    background-color: #52C2CC;
+}
+
+/* Длинное название продукта "обрубается" многоточием */
+.product-name {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Продукт - Элемент списка START */
+
+.product-name-list {
+    max-width: calc(100vw - 85px);
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 15px;
+}
+
+.fade {
+    position: absolute;
+    top: 0;
+    width: 40px;
+    height: 100%;
+    background: -webkit-linear-gradient(left, rgba(255, 2255, 255, 0.2), rgb(255, 255, 255));
+    background: linear-gradient(to right, rgba(255, 2255, 255, 0.2), rgb(255, 255, 255));
+}
+
+.icon-status-product {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    background-position: center center;
+    background-size: 10px 10px;
+}
+
+.right-item-product {
+    position: absolute;
+    right: 0;
+    height: 100%;
+}
+
+.card-type-image-product {
+    max-height: 15px;
+    max-width: 40px;
+}
+
+.loan-rest-product {
+    color: #A1AEB3;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    margin-left: 15px;
+}
+
+/* Продукт - Элемент списка END */
+
+/* Размер иконки типа карты Visa or MasterCard*/
+.product-card-type-label {
+    width: 40px;
+    height: 25px;
+    float: right;
+}
+
+.product-card-type-image {
+    max-height: 25px;
+    background-color: #FFF !important;
+    padding: 4px;
+    border-radius: 2px;
+}
+
+/* ячейка таблицы параметров продукта */
+.product-info-cell {
+    height: 45px;
+    border-bottom: 1px solid #52C2CC;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.product-info-row.activated .product-info-cell {
+    background-color: #52C2CC;
+}
+
+/* левый лэйбл название параметра */
+.product-param-name {
+    color: #125359;
+}
+
+/* правый лэйбл значение параметра */
+.product-param-value {
+    font-size: 16px;
+    color: white;
+    white-space: nowrap;
+}
+
+.light-tabs {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    padding: 7px;
+    white-space: nowrap;
+}
+.light-tabs.dark-tab-theme { background-color: #00ACB5; }
+
+.light-tabs .light-tab-title {
+    -webkit-box-flex: 1; /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 1; /* OLD - Firefox 19- */
+    -webkit-flex: 1; /* Chrome */
+    -ms-flex: 1; /* IE 10 */
+    flex: 1;
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    color: #667980;
+    border-left: 1px solid #CCD5D9;
+    border-top: 1px solid #CCD5D9;
+    border-bottom: 1px solid #CCD5D9;
+    text-align: center;
+    padding: 7px;
+    font-size: 13px;
+}
+.light-tabs.dark-tab-theme .light-tab-title{
+    color: rgba(255,255,255,0.5);
+    border-left: 1px solid rgba(255,255,255,0.5);
+    border-top: 1px solid rgba(255,255,255,0.5);
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+.light-tabs .light-tab-title:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.light-tabs .light-tab-title:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-right: 1px solid #CCD5D9;
+}
+.light-tabs.dark-tab-theme .light-tab-title:last-child{
+    border-right: 1px solid rgba(255,255,255,0.5);
+}
+
+.light-tabs .light-tab-title.active {
+    background-color: #CCD5D9;
+}
+.light-tabs.dark-tab-theme .light-tab-title.active {
+    color: white;
+    background-color: rgba(255,255,255,0.5);
+    border: 1px solid transparent;
+}
+
+
+.btn-show-extract {
+    border: none;
+}
+
+.btn-show-extract.activated {
+    background-color: #D7DEE0;
+}
+
+/* кнопка "Пополнить" */
+.btn-refill {
+    position: relative;
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    height: 64px;
+    color: white;
+    background-color: #52C2CC;
+}
+.btn-refill.plain-button-style { background-color: #CCD5D9; }
+.btn-refill.colored-button-style { background-color: #24A7B3; }
+.btn-refill button {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    line-height: 64px;
+    border: none;
+    color: white;
+    background-color: transparent;
+}
+.btn-refill.plain-button-style button { color: #66777F; }
+.btn-refill button.activated { background-color: rgba(255,255,255,0.15); }
+
+.operations {
+    width: 100%;
+    height: 100%;
+    background: #F5F5F5;
+}
+
+.operations-title {
+    width: 100%;
+    height: 8vh;
+    line-height: 8vh;
+    color: #A1AEB3;
+    padding-left: 15px;
+    border-bottom: 1px solid #A1AEB3;
+}
+
+.operation-date {
+    padding-left: 15px;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    white-space: nowrap;
+    color: #A1AEB3;
+    font-size: 12px;
+}
+.operation-date-first {
+    padding-top: 15px;
+}
+
+.operation-date:after {
+    content: '';
+    display: inline-block;
+    position: relative;
+    top: -1px;
+    width: 100%;
+    height: 1px;
+    vertical-align: middle;
+    background: #C8D5D9;
+    left: 10px;
+}
+
+.operation-name {
+    font-size: 15px;
+    color: #363D40;
+    margin-right: 10px;
+    line-height: 20px;
+}
+
+.operation-amount {
+    font-size: 15px;
+    color: #667980;
+    float: right;
+    line-height: 20px;
+}
+
+.operation-desc {
+    font-size: 12px;
+    color: #667980;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    width: calc(100vw - 105px);
+    line-height: 20px;
+}
+
+.operation-desc::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 100%;
+    background: -webkit-linear-gradient(left, rgba(255, 2255, 255, 0.2), rgb(255, 255, 255));
+    background: linear-gradient(to right, rgba(255, 2255, 255, 0.2), rgb(255, 255, 255));
+}
+
+.operation-category {
+    font-size: 12px;
+    color: #A1AEB3;
+    line-height: 20px;
+}
+
+.operation-category-name {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.operation-hold {
+    float: right;
+    margin-top: 4px;
+}
+
+.operation-category-point {
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.operation-logo-container {
+    position: relative;
+}
+.operation-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+}
+img.operation-logo {
+    display: block;
+}
+
+.operation-logo-svg {
+    width: 35%;
+    height: 35%;
+}
+
+.searchbar { background: #D7DEE0; }
+.searchbar .searchbar-input { height: 30px; }
+
+.has-rs-button {
+    bottom: 64px;
+}
+
+/* --------- Framework7 list view overrides --------- */
+.list-block {
+    font-size: small !important;
+}
+
+.list-block .swipe-item {
+    background-size: 16px 16px !important;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.list-block .swipeout-actions-left .swipe-item {
+    background-position: right 10px center !important;
+    padding: 0 36px 0 10px !important;
+}
+
+.list-block .swipeout-actions-right .swipe-item {
+    background-position: 10px center !important;
+    padding: 0 10px 0 36px !important;
+}
+
+.list-block .swipe-item-gray {
+    color: #667980 !important;
+    background-color: #CCD6D9 !important;
+}
+
+.list-block .swipe-item-red {
+    color: white !important;
+    background-color: #E63948 !important;
+}
+
+.list-block .swipe-item-seagreen {
+    color: white !important;
+    background-color: #24A7B3 !important;
+}
+
+.list-block .item-input input,
+.list-block .item-input textarea {
+    font-size: 100%;
+}
+
+.list-block .item-button .button {
+    border-radius: 0;
+    border-color: transparent;
+    color: #202426;
+    margin: 0;
+}
+
+.list-block a.item-content.activated {
+    background-color: #D7DEE0 !important;
+}
+
+.list-block .item-content.activated {
+    background-color: #D7DEE0 !important;
+}
+
+.content-block-title {
+    margin-top:10px;
+}
+
+.content-block-title.empty-title {
+    margin-top:26px;
+}
+
+.product-list-card-type-visa {
+    background-size: 35px !important;
+    background-position: right center !important;
+}
+
+.product-list-card-type-mastercard {
+    background-size: 30px !important;
+    background-position: right center !important;
+}
+
+.product-list-card-type-unionpay {
+    background-size: 27px !important;
+    background-position: right center !important;
+}
+
+.rs-panel-header-close-btn {
+    background-size: 80% !important;
+    background-position: center center !important;
+}
+
+.rs-panel-header-send-btn {
+    background-size: 80% !important;
+    background-position: center center !important;
+}
+
+.loan-common-info {
+    background: #24A7B3;
+}
+.loan-common-info .table-fixed-width100pc{
+    border-collapse: collapse;
+}
+.loan-common-info .loan-common-info-menu{
+    text-align: center;
+}
+.loan-common-info .loan-common-info-menu .table-cell{
+    border: 1px solid #52C2CC;
+}
+.loan-common-info .table-cell{
+    padding: 10px;
+}
+
+.issue-product-icon-positive {
+    width: 13px;
+    background-size: 100% 100% !important;
+}
+
+.req-title-size {
+    font-size: 15px;
+}
+
+.item-title.text-wrap {
+    white-space: pre-line;
+}
+
+.item-list-toggle {
+    border: none;
+    height: 50px;
+    padding-right: 40px;
+}
+
+.item-list-toggle label.toggle {
+    right: 0;
+}
+
+.content-block-title {
+    font-weight: bold;
+    font-size: 12px;
+    white-space: pre-line;
+    line-height: 1.4;
+}
+
+.content-block-title,
+.list-block .list-block-label,
+.list-block .item-after,
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #A1AEB3;
+}
+
+/* Анимация searchbar'а */
+/*
+.searchbar input[type="search"] {
+    transition: background-position-x 0.3s ease, color 0s 0.4s;
+}
+
+.searchbar input[type="search"]::-webkit-input-placeholder {
+    transition: padding-left 0.3s ease;
+}
+
+.searchbar input[type="search"]:required:not(:focus):not(:valid) {
+    background-position-x: calc(50% - 23px);
+    color: transparent;
+}
+
+.searchbar input[type="search"]:required:not(:focus)::-webkit-input-placeholder {
+    padding-left: calc(50% - 10px);
+}
+*/
+
+.rs-spotlight-wrapper {
+    height: 44px;
+    background-color: #C8D5D9;
+    width: 100%;
+    padding: 8px;
+    position: relative;
+    z-index: 2;
+}
+.rs-spotlight {
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+input.rs-spotlight-search::-webkit-input-placeholder {
+}
+input.rs-spotlight-search-placeholder {
+    color: #B0BBBF;
+    font-size: 13.5px;
+}
+.rs-spotlight-placeholder {
+    position: relative;
+    left: -50%;
+    top: 0;
+    color: #B0BBBF;
+    font-size: 13.5px;
+    margin-top: 5px;
+    padding-left: 28px;
+    background-repeat: no-repeat;
+    background-position: 8px center;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2013%2013'%20enable-background%3D'new%200%200%2013%2013'%3E%3Cg%3E%3Cpath%20fill%3D'%23B0BBBF'%20d%3D'M5%2C1c2.2%2C0%2C4%2C1.8%2C4%2C4S7.2%2C9%2C5%2C9S1%2C7.2%2C1%2C5S2.8%2C1%2C5%2C1%20M5%2C0C2.2%2C0%2C0%2C2.2%2C0%2C5s2.2%2C5%2C5%2C5s5-2.2%2C5-5S7.8%2C0%2C5%2C0%20L5%2C0z'%2F%3E%3C%2Fg%3E%3Cline%20stroke%3D'%23B0BBBF'%20stroke-miterlimit%3D'10'%20x1%3D'12.6'%20y1%3D'12.6'%20x2%3D'8.2'%20y2%3D'8.2'%2F%3E%3C%2Fsvg%3E");
+    -webkit-background-size: 13px 13px;
+    background-size: 13px 13px;
+    white-space: nowrap;
+    transition: left 0.3s ease;
+}
+.rs-spotlight-placeholder.hidden {
+    width: 0;
+    overflow: hidden;
+}
+.rs-spotlight-placeholder-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 1;
+    transition: left 0.3s ease;
+}
+.rs-spotlight.active .rs-spotlight-placeholder,
+.rs-spotlight.active .rs-spotlight-placeholder-container {
+    left: 0;
+}
+input.rs-spotlight-search {
+    height: 100%;
+    font-size: 13.5px;
+    line-height: 100%;
+    background-color: transparent;
+    padding: 0;
+    padding-left: 28px;
+    margin: auto;
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    color: transparent;
+}
+.rs-spotlight.active input.rs-spotlight-search {
+    transition: color 0s 0.3s;
+    color: inherit;
+}
+
+.list-block .item-link .item-inner {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%2060%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'm60%2061.5-38.25%2038.25-9.75-9.75%2029.25-28.5-29.25-28.5%209.75-9.75z'%20fill%3D'%23D8DFE1'%2F%3E%3C%2Fsvg%3E");
+}
+
+.icon-not-found {
+    background-size: 10px !important;
+    background-position: right center !important;
+}
+
+.list-block .fw7-li-multiline .item-title {
+    color: #A1AEB3;
+    font-size: smaller;
+}
+
+.list-block .item-after .item-input input {
+    text-align: right;
+}
+
+.list-block .fw7-li-multiline .fw7-li-content-text {
+    white-space: normal;
+}
+
+.picture-graduate {
+    position: absolute;
+    top: 65%;
+    left: 45%;
+    height: 16px;
+}
+
+.list-block .icon-selected {
+    width: 12px;
+    height: 10px;
+    background-size: 100% !important;
+    background-position: right center !important;
+}
+
+.theme-mts label.label-radio input[type=radio]:checked~.item-inner {
+    background-image: url('../img/ios/selected.svg') !important;
+}
+
+.input-keyboard {
+    width: 100%;
+    background: #FFF;
+    display: table;
+}
+
+.row-keyboard {
+    height: 48px;
+    width: 100%;
+    display: table-row;
+    flex-wrap: nowrap;
+    border-bottom: 1px solid #CCD5D9;
+}
+
+.row-keyboard > div {
+    width: 33%;
+    border-right: 1px solid #CCD5D9;
+    border-top: 1px solid #CCD5D9;
+}
+
+.key-button {
+    font-size: 22px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 16px;
+}
+.key-button .text {
+    font-size: 12px;
+    line-height: 8px;
+}
+.key-button.activated {
+    background-color: #C8CED5;
+}
+#key-del.key-button {
+    background-color: #C8CED5;
+}
+#key-del.key-button.activated {
+    background-color: #FFFFFF;
+}
+.confirmation-modal {
+    background: rgba(24, 35, 38, 0.7);
+}
+.confirmation-title {
+    font-family: "Helvetica Neue Medium", "HelveticaNeue-Medium", Helvetica, Arial, "Lucida Grande", sans-serif;
+    text-align: center;
+    padding-top: 35px;
+    line-height: 14px;
+}
+.icon-close-confirmation {
+    position: absolute;
+    top: 19px;
+    left: 8px;
+    width: 45px;
+    height: 45px;
+    background-size: 12px 12px;
+    background-position: center;
+}
+.confirmation-type {
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", Helvetica, Arial, "Lucida Grande", sans-serif;
+    text-align: center;
+}
+.confirmation-container {
+    position: relative;
+    margin-top: 56px;
+    width: 100%;
+}
+.confirmation-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+}
+.confirmation-footer .rs-button {
+    position: relative;
+}
+.btn-hint {
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", Helvetica, Arial, "Lucida Grande", sans-serif;
+    height: 64px;
+    color: white;
+    background: transparent !important;
+}
+.btn-hint.activated {
+    color: #24A7B3;
+}
+/* ------------- Главная START ------------- */
+
+.slider-balance .ion-record:before {
+    color: #667980;
+}
+
+/* Наименование Избранного платежа в галерее на Главной странице */
+.favorit-name-main {
+    width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 10px;
+}
+
+.regular-clock {
+    background: url("../img/ios/regular-clock.svg") no-repeat left top;
+    width: 24px;
+    height: 24px;
+    background-size: 24px 24px;
+    position: absolute;
+    right: -6px;
+    top: 0px;
+}
+
+/* Нотификатор/счетчик/badge */
+.counter {
+    position: absolute;
+    height: 20px;
+    min-width: 20px;
+    border-radius: 20px;
+}
+
+.counter label {
+    line-height: 20px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.btn-corona {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background-color: white;
+    border: none;
+}
+
+.btn-corona.activated {
+    background-color: #D7DEE0;
+}
+
+.balance-header {
+    color: #A1AEB3;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.balance-sum {
+    font-size: 40px;
+    font-weight: 300;
+}
+
+.balance-cell-text {
+    color: #8D9DA6;
+    font-size: 12px;
+}
+
+.balance-cell-sum {
+    color: #363D40;
+    font-size: 15px;
+}
+
+.balance-empty-text {
+    font-size: 15px;
+    line-height: 20px;
+    color: #667980;
+}
+
+.balance-empty-btn {
+    color: #24A7B3;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+.slider-balance .slider-pager {
+    bottom: 5px;
+}
+
+.list-empty {
+    background-color: white;
+    border-top: 1px solid #C8D5D9;
+    border-bottom: 1px solid #C8D5D9;
+    padding: 30px 25px;
+
+    text-align: center;
+    color: #A1AEB3;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+/* ------------- Главная END ------------- */
+
+/* ------------- Главное меню START ------------- */
+
+.panel {
+    width: 80vw;
+}
+
+body.with-panel-right-reveal .panel-overlay {
+    margin-left: -80vw;
+}
+
+body.with-panel-right-reveal .views {
+    -webkit-transform: translate3d(-80%, 0, 0);
+    transform: translate3d(-80vw, 0, 0);
+}
+
+.appmenu-content {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    height: 100%;
+    width: 100%;
+}
+
+.appmenu-button {
+    background: none;
+    border: none;
+    height: 40px;
+    width: 100%;
+    padding: 0;
+}
+
+.appmenu-button.activated {
+    background-color: rgba(0,0,0,0.3);
+}
+
+.appmenu-item {
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 15px;
+}
+
+.appmenu-item-text {
+    color: white;
+    font-size: 12px;
+    font-weight: normal;
+    font-family: "Helvetica Neue Bold", HelveticaNeue-Bold;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.appmenu-item-img {
+    height: 100%;
+    width: 18px;
+    margin-right: 8px;
+}
+
+.appmenu-item-animated {
+    -webkit-animation-duration: 0.1s;
+    animation-duration: 0.1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+}
+
+@-webkit-keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.fadeInRight {
+    -webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight;
+}
+
+.tabbar-menu {
+    height: 18px;
+    width: 20px;
+}
+
+.tabbar-menu-div {
+    height: 2px;
+    width: 100%;
+    background-color: #E1E4E6;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transform-origin: center;
+    -webkit-transform-origin: center;
+}
+
+.icon-tabbar-menu-selected .tabbar-menu-div {
+    background-color: #24A7B3;
+}
+
+.tabbar-menu-div1-step1 {
+    transform: translateY(8px);
+    -webkit-transform: translateY(8px);
+    background-color: #24A7B3;
+}
+
+.tabbar-menu-div3-step1 {
+    transform: translateY(-8px);
+    -webkit-transform: translateY(-8px);
+    background-color: #24A7B3;
+}
+
+.tabbar-menu-div1-step2 {
+    transform: translateY(8px) rotate(45deg);
+    -webkit-transform: translateY(8px) rotate(45deg);
+}
+
+.tabbar-menu-div3-step2 {
+    transform: translateY(-8px) rotate(-45deg);
+    -webkit-transform: translateY(-8px) rotate(-45deg);
+}
+/* ------------- Главное меню END ------------- */
+
+/* ------------- Контроль расходов START ------------- */
+.mts-controll-subheader {
+    background-color: white;
+    border-bottom: 1px solid #c8c7cc;
+}
+.mts-controll-month {
+    height: 42px;
+    margin:0 50px;
+}
+.mts-controll-month:after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,1)), color-stop(50%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 50%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 50%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 50%,rgba(255,255,255,1) 100%); /* IE10+ */
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 50%,rgba(255,255,255,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
+}
+.mts-controll-month .swiper-slide .swiper-slide-inner {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mts-controll-month .swiper-slide.swiper-slide-active { font-size: 17px;}
+
+.mts-controll-total-budget {
+    height: 54px;
+}
+.mts-controll-total-budget-column {
+    height: 100%;
+    border-top: 1px solid #c8c7cc;
+    padding: 5px 0;
+}
+.mts-controll-total-budget-column:not(:last-child) {
+    border-right: 1px solid #c8c7cc;
+}
+.mts-controll-total-budget-column div:first-child {
+    color: #667980;
+    font-size: 12px;
+}
+.mts-controll-category {
+    height: 80px;
+}
+.mts-controll-category-highlight {
+    background-color: rgba(62, 215, 159, 0.3);
+}
+.mts-controll-category-header { font-size: 15px; }
+.mts-controll-therm-bg {
+    background-color: #CCD5D9;
+}
+.mts-controll-kat {
+    height: 64px;
+    color: #66777F;
+    background-color: #D6DEE1;
+}
+.payment-category-logo svg,
+.payment-category-logo-img {
+    height: 13vw;
+    width: 13vw;
+}
+
+.payment-category-logo svg path, .payment-category-logo svg g {
+    fill: #24A7B3;
+}
+.mts-category-budget-subheader.bar-subheader { height: 56px; }
+.mts-category-budget-subheader .title {
+    color: rgba(255,255,255,0.8);
+    font-size: 30px !important;
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: normal;
+}
+.mts-controll-filter-result {
+    height:84px;
+    background-color:white;
+    border-bottom:1px solid #c8c7cc;
+}
+.mts-controll-filter-result-period {
+    font-size: 120%;
+}
+.mts-controll-filter-result-amount {
+    font-size: 120%;
+    color: #667980;
+}
+/* ------------- Контроль расходов END   ------------- */
+
+/* ------------- Настройки бюджета START ------------- */
+.list-block.setting-budget .item-input input {
+    text-align: left;
+    font-size: 13px;
+    color: #24A7B3;
+}
+/* ------------- Настройки бюджета END   ------------- */
+
+/* ------------- Платежи и переводы START   ------------- */
+.payments-main-table-row {
+    width: 100vw;
+    height: 33vw;
+    font-size: 10px;
+}
+
+.payments-main-table-cell-lr {
+    width: 33vw;
+    vertical-align: middle;
+    text-align: center;
+    height: 33vw;
+    border-top: 1px solid #CCD5D9;
+}
+
+.payments-main-table-cell-center {
+    width: 34vw;
+    vertical-align: middle;
+    text-align: center;
+    height: 33vw;
+    border: 1px solid #CCD5D9;
+    border-bottom: none;
+}
+
+.payments-main-table-cell-second-lr {
+    width: 33vw;
+    vertical-align: middle;
+    text-align: center;
+    height: 33vw;
+    border-top: 1px solid #CCD5D9;
+    border-bottom: 1px solid #CCD5D9;
+}
+
+.payments-main-table-cell-second-center {
+    width: 34vw;
+    vertical-align: middle;
+    text-align: center;
+    height: 33vw;
+    border: 1px solid #CCD5D9;
+}
+
+.payment-flex-container {
+    border-top: 1px solid #C7D4D9;
+    font-size: 10px;
+    line-height: 10px;
+    color: #363D40;
+    overflow: hidden;
+    position: relative;
+    /*
+    width: calc(100% + 2px);
+    transform: translateX(-1px);
+    */
+}
+
+.payment-flex-item {
+    /*
+    width: calc(100% / 3);
+    */
+    width: 33.3333vw;
+    min-height: 33.3333vw;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 20px 5px 10px 5px;
+    border-bottom: 1px solid #C7D4D9;
+    position: relative;
+}
+
+.payment-flex-item:before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    right: -1px;
+    top: 0;
+    background-color: #C7D4C9;
+}
+
+.payment-flex-item img,
+.payment-flex-item svg {
+    height: 12.5vw;
+    width: auto;
+    margin-bottom: 15px;
+}
+
+.payments-waiter {
+    height: 33.3333vw;
+    width: 100%;
+}
+
+.payments-operations {
+    margin-bottom: 32px;
+}
+
+.favorite-button {
+    font-weight: normal;
+    background: #CCD5D9;
+    height: 64px;
+    vertical-align: middle;
+    color: #66777F;
+    font-size: 15px;
+}
+
+/* ------------- Платежи и переводы END   ------------- */
+
+/* ------------- Категории START   ------------- */
+
+.category-subheader label {
+    font-size: 30px;
+}
+
+/* ------------- Категории END   ------------- */
+
+/* ------------- Настройки START   ------------- */
+
+.item-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+
+.bg {
+    width: 42.5vw;
+    height: 76vw;
+}
+
+.bg div {
+    width: 42.5vw;
+    height: 76vw;
+    position: absolute;
+}
+
+.bg-select div {
+    opacity: 0.4;
+}
+
+.bg-select:after {
+    display: block;
+    content: "";
+    width: 25px;
+    height: 25px;
+    background-image: url('../img/ios/bg-select.svg') !important;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    top: calc(100% - 25px - 5vw);
+    left: calc(100% - 25px - 5vw);
+}
+
+.setting-personal-label {
+    color: #A1AEB3;
+    font-size: 15px;
+    line-height: 20px;
+    padding: 35px;
+    text-align: center;
+}
+
+.inaccessible-data-label {
+    color: #A1AEB3;
+    font-size: 15px;
+    line-height: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.attention-img {
+    width: 70px;
+    height: 70px;
+}
+
+.confirm-method-text {
+    font-size: 15px;
+    color: #667980;
+    line-height: 23px;
+    text-align: center;
+    padding: 15px 50px 30px 50px;
+}
+
+.icon-back-short-code {
+    position: absolute;
+    top: 3vh;
+    width: 10vh;
+    height: 10vh;
+    background-size: 32px 20px;
+    background-position: center;
+}
+
+.short-code-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: white;
+    opacity: 0.3;
+    margin: 3vh 10px 2vh 10px;
+}
+
+.short-code-indicator.full  {
+    opacity: 1;
+}
+
+.ios-7 .ios7fix {
+    width: 45vh;
+}
+
+.digit-content.activated {
+    background-color: rgba(255, 255, 255, 1);
+    color: #202426;
+}
+
+.backspace {
+    width: 100%;
+    height: 100%;
+    background: url('../img/ios/backspace_1.svg') no-repeat center;
+    background-size: 100% 16px;
+}
+
+.ios-7 .backspace{
+    width: 11.3vh;
+    height: 11.3vh;
+}
+
+.digit-content.activated .backspace {
+    background: url('../img/ios/backspace_2.svg') no-repeat center;
+    background-size: 100% 16px;
+}
+
+.code-date-input {
+    font-size: 15px;
+}
+
+.code-date-input input::-webkit-input-placeholder {
+    font-size: 12px;
+}
+
+.touch-id {
+    width: 75%;
+    height: 75%;
+    background: url('../img/ios/fingerprint-key.svg') no-repeat center;
+    background-size: 70%;
+    opacity: 0.8;
+}
+
+/* ------------- Настройки end   ------------- */
+
+/* ------------- Инфосервисы: банк идей START ------------- */
+.rs-idea-container {
+    border-top: 1px solid #98ACB3;
+    border-bottom: 1px solid #98ACB3;
+    background: white;
+    padding: 0 0 0 50px;
+    margin: 10px 0;
+}
+
+.rs-idea-container-avatar {
+    position: absolute;
+    width:40px;
+    height:40px;
+    border-radius:100%;
+    margin:40px 0 0 -45px;
+    background:url('../img/ios/avatar.svg') no-repeat;
+    background-size: contain;
+    overflow: hidden;
+}
+
+.rs-idea-container-header, .rs-idea-container-footer {
+    height: 40px;
+}
+
+.rs-idea-container-date {
+    color:#98ACB3;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.rs-idea-container-new {
+    margin: auto 15px auto auto;
+    overflow: hidden;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background: #0D86FE;
+}
+
+.rs-idea-container-title {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.5em;
+    margin: 0 0 15px 0;
+    padding-right: 15px;
+}
+
+.rs-idea-container-body {
+    font-size: 12px;
+    line-height: 1.7em;
+    padding-right: 15px;
+    color:#98ACB3;
+
+    /* Multiline ellipsis */
+    overflow: hidden;
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    /* height: 59px; */ /* fonts-size * line-height * -webkit-line-clamp - line-height*/
+    /*transition:0.1s linear height;*/
+}
+
+.rs-idea-container-body-expanded {
+    display: block;
+    /*height: 120px;*/
+}
+
+.rs-idea-container-footer-pro {
+    margin: auto 0;
+    padding-left: 20px;
+    height: 22px;
+    background: url('../img/ios/like-gray.svg') no-repeat;
+    background-size: 17px 17px;
+    line-height: 1.5em;
+}
+.rs-idea-container-footer-pro.rs-idea-my-answer {
+    background-image: url('../img/ios/like.svg');
+}
+
+.rs-idea-container-footer-contra {
+    margin: auto 20px;
+    padding-left: 20px;
+    height: 22px;
+    background: url('../img/ios/dislike-gray.svg') no-repeat 0 5px;
+    background-size: 17px 17px;
+    line-height: 1.5em;
+}
+.rs-idea-container-footer-contra.rs-idea-my-answer {
+    background-image: url('../img/ios/dislike.svg');
+}
+
+.rs-idea-container-footer-more {
+    margin: auto 15px auto auto;
+    overflow: hidden;
+    width: 20px;
+    height: 20px;
+    background: url('../img/ios/arrow-down-filled.svg') no-repeat center center;
+    background-size: 50%;
+
+    -webkit-transition: 0.1s linear -webkit-transform;
+    transition:0.1s linear transform;
+}
+
+.rs-idea-container-footer-more-rotate {
+    -webkit-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+}
+/* ------------- Инфосервисы: банк идей END ------------- */
+
+/* ----------- Инфосервисы: Курсы валют START ---------- */
+.cur-rate-table {
+    width: 100%;
+    box-sizing: border-box;
+    table-layout: fixed;
+}
+
+.cur-rate-table .table-row { height:44px; }
+.cur-rate-table .table-row.cur-rate-table-header { height:36px; }
+
+.cur-rate-table-header {
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #A1AEB3;
+}
+
+.cur-rate-table-header .table-cell.selected-col {
+    position: relative;
+    color: #202426;
+}
+
+.cur-rate-table-header .table-cell.selected-col:after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: #202426;
+}
+
+.cur-rate-table > div:first-child > div, .cur-rate-table > div:last-child > div {
+    border-bottom: 1px solid #CCD5D9;
+}
+
+.cur-rate-table > div.table-row:last-child > div.table-cell.selected-col {
+    border-bottom: none;
+}
+
+.cur-rate-table > div.table-row > div.table-cell.selected-col {
+    border-left: 1px solid #CCD5D9;
+    border-right: 1px solid #CCD5D9;
+}
+
+.cur-rate-table > div > div {
+    vertical-align: middle;
+    text-align: center;
+    width: 25%;
+    height: 30px;
+}
+
+.cur-name-cell {
+    font-weight: bold;
+    color: #202426;
+}
+
+.currate-period-select .currate-active-period {
+    position: relative;
+    color: #202426;
+}
+
+.currency-rates-graph .jqplot-axis, .currency-rates-graph .jqplot-xaxis-tick {
+    font-size: 0.75em;
+    font-family: OpenSansBold;
+    font-size: 14px;
+    color: #363D40;
+}
+
+.currency-rates-graph .jqplot-xaxis {
+    margin-top: 10px;
+}
+
+.currency-rates-graph .jqplot-highlighter-tooltip {
+    border: 0;
+    white-space: nowrap;
+    background: #ffffff;
+    padding: 0px;
+}
+
+/* ----------- Инфосервисы: Курсы валют END ------------ */
+
+/* ----------- Инфосервисы: Новости и уведомления START ------------ */
+/* Объявления */
+.slider-news {
+    width: 100%;
+}
+.slider-news .ion-record:before {
+    color: white;
+}
+.slider-news .news-slide {
+    height: 194px;
+}
+.slider-news .news-slide-content {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+}
+.slider-news .news-title {
+    height: 40px;
+    overflow: hidden;
+    line-height: 20px;
+    font-size: 18px;
+    color: white;
+}
+.slider-news .news-text {
+    /* Multiline ellipsis */
+    overflow: hidden;
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    height: 60px;
+    margin-top: 10px;
+    line-height: 20px;
+    font-size: 15px;
+    opacity: 0.7;
+    color: white;
+}
+
+/* Новости */
+.rs-news-container {
+    border-top: 1px solid #98ACB3;
+    border-bottom: 1px solid #98ACB3;
+    background: white;
+    padding: 0 0 0 50px;
+}
+
+.rs-news-icon-container {
+    position: absolute;
+    width:40px;
+    height:40px;
+    border-radius:100%;
+    margin:40px 0 0 -45px;
+    overflow: hidden;
+}
+
+.rs-news-container-header, .rs-news-container-footer {
+    height: 40px;
+}
+
+.rs-news-container-date {
+    color:#98ACB3;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.rs-news-container-new {
+    margin: auto 15px auto auto;
+    overflow: hidden;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background: #0D86FE;
+}
+
+.rs-news-container-title {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.5em;
+    margin: 0 0 15px 0;
+    padding-right: 15px;
+}
+
+.rs-news-container-body {
+    font-size: 12px;
+    line-height: 1.7em;
+    padding-right: 15px;
+    color:#98ACB3;
+
+    /* Multiline ellipsis */
+    overflow: hidden;
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    /* height: 59px; */ /* fonts-size * line-height * -webkit-line-clamp - line-height*/
+}
+
+/* Уведомления */
+.rs-notice {
+    padding: 15px;
+    border-bottom: 1px solid #98ACB3;
+}
+.has-fixed-button .scroll {
+    padding-bottom: 64px;
+}
+.rs-notice .rs-notice-date { color: #98ACB3; padding: 10px 0; }
+.rs-notice .rs-notice-type {}
+.rs-notice .rs-notice-message { color: #98ACB3; }
+.rs-notice .rs-notice-result {
+    padding: 10px 0 10px 20px;
+    background-repeat: no-repeat;
+    background-size: 12px;
+    background-position: left 13px;
+}
+
+.rs-notice .rs-notice-success { color: #2DC85B; background-image: url(../img/ios/positive.svg)}
+.rs-notice .rs-notice-failure { color: #EE102E; background-image: url(../img/ios/negative.svg)}
+
+/* ----------- Инфосервисы: Новости и уведомления END -------------- */
+
+/* ----------- Инфосервисы: Общение с банком (Онлайн чат) START -------------- */
+.rs-online-chat.page { background: unset; }
+.rs-online-chat .message .message-text {
+    white-space: pre-line;
+}
+.rs-online-chat .message-received .message-text {
+    background-color: #52C2CC;
+    color: white;
+    padding: 0;
+}
+.rs-online-chat .message-received .message-text .message-text-inner {
+    margin: 7px 14px 7px 20px;
+}
+.rs-online-chat .message-received .message-text .message-text-inner div {
+    padding-left: 7px;
+}
+.rs-online-chat .message-received .message-text .message-text-inner.message-has-attachments {
+    padding-left: 18px;
+    text-indent: 3px;
+    background: url('../img/ios/attach.svg') no-repeat left top;
+    background-size: 18px 18px;
+}
+.rs-online-chat .message-sent .message-text {
+    background-color: #CCD5D9;
+    color: #667980;
+    padding: 0;
+}
+.rs-online-chat .message-sent .message-text .message-text-inner {
+    margin: 7px 20px 7px 14px;
+}
+.rs-online-chat .message-sent .message-text .message-text-inner div {
+    padding-right: 7px;
+}
+.rs-online-chat .message-sent .message-text .message-text-inner.message-has-attachments {
+    padding-left: 18px;
+    text-indent: 3px;
+    background: url('../img/ios/attach.svg') no-repeat left top;
+    background-size: 18px 18px;
+}
+.rs-online-chat .message.message-pic img { border-radius: 0;}
+.rs-online-chat .messages-date { font-size: 12px; font-weight: bold; color: #A1AEB3; }
+.rs-online-chat .messages-date span { padding-left: 4px; }
+
+.rs-online-chat .toolbar.messagebar { background-color: #CCD6D9; }
+.rs-online-chat .toolbar.messagebar:before {display: none;}
+.rs-online-chat .toolbar.messagebar #link-photo {
+    width: 32px;
+    margin:0 10px;
+    background: url(../img/ios/camera.svg) no-repeat center;
+    background-size: contain;
+}
+.rs-online-chat .toolbar.messagebar #link-send {color: #667980;}
+.rs-online-chat .toolbar.messagebar textarea {border: 1px solid transparent;}
+.rs-online-chat textarea::-webkit-input-placeholder {
+    text-indent: 5px;
+}
+/* ----------- Инфосервисы: Общение с банком (Онлайн чат) END ---------------- */
+
+/* ----------- Инфосервисы: Звонок онлайн START ---------------- */
+.rs-online-call-mute {
+    width:90px;
+    height:90px;
+    background: url(../img/android/mute.svg) no-repeat center center;
+    background-size: 40%;
+    border-radius: 100%;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+.rs-online-call-mute-pressed {
+    background-color: rgba(255,255,255,0.2);
+    border-color: transparent;
+}
+/* ----------- Инфосервисы: Звонок онлайн  END  ---------------- */
+
+/* ----------- Инфосервисы: Контакты и реквизиты банка (Банкоматы и офисы) START -------------- */
+
+.zoom-control {
+    position: absolute;
+    right: 200px;
+    margin-right: 5px;
+    top: calc(50vh + 136px);
+    margin-top: -60px;
+}
+.ios-7 .zoom-control {
+    top: 376px;
+}
+
+.has-ios-tabbar .zoom-control { margin-top: -82px; }
+
+button.icon-zoom-in,
+button.icon-zoom-out {
+    display: block;
+    opacity: 1 !important;
+}
+button.icon-zoom-in {
+    margin-bottom: 20px;
+}
+
+button.offices-result-type {
+    height: 44px;
+    min-height: 44px;
+    position: absolute;
+    border: none;
+    font-size: 15px;
+    border-top: 1px solid rgba(152,172,179,0.5);
+    background: rgba(255,255,255,0.9) !important;
+    color: #24A7B3;
+    opacity: 1 !important;
+    transition: bottom 0.3s ease;
+}
+button.offices-result-type:hover {
+    color: #24A7B3;
+}
+button.offices-result-type.activated {
+    background-color: rgba(215,222,224,0.9) !important;
+}
+button.offices-result-type-hidden {
+    bottom: -44px;
+}
+.rs-geolocation-balloon-panel-up .rs-geolocation-button {
+    top: -65px;
+    transition: top 0.3s ease;
+}
+
+.rs-geolocation-button {
+    position: absolute;
+    top: -105px;
+    left: -3px;
+}
+.rs-geolocation-button img {
+    width: 50px;
+    height: 50px;
+}
+
+.rs-geolocation-balloon-panel {
+    transition: all 0.3s ease-in;
+    position: absolute;
+    background: #FFFFFF;
+    margin: 0 8px;
+    padding: 15px 15px 0 15px;
+    border-radius: 2px;
+    z-index: 2;
+    top: 100%;
+    width: calc(100% - 16px);
+}
+
+.rs-geolocation-balloon-panel-up {
+    transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
+}
+
+.rs-geolocation-balloon-panel-addr {
+    font-size: 15px;
+}
+.rs-geolocation-balloon-panel-desc {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #A1AEB3;
+}
+.rs-geolocation-balloon-panel-hours {
+    color: #A1AEB3;
+    margin-top: 10px;
+    padding-left: 25px;
+    background: url(../img/ios/clock.svg) no-repeat left top;
+    background-size: 16px;
+    font-size: 12px;
+}
+.rs-geolocation-balloon-panel-footer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+
+    margin-top: 10px;
+    padding: 15px 0;
+    border-top: 1px solid rgba(152,172,179,0.5);
+    color: #A1AEB3;
+}
+.rs-geolocation-balloon-panel-footer:before {
+    content: 'Маршрут';
+    color: #24A7B3;
+    padding-left: 20px;
+    background: url(../img/ios/route.svg) no-repeat;
+    background-size: contain;
+}
+
+.rs-geolocation-map {
+    min-height: 122px;
+}
+
+.rs-geolocation-object-property {
+    padding: 5px 0;
+    white-space: normal;
+    font-size: 15px;
+}
+.rs-geolocation-object-property.white-space-pre-line {
+    white-space: pre-line;
+}
+.rs-geolocation-object-property.text-A1AEB3 {
+    font-size: 12px;
+}
+
+.rs-atmsandoffices-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+}
+
+/* Попап с растоянием до офиса */
+.rs-distance-balloon {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    padding: 0 8px;
+    height: 25px;
+    line-height: 25px;
+    color: #667980;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px #667980;
+    background-color: #FFFFFF;
+}
+
+button.icon-zoom-in,
+button.icon-zoom-out,
+button.icon-locate {
+    border: none;
+    background-color: transparent;
+}
+
+/* Банкоматы и офисы */
+.rs-geolocation-list .item-inner {
+    padding-bottom: 3px;
+    min-height: 30px;
+    padding-top: 15px;
+}
+.rs-geolocation-list:after {
+    background-color: #A1AEB3;
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: auto;
+    top: auto;
+    height: 1px;
+    width: 100%;
+    background-color: #c8c7cc;
+    display: block;
+    z-index: 15;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+}
+.rs-geolocation-list .item-title {
+    font-size: 15px;
+}
+.rs-geolocation-list .item-inner {
+    font-size: 12px;
+    background: none !important; }
+.list-block .rs-geolocation-list .item-inner:after {
+    display: none;
+}
+.rs-geolocation-list-address {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #A1AEB3;
+    display: inline;
+    padding-right: 35px;
+    padding-bottom: 15px;
+    font-size: 12px;
+}
+.rs-geolocation-list {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%2060%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'm60%2061.5-38.25%2038.25-9.75-9.75%2029.25-28.5-29.25-28.5%209.75-9.75z'%20fill%3D'%23D8DFE1'%2F%3E%3C%2Fsvg%3E");
+    background-size: 10px 20px;
+    background-repeat: no-repeat;
+    background-position: 95% center;
+    background-position: -webkit-calc(100% - 15px)center;
+    background-position: calc(100% - 15px) center;
+}
+
+/* ----------- Инфосервисы: Контакты и реквизиты банка (Банкоматы и офисы) END ---------------- */
+
+/* ----------- Инфосервисы: Туториал START -------------- */
+.rs-tutorial-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #24A7B3;
+    color: white;
+}
+.rs-tutorial-close {
+    position:absolute;
+    width: 31px;
+    height: 31px;
+    margin: 13px 0 0 13px;
+    background-position: center center;
+    background-size: 50%;
+}
+.rs-tutorial-content {
+    position: absolute;
+    width: 100%;
+    top: 44px;
+    bottom: 64px;
+}
+.rs-tutorial-content .slider-slide { padding: 10px 0 40px 0; }
+.rs-tutorial-content .slider-pager .slider-pager-page { width:12px; }
+.rs-tutorial-content .slider-pager-page { color: white; }
+.rs-tutorial-content .slider-pager-page .ion-record:before { font-size: 10px; }
+
+.rs-tutorial-image {
+    width: 80%;
+    height: 60%;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.rs-tutorial-desc { padding: 25px 10px; }
+.rs-tutorial-caption {
+    text-align: center;
+    font-size: x-large;
+}
+.rs-tutorial-text {
+    text-align: center;
+    opacity: 0.75;
+}
+
+.rs-button.rs-tutorial-bottom-btn { background-color: rgba(255,255,255,0.5); }
+.rs-button.rs-tutorial-bottom-btn.activated { background-color: rgba(255,255,255,0.4); }
+/* ----------- Инфосервисы: Туториал END ---------------- */
+
+/* Инфосервисы: Обслуживание в интернет-банке START */
+.rs-service-container {
+    border-top: 1px solid #98ACB3;
+    background: white;
+    padding: 15px;
+}
+
+.rs-service-container-last {
+    border-bottom: 1px solid #98ACB3;
+}
+
+.rs-service-date {
+    color:#98ACB3;
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.rs-service-title {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.rs-service-desc {
+    font-size: 12px;
+    color:#98ACB3;
+}
+
+.rs-service-solution {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.rs-service-solution-positive {
+    color: #2DC85B;
+}
+
+.rs-service-solution-negative {
+    color: #EB3642;
+}
+
+.rs-service-solution-other {
+    color: #A1AEB3;
+}
+
+.rs-service-solution-icon {
+    width: 13px;
+    background-size: 100% 100% !important;
+    margin-right: 5px;
+}
+
+/* Инфосервисы: Обслуживание в интернет-банке END */
+
+/* ----------- Инфосервисы: Полезные советы START -------------- */
+.rs-tip-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background:rgba(0,0,0,0.8);
+}
+.rs-tip-container {
+    position: relative;
+    overflow: hidden;
+    margin: 30px;
+    background-color: white;
+    padding: 30px 30px 94px 30px;
+    border-radius: 3px 3px 0 0;
+}
+.rs-tip-logo {
+    width: 80px;
+    height: 80px;
+    background: url(../img/ios/quote-ico.svg) no-repeat;
+    background-size: contain;
+    margin:0 auto;
+}
+.rs-tip-caption {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0 10px 0;
+}
+.rs-tip-text {
+    font-size: 16px;
+    color:#98ACB3;
+    text-align: center;
+}
+.rs-tip-button {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 64px;
+    background-color: #24A7B3;
+    color: white;
+    border: none;
+}
+.rs-tip-button:before { content: '\2714'; }
+/* ----------- Инфосервисы: Полезные советы END   -------------- */
+
+/* ----------- Инфосервисы: Справочный центр START   -------------- */
+.rs-tutorscreens-fullsearch {
+    position:absolute;
+    left: 0;
+    top: 88px;
+    width: 100%;
+    bottom: 64px;
+    background-color: #f0f4f5;
+}
+/* ----------- Инфосервисы: Справочный центр END     -------------- */
+
+/* ----------- Лояльность (бонусы, акции и спец предложения) START   -------------- */
+html.ios-gt-6.pixel-ratio-2 .rs-loyalty-bonus .item-content:after {
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+}
+.rs-loyalty-bonus .item-content:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: auto;
+    top: auto;
+    height: 1px;
+    width: 100%;
+    background-color: #c8c7cc;
+    display: block;
+    z-index: 15;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+}
+.rs-loyalty-bonus .item-inner:after { display: none; }
+.rs-loyalty-bonus-name {}
+.rs-loyalty-bonus-desc {
+    white-space: normal;
+}
+
+.rs-promo-list-waiter { background-color: white; }
+.list-block.rs-promo-list ul { background-color: transparent; }
+.list-block.rs-promo-list .item-content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: white;
+}
+.rs-promo-item-period { color:#98ACB3; }
+.rs-promo-item-picture {
+    width: 100%;
+    height: 25vh;
+    margin: 15px 0;
+    background: rgba(0,0,0,0.05) no-repeat center center;
+    background-size: contain;
+}
+.rs-promo-item-desc {}
+
+.list-block .item-inner.rs-points-info {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.rs-bank-partner-picture {
+    width:80px;
+    height:80px;
+    background: transparent no-repeat center center;
+    background-size:contain;
+}
+.rs-bank-partner-desc, .list-block .item-text.rs-bank-partner-desc {
+    height: auto;
+    -webkit-line-clamp: 3;
+    font-size: 100%;
+    white-space: normal;
+}
+.rs-bank-partner-name { font-size: 130%; }
+/* ----------- Лояльность (бонусы, акции и спец предложения) END     -------------- */
+
+/* ------------- Календарь событий start   ------------- */
+
+.rs-calendar .month-name {
+    width: 100%;
+    height: calc(100vw/7);
+    font-size: 18px;
+    line-height: 18px;
+    color: #202426;
+}
+
+.rs-calendar .day-week {
+    width: calc(100vw/7);
+    height: 30px;
+    color: #202426;
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.rs-calendar .day {
+    width: calc(100vw/7);
+    height: calc(100vw/7);
+    color: #363D40;
+    font-size: 18px;
+    line-height: 18px;
+}
+
+.rs-calendar .day-number {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+
+.rs-calendar .today {
+    border: 2px solid #CCD5D9;
+}
+
+.rs-calendar .selected {
+    color: white;
+    background-color: #24A7B3;
+    border: none;
+}
+
+.rs-calendar .day-another-month {
+    color: #CCD5D9;
+}
+
+.rs-calendar .with-events {
+    width: 4px;
+    height: 4px;
+    border-radius: 100%;
+    background-color: #24A7B3;
+}
+
+.month-calendar .days-week {
+    border-bottom: 1px solid #CCD5D9;
+}
+
+.item-img-calendar {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+.icon-close-calendar-events {
+    width: 44px;
+    height: 44px;
+    background-size: 11px;
+    background-position: center;
+    position: absolute;
+}
+
+.date-calendar-events {
+    position: absolute;
+    height: 44px;
+    width: 100%;
+    color: #A1AEB3;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.events-swiper-container {
+    position: absolute;
+    top: calc(44px + 9vw);
+    bottom: 6.5vw;
+    width: 100%;
+}
+
+.events-swiper {
+    height: 100%;
+}
+
+.event-content {
+    background-color: white;
+    position: relative;
+    left: 6.5vw;
+    width: 87vw;
+    height: 100%;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.event-logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    margin-top: 40px;
+}
+
+.event-name {
+    font-size: 20px;
+    line-height: 20px;
+    color: #202426;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.event-product-name {
+    font-size: 13px;
+    line-height: 13px;
+    color: #A1AEB3;
+    margin-top: 13px;
+    text-align: center;
+}
+
+.event-sum {
+    font-size: 30px;
+    line-height: 30px;
+    color: #202426;
+    margin-top: 20px;
+}
+
+.event-product {
+    background-color: #F0F4F5;
+}
+
+.event-product .fade {
+    background: -webkit-linear-gradient(left, rgba(240, 244, 245, 0.2), rgb(240, 244, 245));
+    background: linear-gradient(to right, rgba(240, 244, 245, 0.2), rgb(240, 244, 245));
+}
+
+.event-btn {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 64px;
+    color: white;
+    font-size: 15px;
+    border: none;
+}
+
+.event-btn.bg-24A7B3.activated {
+    background-color: #2EC4D1;
+}
+
+.event-btn.bg-E63947.activated {
+    background-color: #D7DEE0;;
+}
+
+/* ------------- Календарь событий end   ------------- */
+
+/* ------------- Авторизация, восстановление достпа, неавторизованная зона start   ------------- */
+
+.bg-app {
+    position: absolute;
+    height: calc(100% + 10px);
+    width: calc(100% + 10px);
+    top: -5px;
+    left: -5px;
+}
+
+.bg-app-fill {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(25, 25, 25, 0.3);
+}
+
+/* Контент поверх фона */
+.content-on-bg {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.menu-item {
+    height: 100%;
+    padding-left: 50px;
+    padding-right: 15px;
+}
+
+.icon-close-menu {
+    position: absolute;
+    top: 29px;
+    left: 9px;
+    width: 45px;
+    height: 45px;
+    background-size: 13px;
+    background-position: center;
+}
+
+.icon-menu-main {
+    position: absolute;
+    top: 3vh;
+    right: 0;
+    width: 10vh;
+    height: 10vh;
+    background-size: 17px;
+    background-position: center;
+}
+
+.call-img {
+    height: 12vh;
+}
+
+.atm-img {
+    height: 12vh;
+}
+
+.how-connect-info {
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    margin-top: 5vh;
+    line-height: 22px;
+    color: #667980;
+    padding: 0 10vh;
+}
+
+.how-connect-info-down {
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    line-height: 20px;
+    color: #A1AEB3;
+    padding: 0 9vh;
+}
+
+.how-connect-tabs {
+    padding-top: 15px;
+}
+
+.auth-block-img {
+    height: 40px;
+    width: 40px;
+}
+
+.restore-access-btn {
+    height: 15vh;
+    margin-bottom: 3vh;
+    background-color: white;
+    color: #667980;
+    font-size: 15px;
+    border-top: 1px solid #CCD5D9;
+    border-bottom: 1px solid #CCD5D9;
+}
+
+.restore-access-btn.activated {
+    background-color: #D7DEE0;
+}
+
+.restore-access-text {
+    font-size: 15px;
+    color: #667980;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.restore-access-input {
+    color: #202426 !important;
+    font-size: 15px !important;
+    width: 100% !important;
+    padding: 0 25px !important;
+    text-align: center !important;
+    height: 44px !important;
+    border-top: 1px solid #CCD5D9 !important;
+    border-bottom: 1px solid #CCD5D9 !important;
+    border-radius: 0;
+    -webkit-appearance: none;
+}
+
+.restore-access-passport {
+    width: 100%;
+    height: 44px;
+    border-top: 1px solid #CCD5D9;
+    border-bottom: 1px solid #CCD5D9;
+    background-color: white;
+    padding: 0 15px;
+}
+
+.restore-access-input::-webkit-input-placeholder,
+.restore-access-passport input::-webkit-input-placeholder {
+    color: #CCD6D9;
+}
+
+.login-page-ios .item-inner {
+    height: 44px;
+}
+
+.restore-access {
+    min-height: 150px;
+    height: calc(100vh - 287px);
+    padding-bottom: 32px
+}
+
+.use-touchid {
+    height: 100%;
+    text-align: center;
+}
+
+.fingerprint-icon {
+    height: 70px;
+    background: url('../img/ios/fingerprint.svg') no-repeat center;
+    background-size: 70px 70px;
+    margin-bottom: 10px;
+}
+
+.use-touchid-title {
+    font-size: 30px;
+    color: #202426;
+    margin-bottom: 10px;
+}
+
+.use-touchid-text {
+    font-size: 15px;
+    color: #667980;
+}
+/* ------------- Авторизация, восстановление достпа, неавторизованная зона end   ------------- */
+
+.rs-short-code-text {
+    padding-top: 3vh;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+}
+
+/* ------------- Короткий код (модальное окно ввода КК) END --------------- */
+
+.multiline.list-block .item-title {
+    white-space: normal;
+}
+
+/* ------------- Фикс для статусбара -------------------------------------------- */
+.platform-cordova:not(.fullscreen) .rs-statusbar {
+    height: 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #24A7B3;
+    z-index: 5001;
+}
+.platform-ios.platform-cordova:not(.fullscreen) .has-statusbar {
+    padding-top: 20px;
+}
+
+.rs-navigators-popup div.action-sheet-title {
+    color: red !important;
+}
+
+.rs-online-chat-actionsheet {
+    height: 100vh;
+}
+
+/* ------------- Кнопка для очистки полей ввода --------------------------------- */
+.input-has-button input:not(.restore-access-input):not(.passNumber) {
+    padding-right: 25px !important;
+}
+.input-clear-container {
+    position: relative;
+}
+.input-clear-btn {
+    display: none;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    width: 30px;
+    background: url('../img/ios/clear-input.svg') center no-repeat;
+    background-size: 15px 15px;
+}
+.input-clear-btn.has-focus {
+    display: block;
+}
+.input-has-button .input-clear-btn {
+    display: block;
+}
+/* Retina iPad*/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+
+}
+/* Retina iPad MIni*/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+
+}
+.popup-container.popup-showing.popup-hidden, .popup-container.popup-showing.popup-hidden input {
+    display: none;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+/* iPhone 2G-4S, iPhone 5*/
+/*@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {*/
+@media only screen and (min-device-width : 320px) {
+    .popup-container .popup .popup-body input {
+        height: 35px;
+        margin-top: 7px;
+    }
+    .mts-logo {
+        position: absolute;
+        top: 20px;
+        width: 100%;
+        height: 60px;
+        background: url('../img/ios/logo.svg') no-repeat center;
+        background-size: contain;
+    }
+    .icon-menu-main {
+        position: absolute;
+        top: 44px;
+        right: 23px;
+        width: 18px;
+        height: 16px;
+        background-size: cover;
+        background-position: center;
+    }
+    .icon-menu-main:after {
+        content: '';
+        position: absolute;
+        top: -14px;
+        right: -13px;
+        left: -13px;
+        bottom: -14px;
+    }
+    .slider-text-big {
+        color: #FFFFFF;
+        font-size: 25px;
+        font-family: "Helvetica Neue Light", "HelveticaNeue-Light", Helvetica, Arial, "Lucida Grande", sans-serif;
+        margin-top: 17px;
+        margin-bottom: 10px;
+    }
+    .slider-text-small {
+        color: #FFFFFF;
+        font-size: 12px;
+        opacity: 0.6;
+        font-family: "Helvetica Neue Medium", "HelveticaNeue-Medium", Helvetica, Arial, "Lucida Grande", sans-serif;
+    }
+    .btn-in {
+        position: absolute;
+        bottom: 0;
+        background-color: rgb(36, 167, 179);
+        width: 100%;
+        height: 64px;
+        color: white;
+        font-size: 14px;
+        border: none;
+    }
+    .falsch-butt-in {
+        height: 70px;
+    }
+    .btn-how {
+        position: absolute;
+        bottom: 86px;
+        background-color: rgba(255,255,255,0.2);
+        width: 100%;
+        height: 44px;
+        color: white;
+        font-size: 14px;
+        border: none;
+        font-family: "Helvetica Neue Medium", "HelveticaNeue-Medium", Helvetica, Arial, "Lucida Grande", sans-serif;
+    }
+    .owl-theme .owl-controls {
+        position: absolute;
+        width: 100%;
+        bottom: 145px;
+        margin-top: 0px;
+        text-align: center;
+    }
+    .owl-theme .owl-controls .owl-page span {
+        display: block;
+        width: 7px;
+        height: 7px;
+        margin: 0;
+        margin-left: 2.5px;
+        margin-right: 2.5px;
+        opacity: 0.3;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        border-radius: 7px;
+        background: white;
+    }
+    .icon-close-menu {
+        position: absolute;
+        top: 45px;
+        left: 25px;
+        width: 15px;
+        height: 15px;
+        background-size: cover;
+        background-position: center;
+    }
+    .icon-close-menu:after {
+        content: '';
+        position: absolute;
+        top: -14px;
+        right: -14px;
+        bottom: -14px;
+        left: -14px;
+    }
+    .appmenu-button {
+        background: none;
+        border: none;
+        height: 40px;
+        width: 100%;
+        padding: 0;
+    }
+    .menu-item {
+        height: 100%;
+        padding-left: 51px;
+        padding-right: 15px;
+    }
+    .appmenu-item-img {
+        height: 100%;
+        width: 21px;
+        margin-right: 7px;
+    }
+    .news-item {
+        height: 17px;
+    }
+    .courses-item {
+        height: 19px;
+    }
+    .atm-item {
+        height: 19px
+    }
+    .payment-item {
+        height: 20px;
+    }
+    .appmenu-item-text {
+        color: white;
+        font-size: 11px;
+        font-weight: normal;
+        font-family: "Helvetica Neue Bold", HelveticaNeue-Bold;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+    }
+    .appmenu-button:last-child {
+        margin-top: 40px;
+    }
+    .tabbar-fixed .page-content, .tabbar-through .page-content, .toolbar-fixed .page-content, .toolbar-through .page-content {
+        padding-bottom: 43px;
+    }
+    .navbar-fixed .page-content, .navbar-through .page-content {
+        padding-top: 64px;
+    }
+    .how-connect-tabs {
+        padding-top: 0px;
+    }
+    .light-tabs {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        padding: 15px;
+        white-space: nowrap;
+    }
+    .light-tabs .light-tab-title:first-child {
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+    .light-tabs .light-tab-title {
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        color: #667980;
+        border-left: 1px solid #CCD5D9;
+        border-top: 1px solid #CCD5D9;
+        border-bottom: 1px solid #CCD5D9;
+        font-family: "Helvetica Neue Light", HelveticaNeue-Light;
+        text-align: center;
+        padding: 8px;
+        font-size: 12px;
+    }
+    .call-img {
+        height: 70px;
+        margin-top: 32px;
+        margin-bottom: 20px;
+    }
+    .how-connect-info {
+        width: 190px;
+        text-align: center;
+        font-size: 14px;
+        margin-top: 0;
+        line-height: 22px;
+        color: #667980;
+        padding: 0;
+        margin: 0 auto;
+        font-family: "Helvetica Neue Light", HelveticaNeue-Light;
+    }
+    .how-connect-info-down {
+        width: 100%;
+        text-align: center;
+        font-size: 12px;
+        line-height: 20px;
+        color: #A1AEB3;
+        padding: 0;
+        font-family: "Helvetica Neue Light", HelveticaNeue-Light;
+    }
+    .absolute-connect {
+        position: absolute;
+        bottom: 22px;
+    }
+    .auth-block-img {
+        height: 40px;
+        width: 40px;
+        margin-bottom: 7px;
+    }
+    .atm-img {
+        height: 70px;
+        margin-top: 32px;
+        margin-bottom: 20px;
+    }
+    .has-footer {
+        bottom: 64px;
+    }
+    .list-block {
+        margin: 0;
+        font-size: 13px;
+        margin-top: 31px;
+        margin-bottom: 13px;
+    }
+    .list-block .item-content {
+        padding-left: 30px;
+        padding-right: 30px;
+        min-height: 45px;
+    }
+    .list-block ul:before {
+        height: 1px;
+        background-color: #D7DEE0;
+    }
+    .list-block ul:after {
+        height: 1px;
+        background-color: #D7DEE0;
+    }
+    .list-block .item-inner:after {
+        height: 1px;
+        background-color: #D7DEE0;
+    }
+    ion-content {
+        background-color: #f0f4f5;
+    }
+    .login-page-ios .item-inner {
+        height: 45px;
+    }
+    .list-block .item-inner {
+        padding: 0px;
+        min-height: 45px;
+    }
+    .list-block input[type=time], .list-block input[type=number], .list-block input[type=search], .list-block input[type=text], .list-block input[type=password], .list-block input[type=email], .list-block input[type=tel], .list-block input[type=url], .list-block input[type=date], .list-block input[type=datetime-local], .list-block select, .list-block textarea {
+        padding: 0;
+        height: 45px;
+        font-size: 13px;
+        color: #212526;
+    }
+    .item {
+        font-size: 13px;
+    }
+    .item-toggle, .item-toggle.item-complex .item-content {
+        padding: 0;
+        padding-top: 8px;
+        padding-bottom: 11px;
+        padding-right: 30px;
+    }
+    .item.item-toggle {
+        padding-left: 30px;
+    }
+    .item-toggle .toggle {
+        position: absolute;
+        top: 0px;
+        right: 30px;
+        z-index: 3;
+    }
+    .toggle .track {
+        width: 51px;
+        height: 32px;
+        border: solid 2px #e3e3e3;
+        border-radius: 20px;
+    }
+    .restore-access {
+        min-height: 70px;
+        height: auto;
+        bottom: 95px;
+        position: absolute;
+        padding: 0;
+    }
+    .restore-chose {
+        margin: 0 auto;
+        margin-top: 52px;
+        margin-bottom: 52px;
+        line-height: 24px;
+        width: 236px;
+        font-family: "Helvetica Neue Light", HelveticaNeue-Light;
+    }
+    .restore-access-btn {
+        height: 70px;
+        margin-bottom: 11px;
+        background-color: white;
+        color: #667980;
+        font-size: 13px;
+        border-top: 1px solid #CCD5D9;
+        border-bottom: 1px solid #CCD5D9;
+        box-sizing: border-box;
+        font-family: "Helvetica Neue";
+    }
+    .restore-access-text {
+        font-size: 14px;
+        color: #667980;
+        text-align: center;
+        margin-top: 41px;
+        margin-bottom: 16px;
+        font-family: "Helvetica Neue Light", HelveticaNeue-Light;
+    }
+    .restore-access-input {
+        color: #202426 !important;
+        font-size: 13px !important;
+        width: 100% !important;
+        padding: 0 30px !important;
+        text-align: center !important;
+        height: 45px !important;
+        border-top: 1px solid #D7DEE0 !important;
+        border-bottom: 1px solid #D7DEE0 !important;
+        font-family: "Helvetica Neue";
+    }
+    .create-new-pass-login {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .inform-messages-login {
+        font-size: 12px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .no-operation-block {
+        margin: 14px 14px 0;
+    }
+    .no-operation-text span {
+        font-size: 15px;
+        line-height: 20px;
+        font-family: "Helvetica Neue";
+        color: #A1AEB3;
+        text-align: center;
+    }
+    .list-block {
+        font-size: 13px !important;
+    }
+    .list-block .item-input {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    .item-input {
+        padding: 0px;
+        padding-left: 30px;
+    }
+    .passport-format {
+        padding: 0 5px;
+        color: #A1AEB3;
+        font-size: 13px;
+        height: 50%;
+    }
+    textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"],
+    input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"],
+    input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+        padding-top: 0px;
+        padding-left: 0;
+        height: 40px;
+        color: #212526;
+        vertical-align: middle;
+        font-size: 13px;
+        line-height: 16px;
+    }
+    .restore-access-passport input {
+        width: 100%;
+    }
+    .passSeries {
+        text-align: right;
+        padding-right: 0;
+    }
+    .passNumber {
+        text-align: left;
+    }
+    .code-date-container {
+        position: relative;
+    }
+    .confirmation-code-masked {
+        position: absolute;
+        top: 0;
+        font-size: 15px;
+        height: 44px;
+        line-height: 44px;
+        text-align: center;
+        width: 100%;
+        pointer-events: none;
+    }
+    .confirmation-date {
+        -webkit-text-fill-color: transparent;
+        letter-spacing: 0.5px;
+    }
+    .confirmation-date::selection {
+        background: transparent;
+    }
+    .confirmation-date::-webkit-input-placeholder {
+        -webkit-text-fill-color: unset;
+    }
+    input.confirmation-code-input {
+        background: #fff;
+        margin-top: 30px;
+        margin-left: 40px;
+        margin-right: 40px;
+        padding-bottom: 0px;
+        text-align: center;
+        width: calc(100% - 80px);
+        height: 44px;
+        vertical-align: middle;
+        color: #212526;
+        font-size: 15px;
+        border: none;
+        -webkit-appearance: none;
+        border-radius: 0;
+        padding: 0;
+    }
+    .popup-container.alert .popup {
+        width: 270px;
+        color: #212526;
+        background-color: #FFFFFF;
+        padding-top: 0px;
+    }
+    .popup-head {
+        padding-top: 9px;
+        padding-bottom: 9px;
+        border: none;
+        text-align: center;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    .popup-container.alert .popup-title {
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .popup-container.alert .popup .popup-body {
+        white-space: pre-wrap;
+        font-size: 13px;
+        text-align: center;
+        line-height: 19px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    .popup-container .popup .popup-body {
+        padding: 0px;
+        padding-bottom: 9px;
+    }
+    .popup-container .popup .popup-buttons {
+        min-height: 60px;
+        font-size: 14px;
+        padding: 0;
+    }
+    .popup-container .popup .popup-buttons .button {
+        border-radius: 0;
+        border: none;
+        border-top: 1px solid #dddddd;
+        margin: 0;
+        min-height: 60px;
+        padding: 0;
+        line-height: 60px;
+        vertical-align: bottom;
+        height: 60px;
+    }
+    .bar .button.button-clear.close-touch {
+        width: 15px;
+        height: 15px;
+        background-size: contain;
+        top: 13px;
+        left: 19px;
+        min-height: 15px;
+    }
+    .fingerprint-icon {
+        height: 70px;
+        background: url('../img/ios/fingerprint.svg') no-repeat center;
+        background-size: 70px 70px;
+        margin-bottom: 29px;
+    }
+    .use-touchid-title {
+        font-size: 25px;
+        color: #202426;
+        margin-bottom: 11px;
+    }
+    .use-touchid-text {
+        font-size: 14px;
+        color: #667980;
+        line-height: 24px;
+        width: 230px;
+        margin: 0 auto;
+    }
+    /*Главная страница, меню*/
+    .favorit-item {
+        width: 19px;
+        height: 18px;
+    }
+    .bonus-item {
+        width: 13px;
+        height: 18px;
+    }
+    .calendar-item {
+        width: 15px;
+        height: 17px;
+    }
+    .settings-item {
+        width: 20px;
+        height: 20px;
+    }
+    .notice-item {
+        width: 14px;
+        height: 18px;
+    }
+    .help-item {
+        width: 17px;
+        height: 18px;
+    }
+    .ideas-item {
+        width: 15px;
+        height: 18px;
+    }
+    .logout-item {
+        width: 18px;
+        height: 19px;
+    }
+    .appmenu-item-margin {
+        margin-top: 21px;
+    }
+    .appmenu-button.appmenu-item-margin:last-child {
+        margin-top: 21px;
+    }
+    .appmenu-content {
+        padding-top: 38px;
+        padding-bottom: 38px;
+        height: 100%;
+        width: 100%;
+    }
+    .counter {
+        position: absolute;
+        height: 20px;
+        min-width: 20px;
+        border-radius: 20px;
+    }
+    .counter label {
+        line-height: 20px;
+        margin-left: 6px;
+        margin-right: 6px;
+        font-size: 11px;
+        font-family: "Helvetica Neue Medium", HelveticaNeue-Medium;
+    }
+    /*Главная страница*/
+    .home-header {
+        height: 130px;
+    }
+    .user-contorol {
+        position: absolute;
+        top: 0;
+    }
+    .btn-corona {
+        position: relative;
+        min-width: 60px;
+        width: 60px;
+        height: 60px;
+        border-radius: 60px;
+        background-color: white;
+        border: none;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    .user-photo {
+        position: relative;
+        min-width: 100px;
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+    .user-photo img {
+        width: 90px;
+        height: 90px;
+        border-radius: 90px;
+    }
+    .user-photo div {
+        width: 90px;
+        height: 90px;
+        border-radius: 90px;
+    }
+    .btn-corona img {
+        height: 20px;
+        width: 20px;
+    }
+    .lamp-button {
+        position: absolute;
+        top: 0px;
+        height: 180px;
+        align-items: flex-end;
+        -webkit-align-items: flex-end;
+    }
+    .lamp-button-div {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        right: 0;
+    }
+    .balance-block {
+        height: 260px;
+        padding-top: 50px;
+        padding-bottom: 18px;
+        background-color: #E1EAED;
+    }
+    .balance-header {
+        color: #A1AEB3;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-family: "Helvetica Neue Medium", HelveticaNeue-Medium;
+    }
+    .balance-sum {
+        font-size: 34px;
+        font-weight: normal;
+        font-family: "Helvetica Neue Light", HelveticaNeue-Light;
+        color: #212526;
+    }
+    .balance-height {
+        height: 65px;
+        line-height: 65px;
+    }
+    .balance-tbl {
+        width: 50%;
+        height: 60px;
+        border: 1px solid #CCD5D9;
+        border-left: none;
+    }
+    .balance-tbl + .balance-tbl {
+        border-left: none;
+        border-right: none;
+    }
+    .balance-cell-text {
+        color: #8D9DA6;
+        font-size: 12px;
+        font-family: "Helvetica Neue";
+    }
+    .balance-cell-summ {
+        color: #363D40;
+        font-size: 12px;
+        font-family: "Helvetica Neue";
+        line-height: 26px;
+    }
+    .slider-balance .slider-pager {
+        bottom: 0px;
+    }
+    .slider-pager .slider-pager-page {
+        margin: 0px 3.5px;
+    }
+    .slider-pager .ion-record:before {
+        font-size: 9px;
+    }
+    .rs-content-panel-header.social-network-panel{
+        text-transform: none;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align:center;
+        height: auto;
+    }
+    .favorit-block-home {
+        height: 150px;
+        border-top: 1px solid #D1DEE3;
+        border-bottom: 1px solid #D1DEE3;
+    }
+    .favorit-block-home .operation-logo {
+        width: 75px;
+        height: 75px;
+    }
+    .favorit-block-home-cell {
+        padding-left: 20px;
+        height: 100%;
+        vertical-align: top;
+        padding-top: 25px;
+    }
+    .favorit-block-home-cell:first-child {
+        padding-left: 15px;
+    }
+    .favorit-block-home-cell:last-child {
+        padding-right: 15px;
+    }
+    .favorit-block-payments-cell {
+        padding-top: 25px;
+        padding-left: 15px;
+        height: 100%;
+        vertical-align: top;
+    }
+    .favorit-scroll {
+        height: 150px;
+        border-top: 1px solid #CCD5D9;
+        border-bottom: 1px solid #C7D4D9;
+        position: relative;
+    }
+    .favorit-scroll.list-empty {
+        height: auto;
+    }
+    .favorit-block .svg-logo,
+    .favorit-block .operation-logo {
+        width: 50px;
+        height: 50px;
+    }
+    .svg-logo {
+        width: 75px;
+        height: 75px;
+        border-radius: 75px;
+    }
+    .favorit-block-payments-cell .svg-logo,
+    .favorit-block-payments-cell .operation-logo {
+        width: 70px;
+        height: 70px;
+    }
+    .operation-logo-svg {
+        width: 35%;
+        height: 35%;
+    }
+    .favorit-name-main {
+        width: 75px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: 10px;
+        text-align: center;
+        color: #363D40;
+        font-family: "Helvetica Neue";
+    }
+    .favorit-name-payments {
+        width: 70px;
+        line-height: 15px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: 10px;
+        text-align: center;
+        color: #363D40;
+        font-family: "Helvetica Neue";
+    }
+    .last-payment-home {
+        margin-bottom: 31px;
+        border-bottom: 1px solid #D1DEE3;
+    }
+    .last-payment-home .rs-content-panel-body {
+        border-top: 1px solid #D1DEE3;
+    }
+    .operation-date-first {
+        padding-top: 25px;
+    }
+    .operation-date {
+        padding-left: 15px;
+        overflow: hidden;
+        position: relative;
+        margin: 0;
+        white-space: nowrap;
+        color: #A1AEB3;
+        font-family: "Helvetica Neue Medium", HelveticaNeue-Medium;
+        font-size: 12px;
+    }
+    .operation-date:after {
+        content: '';
+        display: inline-block;
+        position: relative;
+        top: 0px;
+        width: 100%;
+        height: 1px;
+        vertical-align: middle;
+        background: #C7D4D9;
+        left: 12px;
+    }
+    .last-payment-home .table {
+        height: 95px;
+    }
+    .last-payment-home .table-cell {
+        display: table-cell;
+        height: 100%;
+        vertical-align: middle;
+        padding: 0;
+        padding-left: 15px;
+    }
+    .last-payment-home .table-cell .operation-logo {
+        width: 60px;
+        height: 60px;
+        border-radius: 60px;
+    }
+    .operation-name {
+        font-size: 15px;
+        color: #363D40;
+        margin-right: 5px;
+        line-height: 24px;
+        font-family: "Helvetica Neue";
+    }
+    .time-operation {
+        color: #363D40;
+        display: inline-block;
+        font-size: 12px;
+        margin-left: 0px;
+        line-height: 24px;
+        font-family: "Helvetica Neue";
+    }
+    .operation-amount {
+        font-size: 15px;
+        color: #363D40;
+        float: right;
+        line-height: 24px;
+        font-family: "Helvetica Neue";
+        margin-right: 15px;
+    }
+    .operation-desc {
+        font-size: 12px;
+        color: #667980;
+        position: relative;
+        overflow: hidden;
+        white-space: nowrap;
+        width: calc(100vw - 90px);
+        line-height: 17px;
+        font-family: "Helvetica Neue";
+    }
+    .rs-button {
+        height: 64px;
+        font-size: 15px;
+    }
+    /*Расходы*/
+    .pull-to-refresh-layer {
+        position: absolute;
+    }
+    .product-line.item-content {
+        height: 71px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .falsch-bottom-block-finance {
+        height: 64px;
+    }
+    /*Карты*/
+    .card-finance-block {
+        display: table;
+        width: 100%;
+        height: 100%;
+    }
+    .product-name-list {
+        max-width: 100%;
+        position: relative;
+        overflow: hidden;
+        white-space: nowrap;
+        font-size: 15px;
+        color: #212526;
+        font-family: "Helvetica Neue";
+        line-height: 27px;
+    }
+    .card-finance-block .product-name-list {
+        max-width: 210px;
+    }
+    .product-name-list + .fade {
+        height: 35px;
+        top: 2px;
+        right: 83px;
+    }
+    .number-card-finance-block {
+        font-size: 12px;
+        line-height: 22px;
+        color: #A1AEB3;
+        font-family: "Helvetica Neue";
+    }
+    .balance-card-finance-block span {
+        color: #212526;
+        font-family: "Helvetica Neue";
+        font-size: 14px;
+        line-height: 21px;
+    }
+    .card-type-image-product {
+        max-height: 15px;
+        max-width: 32px;
+        background-size: contain;
+    }
+    .right-item-product {
+        position: absolute;
+        right: 15px;
+        top: -11px;
+    }
+    .not-expandable {
+        font-size: 15px;
+    }
+    .icon-status-product {
+        position: relative;
+        background-position: center center;
+        background-size: cover;
+        margin-left: 6px;
+        display: inline-block;
+    }
+    .icon-status-product.icon-hidden {
+        width: 11px;
+        min-width: 11px;
+        height: 8px;
+    }
+    .icon-status-product.icon-closed {
+        width: 11px;
+        min-width: 11px;
+        height: 11px;
+    }
+    .icon-status-product.icon-blocked {
+        width: 8px;
+        min-width: 8px;
+        height: 10px;
+        background-size: contain;
+    }
+    /*Кредиты*/
+    .credit-finance-block {
+        display: table;
+        width: 100%;
+        height: 100%;
+    }
+    .credit-thermometer {
+        height: 3px;
+    }
+    .rs-thermometer-bg {
+        height: 3px;
+        width: 180px;
+    }
+    .rs-thermometer-bg, .rs-thermometer-fg {
+        border-radius: 3px;
+    }
+    .loan-rest-product {
+        color: #A1AEB3;
+        font-size: 11px;
+        letter-spacing: 0.3px;
+        color: #A1AEB3;
+        margin-left: 16px;
+        font-family: "Helvetica Neue Light", HelveticaNeue-Light;
+        line-height: 12px;
+    }
+    .plan-pay-credit span {
+        font-size: 12px;
+        font-family: "Helvetica Neue";
+    }
+    .product-tbl-right-summ {
+        display: table;
+        width: 100%;
+    }
+    .product-tbl-right-summ .product-name-list {
+        display: inline;
+    }
+    .product-tbl-right-summ-sell {
+        display: table-cell;
+    }
+    .right-item-product-summ {
+        text-align: right;
+        font-size: 15px;
+        color: #212526;
+        font-family: "Helvetica Neue";
+    }
+    /*Вклады*/
+    .deposit-finance-block {
+        display: table;
+        width: 100%;
+        height: 100%;
+    }
+    .rate-item-product {
+        overflow: hidden;
+        line-height: 29px;
+        height: 27px;
+        min-width: 45px;
+        text-align: right;
+    }
+    .rate-item-product span {
+        color: #A1AEB3;
+        font-family: "Helvetica Neue";
+        font-size: 13px;
+        height: 27px;
+    }
+    .balance-deposit-finance-block {
+        line-height: 18px;
+        height: 18px;
+        text-align: right;
+        margin-top: -2px;
+    }
+    .balance-deposit-finance-block span {
+        color: #212526;
+        font-family: "Helvetica Neue";
+        font-size: 15px;
+        line-height: 18px;
+        text-align: right;
+        height: 18px;
+    }
+    .deposit-end-date-finance-block {
+        font-size: 12px;
+        line-height: 22px;
+        color: #A1AEB3;
+        font-family: "Helvetica Neue";
+    }
+    .deposit-finance-block .product-name-list {
+        width: 100%;
+    }
+    /*Счета*/
+    .number-account-finance-block {
+        font-size: 12px;
+        line-height: 22px;
+        color: #A1AEB3;
+        font-family: "Helvetica Neue";
+    }
+    .balance-account-finance-block {
+        line-height: 18px;
+        height: 18px;
+        text-align: right;
+        margin-top: -2px;
+    }
+    .balance-account-finance-block span {
+        color: #212526;
+        font-family: "Helvetica Neue";
+        font-size: 15px;
+        line-height: 18px;
+        text-align: right;
+    }
+    .list-block .swipe-item {
+        background-size: 17px 20px !important;
+        font-size: 13px;
+        font-family: "Helvetica Neue";
+        box-sizing: border-box;
+    }
+    .list-block .swipeout-actions-left .swipe-item {
+        background-position: 183px center !important;
+        padding: 0 !important;
+        padding-left: 15px !important;
+        width: 230px;
+    }
+    .list-block .swipeout-actions-right .swipe-item {
+        background-position: 27px center !important;
+        padding: 0 !important;
+        padding-left: 155px !important;
+        width: 280px;
+    }
+    .list-block .swipeout-actions-right .icon-hide, .list-block .swipeout-actions-right .icon-show {
+        background-position: 23px center !important;
+        padding: 0 !important;
+        padding-left: 90px !important;
+        width: 160px;
+    }
+    .list-block .swipeout-actions-right .two-swipe-item {
+        background-position: 23px center !important;
+        padding: 0 !important;
+        padding-left: 55px !important;
+        width: 120px;
+    }
+    .list-block .swipeout-actions-right .two-swipe-item + .swipe-item {
+        background-position: 23px center !important;
+        padding: 0 !important;
+        padding-left: 55px !important;
+        width: 160px;
+    }
+}
+
+/* Ввод короткого кода */
+.icon-back-short-code {
+    position: absolute;
+    top: 41px;
+    width: 10px;
+    height: 17px;
+    left: 20px;
+    background-size: contain;
+}
+.icon-back-short-code:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -17px;
+    right: -17px;
+    top: -13.5px;
+    bottom: -13.5px;
+}
+.short-code-block {
+    position: absolute;
+    bottom: 0;
+    height: auto;
+    width: 100%;
+    text-align: center;
+}
+.enter-short-code {
+    color: #FFFFFF;
+    font-size: 13px;
+    width: 100%;
+    text-align: center;
+    font-family: "Helvetica Neue Light", HelveticaNeue-Light;
+}
+.cancel-short-code {
+    color: #FFFFFF;
+    font-size: 14px;
+    width: auto;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 28px;
+    font-family: "Helvetica Neue Light", HelveticaNeue-Light;
+    position: relative;
+    display: inline-block;
+}
+.cancel-short-code:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -12px;
+    right: -12px;
+    top: -12px;
+    bottom: -12px;
+}
+.short-code-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: white;
+    opacity: 0.3;
+    margin: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 16px;
+}
+.digit {
+    width: 18.75vw;
+    height: 18.75vw;
+    margin: 3.125vw;
+}
+.digit-content {
+    width: 18.75vw;
+    height: 18.75vw;
+    border-radius: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+    font-size: 30px;
+    font-family: "Helvetica Neue Thin", HelveticaNeue-Thin, "Helvetica Neue Light", HelveticaNeue-Light;
+    color: white;
+}
+.backspace {
+    width: 100%;
+    height: 100%;
+    background: url('../img/ios/backspace_1.svg') no-repeat center;
+    background-size: 100% 16px;
+}
+
+/* ---------- Инфосервисы: Детальная информация по новостям START ----------*/
+.news-details-block {
+    margin-top: 7%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.news-details-title {
+    font-size: 24px;
+    line-height: normal;
+}
+
+.news-details-image-block {
+    margin-top: 5%;
+    width: 100%;
+    height: 25%;
+}
+
+.news-details-image-block .news-details-image {
+    object-fit: cover;
+    width: inherit;
+    height: inherit;
+}
+
+.news-details-text-content-block {
+    margin-top: 5%;
+}
+/* ---------- Инфосервисы: Детальная информация по новостям END ----------*/
+
+/*iPhone4S*/
+@media only screen and (max-device-height: 480px) {
+    .light-tabs {
+        padding-bottom: 0;
+    }
+    .digit {
+        width: 55px;
+        height: 55px;
+        margin: 8px;
+    }
+    .digit-content {
+        width: 55px;
+        height: 55px;
+    }
+    .icon-back-short-code {
+        top: 36px;
+    }
+    .content-on-bg .mts-logo {
+        height: 50px;
+    }
+    .short-code-indicator {
+        margin-top: 16px;
+        margin-bottom: 13px;
+    }
+    .cancel-short-code {
+        margin-top: 10px;
+        margin-bottom: 16px;
+    }
+    input.confirmation-code-input {
+        margin-top: 15px;
+    }
+    .confirmation-container {
+        margin-top: 15px;
+    }
+}
+/*Границы в 1px для retina дисплеев*/
+@media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+    .favorit-scroll {
+        border: none;
+    }
+    .favorit-scroll:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        background-color: #CCD5D9;
+        height: 1px;
+        left: 0;
+        top: 0;
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+    }
+    .favorit-scroll:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        background-color: #C7D4D9;
+        height: 1px;
+        left: 0;
+        bottom: 0;
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+    }
+    .payment-flex-container {
+        border: none;
+    }
+    .payment-flex-container:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        background-color: #C7D4D9;
+        height: 1px;
+        left: 0;
+        top: 0;
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+    }
+    .payment-flex-item {
+        border: none;
+    }
+    .payment-flex-item:before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 1px;
+        right: -0.5px;
+        top: 0;
+        background-color: #C7D4C9;
+        -webkit-transform: scaleX(0.5);
+        transform: scaleX(0.5);
+    }
+    .payment-flex-item:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: #C7D4C9;
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+    }
+}
+
+.has-fixed-button {
+    bottom: 64px;
+}

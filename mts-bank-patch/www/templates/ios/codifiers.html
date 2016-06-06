@@ -1,0 +1,31 @@
+<rs-header>Список</rs-header>
+<div ng-controller="CodifierSelectCtrl as codifierSelectCtrl">
+    <div class="content content-body">
+        <ion-view>
+            <ion-content class="bg-f0f4f5">
+                <div ng-if="platform !== 'ios'" class="searchbar searchbar-init">
+                    <div class="searchbar-input">
+                        <input type="search" ng-model="codifierSelectCtrl.nameFilter.desc"
+                               placeholder="{{codifierSelectCtrl.searchTitle}}"
+                               class="width100pc border-radius-3px solid-border-1px gray-border border-box text-14px padding-5px icon-search-input"
+                               style="height: 30px;"/>
+                        <a href="#" class="searchbar-clear"></a>
+                    </div>
+                </div>
+                <rs-spotlight-search ng-if="platform === 'ios'" ng-model="codifierSelectCtrl.nameFilter.desc"></rs-spotlight-search>
+                <div class="list-block" style="margin-bottom: 0;">
+                    <ul>
+                        <li class="item-content"
+                            ng-repeat="codifier in codifierSelectCtrl.codifiersList | filter:codifierSelectCtrl.nameFilter"
+                            ng-click="codifierSelectCtrl.onSelectCodifier(codifier)">
+
+                            <div class="item-inner">
+                                <div ng-bind="codifier.desc" class="item-title"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </ion-content>
+        </ion-view>
+    </div>
+</div>

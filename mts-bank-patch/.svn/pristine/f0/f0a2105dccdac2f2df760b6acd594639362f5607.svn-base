@@ -1,0 +1,14 @@
+<div>
+    <rs-header lbtn-class="icon-close close-touch" lbtn-action="useTouchID(false)">Touch ID</rs-header>
+    <ion-view>
+        <ion-pane>
+            <div class="flex flex-column flex-center use-touchid">
+                <div class="fingerprint-icon"></div>
+                <div class="use-touchid-title">Вход с Touch ID</div>
+                <div class="use-touchid-text">Вы хотите использовать Touch ID<br/>для быстрого
+                    входа<br/>в Мобильный Банк?</div>
+            </div>
+            <button class="btn-in" ng-click="useTouchID(true)">Использовать</button>
+        </ion-pane>
+    </ion-view>
+</div>

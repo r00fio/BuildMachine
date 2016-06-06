@@ -1,0 +1,103 @@
+<rs-header>Автоплатеж за МТС</rs-header>
+<ion-view>
+    <ion-content class="has-header bg-f0f4f5" ng-controller="CardAutoPayCtrl as cardAutoPayCtrl">
+
+        <rs-panel header-text="Карта">
+            <div class="list-block" style="margin:0;">
+                <ul>
+                    <li>
+                        <rs-product product="form.bankCard"></rs-product>
+                    </li>
+                </ul>
+            </div>
+        </rs-panel>
+
+        <rs-panel header-text="Описание">
+            <div class="list-block" style="margin: 0;">
+                <ul>
+                    <li class="item-content">
+                        <div class="item-inner text-gray" style="white-space: normal;">
+                            <span ng-bind="form.description"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </rs-panel>
+
+        <div class="list-block">
+            <ul>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="table-fixed-width100pc">
+                            <div class="table-row">
+                                <div class="table-cell text-gray">Номер телефона</div>
+                            </div>
+                            <div class="table-row">
+                                <div class="table-cell">
+                                    <input type="text"
+                                           ng-disabled="form.requestAlreadySend"
+                                           placeholder=""
+                                           ng-model="form.autoPay.phone"
+                                           class="placeholder-gray"
+                                           mask-clean="true" mask-restrict="reject" mask="(999) 999-99-99">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="table-fixed-width100pc">
+                            <div class="table-row">
+                                <div class="table-cell text-gray">Сумма пополнения</div>
+                            </div>
+                            <div class="table-row">
+                                <div class="table-cell">
+                                    <input type="number" class="placeholder-gray" style="font-size: 15px; padding: 0;"
+                                           ng-disabled="isViewMode()"
+                                           placeholder=""
+                                           ng-model="form.autoPay.sum" />
+                                    <span style="position: absolute; right: 10px; top: 37px;" ng-if="form.bankCard" currency="RUB"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="table-fixed-width100pc">
+                            <div class="table-row">
+                                <div class="table-cell text-gray">Порог баланса</div>
+                            </div>
+                            <div class="table-row">
+                                <div class="table-cell">
+                                    <input type="number" class="placeholder-gray" style="font-size: 15px; padding: 0;"
+                                           ng-disabled="isViewMode()"
+                                           placeholder=""
+                                           ng-model="form.autoPay.threshold" />
+                                    <span style="position: absolute; right: 10px; top: 37px;" ng-if="form.bankCard" currency="RUB"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <button ng-if="form.showButton && showConnectButton()"
+                class="rs-button-page flex flex-center flex-middle bg-24A7B3"
+                style="position: relative; bottom: 0; left: 0; margin-top: 20vw; height: 10vw;"
+                ng-click="connectAutoPay()">Оформить</button>
+
+        <button ng-if="form.showButton && showEditOrDeleteButton()"
+                class="rs-button-page flex flex-center flex-middle text-A1AEB3"
+                style="position: relative; bottom: 0; left: 0; background-color: #FFF; color: #A1AEB3; margin-top: 5vw; height: 10vw;"
+                ng-click="editAutoPay()">Изменить</button>
+
+        <button ng-if="form.showButton && showEditOrDeleteButton()"
+                class="rs-button-page flex flex-center flex-middle bg-E63947"
+                style="position: relative; bottom: 0; left: 0; margin-top: 20vw; height: 10vw; color: #FFF; background-color: #E63947;"
+                ng-click="deleteAutoPay()">Отключить</button>
+
+    </ion-content>
+</ion-view>

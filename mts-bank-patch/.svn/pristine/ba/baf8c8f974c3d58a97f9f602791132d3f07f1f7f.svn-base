@@ -1,0 +1,76 @@
+<rs-header>Автоплатеж за МТС</rs-header>
+<ion-view>
+    <ion-content class="has-header bg-f0f4f5" ng-controller="CardAutoPayCtrl as cardAutoPayCtrl">
+
+        <rs-panel header-text="Карта">
+            <div class="list-block" style="margin:0;">
+                <ul>
+                    <li>
+                        <rs-product product="form.bankCard"></rs-product>
+                    </li>
+                </ul>
+            </div>
+        </rs-panel>
+
+        <rs-panel header-text="Описание">
+            <div class="list-block" style="margin: 0;">
+                <ul>
+                    <li class="item-content">
+                        <div class="item-inner text-gray" style="white-space: normal;">
+                            <span ng-bind="form.description"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </rs-panel>
+
+        <div class="list-block" style="margin-bottom: 0;" >
+            <ul>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title" style="width: 40%">Номер телефона</div>
+                        <div class="item-input" style="width: 60%;">
+                            <input ng-disabled="form.requestAlreadySend"
+                                   mask-clean="true" mask-restrict="reject" mask="(999) 999-99-99"
+                                   style="text-align: right;"
+                                   type="text" ng-model='form.autoPay.phone'/>
+                        </div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title" style="white-space: normal; width: 50%;">Сумма пополнения</div>
+                        <div class="item-input">
+                            <input ng-disabled="isViewMode()"
+                                   type="number" ng-model="form.autoPay.sum"/>
+                            <span style="position: absolute; right: 0; top: 17px;" ng-if="form.bankCard" currency="RUB"></span>
+                        </div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title" style="white-space: normal; width: 50%;">Порог баланса</div>
+                        <div class="item-input">
+                            <input ng-disabled="isViewMode()"
+                                   type="number" ng-model="form.autoPay.threshold"/>
+                            <span style="position: absolute; right: 0; top: 17px;" ng-if="form.bankCard" currency="RUB"></span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <button ng-if="form.showButton && showConnectButton()" class="button button-full rs-button no-margin"
+                style="position: relative; bottom: 0; left: 0; height: 64px; margin-top: 13vw !important;"
+                ng-click="connectAutoPay()">Оформить</button>
+
+        <button ng-if="form.showButton && showEditOrDeleteButton()" class="button button-full rs-button no-margin bg-CCD5D9 text-667980"
+                style="position: relative; bottom: 0; left: 0; height: 40px; background-color: #CCD5D9 !important; color: #667980 !important;"
+                ng-click="editAutoPay()">Изменить</button>
+
+        <button ng-if="form.showButton && showEditOrDeleteButton()" class="button button-full rs-button no-margin"
+                style="position: relative; bottom: 0; left: 0; height: 64px; margin-top: 13vw !important; background-color: #E63947 !important;"
+                ng-click="deleteAutoPay()">Отключить</button>
+
+    </ion-content>
+</ion-view>

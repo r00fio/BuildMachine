@@ -1,0 +1,13 @@
+<svg width="72px" height="54px" viewBox="0 0 72 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Backspace Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Filtr-Copy-3" sketch:type="MSArtboardGroup" transform="translate(-835.000000, -1742.000000)" fill-opacity="0.5" fill="#24A7B3">
+            <g id="digits" sketch:type="MSLayerGroup" transform="translate(113.000000, 983.000000)">
+                <path d="M788,759 L743,759 C740.9,759 739.4,759.9 738.2,761.7 L722,786 L738.2,810.3 C739.4,811.8 740.9,813 743,813 L788,813 C791.3,813 794,810.3 794,807 L794,765 C794,761.7 791.3,759 788,759 L788,759 Z M779,796.8 L774.8,801 L764,790.2 L753.2,801 L749,796.8 L759.8,786 L749,775.2 L753.2,771 L764,781.8 L774.8,771 L779,775.2 L768.2,786 L779,796.8 L779,796.8 Z" id="Backspace-Copy" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

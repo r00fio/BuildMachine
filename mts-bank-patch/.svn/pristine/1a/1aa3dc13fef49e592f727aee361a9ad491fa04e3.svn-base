@@ -1,0 +1,16 @@
+<div>
+    <rs-header lbtn-class="icon-close" lbtn-action="useTouchID(false)">Отпечаток пальца</rs-header>
+    <ion-view>
+        <ion-pane>
+            <div class="flex flex-column flex-center use-touchid">
+                <div class="fingerprint-icon"></div>
+                <div class="use-touchid-title">Вход по отпечатку пальца</div>
+                <div class="use-touchid-text">Вы хотите использовать отпечаток пальца для
+                    быстрого входа в Мобильный Банк?</div>
+            </div>
+            <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                <md-button class="md-raised rs-button btn-in" ng-click="useTouchID(true)">Использовать</md-button>
+            </section>
+        </ion-pane>
+    </ion-view>
+</div>

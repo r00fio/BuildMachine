@@ -1,0 +1,16 @@
+<svg width="77px" height="59px" viewBox="0 0 77 59" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Fill 2 + delete</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Number_kod" sketch:type="MSArtboardGroup" transform="translate(-786.000000, -1527.000000)">
+            <g id="BUTTONS" sketch:type="MSLayerGroup" transform="translate(143.781132, 654.859504)">
+                <g id="Fill-2-+-delete" transform="translate(645.000000, 875.000000)" sketch:type="MSShapeGroup">
+                    <path d="M55.0720908,10.9090909 L42.445283,23.5358987 L29.8184752,10.9090909 L26.445283,14.2822831 L39.0720908,26.9090909 L26.445283,39.5358987 L29.8184752,42.9090909 L42.445283,30.2822831 L55.0720908,42.9090909 L58.445283,39.5358987 L45.8184752,26.9090909 L58.445283,14.2822831 L55.0720908,10.9090909" id="Fill-2" fill="#202426"></path>
+                    <path d="M66,0 L21.3,0 C19.2,0 17.4,0.9 16.2,2.7 L0,27 L16.2,51.3 C17.4,52.8 19.2,54 21.3,54 L66,54 C69.3,54 72,51.3 72,48 L72,6 C72,2.7 69.3,0 66,0 L66,0 Z" id="delete" stroke="#202426" stroke-width="4"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

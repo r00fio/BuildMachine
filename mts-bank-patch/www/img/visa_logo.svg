@@ -1,0 +1,19 @@
+<svg width="64px" height="20px" viewBox="0 0 64 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>visa_logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Product_list_full" sketch:type="MSArtboardGroup" transform="translate(-545.000000, -226.000000)">
+            <g id="card_visa" sketch:type="MSLayerGroup" transform="translate(0.000000, 192.000000)">
+                <g id="visa_logo" transform="translate(544.000000, 34.000000)" sketch:type="MSShapeGroup">
+                    <path d="M9.049,0.001 L1.081,0.001 L0.999,0.373 C7.215,1.901 11.332,5.585 13.023,10.013 L11.291,1.549 C11.005,0.373 10.129,0.041 9.049,0.001" id="Fill-1" fill="#F8C00F"></path>
+                    <path d="M27.159,0 L23.947,19.962 L29.082,19.962 L32.293,0 L27.159,0" id="Fill-2" fill="#1C61B0"></path>
+                    <path d="M42.646,8.131 C40.851,7.245 39.752,6.649 39.752,5.744 C39.773,4.92 40.682,4.077 42.71,4.077 C44.379,4.037 45.605,4.427 46.535,4.818 L47,5.024 L47.696,0.848 C46.682,0.457 45.077,0.024 43.09,0.024 C38.019,0.024 34.449,2.658 34.427,6.423 C34.385,9.2 36.984,10.742 38.928,11.668 C40.914,12.615 41.59,13.232 41.59,14.075 C41.569,15.371 39.984,15.968 38.505,15.968 C36.456,15.968 35.357,15.66 33.688,14.939 L33.012,14.63 L32.293,18.972 C33.498,19.506 35.716,19.979 38.019,20 C43.407,20 46.915,17.408 46.957,13.396 C46.977,11.195 45.605,9.508 42.646,8.131" id="Fill-3" fill="#1C61B0"></path>
+                    <path d="M60.86,0.062 L56.888,0.062 C55.662,0.062 54.732,0.412 54.204,1.667 L46.576,19.962 L51.964,19.962 L53.448,16 L59.478,16 L60.247,19.977 L65.001,19.977 L60.86,0.062 L60.86,0.062 Z M54.943,12.003 C55.046,12.014 57.012,5.537 57.012,5.537 L58.575,12.003 L54.943,12.003 L54.943,12.003 Z" id="Fill-4" fill="#1C61B0"></path>
+                    <path d="M19.658,0 L14.629,13.562 L14.08,10.887 C13.151,7.801 10.235,4.447 6.981,2.781 L11.587,19.941 L17.017,19.941 L25.088,0 L19.658,0" id="Fill-5" fill="#1C61B0"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

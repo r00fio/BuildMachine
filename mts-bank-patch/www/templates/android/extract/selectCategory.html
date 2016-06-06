@@ -1,0 +1,19 @@
+<div class="modal-container flex flex-middle flex-center" ng-click="selectCategory.hide()">
+    <div class="modal-content">
+        <div class="list-block list-block-separator-hidden" style="margin:0;">
+            <ul>
+                <li class="item-content" ng-repeat="category in categories" ng-click="clickCategory(category)">
+                    <div class="item-inner">
+                        <div class="flex flex-middle">
+                            <div class="operation-category-point" style="background-color: {{category.color}}"/>
+                            <div style="margin-left: 5px; margin-right: 15px;"><label class="text-15px white-space-pre-line" ng-bind="category.name"/></div>
+                        </div>
+                        <div class="item-after" ng-if="operation.categoryCode == category.code">
+                            <div class="icon-selected"></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

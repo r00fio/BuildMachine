@@ -1,0 +1,75 @@
+<div ng-controller="DepositParamsCtrl">
+    <rs-header lbtn-class="icon-close" lbtn-action="goBack()" rbtn-class="icon-check-mark" rbtn-action="ok()">Параметры вклада</rs-header>
+    <ion-view>
+        <ion-content class="has-header">
+
+            <div class="content-block-title">Сумма</div>
+            <div class="list-block" style="margin-bottom: 0;">
+                <ul>
+                    <fw7-li title="Валюта вклада" item-class="item-link" rs-options="currencyList" rs-options-show="dispname"
+                            rs-options-header="Валюта" ng-model="formParams.searchParams.currency">
+                        <div>{{formParams.searchParams.currency.dispname || 'Не выбрано'}}</div>
+                    </fw7-li>
+                    <fw7-li title="Введите сумму">
+                        <div class="item-input">
+                            <input type="number" placeholder="Введите сумму" ng-model="formParams.searchParams.amount">
+                        </div>
+                    </fw7-li>
+                </ul>
+            </div>
+
+            <div class="content-block-title">Срок вклада</div>
+            <div class="list-block" style="margin-bottom: 0;">
+                <ul>
+                    <fw7-li title="Срок" item-class="item-link" rs-options="formParams.termOptionList" rs-options-show="alias"
+                            rs-options-header="Срок вклада" ng-model="formParams.searchParams.termPeriod"
+                            rs-waiter="formParams.termOptionList" rs-waiter-style="{'right':'35px'}">
+                        <div>{{formParams.searchParams.termPeriod.alias}}</div>
+                    </fw7-li>
+
+                    <fw7-li title="Срок, дней" ng-hide="!formParams.searchParams.termPeriod || formParams.searchParams.termPeriod.termStart">
+                        <div class="item-input">
+                            <input type="number" placeholder="Количество" ng-model="formParams.searchParams.term" ng-change="onTermChange()">
+                        </div>
+                    </fw7-li>
+                </ul>
+            </div>
+
+            <div class="content-block-title">Дополнительно</div>
+            <div class="list-block" style="margin-bottom: 0;">
+                <ul>
+                    <fw7-li title="Возможность частичного снятия">
+                        <rs-toggle ng-model="formParams.searchParams.withdrawal"></rs-toggle>
+                    </fw7-li>
+
+                    <fw7-li title="Возможность пополнения">
+                        <rs-toggle  ng-checked="formParams.searchParams.refill || (formParams.searchParams.refill = !!formParams.searchParams.refillAmount)"
+                                    ng-model="formParams.searchParams.refill"
+                                    ng-click="formParams.searchParams.refill ? ((formParams.searchParams.refill = !formParams.searchParams.refill) + (formParams.searchParams.refillAmount = null)) : 0">
+                        </rs-toggle>
+                    </fw7-li>
+
+                    <fw7-li title="Пополнение в месяц">
+                        <div class="item-input">
+                            <input type="number" placeholder="Введите сумму" ng-model="formParams.searchParams.refillAmount">
+                        </div>
+                    </fw7-li>
+
+                    <fw7-li title="Получение процентов" item-class="item-link" rs-options="interestPayOutList" rs-options-show="dispname"
+                            rs-options-header="Получение процентов" ng-model="formParams.searchParams.interestPayOut">
+                        <div>{{formParams.searchParams.interestPayOut.dispname || 'Не выбрано'}}</div>
+                    </fw7-li>
+
+                    <fw7-li title="Выплата доходов" item-class="item-link" rs-options="creditSepList" rs-options-show="dispname"
+                            rs-options-header="Выплата доходов" ng-model="formParams.searchParams.intCreditSep">
+                        <div>{{formParams.searchParams.intCreditSep.dispname || 'Не выбрано'}}</div>
+                    </fw7-li>
+                    <fw7-li title="Возможность продления">
+                        <rs-toggle ng-model="formParams.searchParams.extension"></rs-toggle>
+                    </fw7-li>
+                </ul>
+            </div>
+
+        </ion-content>
+    </ion-view>
+</div>

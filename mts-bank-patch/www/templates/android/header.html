@@ -1,0 +1,13 @@
+<ion-header-bar>
+    <md-button class="icon-shadow-effect-standart md-icon-button md-button md-ink-ripple"
+               ng-click="lbtnDefaultAction ? lbtnDefaultAction() : lbtnAction({$event: $event})"
+               ng-if="lbtnDefaultClass || lbtnClass">
+        <button class="icon-menu-stand" ng-if="lbtnDefaultClass || lbtnClass"
+                ng-class="lbtnDefaultClass ? lbtnDefaultClass : lbtnClass"></button>
+    </md-button>
+    <h1 class="title"><transclude-replace></transclude-replace></h1>
+    <md-button class="icon-shadow-effect-standart md-icon-button md-button md-ink-ripple"
+               ng-click="rbtnAction({$event: $event})" ng-if="rbtnClass">
+        <button class="icon-menu-stand" ng-if="rbtnClass" ng-class="rbtnClass"></button>
+    </md-button>
+</ion-header-bar>

@@ -1,0 +1,24 @@
+<svg width="102px" height="155px" viewBox="0 0 102 155" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Imported Layers</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" filterRes="204 310" id="filter-1">
+            <feOffset dx="0" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.377244678 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Map-2" sketch:type="MSArtboardGroup" transform="translate(-394.000000, -775.000000)">
+            <g id="Imported-Layers" sketch:type="MSLayerGroup" transform="translate(401.000000, 780.000000)">
+                <path d="M33.330204,137.81016 L49.3100078,87.3203099 C18.0552696,87.3203099 0.848178834,63.2717375 0.848178834,42.6792753 C0.848178834,19.215279 20.6664667,0.167635029 43.887978,0.167635029 C67.1094893,0.167635029 86.9277771,19.2152776 86.9277771,42.679274 C86.3818657,57.5917091 80.1733328,72.9446553 74.7173383,81.9753309 C59.7843218,106.703307 34.3502784,138.796758 33.330204,137.81016 Z" id="Fill-2" stroke="#FFFFFF" stroke-width="5" fill="#E63947" filter="url(#filter-1)" sketch:type="MSShapeGroup"></path>
+                <path d="M43.9244012,63.0068556 C33.5848024,63.0068556 28.9574468,54.4540277 28.9574468,45.9765063 C28.9574468,40.1790112 30.8533252,33.5033092 34.0341641,28.1155702 C37.1015927,22.9149901 40.8002675,19.8108108 43.9244012,19.8108108 C47.0560243,19.8108108 50.7579088,22.9149901 53.8306869,28.1155702 C57.0104559,33.5033092 58.9095441,40.1790112 58.9095441,45.9765063 C58.9095441,54.4540277 54.2779088,63.0068556 43.9244012,63.0068556" id="Imported-Layers-2" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

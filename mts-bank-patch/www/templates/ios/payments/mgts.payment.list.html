@@ -1,0 +1,49 @@
+<div ng-controller="MGTSPaymentCtrl as mgtsPaymentCtrl" ui-view="payment-categories-page">
+    <rs-header>Начисления МГТС</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <div class="list-block" style="margin: 0;">
+                <ul ng-hide="categories === null || (categories && categories.length == 0)">
+                    <li class="item-content" ng-repeat="category in categories" rs-waiter="categories" ng-click="redirectToSelected(category)">
+                        <div class="item-inner">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell text-15px" style="white-space: normal;" ng-bind="category.homePhoneN"></div>
+                                    <div ng-if="category.sum"
+                                         class="table-cell text-15px text-gray" style="white-space: normal; text-align: right;">
+                                        <span ng-bind="category.sum"></span><span currency="RUB"></span>
+                                    </div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell text-15px text-gray" style="white-space: normal;" ng-bind="category.payDate"></div>
+                                    <span style="text-align: right;" class="table-cell text-12px text-gray" ng-bind="'Квартира №' + category.apartmentN"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div ng-show="categories && categories.length == 0" class="table-fixed-width100pc margin-top-30px">
+                <div class="table-row">
+                    <div class="table-cell text-gray text-15px padding-left-20px">
+                        Данные для поиска начислений отсутствуют.
+                    </div>
+                </div>
+            </div>
+            <div ng-show="serviceNotAvailable" class="table-fixed-width100pc margin-top-30px">
+                <div class="table-row">
+                    <div class="table-cell text-gray text-15px padding-left-20px">
+                        Сервис доступен только для держателей банковских карт.
+                    </div>
+                </div>
+            </div>
+            <div ng-show="externalError" class="table-fixed-width100pc margin-top-30px">
+                <div class="table-row">
+                    <div class="table-cell text-gray text-15px padding-left-20px">
+                        Данные для поиска начислений заданы некорректно.
+                    </div>
+                </div>
+            </div>
+        </ion-content>
+    </ion-view>
+</div>

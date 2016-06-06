@@ -1,0 +1,38 @@
+<rs-header>Автоплатежи за МТС</rs-header>
+<ion-view>
+    <ion-content class="has-header bg-f0f4f5" ng-controller="CardAutoPayListCtrl as cardAutoPayListCtrl">
+
+        <div class="rs-content-panel" ng-if="autoPayList && autoPayList.length == 0">
+            <div class="rs-content-panel-header" style="text-transform: none;">У вас нет подключенных автоплатежей за МТС</div>
+        </div>
+
+        <rs-panel header-text="Подключенные" ng-if="!autoPayList || autoPayList.length > 0">
+            <div class="list-block" style="margin: 0;">
+                <ul>
+                    <rs-select ng-repeat="autoPay in autoPayList" rs-waiter="autoPayList"
+                               header-text="Автоплатеж" value-text="{{autoPay.phone}}"
+                               ng-click="redirectToAutoPay(autoPay)">
+                    </rs-select>
+                </ul>
+            </div>
+        </rs-panel>
+
+        <rs-panel header-text="Описание">
+            <div class="list-block" style="margin: 0;">
+                <ul>
+                    <li class="item-content">
+                        <div class="item-inner text-gray" style="white-space: normal;">
+                            <span ng-bind="description" rs-waiter="description"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </rs-panel>
+
+        <button ng-click="redirectToAutoPay()"
+                class="rs-button-page flex flex-center flex-middle bg-24A7B3"
+                style="position: relative; bottom: 0; left: 0; margin-top: 20vw; height: 10vw;">Подключить
+        </button>
+
+    </ion-content>
+</ion-view>

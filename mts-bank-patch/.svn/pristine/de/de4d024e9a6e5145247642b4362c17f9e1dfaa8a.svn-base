@@ -1,0 +1,116 @@
+<div ng-controller="ReissueCardCtrl as reissueCardCtrl">
+        <ion-view>
+            <rs-header>Перевыпустить</rs-header>
+            <ion-content class="has-header">
+
+                <div class="content-block-title" style="margin-top: 10px;">Заявка на перевыпуск карты</div>
+
+                <div ng-hide="form.requestData" rs-waiter="form.requestData" style="margin-top: 20px;"></div>
+
+                <div ng-if="form.requestData" class="list-block list-block-separator-hidden" style="margin-bottom: 0;">
+                    <ul>
+                        <rs-select header-text="Причина перевыпуска"
+                                   value-text="{{form.selectedCardReissueReason ? form.selectedCardReissueReason.desc : ''}}"
+                                   ng-click="onSelectCodifierPanel(form.cardReissueReasons, 'CardReissueReason')"
+                                   ng-disabled="form.requestAlreadySend">
+                        </rs-select>
+                    </ul>
+                </div>
+
+                <!-- Невиртуальная карта -->
+                <div ng-if="form.requestData && !form.requestData.isVirtual" class="list-block list-block-separator-hidden" style="margin-bottom: 0;">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="table-fixed-width100pc">
+                                    <div class="table-row">
+                                        <div class="table-cell text-gray">Эмбоссированное имя</div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-cell">
+                                            <input type="text"
+                                                   ng-disabled="form.requestAlreadySend"
+                                                   placeholder=""
+                                                   ng-model="form.requestData.embossedName"
+                                                   class="placeholder-gray"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="table-fixed-width100pc">
+                                    <div class="table-row">
+                                        <div class="table-cell text-gray">Эмбоссированная фамилия</div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-cell">
+                                            <input type="text"
+                                                   ng-disabled="form.requestAlreadySend"
+                                                   placeholder=""
+                                                   ng-model="form.requestData.embossedLastName"
+                                                   class="placeholder-gray"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <rs-select header-text="Продукт"
+                                   value-text="{{form.selectedReissueProduct ? form.selectedReissueProduct.desc : ''}}"
+                                   ng-click="onSelectCodifierPanel(form.reissueProducts, 'ReissueProduct')"
+                                   ng-disabled="form.requestAlreadySend">
+                        </rs-select>
+
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="table-fixed-width100pc">
+                                    <div class="table-row">
+                                        <div class="table-cell text-gray">Комиссия</div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-cell" ng-show="form.selectedReissueProduct.commission">
+                                            <span ng-bind="form.selectedReissueProduct.commission"></span>
+                                            <span currency="{{form.requestData.currencyProduct}}"></span>
+                                        </div>
+                                        <div class="table-cell" ng-hide="form.selectedReissueProduct.commission">
+                                            <span>Не взимается</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <rs-office-select model="form.office" region-list="regionList" read-only="form.requestAlreadySend"></rs-office-select>
+                    </ul>
+                </div>
+
+                <!-- Виртуальная карта -->
+                <div ng-if="form.requestData && form.requestData.isVirtual" class="list-block list-block-separator-hidden" style="margin-bottom: 0;">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="table-fixed-width100pc">
+                                    <div class="table-row">
+                                        <div class="table-cell text-gray">Комиссия</div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-cell" ng-show="form.requestData.commission">
+                                            <span ng-bind="form.requestData.commission"></span>
+                                            <span currency="{{form.requestData.currencyProduct}}"></span>
+                                        </div>
+                                        <div class="table-cell" ng-hide="form.requestData.commission">
+                                            <span>Не взимается</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </ion-content>
+
+            <button ng-show="showSendButton()" ng-click="reissueCard()" class="button rs-button-long">Перевыпустить</button>
+            <button ng-show="form.showConfirmBlockButton" ng-click="confirmCardBlock()" class="button rs-button-long">Подтвердить блокировку карты</button>
+        </ion-view>
+</div>

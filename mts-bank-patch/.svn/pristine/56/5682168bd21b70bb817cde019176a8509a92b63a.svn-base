@@ -1,0 +1,170 @@
+<div ui-view="account-page">
+    <rs-header rbtn-class="icon-menu-more" rbtn-action="openPopover($event)">Счета и вклады</rs-header>
+        <ion-view>
+            <ion-content class="has-header" on-scroll-complete="showMoreOperations()">
+                <script id="templates/account/popover.html" type="text/ng-template">
+                    <ion-popover-view>
+                        <ion-content scroll="false">
+                            <div class="list-block" style="font-size: 15px !important;">
+
+                                <!-- Попап меню Счёта -->
+                                <ul ng-if="!currentProduct.deposit">
+                                    <li class="item-content" ng-click="closePopover()" ng-hide="currentProduct.isClosed" ui-sref="account.close">
+                                        <div class="item-media"><i class="icon icon-remove"></i></div>
+                                        <div class="item-inner">Закрыть счет</div>
+                                    </li>
+                                    <li class="item-content" ng-click="closePopover() + renameProduct(currentProduct)">
+                                        <div class="item-media"><i class="icon icon-edit"></i></div>
+                                        <div class="item-inner">Переименовать</div>
+                                    </li>
+                                    <li class="item-content item-inner" ng-click="closePopover()" ui-sref="account.sendextract">
+                                        <div class="item-media"><i class="icon icon-send-extract"></i></div>
+                                        <div class="item-inner">Отправить выписку</div>
+                                    </li>
+                                    <li class="item-content" ng-if="currentProduct.canChangeUseInPayments">
+                                        <div class="item-inner">
+                                            <div class="item-title width100pc">Использовать для платежей</div>
+                                            <div class="item-after">
+                                                <rs-toggle ng-change="toggleDisabled(currentProduct)" ng-model="currentProduct.disabled" ng-true-value="false" ng-false-value="true"></rs-toggle>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="item-content" ng-hide="currentProduct.isClosed">
+                                        <div class="item-inner">
+                                            <div class="item-title width100pc">Скрыть в списке продуктов</div>
+                                            <div class="item-after">
+                                                <rs-toggle ng-change="toggleFavourite(currentProduct)" ng-model="currentProduct.isFavourite" ng-true-value="false" ng-false-value="true"></rs-toggle>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <!-- Попап меню Вклада -->
+                                <ul ng-if="currentProduct.deposit">
+                                    <li class="item-content" ng-click="closePopover()" ng-hide="currentProduct.deposit.isClosed" ui-sref="account.close">
+                                        <div class="item-media"><i class="icon icon-remove"></i></div>
+                                        <div class="item-inner">Закрыть вклад</div>
+                                    </li>
+                                    <li class="item-content" ng-click="closePopover() + renameProduct(currentProduct.deposit)">
+                                        <div class="item-media"><i class="icon icon-edit"></i></div>
+                                        <div class="item-inner">Переименовать</div>
+                                    </li>
+                                    <li class="item-content item-inner" ng-click="closePopover()" ui-sref="account.sendextract">
+                                        <div class="item-media"><i class="icon icon-send-extract"></i></div>
+                                        <div class="item-inner">Отправить выписку</div>
+                                    </li>
+                                    <li class="item-content" ng-if="retailClient.hasAccessToPayments">
+                                        <div class="item-inner">
+                                            <div class="item-title width100pc">Использовать для платежей</div>
+                                            <div class="item-after">
+                                                <rs-toggle ng-change="toggleDisabled(currentProduct)" ng-model="currentProduct.disabled" ng-true-value="false" ng-false-value="true"></rs-toggle>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="item-content" ng-hide="currentProduct.deposit.isClosed">
+                                        <div class="item-inner">
+                                            <div class="item-title width100pc">Скрыть в списке продуктов</div>
+                                            <div class="item-after">
+                                                <rs-toggle ng-change="toggleFavourite(currentProduct.deposit)" ng-model="currentProduct.deposit.isFavourite" ng-true-value="false" ng-false-value="true"></rs-toggle>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </ion-content>
+                    </ion-popover-view>
+                </script>
+
+                <div class="product-info">
+                    <rs-product-slide-box on-slide-changed="slideHasChanged(index)" active-slide="activeSlide">
+                        <rs-product-slide ng-repeat="product in productList track by product.sliderId">
+                            <div class="rs-product-slide-left-link" ng-if="product.deposit && product.deposit === productList[$index - 1].deposit"></div>
+                            <div class="rs-product-slide-right-link" ng-if="product.deposit && product.deposit === productList[$index + 1].deposit"></div>
+                            <img ng-if="(!product.deposit && product.isLocked) || (product.deposit && product.deposit.isLocked)" class="picture-state" src="img/ios/block.svg">
+                            <img ng-if="(!product.deposit && product.isClosed) || (product.deposit && product.deposit.isClosed)" class="picture-state" src="img/ios/closed-product.svg">
+                            <div class="product-block flex flex-column" style="{{((!product.deposit && product.isClosed) || (product.deposit && product.deposit.isClosed)) ? 'opacity: 0.7;' : ''}}">
+                                <!--продукт - счет-->
+                                <div ng-hide="product.deposit">
+                                    <div class="padding-left-20px text-align-left">
+                                        <label class="product-name text-15px" ng-bind="product.name"></label>
+                                    </div>
+                                    <div class="padding-left-20px padding-top-10px text-color-white text-align-left">
+                                        <label class="product-name text-12px">Текущий счет</label>
+                                    </div>
+                                </div>
+
+                                <!--продукт - вклад-->
+                                <div ng-show="product.deposit">
+                                    <div class="padding-left-20px text-align-left">
+                                        <label class="product-name text-15px" ng-bind="product.deposit.name"></label>
+                                    </div>
+                                    <div class="padding-left-20px padding-top-10px text-color-white text-align-left">
+                                        <label class="product-name text-12px">Вклад</label>
+                                    </div>
+                                </div>
+
+                                <div class="child-flex-2 padding-left-20px padding-top-20px text-color-white text-align-left">
+                                    <label class="text-14px">№{{product.number}}</label>
+                                </div>
+                                <div class="padding-left-20px padding-top-15px text-color-white text-align-left">
+                                    <span class="text-16px" ng-bind="(product.availableBalance | defaultSum)"></span>
+                                    <span class="text-16px" currency="{{product.currency}}"></span>
+                                </div>
+                            </div>
+                        </rs-product-slide>
+                    </rs-product-slide-box>
+
+                    <div class="table width100pc height15pc margin-top-25px">
+                        <a href="#" class="btn-product-info" ui-sref="account.info">Информация</a>
+                        <a href="#" class="btn-product-services" ui-sref="account.services">Услуги и сервисы</a>
+                    </div>
+
+
+                    <div ng-if="(!currentProduct.deposit && !currentProduct.isUpdatedABS) || (currentProduct.deposit && !currentProduct.deposit.isUpdatedABS)" class="width100pc height8pc margin-top-15px">
+                        <div rs-waiter="(!currentProduct.deposit && currentProduct.isUpdatedABS) || (currentProduct.deposit && currentProduct.deposit.isUpdatedABS)" class="product-info-cell">
+                        </div>
+                    </div>
+
+                    <!--Счет-->
+                    <div ng-if="!currentProduct.deposit && currentProduct.isUpdatedABS">
+                        <product-info-field ng-if="currentProduct.interestRate"
+                                            label="Ставка"
+                                            value="{{currentProduct.interestRate}}%"
+                                            ui-sref="account.rateinfo">
+                        </product-info-field>
+                        <product-info-field label="Открыт"
+                                            value="{{currentProduct.openDate | defaultDate}}">
+                        </product-info-field>
+                    </div>
+
+                    <!--Вклад-->
+                    <div ng-if="currentProduct.deposit && currentProduct.deposit.isUpdatedABS">
+                        <product-info-field label="Ставка"
+                                            value="{{currentProduct.interestRate}}%"
+                                            ui-sref="account.rateinfo">
+                        </product-info-field>
+                        <!-- CHG098964: MTS: Вклады. Скрыть поля Начисленные %% и Ожидаемая сумма -->
+                        <!--<product-info-field label="Начисленные проценты"-->
+                                            <!--value="{{currentProduct.percentAmount | defaultSum}}"-->
+                                            <!--value-currency="{{currentProduct.currency}}">-->
+                        <!--</product-info-field>-->
+                        <!--<product-info-field label="Ожидаемая сумма"-->
+                                            <!--value="{{currentProduct.expectAmount | defaultSum}}"-->
+                                            <!--value-currency="{{currentProduct.currency}}">-->
+                        <!--</product-info-field>-->
+                        <product-info-field label="Срок"
+                                            value="{{getTermDeposit()}}">
+                        </product-info-field>
+                    </div>
+                </div>
+
+                <div class="btn-refill" ng-show="isRefillProductAvailable(currentProduct)"><button ng-click="refillProduct(currentProduct)">Пополнить</button></div>
+
+                <div class="operations">
+                    <rs-operations-with-basement product="currentProduct"></rs-operations-with-basement>
+                </div>
+
+                <ion-refresher on-refresh="doRefresh()" pulling-icon="" class="white-spinner"></ion-refresher>
+            </ion-content>
+        </ion-view>
+</div>

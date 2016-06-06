@@ -1,0 +1,75 @@
+<ion-view>
+    <div class="bg-app" ng-class="{'bg-app-{{background}}': true, 'blur3px': platform==='ios'}">
+        <div class="bg-app-fill"/>
+    </div>
+    <div class="content-on-bg">
+        <div class="mts-logo"/>
+        <md-button class="md-icon-button md-button md-ink-ripple menu-list-button back-btn" ng-if="showBackButton" on-touch="backShortCode()">
+            <md-icon md-svg-icon="img/android/back.svg">
+        </md-button>
+        <div class="short-code-block">
+            <!-- Текст приглашения ввода КК -->
+            <div ng-if="promptText" class="enter-short-code" ng-bind="promptText"></div>
+            <div>
+                <div class="flex flex-center">
+                    <div class="short-code-indicator" ng-class="{'full': shortCodeArr.length > 0}"></div>
+                    <div class="short-code-indicator" ng-class="{'full': shortCodeArr.length > 1}"></div>
+                    <div class="short-code-indicator" ng-class="{'full': shortCodeArr.length > 2}"></div>
+                    <div class="short-code-indicator" ng-class="{'full': shortCodeArr.length > 3}"></div>
+                </div>
+            </div>
+            <div class="width100pc flex flex-center digit-block">
+                <div ng-class="{ios7fix: platform==='ios'}">
+                    <div class="flex">
+                        <div class="digit flex flex-middle flex-center">
+                            <div class="digit-content flex flex-middle flex-center" on-touch="pressButton($event)" ng-click="">1</div>
+                        </div>
+                        <div class="digit flex flex-middle flex-center">
+                            <div class="digit-content flex flex-middle flex-center" on-touch="pressButton($event)" ng-click="">2</div>
+                        </div>
+                        <div class="digit flex flex-middle flex-center">
+                            <div class="digit-content flex flex-middle flex-center" on-touch="pressButton($event)" ng-click="">3</div>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="digit flex flex-middle flex-center">
+                            <div class="digit-content flex flex-middle flex-center" on-touch="pressButton($event)" ng-click="">4</div>
+                        </div>
+                        <div class="digit flex flex-middle flex-center">
+                            <div class="digit-content flex flex-middle flex-center" on-touch="pressButton($event)" ng-click="">5</div>
+                        </div>
+                        <div class="digit flex flex-middle flex-center">
+                            <div class="digit-content flex flex-middle flex-center" on-touch="pressButton($event)" ng-click="">6</div>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="digit flex flex-middle flex-center">
+                            <div class="digit-content flex flex-middle flex-center" on-touch="pressButton($event)" ng-click="">7</div>
+                        </div>
+                        <div class="digit flex flex-middle flex-center">
+                            <div class="digit-content flex flex-middle flex-center" on-touch="pressButton($event)" ng-click="">8</div>
+                        </div>
+                        <div class="digit flex flex-middle flex-center">
+                            <div class="digit-content flex flex-middle flex-center" on-touch="pressButton($event)" ng-click="">9</div>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="digit flex flex-middle flex-center">
+                            <div ng-if="hasTouchID" class="touch-id flex flex-middle flex-center" on-touch="checkTouchID()"/>
+                        </div>
+                        <div class="digit flex flex-middle flex-center">
+                            <div class="digit-content flex flex-middle flex-center" on-touch="pressButton($event)" ng-click="">0</div>
+                        </div>
+                        <div class="digit flex flex-middle flex-center">
+                            <div class="digit-content flex flex-middle flex-center" on-touch="backspace()" ng-click="">
+                                <div class="backspace"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="showResetButton" on-touch="resetShortCode()" class="cancel-short-code">Не помню код</div>
+            <div ng-if="showCancelButton" on-touch="cancelShortCode()" class="cancel-short-code">Отменить</div>
+        </div>
+    </div>
+</ion-view>

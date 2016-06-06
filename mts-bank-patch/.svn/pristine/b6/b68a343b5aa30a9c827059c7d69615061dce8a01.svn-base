@@ -1,0 +1,139 @@
+<ion-content class="has-header">
+    <rs-panel header-text="Период">
+        <div ng-if="platform=='ios'" class="list-block no-margin">
+            <ul>
+                <li>
+                    <rs-date-picker-ios value-date="filterForm.fromDate" upper-bound="filterForm.toDate"
+                                        field-id="bonus-extract-from" title="Начало периода"/>
+                </li>
+                <li>
+                    <rs-date-picker-ios value-date="filterForm.toDate" lower-bound="filterForm.fromDate"
+                                        field-id="bonus-extract-to" title="Конец периода"/>
+                </li>
+            </ul>
+        </div>
+
+        <div ng-if="platform!='ios'" class="list-block no-margin">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell text-gray" style="padding-left: 5px; font-size: 16px;">С</div>
+                                </div>
+                                <div class="item-input table-row">
+                                    <input type="text" style="font-size: 16px;" readonly id="calendar-date-format-from"
+                                           value-date="filterForm.fromDate" upper-bound="filterForm.toDate" rs-date-picker-android>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell text-gray" style="padding-left: 5px; font-size: 16px;">По</div>
+                                </div>
+                                <div class="item-input table-row">
+                                    <input type="text" style="font-size: 16px;" readonly id="calendar-date-format-to"
+                                           value-date="filterForm.toDate" lower-bound="filterForm.fromDate" rs-date-picker-android>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </rs-panel>
+
+    <rs-panel header-text="Продукты">
+        <div class="list-block no-margin">
+            <ul>
+                <li ng-repeat="card in filterForm.products">
+                    <rs-product product="card" show-check-box="true"></rs-product>
+                </li>
+            </ul>
+        </div>
+
+    </rs-panel>
+
+    <rs-panel header-text="Тип операции">
+        <div class="list-block no-margin">
+            <ul>
+                <li class="theme-mts">
+                    <!--<a href="#" class="item-content" ng-click="$event.preventDefault()">-->
+                        <label class="item-content label-radio width100pc">
+                            <input type="radio" ng-model="filterForm.operationType" ng-value="'any'" />
+                            <div class="item-inner">
+                                <div class="item-title">Все</div>
+                            </div>
+                        </label>
+                    <!--</a>-->
+                </li>
+                <li class="theme-mts">
+                    <!--<a href="#" class="item-content" ng-click="$event.preventDefault()">-->
+                        <label class="item-content label-radio width100pc">
+                            <input type="radio" ng-model="filterForm.operationType" ng-value="'-'" />
+                            <div class="item-inner">
+                                <div class="item-title">Расходы</div>
+                            </div>
+                        </label>
+                    <!--</a>-->
+                </li>
+                <li class="theme-mts">
+                    <!--<a href="#" class="item-content" ng-click="$event.preventDefault()">-->
+                        <label class="item-content label-radio width100pc">
+                            <input type="radio" ng-model="filterForm.operationType" ng-value="'+'" />
+                            <div class="item-inner">
+                                <div class="item-title">Поступления</div>
+                            </div>
+                        </label>
+                    <!--</a>-->
+                </li>
+            </ul>
+        </div>
+    </rs-panel>
+
+    <div ng-show="showFilterBtn">
+        <div class="btn-refill colored-button-style" style="margin:15px 0;">
+            <button ng-click="getExtractForBonuses()">Показать выписку</button>
+        </div>
+
+        <div style="position: relative; min-height:64px;" rs-waiter="filteredOperationList" rs-waiter-style="{left:0, top:0}">
+            <rs-operations ng-show="filteredOperationList.length" operations="filteredOperationList" operation-state="operationState" for-bonus="{{bonus.optionStrId}}"></rs-operations>
+            <div ng-hide="filteredOperationList === undefined || filteredOperationList.length"
+                 class="bg-white flex flex-middle flex-center text-align-center text-gray text-13px"
+                 style="height: 134px; border-top: 1px solid #C8D5D9; border-bottom: 1px solid #C8D5D9; padding: 25px;">
+                Начисление бонусных баллов за данный период не было, пожалуйста выберите другой период
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="showSendBtn">
+        <div class="list-block no-margin">
+            <ul>
+                <li>
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-input">
+                                <input item-clear-btn type="text" class="text-15px width100pc" placeholder="E-mail" ng-model="filterForm.email" />
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-block-title text-13px" style="margin-top: 15px;">Выписка придёт на указанный адрес электронной почты.
+            Формат выписки — PDF-файл
+        </div>
+
+        <div class="btn-refill colored-button-style" style="margin:15px 0;">
+            <button ng-click="sendExtract()">Отправить</button>
+        </div>
+    </div>
+
+</ion-content>

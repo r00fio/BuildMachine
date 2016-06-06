@@ -1,0 +1,16 @@
+<svg width="40px" height="30px" viewBox="0 0 40 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Imported Layers</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Product_list_full" sketch:type="MSArtboardGroup" transform="translate(-370.000000, -953.000000)" fill="#FFFFFF">
+            <g id="quick_actions" sketch:type="MSLayerGroup" transform="translate(0.000000, 897.000000)">
+                <g id="Imported-Layers" transform="translate(370.000000, 56.000000)" sketch:type="MSShapeGroup">
+                    <path d="M38,12 C36.895,12 36,12.895 36,14 L36,24 C36,25.102 35.103,26 34,26 L6,26 C4.897,26 4,25.102 4,24 L4,6 C4,4.897 4.897,4 6,4 L26,4 C27.105,4 28,3.104 28,2 C28,0.895 27.105,0 26,0 L6,0 C2.691,0 0,2.691 0,6 L0,24 C0,27.309 2.691,30 6,30 L34,30 C37.309,30 40,27.309 40,24 L40,14 C40,12.895 39.105,12 38,12" id="Fill-1"></path>
+                    <path d="M24,10 C24,8.895 23.105,8 22,8 C20.895,8 20,8.895 20,10 L20,18 C20,19.104 20.895,20 22,20 L30,20 C31.105,20 32,19.104 32,18 C32,16.896 31.105,16 30,16 L26.828,16 L39.414,3.414 C40.195,2.633 40.195,1.367 39.414,0.586 C38.634,-0.195 37.366,-0.195 36.586,0.586 L24,13.172 L24,10" id="Fill-2"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

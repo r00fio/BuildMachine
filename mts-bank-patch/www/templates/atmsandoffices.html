@@ -1,0 +1,170 @@
+<div ui-view="atmsandoffices-page">
+    <ion-view class="no-shadow">
+        <rs-header ng-if="platform === 'ios'" lbtn-class="{{(isAuthorized)? '' : 'icon-back'}}" rbtn-class="{{type.id == 'bankAtm' ? 'icon-tuning' : ''}}" rbtn-action="type.id == 'bankAtm' ? openPopover($event) : 0">
+            <div class="flex flex-middle" ng-class="{'flex-center': platform === 'ios'}" ng-click="toggleHeaderMenu()">
+                <span ng-style="{'padding-left': platform === 'ios' ? '13px' : null}">{{type.name}}</span>
+                <div class="button button-clear button-icon icon-small icon-header-arrow" ng-class="{'icon-header-arrow-up': showHeaderMenu}"></div>
+            </div>
+        </rs-header>
+        <rs-header ng-if="platform !== 'ios'" rbtn-class="{{type.id == 'bankAtm' ? 'icon-tuning' : ''}}" rbtn-action="type.id == 'bankAtm' ? openPopover($event) : 0">
+            <div class="flex flex-middle" ng-class="{'flex-center': platform === 'ios'}" ng-click="toggleHeaderMenu()">
+                <span ng-style="{'padding-left': platform === 'ios' ? '13px' : null}">{{type.name}}</span>
+                <div class="button button-clear button-icon icon-small" ng-class="showHeaderMenu ? 'icon-header-arrow-up' : 'icon-header-arrow'"></div>
+            </div>
+        </rs-header>
+        <div ng-if="!displayMap && platform !== 'ios'" class="searchbar has-header searchbar-init">
+            <div class="searchbar-input">
+                <input input-clear-btn type="search" placeholder="Поиск" ng-model="search.text" class="width100pc solid-border-1px gray-border border-box text-14px icon-search-input" />
+                <a href="#" class="searchbar-clear spotlight-search"></a>
+            </div>
+        </div>
+        <rs-spotlight-search ng-if="!displayMap && platform === 'ios'" class="has-header" ng-model="search.text"></rs-spotlight-search>
+        <!-- Меню заголовка -->
+        <div class="rs-popup-menu rs-popup-menu-header has-header" ng-class="{'rs-popup-menu-visible': showHeaderMenu}">
+            <div class="list-block">
+                <ul>
+                    <li class="item-content item-inner" ng-repeat="objectType in objectTypes"
+                        ng-click="selectType($index)">
+                        <span class="rs-header-menu-item-text">{{objectType.name}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Фильтр для банкоматов -->
+        <script id="templates/atmsandoffices/popover-android.html" type="text/ng-template">
+            <div class="rs-popup-menu rs-atm-filter">
+                <div class="list-block">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title width100pc">Круглосуточно</div>
+                                <div class="item-after">
+                                    <rs-toggle ng-change="setAtmFilter()" ng-model="atmFilter.allDayBankAtm"></rs-toggle>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title width100pc">Без выходных</div>
+                                <div class="item-after">
+                                    <rs-toggle ng-change="setAtmFilter()" ng-model="atmFilter.allWeekBankAtm"></rs-toggle>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title width100pc">Приём наличных</div>
+                                <div class="item-after">
+                                    <rs-toggle ng-change="setAtmFilter()" ng-model="atmFilter.cashInBankAtm"></rs-toggle>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </script>
+        <script id="templates/atmsandoffices/popover-ios.html" type="text/ng-template">
+            <ion-popover-view>
+                <ion-content scroll="false">
+                    <div class="list-block rs-atm-filter">
+                        <ul>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title width100pc">Круглосуточно</div>
+                                    <div class="item-after">
+                                        <rs-toggle ng-change="setAtmFilter()" ng-model="atmFilter.allDayBankAtm"></rs-toggle>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title width100pc">Без выходных</div>
+                                    <div class="item-after">
+                                        <rs-toggle ng-change="setAtmFilter()" ng-model="atmFilter.allWeekBankAtm"></rs-toggle>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title width100pc">Приём наличных</div>
+                                    <div class="item-after">
+                                        <rs-toggle ng-change="setAtmFilter()" ng-model="atmFilter.cashInBankAtm"></rs-toggle>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </ion-content>
+            </ion-popover-view>
+        </script>
+        <div ng-hide="!displayMap" class="rs-atmsandoffices-content has-header" ng-class="{'has-ios-tabbar': showIosTabbar}">
+            <div id="rs-map-waiter" rs-waiter="mapErrorMsg"
+                 style="position:absolute;width:100%;height:100%;z-index:0;padding: 5px; text-align: center; color:#a1aeb3;" ng-bind="mapErrorMsg"></div>
+
+            <ymap ng-if="!adaptToWindowsphone" style="background-color: #f0f4f5;" zoom="13"
+                  on-change-bounds="onChangeBounds(mapBounds, zoom, city)" ymap-ctrl="ymap.controller" on-error="handleMapError($error)">
+            </ymap>
+
+            <ymap-wp ng-if="adaptToWindowsphone" points="filteredPoints" make-route="makeRoute(position)" zoom="13"  location="location"
+                     on-change-bounds="onChangeBounds(mapBounds, zoom, city)">
+                <yplacemark-wp ng-repeat="point in filteredPoints" position="{{point.position}}" distance="{{point.distance}}" id="{{point.id}}"
+                               icon="{{point.icon}}" icon-size="[36,36]" icon-offset="[-18,-18]"
+                               icon-selected="{{point.iconSelected}}" icon-selected-size="[36,36]" icon-selected-offset="[-18,-36]"
+                               hint="<div class='text-bold text-color-turquoise' style='text-transform: uppercase;'>HINT: {{point.desc}} #{{point.id}}</div>">
+                </yplacemark-wp>
+
+            </ymap-wp>
+            <div ng-class="{'rs-geolocation-balloon-panel-up': selectedPoint}" class="rs-geolocation-balloon-panel" ng-click="showDetails();" ng-init="clearBalloon();">
+                <button ng-show="ymap.controller.getMyLocation" class="rs-geolocation-button icon-50 icon-locate" ng-click="$event.stopPropagation() + getMyLocation()">
+                </button>
+                <div class="rs-geolocation-balloon-panel-addr" ng-bind="selectedPoint.properties.address"></div>
+                <div class="rs-geolocation-balloon-panel-desc" ng-bind="selectedPoint.properties.name"></div>
+                <div class="rs-geolocation-balloon-panel-hours" ng-bind="selectedPoint.properties.hours"></div>
+                <div id="route-button" class="rs-geolocation-balloon-panel-footer"
+                     ng-click="$event.stopPropagation(); makeRoute(adaptToWindowsphone ? selectedPoint.position : selectedPoint.geometry.coordinates);"
+                     ng-bind="formatDistancePrecise(adaptToWindowsphone ? getDistance(selectedPoint.position) :  getDistance(selectedPoint.geometry.coordinates))">
+                </div>
+            </div>
+        </div>
+        <div ng-if="!displayMap" class = "rs-atmsandoffices-content has-subheader">
+            <ion-content>
+                <div class="list-block">
+                    <ul>
+                        <li ng-repeat="point in geoObjectsList" ng-class="{'item-link': platform === 'ios'}" ui-sref=".object({point: point})">
+                            <div class="item-content rs-geolocation-list flex-wrap">
+                                <div class="item-inner">
+                                    <div class="item-inner">
+                                        <div class="table-fixed-width100pc">
+                                            <div class="table-row">
+                                                <div class="table-cell">
+                                                    <div class="item-title ng-binding">{{point.properties.name}}</div>
+                                                </div>
+                                                <div class="table-cell">
+                                                    <div class="item-after" style="text-align: right; flex-direction: column;" ng-bind="formatDistance(point.distance)"></div>
+                                                </div>
+                                            </div>
+                                            <div class="table-row">
+                                                <div class="table-cell">
+                                                    <div class="rs-geolocation-list-address">{{point.properties.address}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div ng-show="geoObjectsListErrMsg" class="flex flex-center flex-middle" style="min-height:42px; color:#a1aeb3;">
+                    <div ng-bind="geoObjectsListErrMsg" style="padding: 5px; text-align: center;"></div>
+                </div>
+                <ion-infinite-scroll ng-if="hasMoreToLoad" on-infinite="loadMoreGeoObjects()"
+                                     spinner="{{platform == 'android' ? 'android' : 'ios-small'}}">
+                </ion-infinite-scroll>
+            </ion-content>
+        </div>
+        <button class="button rs-button offices-result-type" ng-class="{'offices-result-type-hidden': selectedPoint}" on-release="toggleDisplay($event)">Посмотреть {{(displayMap) ? 'списком' : 'на карте'}}</button>
+    </ion-view>
+</div>
+<div ui-view="atmsandoffices-object"></div>

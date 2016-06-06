@@ -1,0 +1,43 @@
+<div ui-view="login-view">
+    <rs-header>Восстановление доступа</rs-header>
+    <ion-view>
+        <ion-content class="has-header">
+            <rs-panel header-text="Создайте новый логин и пароль">
+                <div class="rs-message-version text-align-center"
+                     ng-bind="messageForChangeLoginPassword">
+                </div>
+                <div class="md-input-container-shadow">
+                    <md-input-container style="padding-bottom: 0;">
+                        <label>Логин</label>
+                        <input ng-model="user.newLogin">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Пароль</label>
+                        <input ng-model="user.newPassword1" type="password">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Пароль еще раз</label>
+                        <input ng-model="user.newPassword2" type="password">
+                    </md-input-container>
+                </div>
+            </rs-panel>
+            <rs-panel>
+                <div class="list-block">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title text-15px width100pc">Задать код быстрого доступа</div>
+                                <div class="item-after">
+                                    <rs-toggle ng-model="user.setShortCode"></rs-toggle>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+            <md-button class="md-raised rs-button" ng-click="createLoginPassword()">Продолжить</md-button>
+        </section>
+    </ion-view>
+</div>

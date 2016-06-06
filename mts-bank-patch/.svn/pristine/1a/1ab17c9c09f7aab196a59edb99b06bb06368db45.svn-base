@@ -1,0 +1,56 @@
+<div wp-ptr="doRefresh()" bg-color="#F0F4F5">   
+    <div class="content-block-title">Мои баллы и бонусы</div>
+    <div class="list-block media-list no-margin">
+    <ul>
+        <li rs-waiter="myBonuses" ng-repeat="bonus in myBonuses" class="rs-loyalty-bonus" ui-sref="bonusdetails({bonus: bonus})">
+            <a href="#" class="item-content" ng-click="$event.preventDefault()">
+                <div class="item-media"><img ng-src="{{getLogoUrl(bonus.img.url)}}" width="40"></div>
+                <div class="item-inner save-divider">
+                    <div class="item-title-row">
+                        <div class="item-title rs-loyalty-bonus-name" ng-bind="bonus.name"></div>
+                        <div class="item-after" ng-bind="bonus.totalBonusBalance + ' ' + bonus.currency"></div>
+                    </div>
+                    <div class="item-text rs-loyalty-bonus-desc" ng-bind="bonus.desc"></div>
+                </div>
+            </a>
+        </li>
+        <li ng-show="myBonuses === null || myBonuses !== undefined && !myBonuses.length"><div class="item-content item-inner">Нет подключенных программ</div></li>
+    </ul>
+    </div>
+
+    <div class="content-block-title" ng-hide="availableBonuses && !availableBonuses.length">Вы можете подключить</div>
+    <div class="list-block media-list no-margin">
+    <ul>
+        <li rs-waiter="availableBonuses" ng-repeat="bonus in availableBonuses" class="rs-loyalty-bonus" ui-sref="bonusdetails({bonus: bonus})">
+            <a href="#" class="item-content" ng-click="$event.preventDefault()">
+                <div class="item-media"><img ng-src="{{getLogoUrl(bonus.img.url)}}" width="40"></div>
+                <div class="item-inner save-divider">
+                    <div class="item-title-row">
+                        <div class="item-title rs-loyalty-bonus-name" ng-bind="bonus.name"></div>
+                    </div>
+                    <div class="item-text rs-loyalty-bonus-desc" ng-bind="bonus.desc"></div>
+                </div>
+            </a>
+        </li>
+    </ul>
+    </div>
+
+    <div class="content-block-title" ng-hide="interestingBonuses && !interestingBonuses.length">Вас может заинтересовать</div>
+    <div class="list-block media-list no-margin">
+    <ul>
+        <li rs-waiter="availableBonuses" ng-repeat="bonus in interestingBonuses" class="rs-loyalty-bonus" ui-sref="bonusdetails({bonus: bonus, isInterestingBonuses: true})">
+            <a href="#" class="item-content" ng-click="$event.preventDefault()">
+                <div class="item-media"><img ng-src="{{getLogoUrl(bonus.img.url)}}" width="40"></div>
+                <div class="item-inner save-divider">
+                    <div class="item-title-row">
+                        <div class="item-title rs-loyalty-bonus-name" ng-bind="bonus.name"></div>
+                    </div>
+                    <div class="item-text rs-loyalty-bonus-desc" ng-bind="bonus.desc"></div>
+                </div>
+            </a>
+        </li>
+    </ul>
+    </div>
+
+    <ion-refresher on-refresh="doRefresh()" pulling-icon="" spinner="{{platform}}"></ion-refresher>
+</div>

@@ -1,0 +1,18 @@
+<svg width="120px" height="120px" viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Oval 46 Copy 2 + Imported Layers</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Card_info-2" sketch:type="MSArtboardGroup" transform="translate(-72.000000, -480.000000)">
+            <g id="Oval-46-Copy-2-+-Imported-Layers" sketch:type="MSLayerGroup" transform="translate(72.000000, 480.000000)">
+                <circle id="Oval-46-Copy-2" fill="#D8DFE1" sketch:type="MSShapeGroup" cx="60" cy="60" r="60"></circle>
+                <g id="Imported-Layers" transform="translate(31.000000, 30.000000)" fill="#667980" sketch:type="MSShapeGroup">
+                    <path d="M0,40.5 L0,54 L13.5,54 L40.5,27 L27,13.5 L0,40.5 L0,40.5 Z M10.7038125,47.25 L6.75,47.25 L6.75,43.2961875 L27,23.0461875 L30.9538125,27 L10.7038125,47.25 L10.7038125,47.25 Z" id="Fill-1"></path>
+                    <path d="M40.5,0 L32.0625,8.4375 L45.5625,21.9375 L54,13.5 L40.5,0" id="Fill-2"></path>
+                    <path d="M30.375,47.25 L23.625,54 L54,54 L54,47.25 L30.375,47.25" id="Fill-3"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

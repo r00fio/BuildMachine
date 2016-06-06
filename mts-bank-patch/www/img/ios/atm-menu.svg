@@ -1,0 +1,14 @@
+<svg width="26px" height="32px" viewBox="0 0 26 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>atm_icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Menu" sketch:type="MSArtboardGroup" transform="translate(-175.000000, -893.000000)" fill="#FFFFFF">
+            <g id="atm_icon" sketch:type="MSLayerGroup" transform="translate(175.000000, 893.000000)">
+                <path d="M26,13 C26,5.82 20.18,0 13,0 C5.82,0 0,5.82 0,13 C0,15.58 0.761,17.978 2.057,20 L2,20 L2.203,20.239 C2.726,21.019 3.338,21.732 4.013,22.379 L13,32 L21.987,22.379 C22.662,21.732 23.274,21.019 23.797,20.239 L24,20 L23.943,20 C25.239,17.978 26,15.58 26,13 L26,13 Z M20.575,17.841 L20.352,18.189 C20.031,18.641 19.65,19.078 19.219,19.491 L19.139,19.568 L13,26.14 L6.861,19.568 L6.781,19.491 C6.35,19.078 5.969,18.641 5.648,18.189 L5.425,17.841 C4.493,16.387 4,14.713 4,13 C4,8.037 8.037,4 13,4 C17.963,4 22,8.037 22,13 C22,14.713 21.507,16.387 20.575,17.841 L20.575,17.841 Z" id="Fill-1" sketch:type="MSShapeGroup"></path>
+                <path d="M13,9 C10.794,9 9,10.794 9,13 C9,15.206 10.794,17 13,17 C15.206,17 17,15.206 17,13 C17,10.794 15.206,9 13,9" id="Fill-2" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

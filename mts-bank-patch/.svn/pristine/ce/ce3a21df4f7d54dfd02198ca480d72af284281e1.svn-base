@@ -1,0 +1,32 @@
+<div ng-controller="DepositNewCtrl" ui-view="select-deposit-view">
+    <rs-header>Подбор вклада</rs-header>
+    <ion-view>
+        <ion-content class="has-header">
+            <div class="list-block" style="margin-bottom: 15px;">
+                <ul><fw7-li-select link="true" title="Задать параметры" ui-sref="depositselect.depositparams">{{form.paramStr || 'Ничего не задано'}}</fw7-li-select></ul>
+            </div>
+
+            <div class="light-tabs" style="height:35px;" ng-show="form.activeTarget">
+                <label class="light-tab-title" ng-class="{active: form.activeTarget == 'SAVE'}" ng-click="setActiveTarget('SAVE')">Копить</label>
+                <label class="light-tab-title" ng-class="{active: form.activeTarget == 'SAVE_SPEND'}" ng-click="setActiveTarget('SAVE_SPEND')">Тратить</label>
+                <label class="light-tab-title" ng-class="{active: form.activeTarget == 'MAX_PROFIT'}" ng-click="setActiveTarget('MAX_PROFIT')">Доход</label>
+            </div>
+
+            <deposit-comparison-item rs-waiter="form.suitableDeposits" ng-repeat="deposit in form.suitableDeposits" deposit="deposit"
+                                     allow-comparison="!form.activeTarget"
+                                     ng-checked="onDepositSelChange()"
+                                     dep-info-sref="depositselect.depositdetails({ deposit: {{deposit}}, selectDepositId: {{deposit.id}} })">
+            </deposit-comparison-item>
+
+            <div ng-show="!form.suitableDeposits && form.suitableDeposits !== undefined" class="list-block no-margin"
+                 style="overflow: visible; white-space: normal; text-align: center;">
+                <ul><fw7-li-select>Нет депозитного продукта, <br>удовлетворяющего Вашим требованиям</fw7-li-select></ul>
+            </div>
+
+            <div style="height:47px;"></div>
+        </ion-content>
+        <button class="button rs-button no-margin rs-wp-buttonfix" ng-show="form.selectionCount > 1" ng-click="compareDeposits()">
+            Сравнить ({{form.selectionCount}})
+        </button>
+    </ion-view>
+</div>

@@ -1,0 +1,24 @@
+<div>
+    <rs-header>Восстановление доступа</rs-header>
+    <ion-view>
+        <ion-content class="has-header">
+            <rs-panel header-text="Укажите номер карты">
+                <div class="md-input-container-shadow">
+                    <md-input-container>
+                        <label>Номер карты</label>
+                        <input ng-model="user.cardNumber"
+                               type="tel"
+                               rs-auto-focus
+                               mask-clean="true"
+                               mask-restrict="reject"
+                               mask="9999 9999 9999 9999"
+                               rs-enter="restoreAccess()">
+                    </md-input-container>
+                </div>
+            </rs-panel>
+        </ion-content>
+        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+            <md-button class="md-raised rs-button login-button" ng-click="restoreAccess()">Продолжить</md-button>
+        </section>
+    </ion-view>
+</div>

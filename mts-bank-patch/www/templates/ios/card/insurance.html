@@ -1,0 +1,59 @@
+<rs-header>Страхование</rs-header>
+        <ion-view>
+            <ion-content class="has-header bg-f0f4f5" ng-controller="CardInsuranceCtrl as cardInsuranceCtrl">
+                <rs-panel header-text="Карта">
+                    <div class="list-block list-block-separator-hidden" style="margin:0;">
+                        <ul>
+                            <li>
+                                <rs-product product="form.bankCard"></rs-product>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+                <rs-panel header-text="Заявка на подключение услуги страхования">
+                <div class="list-block" style="margin: 0;">
+                    <ul ng-if="!form.option.isActive">
+                        <rs-select header-text="Группа страхования" ng-if="form.cardInsuranceParams.length > 0"
+                                   value-text="{{form.selectedCardInsurance ? form.selectedCardInsurance.desc : ''}}"
+                                   ng-click="onSelectCodifierPanel(form.cardInsuranceParams, 'CardInsuranceParams')"
+                                   ng-disabled="form.requestAlreadySend">
+                        </rs-select>
+
+                        <rs-select header-text="Страховая компания" ng-if="form.cardInsuranceCompanies.length > 0"
+                                   value-text="{{form.selectedInsuranceCompany ? form.selectedInsuranceCompany.desc : null}}"
+                                   value-class="item-after-multiline"
+                                   ng-click="onSelectCodifierPanel(form.cardInsuranceCompanies, 'CardInsuranceCompanies')"
+                                   ng-disabled="form.requestAlreadySend">
+                        </rs-select>
+                        <li class="item-content" ng-if="form.selectedInsuranceCompany">
+                            <div class="item-inner">
+                                <div class="item-title">Сумма тарифа за подключение</div>
+                                <div class="item-after" ng-if="form.selectedInsuranceCompany.amount === '0'">
+                                    не взимается
+                                </div>
+                                <div class="item-after" ng-if="form.selectedInsuranceCompany.amount !== '0'">
+                                    <span ng-show="form.selectedInsuranceCompany.amount" ng-bind="(form.selectedInsuranceCompany.amount | defaultSum)"></span>
+                                    <span ng-show="form.selectedInsuranceCompany.amount" currency="{{form.selectedInsuranceCompany.currency}}"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title width100pc">Принимаю условия страхования</div>
+                                <div class="item-after">
+                                    <rs-toggle ng-model="form.agreeLicense" ng-disabled="form.requestAlreadySend"></rs-toggle>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                </rs-panel>
+
+                <button ng-if="form.showButton && form.agreeLicense" class="button button-full rs-button no-margin" style="position: relative;"
+                        ng-bind="form.option.isActive ? 'Отключить' : 'Подключить'"
+                        ng-click="sendRetailCardInsuranceRequest()">
+                </button>
+
+            </ion-content>
+
+        </ion-view>

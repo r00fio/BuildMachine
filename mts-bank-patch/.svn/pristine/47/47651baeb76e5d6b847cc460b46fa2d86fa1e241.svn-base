@@ -1,0 +1,20 @@
+<div>
+    <rs-header>Мои лицевые счета</rs-header>
+    <ion-view class="has-header personal-page">
+        <ion-content>
+            <rs-panel>
+                <div class="list-block list-block-separator-hidden" style="margin: 0;">
+                    <ul>
+                        <!-- TODO: центрировать названия в блоках -->
+                        <fw7-li-select ng-repeat="personalAccountType in personalAccountTypeList | personalAccounts"
+                                       title="{{personalAccountType.name}}"
+                                       ng-click="selectCreatedPersonalAccount(personalAccountType)"
+                                       ui-sref="{{personalAccountType.uiSref}}"
+                                       class="small-conteiner">
+                        </fw7-li-select>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

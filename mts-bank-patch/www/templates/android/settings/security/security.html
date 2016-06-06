@@ -1,0 +1,108 @@
+<div ui-view="settings-security-data-view">
+    <rs-header>Безопасность и лимиты</rs-header>
+    <ion-view>
+        <ion-content class="has-header personal-page">
+            <rs-panel header-text="Настройка безопасности">
+                <div class="list-block">
+                    <ul>
+                        <fw7-li title="Сменить логин"
+                                item-class="item-title-24A7B3 item-inner"
+                                ng-click="user.newLogin = user.login"
+                                ui-sref="settings.security.login"></fw7-li>
+                        <fw7-li title="Сменить пароль"
+                                item-class="item-title-24A7B3 item-inner"
+                                ng-click="(user.oldPassword = ''); (user.newPassword1 = ''); (user.newPassword2 = '')"
+                                ui-sref="settings.security.password"></fw7-li>
+                        <fw7-li-select title="Кодовая дата" item-class="item-inner" ui-sref="settings.security.codeDate">{{retailClient.codeDateHint}}</fw7-li-select>
+                        <fw7-li-select title="Как подтверждать операции"
+                                       item-class="item-inner"
+                                       ng-click="user.confirmation = retailClient.confirmation"
+                                       ui-sref="settings.security.confirmMethod">
+                            {{retailClient.confirmation | confirmation}}
+                        </fw7-li-select>
+                    </ul>
+                </div>
+            </rs-panel>
+            <rs-panel>
+                <div class="list-block next-block-small">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title text-15px width100pc">Подтверждать вход смс-кодом</div>
+                                <div class="item-after">
+                                    <rs-toggle ng-model="user.useOTPLoginAction" ng-change="changeUseOTPLoginAction()"></rs-toggle>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <rs-panel>
+                <div class="list-block next-block-small">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title text-15px width100pc">Вход по короткому коду</div>
+                                <div class="item-after">
+                                    <rs-toggle ng-model="user.toggleShortCode" ng-change="toggleShortCode()"></rs-toggle>
+                                </div>
+                            </div>
+                        </li>
+                        <fw7-li title="Изменить код доступа"
+                                item-class="item-title-24A7B3 item-inner"
+                                ng-show="user.idShortCode"
+                                ng-click="changeShortCode()"></fw7-li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <rs-panel ng-if="user.toggleShortCode && touchIDSupported">
+                <div class="list-block next-block-small">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title text-15px width100pc">Вход по отпечатку пальца</div>
+                                <div class="item-after">
+                                    <rs-toggle ng-model="user.toggleTouchID" ng-change="toggleTouchID()"></rs-toggle>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <rs-panel>
+                <div class="list-block next-block-small last-block">
+                    <ul>
+                        <li class="item-content fw7-li-select">
+                            <div class="item-inner">
+                                <div class="item-title text-15px width100pc">Не запрашивать код в течение 3 минут</div>
+                                <div class="item-after">
+                                    <rs-toggle ng-model="user.noRequestCodeFor3Min" ng-change="toggleRequestCodeFor3Min()"></rs-toggle>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <!--Если будет использовано - поправить верстку-->
+            <!--<rs-panel header-text="Лимиты операций в мобильном банке">-->
+                <!--<div class="list-block" style="margin: 0;">-->
+                    <!--<ul>-->
+                        <!--<li class="item-content item-inner">-->
+                            <!--<div class="item-inner" style="padding-top: 0; padding-bottom: 0;">-->
+                                <!--<div class="item-title text-15px">Операции в моб. банке (в месяц)</div>-->
+                                <!--<ion-toggle toggle-class="toggle-00abad" class="item-list-toggle"></ion-toggle>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                        <!--<li class="item-content item-inner">-->
+                            <!--<div class="item-inner" style="padding-top: 0; padding-bottom: 0;">-->
+                                <!--<div class="item-title text-15px">Операции в моб. банке (в день)</div>-->
+                                <!--<ion-toggle toggle-class="toggle-00abad" class="item-list-toggle"></ion-toggle>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</rs-panel>-->
+            <rs-panel></rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

@@ -1,0 +1,352 @@
+<div ng-controller="ExtractOperationCtrl as operationCtrl" class="no-shadow header-bottom">
+    <rs-header ng-show="canSendReceipt" lbtn-class="icon-back" lbtn-action="goBack()" rbtn-class="icon-send" rbtn-action="openPopover($event)"></rs-header>
+    <rs-header ng-hide="canSendReceipt" lbtn-class="icon-back" lbtn-action="goBack()">{{operation.operationName}}</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+
+            <script id="templates/extract/popover.html" type="text/ng-template">
+                <ion-popover-view>
+                    <ion-content scroll="false">
+                        <div class="list-block list-block-separator-hidden" style="font-size: large !important;">
+                            <ul>
+                                <li ng-if="retailClientEmail" class="item-content" ng-click="popoverSendEmailClient()">
+                                    <div class="item-inner">{{retailClientEmail}}</div>
+                                </li>
+                                <li class="item-content" ng-click="popoverOpenInputEmail()">
+                                    <div class="item-inner">Отправить на e-mail</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </ion-content>
+                </ion-popover-view>
+            </script>
+
+            <div class="rs-shadow" style="position: relative; background: #24A7B3;">
+                <span class="second-topbar-title">{{operation.operationName}}</span>
+            </div>
+            <div ng-if="operation.isProcessed && operation.mayCopy" class="icon-transfer operation-icon-transfer" ng-click="repeatOperation()"></div>
+
+            <!--TODO: Раскомменить при реализации обратного платежа #093186-->
+            <!--<div ng-if="operation.isProcessed && operation.isIncomingTransfer" class="icon-transfer operation-icon-transfer" ng-click="retransfer()"></div>-->
+            <div class="bg-white">
+                <div class="list-block" style="margin-bottom: 0; margin-top: 0; padding-top: 30px;">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="flex flex-middle">
+                                    <rs-operation-logo operation="operation"></rs-operation-logo>
+                                    <div style="margin-left: 15px">
+                                        <div>
+                                            <span class="text-15px" ng-show="operation.transactionSum" ng-bind="operation.sign"/>
+                                            <span class="text-15px" ng-show="operation.transactionSum" ng-bind="(operation.transactionSum | defaultSum)"/>
+                                            <span class="text-15px" ng-show="operation.transactionSum" currency="{{operation.transactionCurrency}}"/>
+                                        </div>
+                                        <div ng-show="operation.isOnline">
+                                            <label ng-show="isNegative" class="text-12px text-gray" ng-bind="operation.sourceName"/>
+                                            <label ng-hide="isNegative" class="text-12px text-gray" ng-bind="operation.destName"/>
+                                        </div>
+                                        <div ng-hide="operation.isOnline">
+                                            <label class="text-12px text-gray" ng-bind="operation.productName"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li ng-if="operation.category" class="item-content" ng-click="selectCategory.show()">
+                            <div class="item-inner">
+                                <div class="flex flex-middle">
+                                    <div class="operation-category-point" style="background-color: {{operation.color}}"/>
+                                    <div style="margin-left: 5px;"><label class="text-15px white-space-pre-line" ng-bind="operation.category"/></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-block-title" style="margin-top: 34px;"/>
+            <div class="list-block list-block-separator-hidden" style="margin-bottom: 0;">
+                <ul>
+                    <li class="item-content" ng-if="operation.operationDate">
+                        <div class="item-inner">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell text-gray text-12px">{{'Дата ' + (operation.operationTime ? 'и время ' : '') + 'операции'}}</div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell text-black">
+                                        <label class="text-15px" ng-bind="operation.operationDate | defaultDate"/>
+                                        <label class="text-15px" ng-if="operation.operationTime" ng-bind="operation.operationTime | time"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content" ng-if="operation.operationProcessDate">
+                        <div class="item-inner">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell text-gray text-12px">Дата проводки</div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell text-black">
+                                        <label class="text-15px" ng-if="operation.operationProcessDate" ng-bind="operation.operationProcessDate | defaultDate"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content" ng-if="operation.searchDesc">
+                        <div class="item-inner">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell text-gray text-12px">Описание</div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell text-black">
+                                        <label class="text-15px white-space-pre-line" ng-if="operation.operationDesc" ng-bind="operation.searchDesc"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item-content" ng-if="operation.isHold || (operation.isOnline && (operation.isReject || !operation.isProcessed))">
+                        <div class="item-inner">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell text-gray text-12px">Статус операции</div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell text-black">
+                                        <img ng-if="operation.isHold" src="img/android/hold.svg" height="14px"/>
+                                        <label ng-if="operation.isHold" class="text-15px white-space-pre-line">Холд</label>
+                                        <label ng-if="operation.paymentState" class="text-15px white-space-pre-line" ng-bind="operation.paymentState"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!--TODO: не реализованно, так как не понятно как получить необходимую информацию-->
+                    <!--Если будет использовано - поправить верстку-->
+                    <!--<li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title text-wrap text-15px">Добавить в избранное</div>
+                            <ion-toggle toggle-class="toggle-00abad" class="item-list-toggle"></ion-toggle>
+                        </div>
+                    </li>-->
+
+                    <!-- Сумма списания -->
+                    <li class="item-content" ng-if="operation.transactionSum">
+                        <div class="item-inner">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell text-gray text-12px">{{isNegative ? 'Сумма списания' : 'Сумма зачисления'}}</div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell text-black">
+                                        <label class="text-15px white-space-pre-line" ng-bind="operation.transactionSum | defaultSum"/>
+                                        <label class="text-15px white-space-pre-line" currency="{{operation.transactionCurrency}}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Источник/получатель -/+ только для онлайн операций -->
+                    <li class="item-content" ng-if="operation.isOnline">
+                        <div class="item-inner">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div ng-show="isNegative" class="table-cell text-gray text-12px">Получатель</div>
+                                    <div ng-hide="isNegative" class="table-cell text-gray text-12px">Источник</div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell text-black">
+                                        <label ng-show="isNegative" class="text-15px white-space-pre-line" ng-bind="operation.destName"/>
+                                        <label ng-hide="isNegative" class="text-15px white-space-pre-line" ng-bind="operation.sourceName"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Сумма зачисления (перевод между своими счетами) -->
+                    <li class="item-content" ng-if="operation.destProductCurrency && (operation.transactionCurrency !== operation.destProductCurrency)">
+                        <div class="item-inner">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell text-gray text-12px">Сумма зачисления</div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell text-black">
+                                        <label class="text-15px white-space-pre-line" ng-bind="operation.destProductSum | defaultSum"/>
+                                        <label class="text-15px white-space-pre-line" currency="{{operation.destProductCurrency}}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item-content"
+                        ng-hide="isShowDetails"
+                        ng-if="isDifferentCurrencies()"
+                        ng-click="showDetails()">
+                        <div class="item-inner">
+                            <div class="text-15px">Показать детали</div>
+                            <div class="expandable-icon rotate-180"></div>
+                        </div>
+                    </li>
+                </ul>
+                <div ng-show="isShowDetails">
+                    <ul style="border-top: rgba(161, 174, 179, 0.16) solid 1px;">
+                        <li class="item-content" ng-click="hideDetails()">
+                            <div class="item-inner">
+                                <div class="text-15px text-00abad">Скрыть детали</div>
+                                <div class="expandable-icon"></div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul ng-if="isDifferentCurrencies()">
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="table-fixed-width100pc">
+                                    <div class="table-row">
+                                        <div class="table-cell text-gray text-12px">Сумма в валюте</div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-cell text-black">
+                                            <span class="text-15px" ng-show="operation.transactionSum" ng-bind="(operation.transactionSum | defaultSum)"></span>
+                                            <span class="text-15px" ng-show="operation.transactionSum" currency="{{operation.transactionCurrency}}"></span>
+                                            <span class="text-15px" ng-hide="operation.transactionSum">N/A</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="table-fixed-width100pc">
+                                    <div class="table-row">
+                                        <div class="table-cell text-gray text-12px">{{'Сумма в валюте ' + (operation.isCardOperation ? 'карты' : 'счета')}}</div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-cell text-black">
+                                            <span class="text-15px" ng-show="operation.operationSum" ng-bind="(operation.operationSum | defaultSum)"></span>
+                                            <span class="text-15px" ng-show="operation.operationSum" currency="{{operation.currency}}"></span>
+                                            <span class="text-15px" ng-hide="operation.operationSum">N/A</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content" ng-if="isViewRateOperation()">
+                            <div class="item-inner" ng-init="calcRateOperation()">
+                                <div class="table-fixed-width100pc">
+                                    <div class="table-row">
+                                        <div class="table-cell text-gray text-12px">Курс операции</div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-cell text-black text-15px">
+                                            {{fromAmount | defaultSum}}<span currency="{{fromCurrency}}"></span> = {{toAmount | defaultSum}}<span currency="{{toCurrency}}"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <!-- Для карточных операций -->
+                    <div ng-if="operation.isCardOperation">
+                        <ul ng-if="isViewRateOperation()">
+                            <li class="item-content" ng-if="operation.rateLock">
+                                <div class="item-inner text-14px text-gray" style="border-top: rgba(161, 174, 179, 0.16) solid 1px;">Курс блокировки</div>
+                            </li>
+                            <li class="item-content" ng-if="operation.rateLock">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-12px">Сумма расчета с платежной системой</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell text-black">
+                                                <span class="text-15px" ng-show="operation.transactionSum" ng-bind="(operation.transactionSum | defaultSum)"></span>
+                                                <span class="text-15px" ng-show="operation.transactionSum" currency="{{operation.transactionCurrency}}"></span>
+                                                <span class="text-15px" ng-hide="operation.transactionSum">N/A</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content" ng-if="operation.rateLock">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-12px">Курс банка</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell text-black">
+                                                <span class="text-15px" ng-bind="(operation.rateLock | defaultSum)"></span>
+                                                <span class="text-15px" currency="{{operation.currency}}"></span>
+                                                <span class="text-15px"> за 1</span>
+                                                <span class="text-15px" currency="{{operation.transactionCurrency}}"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="item-content" ng-if="operation.rateWriteOff">
+                                <div class="item-inner text-14px text-gray" style="border-top: rgba(161, 174, 179, 0.16) solid 1px;">Курс списания</div>
+                            </li>
+                            <li class="item-content" ng-if="operation.rateWriteOff">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-12px">Сумма расчета с платежной системой</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell text-black">
+                                                <span class="text-15px" ng-show="operation.transactionSum" ng-bind="(operation.transactionSum | defaultSum)"></span>
+                                                <span class="text-15px" ng-show="operation.transactionSum" currency="{{operation.transactionCurrency}}"></span>
+                                                <span class="text-15px" ng-hide="operation.transactionSum">N/A</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content" ng-if="operation.rateWriteOff">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell text-gray text-12px">Курс банка</div>
+                                        </div>
+                                        <div class="table-row">
+                                            <div class="table-cell text-black">
+                                                <span class="text-15px" ng-bind="(operation.rateWriteOff | defaultSum)"></span>
+                                                <span class="text-15px" currency="{{operation.currency}}"></span>
+                                                <span class="text-15px"> за 1</span>
+                                                <span class="text-15px" currency="{{operation.transactionCurrency}}"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="content-block-title" style="margin-top: 34px;"/>
+            <div class="list-block" style="margin-bottom: 0;">
+                <ul>
+                    <li class="item-content">
+                        <textarea class="item-inner border-none placeholder-gray"
+                                  style="height: 80px; font-size: 15px"
+                                  maxlength="255"
+                                  ng-model="operation.comment"
+                                  ng-blur="saveOperationComment()"
+                                  placeholder="Комментарий"></textarea>
+                    </li>
+                </ul>
+            </div>
+        </ion-content>
+    </ion-view>
+</div>

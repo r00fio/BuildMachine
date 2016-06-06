@@ -1,0 +1,16 @@
+<svg width="49px" height="57px" viewBox="0 0 49 57" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Imported Layers</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Main-Copy-6" sketch:type="MSArtboardGroup" transform="translate(-923.000000, -1540.000000)" stroke="#667980" fill="#667980">
+            <g id="Button/Floating_Large" sketch:type="MSLayerGroup" transform="translate(887.000000, 1512.000000)">
+                <g id="Imported-Layers" transform="translate(37.000000, 29.000000)" sketch:type="MSShapeGroup">
+                    <path d="M42.0560303,51.037841 L4.93591308,51.037841 C4.93591308,40.6651453 13.116525,31.5217391 23.5,31.5217391 C33.883475,31.5217391 42.0560303,40.6651453 42.0560303,51.037841 Z M23.5,26.826087 C10.5421,26.826087 0,37.3584348 0,50.3043478 L0,55 L47,55 L47,50.3043478 C47,37.3584348 36.4579,26.826087 23.5,26.826087" id="Fill-1" stroke-width="2"></path>
+                    <path d="M23.5,4.69565217 C26.744175,4.69565217 29.375,7.32404348 29.375,10.5652174 C29.375,13.8063913 26.744175,16.4347826 23.5,16.4347826 C20.255825,16.4347826 17.625,13.8063913 17.625,10.5652174 C17.625,7.32404348 20.255825,4.69565217 23.5,4.69565217 M23.5,0 C17.668475,0 12.925,4.73908696 12.925,10.5652174 C12.925,16.3913478 17.668475,21.1304348 23.5,21.1304348 C29.331525,21.1304348 34.075,16.3913478 34.075,10.5652174 C34.075,4.73908696 29.331525,0 23.5,0" id="Fill-2"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

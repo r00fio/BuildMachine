@@ -1,0 +1,51 @@
+<div ui-view="ideas-panel-view">
+<ion-view ng-init="(tplData = {headerText: 'Все идеи'}) + (IdeaBankCtrl.filterIdeas())">
+    <rs-header rbtn-class="icon-checked-circle" rbtn-action="IdeaBankCtrl.markIdeasAsSeen()">
+        <div class="flex flex-middle" ng-class="{'flex-center': platform === 'ios'}" ng-click="tplData.showHeaderMenu = !tplData.showHeaderMenu">
+            <span>{{tplData.headerText}}</span>
+            <div class="button button-clear button-icon icon-small icon-header-arrow" ng-class="{'icon-header-arrow-up': tplData.showHeaderMenu}"></div>
+        </div>
+    </rs-header>
+    <!-- Меню заголовка -->
+    <div class="rs-popup-menu rs-popup-menu-header has-header" ng-class="{'rs-popup-menu-visible': tplData.showHeaderMenu}">
+        <div class="list-block">
+            <ul>
+                <li class="item-content item-inner" ng-click="(tplData.headerText = 'Все идеи') + (tplData.showHeaderMenu = false) + (IdeaBankCtrl.filterIdeas())">
+                    <span class="rs-header-menu-item-text">Все идеи</span>
+                </li>
+                <li class="item-content item-inner" ng-click="(tplData.headerText = 'Популярные идеи') + (tplData.showHeaderMenu = false) + (IdeaBankCtrl.filterIdeas('popular'))">
+                    <span class="rs-header-menu-item-text">Популярные идеи</span>
+                </li>
+                <li class="item-content item-inner" ng-click="(tplData.headerText = 'Мои идеи') + (tplData.showHeaderMenu = false) + (IdeaBankCtrl.filterIdeas('mine'))">
+                    <span class="rs-header-menu-item-text">Мои идеи</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <ion-content class="has-header">
+
+        <rs-idea rs-waiter="IdeaBankCtrl.ideas" ng-repeat="idea in IdeaBankCtrl.ideas"
+                 date="idea.dateCreate"
+                 subject="idea.subject"
+                 desc="idea.questions[0].text"
+                 is-new="IdeaBankCtrl.isNewIdea(idea)"
+                 pos-answers="idea.questions[0].answers[0].count.count"
+                 neg-answers="idea.questions[0].answers[1].count.count"
+                 my-answer="idea.myAnswer"
+                 foto="idea.foto"
+                 pro-click="IdeaBankCtrl.voteForIdea(idea, true)"
+                 contra-click="IdeaBankCtrl.voteForIdea(idea, false)">
+        </rs-idea>
+
+        <!-- для ios/android блок высотой 47/58px для того чтобы кнопка не закрывала последний элемент на странице -->
+        <div style="background: transparent; border:none;" ng-style="{height: platform === 'ios' ? '47px' : '58px'}"></div>
+
+        <!-- ion-refresher on-refresh="doRefresh()" pulling-icon="" spinner="{{platform}}"></ion-refresher -->
+    </ion-content>
+
+    <button ng-if="platform === 'ios'" class="button no-margin rs-button" ui-sref=".createidea">Рассказать о своей идее</button>
+    <button ng-if="platform === 'android'" class="button no-margin rs-sysbutton rs-shadow" ui-sref=".createidea">+</button>
+
+</ion-view>
+</div>

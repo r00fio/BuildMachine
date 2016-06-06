@@ -1,0 +1,58 @@
+<div>
+    <rs-header>Авторизация</rs-header>
+    <ion-view>
+        <ion-content class="has-header auth-page-android">
+            <div class="md-input-container-shadow">
+                <md-input-container style="padding-bottom: 0;">
+                    <label>Логин</label>
+                    <input ng-model="user.login">
+                </md-input-container>
+                <md-input-container>
+                    <label>Пароль</label>
+                    <input id="password" ng-model="user.password" type="password">
+                </md-input-container>
+            </div>
+            <div>
+                <rs-panel>
+                    <div class="list-block short-code-add">
+                        <ul>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title text-15px width100pc">Задать код быстрого доступа</div>
+                                    <div class="item-after">
+                                        <rs-toggle ng-model="user.setShortCode" ng-change="saveSetShortCode()"></rs-toggle>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+                <!-- по запросу #097339
+                <rs-panel>
+                    <div class="list-block" style="margin: 0;">
+                        <ul>
+                            <li class="item-content" ng-click="authorize(true)">
+                                <div class="item-inner" style="padding-top: 0; padding-bottom: 0;">
+                                    <div class="item-title text-15px">Демо-доступ</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+                -->
+            </div>
+            <div class="restore-access">
+                <div class="restore-access-text" ui-sref="login.restoreAccess">
+                    Восстановить доступ
+                </div>
+                <div class="restore-access-img">
+                    <img src="img/android/auth-block.svg" class="auth-block-img" ui-sref="login.restoreAccess"/>
+                </div>
+            </div>
+        </ion-content>
+
+        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+            <md-button class="md-raised rs-button btn-log" ng-click="authorize(false)">Войти</md-button>
+        </section>
+    </ion-view>
+</div>

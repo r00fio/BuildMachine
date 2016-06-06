@@ -1,0 +1,13 @@
+<svg width="54px" height="45px" viewBox="0 0 54 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Imported Layers</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Menu" sketch:type="MSArtboardGroup" transform="translate(-57.000000, -735.000000)" fill="#24A7B3">
+            <g id="Icons" sketch:type="MSLayerGroup" transform="translate(-1.000000, 517.000000)">
+                <path d="M103,218 L67,218 C62.029,218 58,222.029 58,227 L58,254 C58,258.971 62.029,263 67,263 L103,263 C107.971,263 112,258.971 112,254 L112,227 C112,222.029 107.971,218 103,218 L103,218 Z M67,224 L103,224 C104.6575,224 106,225.3425 106,227 L106,233 L64,233 L64,227 C64,225.3425 65.3425,224 67,224 L67,224 Z M103,257 L67,257 C65.3425,257 64,255.6575 64,254 L64,239 L106,239 L106,254 C106,255.6575 104.6575,257 103,257 L103,257 Z" id="Imported-Layers" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

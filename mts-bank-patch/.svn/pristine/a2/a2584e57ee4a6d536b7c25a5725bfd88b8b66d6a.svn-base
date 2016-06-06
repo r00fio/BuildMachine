@@ -1,0 +1,50 @@
+<div>
+    <rs-header>Город</rs-header>
+    <rs-spotlight-search ng-model="searchText.name" placeholder="Город" class="has-header"></rs-spotlight-search>
+    <ion-view>
+        <ion-content class="has-subheader bg-f0f4f5">
+            <rs-panel>
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li class="item-content fw7-li-select"
+                            ng-click="deleteCity()">
+
+                            <div class="item-inner">
+                                <div class="table">
+                                    <div class="table-row">
+                                        <div class="item-title">По всем городам</div>
+                                    </div>
+                                    <div class="table-row fw7-li-content-text">
+                                        <span>Отменить выбранный город</span>
+                                    </div>
+                                </div>
+                                <div class="item-after" ng-if="!selectedAddress.city">
+                                    <div class="icon-selected"></div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="item-content fw7-li-select"
+                            ng-repeat="city in addressList | rsUnique:'city' | isNotEmpty:'city' | orderBy:'city'"
+                            ng-click="selectCity(city)">
+
+                            <div class="item-inner">
+                                <div class="table">
+                                    <div class="table-row">
+                                        <div class="item-title">{{city.city}}</div>
+                                    </div>
+                                    <div class="table-row fw7-li-content-text">
+                                        <span>{{city | addressElement:'city'}}</span>
+                                    </div>
+                                </div>
+                                <div class="item-after" ng-if="(city.coderegion == selectedAddress.coderegion && city.city == selectedAddress.city)">
+                                    <div class="icon-selected"></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+        </ion-content>
+    </ion-view>
+</div>

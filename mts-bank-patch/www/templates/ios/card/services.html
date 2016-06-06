@@ -1,0 +1,135 @@
+<div>
+    <rs-header>Услуги и сервисы</rs-header>
+        <ion-view>
+            <ion-content class="has-header bg-f0f4f5">
+                <div ng-hide="bankCard.productServices" rs-waiter="bankCard.productServices" style="width: 100%; height: 42px;"></div>
+
+                <rs-panel header-text="Услуги" ng-if="bankCard.productServices">
+                    <div class="list-block" style="margin:0;">
+
+                        <ul>
+                            <li ng-if="bankCard.productServices.autoPay && bankCard.productServices.autoPay.canConnect"
+                                ui-sref="autopaylist({bankCard: bankCard})">
+                                <a href="#" class="item-link item-content">
+                                    <div class="item-inner">
+                                        <div class="table-fixed-width100pc">
+                                            <div class="table-row">
+                                                <div class="table-cell">Автоплатежи за МТС</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li ng-if="bankCard.productServices.smsInfo && bankCard.productServices.smsInfo.canActivate"
+                                ui-sref="card.smsbankinfo({hasBonusProgram:bankCard.productServices.hasBonusProgram})"
+                                ng-disabled="!bankCard.productServices.smsInfo.canChange">
+                                <a href="#" class="item-link item-content">
+                                    <div class="item-inner">
+                                        <div class="table-fixed-width100pc">
+                                            <div class="table-row">
+                                                <div class="table-cell" ng-bind="bankCard.productServices.smsInfo.name"></div>
+                                            </div>
+                                            <div class="table-row">
+                                                <span class="table-cell text-gray"
+                                                      ng-bind="bankCard.productServices.smsInfo | productOptionState">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li ng-if="bankCard.productServices.secure && bankCard.productServices.secure.canActivate"
+                                ui-sref="card.connectoption({option: bankCard.productServices.secure, hasBonusProgram:bankCard.productServices.hasBonusProgram})"
+                                ng-disabled="!bankCard.productServices.secure.canChange">
+                                <a href="#" class="item-link item-content">
+                                    <div class="item-inner">
+                                        <div class="table-fixed-width100pc">
+                                            <div class="table-row">
+                                                <div class="table-cell" ng-bind="bankCard.productServices.secure.name"></div>
+                                            </div>
+                                            <div class="table-row">
+                                                <span class="table-cell text-gray"
+                                                      ng-bind="bankCard.productServices.secure | productOptionState">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li ng-if="bankCard.productServices.insurance && bankCard.productServices.insurance.canActivate"
+                                ui-sref="card.insurance"
+                                ng-disabled="!bankCard.productServices.insurance.canChange">
+                                <a href="#" class="item-link item-content">
+                                    <div class="item-inner">
+                                        <div class="table-fixed-width100pc">
+                                            <div class="table-row">
+                                                <div class="table-cell">Страхование карты</div>
+                                            </div>
+                                            <div class="table-row">
+                                                <span class="table-cell text-gray"
+                                                      ng-bind="bankCard.productServices.insurance | productOptionState">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- TODO: 098339: MTS: Скрыть функционал в МБ для запуска беты -->
+                            <!--<li ng-if="bankCard.productServices.canOrderEmbassy" ui-sref="card.embassydoc">-->
+                                <!--<a href="#" class="item-link item-content">-->
+                                    <!--<div class="item-inner">-->
+                                        <!--<div class="table-fixed-width100pc">-->
+                                            <!--<div class="table-row">-->
+                                                <!--<div class="table-cell">Справка в посольство</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                        </ul>
+                    </div>
+                </rs-panel>
+                <rs-panel header-text="Опции" ng-if="bankCard.productServices.hasAvailableOptions">
+                    <div class="list-block" style="margin:0;">
+                        <ul>
+                            <li ng-repeat="(key, option) in bankCard.productServices.availableOptions track by key"
+                                ng-disabled="!option.canChange || option.isInProcessing">
+                                <a href="#" class="item-link item-content">
+                                    <div class="item-inner" ui-sref="card.connectoption({option: option, hasBonusProgram: bankCard.productServices.hasBonusProgram})">
+                                        <div class="table-fixed-width100pc">
+                                            <div class="table-row">
+                                                <div class="table-cell" ng-bind="option.name"></div>
+                                            </div>
+                                            <div class="table-row">
+                                                <span class="table-cell text-gray"
+                                                      ng-bind="option | productOptionState">
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+
+                <!-- TODO: не реализовано
+                <rs-panel header-text="Безопасность">
+                    <div class="list-block" style="margin:0;">
+                        <ul>
+                            <li class="item-link item-content">
+                                <div class="item-inner">
+                                    <div class="table-fixed-width100pc">
+                                        <div class="table-row">
+                                            <div class="table-cell">Настройка лимитов</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>-->
+            </ion-content>
+        </ion-view>
+</div>

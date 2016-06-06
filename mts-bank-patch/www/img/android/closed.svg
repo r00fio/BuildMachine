@@ -1,0 +1,15 @@
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Imported Layers 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Finance-1" sketch:type="MSArtboardGroup" transform="translate(-879.000000, -1226.000000)" fill="#E62333">
+            <g id="Card_bank-" sketch:type="MSLayerGroup" transform="translate(0.000000, 1176.000000)">
+                <g id="Card-sber" sketch:type="MSShapeGroup">
+                    <path d="M903,50 C889.752,50 879,60.752 879,74 C879,87.248 889.752,98 903,98 C916.248,98 927,87.248 927,74 C927,60.752 916.248,50 903,50 L903,50 Z M903,93.2 C892.392,93.2 883.8,84.608 883.8,74 C883.8,69.56 885.312,65.48 887.856,62.24 L914.76,89.144 C911.52,91.688 907.44,93.2 903,93.2 L903,93.2 Z M918.144,85.76 L891.24,58.856 C894.48,56.312 898.56,54.8 903,54.8 C913.608,54.8 922.2,63.392 922.2,74 C922.2,78.44 920.688,82.52 918.144,85.76 L918.144,85.76 Z" id="Imported-Layers-2"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

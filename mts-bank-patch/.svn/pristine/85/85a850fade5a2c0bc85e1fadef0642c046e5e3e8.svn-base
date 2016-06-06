@@ -1,0 +1,64 @@
+<div ng-controller="SendExtractCtrl as sendExtractCtrl" >
+    <rs-header rbtn-class="icon-check-mark" rbtn-action="sendExtract()">Выписка</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+
+            <div class="content-block-title" style="margin-top: 10px; font-size: 18px;">ПЕРИОД</div>
+            <div class="list-block" style="margin-bottom: 10px;">
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="table-fixed-width100pc">
+                                    <div class="table-row">
+                                        <div class="table-cell text-gray" style="padding-left: 5px; font-size: 16px;">С</div>
+                                    </div>
+                                    <div class="item-input table-row">
+                                        <input type="text" style="font-size: 16px;" readonly id="calendar-date-format-from"
+                                               on-change-date="onChangeDate()" upper-bound="extractDateTo"
+                                               value-date="extractDateFrom" rs-date-picker-android>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="table-fixed-width100pc">
+                                    <div class="table-row">
+                                        <div class="table-cell text-gray" style="padding-left: 5px; font-size: 16px;">По</div>
+                                    </div>
+                                    <div class="item-input table-row">
+                                        <input type="text" style="font-size: 16px;" readonly id="calendar-date-format-to"
+                                               on-change-date="onChangeDate()" lower-bound="extractDateFrom"
+                                               value-date="extractDateTo" rs-date-picker-android>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="table-fixed-width100pc">
+                                    <div class="table-row">
+                                        <div class="table-cell text-gray" style="padding-left: 5px; font-size: 16px;">E-mail</div>
+                                    </div>
+                                    <div class="item-input table-row">
+                                        <input input-clear-btn type="text" style="font-size: 16px;" id="send-email-address">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="content-block-title" style="margin-top: 0; font-size: 16px; text-transform: none;">Выписка придёт на указанный адрес электронной почты.
+                Формат выписки — PDF-файл
+            </div>
+
+
+        </ion-content>
+    </ion-view>
+</div>

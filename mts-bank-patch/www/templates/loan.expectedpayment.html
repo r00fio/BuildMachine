@@ -1,0 +1,28 @@
+<rs-header>Платеж</rs-header>
+<div ng-controller="SchedulePaymentCtrl" class="content no-footer">
+    <div class="padding-5px table-fixed-width100pc">
+        <div class="table-cell width100pc nowrap overflow-hidden solid-border-1px gray-border padding-5px"><span>Внести платеж до</span></div>
+        <div class="table-cell relative nowrap empty-border-1px padding-5px"><span class="absolute right right-padding-5px">{{payment.paymentDate | defaultDate}}</span></div>
+    </div>
+
+    <div class="padding-7px text-12px">
+        <div class="padding-5px table-fixed-width100pc">
+            <div class="table-cell width100pc"><span>Сумма</span></div>
+            <div class="table-cell relative nowrap"><span class="absolute right">{{payment.totalPaymentAmount}}</span></div>
+        </div>
+        <div class="padding-5px table-fixed-width100pc">
+            <div class="table-cell width100pc"><span>В том числе основной долг</span></div>
+            <div class="table-cell relative nowrap"><span class="absolute right">{{payment.principalAmount}}</span></div>
+        </div>
+        <div class="padding-5px table-fixed-width100pc">
+            <div class="table-cell width100pc"><span>В том числе проценты</span></div>
+            <div class="table-cell relative nowrap"><span class="absolute right">{{payment.interestsAmount}}</span></div>
+        </div>
+    </div>
+
+    <div class="padding-5px table-fixed-width100pc">
+        <div class="table-cell width100pc nowrap overflow-hidden solid-border-1px gray-border padding-5px"><span>Внести платеж</span></div>
+        <div class="table-cell relative nowrap empty-border-1px padding-5px"><span class="absolute right right-padding-5px">&gt;</span></div>
+    </div>
+
+</div>

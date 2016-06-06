@@ -1,0 +1,190 @@
+<div ng-controller="PaymentBaseCtrl as paymentBaseCtrl">
+<div ng-controller="ICTransferCtrl as ictransferCtrl" class="subpayment-page no-shadow">
+    <rs-header rbtn-class="{{payment.fromTemplate && !isViewMode() ? 'icon-tuning' : ''}}"
+               rbtn-action="payment.fromTemplate && !isViewMode()? setEditTemplateModeICTransfer($event) : 0">{{payment.paymentTitle}}</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+
+            <div ng-include="'templates/android/payments/payment.favourite.html'"></div>
+
+            <div class="dark-tabs flex flex-center">
+                <label ng-disabled="isViewMode()" class="dark-tab-title child-flex-1"
+                       ng-class="{active: (payment.payType == 'toAccount')}"
+                       ng-click="tab('toAccount')">На счет</label>
+                <label ng-disabled="isViewMode()" class="dark-tab-title child-flex-1"
+                       ng-class="{active: (payment.payType == 'toBankCard')}"
+                       ng-click="tab('toBankCard')">На карту</label>
+                <label ng-disabled="isViewMode()" class="dark-tab-title child-flex-1"
+                       ng-class="{active: (payment.payType == 'toPhone')}"
+                       ng-click="tab('toPhone')">На телефон</label>
+            </div>
+
+            <div class="list-block" style="margin: 0;">
+                <ul>
+                    <li ng-if="payment.sourceProduct" ng-disabled="isViewMode()" ng-click="selectProductShow(payment.paymentSourceList, 'sourceProduct')">
+
+                        <rs-product product="payment.sourceProduct" show-card-account="{{showCardAccount(payment.sourceProduct, payment.searchNumber)}}" style="padding-bottom: 0"></rs-product>
+                    </li>
+                    <li ng-if="!payment.paymentSourceList" class="item-content">
+                        <div class="item-inner" rs-waiter="payment.paymentSourceList"></div>
+                    </li>
+                    <li ng-if="payment.paymentSourceList && payment.sourceProduct == null"
+                        ng-disabled="isViewMode()" class="item-content"
+                        ng-click="selectProductShow(payment.paymentSourceList, 'sourceProduct')">
+
+                        <div class="item-inner">
+                            <div class="item-title text-15px text-gray">Выбрать продукт</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="rs-content-panel">
+                <div class="rs-content-panel-header text-align-center">
+                    <img src="img/payto.svg" class="pay-to-svg"/>
+                </div>
+            </div>
+
+            <div class="list-block" style="margin: 0;">
+                <ul>
+                    <li ng-if="payment.payType == 'toAccount'" class="item-content payment-field-height">
+                        <div class="item-inner">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell text-gray title-simple-item">Номер счета получателя</div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell title-simple-value">
+                                        <input type="text" class="placeholder-gray"
+                                               ng-disabled="isViewMode()"
+                                               mask-clean="true"
+                                               mask-restrict="reject"
+                                               mask="99999 999 9 99999999999"
+                                               ng-model="payment.searchNumber"
+                                               ng-keyup="searchPayeeBaseName()"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li ng-if="payment.payType == 'toBankCard'" class="item-content payment-field-height">
+                        <div class="item-inner">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell text-gray title-simple-item">Номер карты получателя</div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell title-simple-value">
+                                        <input ng-show="payment.fromTemplate"
+                                               ng-disabled="true"
+                                               ng-model="payment.maskSearchNumber"/>
+                                        <input ng-show="isViewMode()"
+                                               ng-disabled="true"
+                                               ng-model="payment.searchNumber"/>
+                                        <input ng-hide="isViewMode() || payment.fromTemplate"
+                                               class="placeholder-gray"
+                                               ng-disabled="isViewMode()"
+                                               mask-clean="true"
+                                               mask-restrict="reject"
+                                               mask="9999 9999 9999 9999"
+                                               ng-model="payment.searchNumber"
+                                               ng-keyup="searchPayeeBaseName()"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li ng-if="payment.payType == 'toPhone'" class="item-content payment-field-height">
+                        <div class="item-inner">
+                            <div class="table-fixed-width100pc">
+                                <div class="table-row">
+                                    <div class="table-cell text-gray title-simple-item">Номер телефона получателя</div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell title-simple-value">
+                                        <input type="text" class="placeholder-gray"
+                                               ng-disabled="isViewMode()"
+                                               mask-clean="true"
+                                               mask-restrict="reject"
+                                               mask="(999) 999-99-99"
+                                               ng-model="payment.searchNumber"
+                                               ng-keyup="searchPayeeBaseName()"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="rs-content-panel">
+                <div class="rs-content-panel-header text-align-center" >
+                    <div class="table width100pc" style="height: 100%;">
+                        <div class="table-row width100pc" rs-waiter="payment.payeeNameBase">
+                            <div class="table-cell" style="vertical-align: middle; text-align: center; text-transform: none;"
+                                 ng-bind="payment.payeeNameBase"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <rs-panel>
+                <div class="list-block">
+                    <ul>
+                        <li class="item-content payment-field-height">
+                            <div class="item-inner">
+                                <div class="table-fixed-width100pc">
+                                    <div class="table-row">
+                                        <div class="table-cell text-gray title-simple-item">Комментарий</div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-cell title-simple-value">
+                                            <input type="text"
+                                                   ng-disabled="isViewMode()"
+                                                   maxlength="255"
+                                                   ng-model='payment.comment'
+                                                   class="placeholder-gray"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+
+            <rs-panel>
+                <div class="list-block next-block">
+                    <ul>
+                        <li class="item-content payment-field-height">
+                            <div class="item-inner">
+                                <div class="table-fixed-width100pc">
+                                    <div class="table-row">
+                                        <div class="table-cell text-gray title-simple-item">Сумма</div>
+                                    </div>
+                                    <div class="table-row">
+                                        <div class="table-cell title-simple-value">
+                                            <input type="number" class="placeholder-gray"
+                                                   ng-disabled="isViewMode()"
+                                                   ng-model="payment.sum" />
+                                            <span ng-if="payment.sourceProduct" class="summ-currency-for-inp" currency="{{payment.sourceProduct.currency}}"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <div ng-include="'templates/android/payments/payment.sum.with.commission.html'"></div>
+                    </ul>
+                </div>
+            </rs-panel>
+            <div ng-include="'templates/android/payments/payment.commission.html'"></div>
+
+            <div ng-include="'templates/android/payments/payment.favourite.fields.html'"></div>
+            <div ng-include="'templates/android/payments/payment.actions.html'"></div>
+
+        </ion-content>
+
+    </ion-view>
+</div>
+</div>

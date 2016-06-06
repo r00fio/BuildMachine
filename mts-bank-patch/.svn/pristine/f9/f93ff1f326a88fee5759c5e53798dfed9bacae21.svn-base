@@ -1,0 +1,14 @@
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>calendar_icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Menu" sketch:type="MSArtboardGroup" transform="translate(-172.000000, -261.000000)" fill="#FFFFFF">
+            <g id="calendar_icon" sketch:type="MSLayerGroup" transform="translate(172.000000, 261.000000)">
+                <path d="M26,2 L24,2 C24,0.9 23.1,0 22,0 C20.9,0 20,0.9 20,2 L12,2 C12,0.9 11.1,0 10,0 C8.9,0 8,0.9 8,2 L6,2 C2.7,2 0,4.7 0,8 L0,26 C0,29.3 2.7,32 6,32 L26,32 C29.3,32 32,29.3 32,26 L32,8 C32,4.7 29.3,2 26,2 L26,2 Z M28,26 C28,27.084 27.084,28 26,28 L6,28 C4.916,28 4,27.084 4,26 L4,8 C4,6.916 4.916,6 6,6 L8,6 C8,7.1 8.9,8 10,8 C11.1,8 12,7.1 12,6 L20,6 C20,7.1 20.9,8 22,8 C23.1,8 24,7.1 24,6 L26,6 C27.084,6 28,6.916 28,8 L28,26 L28,26 Z" id="Fill-1" sketch:type="MSShapeGroup"></path>
+                <path d="M15.334,23.828 L8.751,18.561 L11.249,15.439 L14.666,18.172 L20.421,10.772 L23.579,13.228 L15.334,23.828" id="Fill-2" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

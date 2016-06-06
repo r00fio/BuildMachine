@@ -1,0 +1,109 @@
+<div ng-controller="SMSBankInfoCtrl as smsbi">
+    <rs-header>{{form.option.name}}</rs-header>
+    <ion-view class="bg-f0f4f5">
+        <ion-content class="has-header has-rs-button">
+
+            <rs-panel header-text="{{'Опция ' + form.option.name}}" ng-if="form.option.isActive">
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner text-bold" style="white-space: normal;">
+                                <span>Включено</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+
+            <rs-panel header-text="Описание" ng-if="form.option.hasDesc">
+                <div class="list-block" style="margin: 0;">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner text-gray white-space-pre-line" style="white-space: normal;">
+                                <span ng-bind="form.option.desc"></span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+
+            <div ng-hide="form.option.isActive">
+                <rs-panel header-text="Тариф">
+                    <div class="list-block" style="margin:0;">
+                        <ul>
+                            <fw7-li title="{{form.selectedTariff.desc}}"
+                                    class="item-link"
+                                    ng-click="selectShow(form.tariffOptionList, 'selectedTariff', 'Выбор тарифа', 'desc')"></fw7-li>
+                        </ul>
+                    </div>
+                </rs-panel>
+                <rs-panel>
+                    <div class="list-block" style="margin:0;">
+                        <ul>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title text-15px">Стоимость</div>
+                                    <div class="item-after">
+                                        <div>
+                                            <label class="text-12px" ng-show="form.selectedTariff.amount" ng-bind="(form.selectedTariff.amount | defaultSum)"></label>
+                                            <label class="text-12px" ng-show="form.selectedTariff.amount" currency="{{form.selectedTariff.currency}}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title text-15px">Периодичность оплаты</div>
+                                    <div class="item-after">
+                                        <div>
+                                            <label class="text-12px">{{form.selectedTariff.paymentPeriod}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title text-15px">Номер телефона</div>
+                                    <div class="item-after">
+                                        <div>
+                                            <label class="text-12px" ng-bind="retailClient.mobileTelephone"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+                <rs-panel header-text="Метод оплаты" ng-if="form.isCard && form.paymentMethodList && form.paymentMethodList.length > 1">
+                    <div class="list-block" style="margin:0;">
+                        <ul>
+                            <fw7-li title="{{form.selectedMethod.desc}}"
+                                    class="item-link"
+                                    ng-click="selectShow(form.paymentMethodList, 'selectedMethod', 'Выбор метода оплаты', 'desc')"></fw7-li>
+                        </ul>
+                    </div>
+                </rs-panel>
+            </div>
+            <div ng-show="form.option.isActive">
+                <rs-panel>
+                    <div class="list-block" style="margin:0;">
+                        <ul>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title text-15px">Номер телефона</div>
+                                    <div class="item-after">
+                                        <div>
+                                            <label class="text-12px" ng-bind="retailClient.mobileTelephone"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </rs-panel>
+            </div>
+        </ion-content>
+        <button ng-hide="form.option.isActive" ng-click="activate()" class="button button-full rs-button no-margin" style="margin:0;">Подключить</button>
+        <button ng-show="form.option.isActive" ng-click="deactivate()" class="button button-full rs-button-red no-margin" style="margin:0;">Отключить</button>
+    </ion-view>
+</div>

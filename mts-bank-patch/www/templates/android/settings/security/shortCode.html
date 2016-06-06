@@ -1,0 +1,72 @@
+<ion-view>
+    <div class="bg-app" ng-class="{'bg-app-{{background}}': true}">
+        <div class="bg-app-fill"/>
+    </div>
+    <div class="content-on-bg">
+        <div class="mts-logo"/>
+        <md-button class="md-icon-button md-button md-ink-ripple menu-list-button back-btn" ng-if="showBackButton" on-touch="backShortCode()">
+            <md-icon md-svg-icon="img/android/back.svg">
+        </md-button>
+        <div class="short-code-block">
+            <div ng-show="user.firstCode" class="enter-short-code">Придумайте код быстрого доступа</div>
+            <div ng-hide="user.firstCode" class="enter-short-code">Повторите код</div>
+            <div>
+                <div class="flex flex-center">
+                    <div class="short-code-indicator" ng-class="{'full': user.firstCode ? user.shortCode1.length >= 1 : user.shortCode2.length >= 1}"></div>
+                    <div class="short-code-indicator" ng-class="{'full': user.firstCode ? user.shortCode1.length >= 2 : user.shortCode2.length >= 2}"></div>
+                    <div class="short-code-indicator" ng-class="{'full': user.firstCode ? user.shortCode1.length >= 3 : user.shortCode2.length >= 3}"></div>
+                    <div class="short-code-indicator" ng-class="{'full': user.firstCode ? user.shortCode1.length >= 4 : user.shortCode2.length >= 4}"></div>
+                </div>
+            </div>
+            <div class="width100pc flex flex-center digit-block">
+                <div>
+                    <div class="flex">
+                        <div class="digit flex flex-middle flex-center">
+                            <div class="digit-content flex flex-middle flex-center" ng-click="addDigit(1)">1</div>
+                        </div>
+                        <div class="digit flex flex-middle flex-center">
+                            <div class="digit-content flex flex-middle flex-center" ng-click="addDigit(2)">2</div>
+                        </div>
+                        <div class="digit flex flex-middle flex-center">
+                            <div class="digit-content flex flex-middle flex-center" ng-click="addDigit(3)">3</div>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="digit flex flex-middle flex-center">
+                            <div class="digit-content flex flex-middle flex-center" ng-click="addDigit(4)">4</div>
+                        </div>
+                        <div class="digit flex flex-middle flex-center">
+                            <div class="digit-content flex flex-middle flex-center" ng-click="addDigit(5)">5</div>
+                        </div>
+                        <div class="digit flex flex-middle flex-center">
+                            <div class="digit-content flex flex-middle flex-center" ng-click="addDigit(6)">6</div>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="digit flex flex-middle flex-center">
+                            <div class="digit-content flex flex-middle flex-center" ng-click="addDigit(7)">7</div>
+                        </div>
+                        <div class="digit flex flex-middle flex-center">
+                            <div class="digit-content flex flex-middle flex-center" ng-click="addDigit(8)">8</div>
+                        </div>
+                        <div class="digit flex flex-middle flex-center">
+                            <div class="digit-content flex flex-middle flex-center" ng-click="addDigit(9)">9</div>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="digit flex flex-middle flex-center"/>
+                        <div class="digit flex flex-middle flex-center">
+                            <div class="digit-content flex flex-middle flex-center" ng-click="addDigit(0)">0</div>
+                        </div>
+                        <div class="digit flex flex-middle flex-center">
+                            <div class="digit-content flex flex-middle flex-center" ng-click="backspace()">
+                                <div class="backspace"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-click="cancelShortCode()" class="cancel-short-code">Отменить</div>
+        </div>
+    </div>
+</ion-view>

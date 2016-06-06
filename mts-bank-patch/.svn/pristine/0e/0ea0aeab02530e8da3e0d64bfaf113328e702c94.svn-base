@@ -1,0 +1,13 @@
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Imported Layers</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Product_list_full" sketch:type="MSArtboardGroup" transform="translate(-329.000000, -1497.000000)" fill="#EB3642">
+            <g id="card_visa-5" sketch:type="MSLayerGroup" transform="translate(0.000000, 1461.000000)">
+                <path d="M339,36 C333.477,36 329,40.477 329,46 C329,51.523 333.477,56 339,56 C344.523,56 349,51.523 349,46 C349,40.477 344.523,36 339,36 L339,36 Z M342.707,48.293 C343.098,48.684 343.098,49.316 342.707,49.707 C342.512,49.902 342.256,50 342,50 C341.744,50 341.488,49.902 341.293,49.707 L339,47.414 L336.707,49.707 C336.512,49.902 336.256,50 336,50 C335.744,50 335.488,49.902 335.293,49.707 C334.902,49.316 334.902,48.684 335.293,48.293 L337.586,46 L335.293,43.707 C334.902,43.316 334.902,42.684 335.293,42.293 C335.684,41.902 336.316,41.902 336.707,42.293 L339,44.586 L341.293,42.293 C341.684,41.902 342.316,41.902 342.707,42.293 C343.098,42.684 343.098,43.316 342.707,43.707 L340.414,46 L342.707,48.293 L342.707,48.293 Z" id="Imported-Layers" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,96 @@
+<div ng-controller="ProductsCtrl as pc" ui-view="products-page">
+    <rs-header lbtn-class="icon-back" lbtn-action="goBack()">Оформление продукта</rs-header>
+    <ion-view>
+        <ion-content class="has-header bg-f0f4f5">
+            <rs-panel header-text="НА ОФОРМЛЕНИИ">
+                <div class="list-block list-block-separator-100vw" style="margin:0;">
+                    <ul>
+                        <li class="item-content" ng-repeat="retailDoc in retailDocList"
+                            rs-waiter="retailDocList" ui-sref="{{retailDoc.uiSref}}({retailDoc:retailDoc})">
+                            <div class="item-inner">
+                                <div class="table-fixed-width100pc">
+                                    <div class="table-row">
+                                        <div class="table-cell">{{retailDoc.businessProduct.desc}}</div>
+                                    </div>
+                                    <!--<div class="flex flex-nowrap" ng-if="issueProduct.statusValue == 'positive'">-->
+                                        <!--<div class="icon-positive issue-product-icon-positive"></div>-->
+                                        <!--<div class="padding-left-5px text-2DC85B">{{issueProduct.statusDesc}}</div>-->
+                                    <!--</div>-->
+                                    <!--<span class="table-cell text-gray" ng-if="!issueProduct.statusValue">-->
+                                        <!--{{issueProduct.statusDesc}}-->
+                                    <!--</span>-->
+                                </div>
+                            </div>
+                        </li>
+                        <li class="item-content" ng-if="retailDocList && retailDocList.length == 0">
+                            <div class="item-inner">
+                                <div class="table-fixed-width100pc">
+                                    <div class="table-row">
+                                        <div class="table-cell">Заявок на оформлении нет</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <!-- TODO: 098339: MTS: Скрыть функционал в МБ для запуска беты -->
+            <!--<rs-panel header-text="ОФОРМЛЕНИЕ КАРТ">-->
+                <!--<div class="list-block list-block-separator-100vw" style="margin:0;">-->
+                    <!--<ul>-->
+                        <!--<li class="item-content">-->
+                            <!--<div class="item-inner">-->
+                                <!--<div class="item-title" ui-sref="issuevirtualcard">Виртуальная карта</div>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                        <!--<li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">Подарочная карта</div>
+                            </div>
+                        </li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</rs-panel>-->
+            <rs-panel header-text="ОФОРМЛЕНИЕ СЧЕТОВ И ВКЛАДОВ">
+                <div class="list-block list-block-separator-100vw" style="margin:0;">
+                    <ul>
+                        <li class="item-content" ui-sref="depositselect">
+                            <div class="item-inner">
+                                <div class="item-title">Открыть вклад</div>
+                            </div>
+                        </li>
+                        <li class="item-content" ui-sref="accountopenreq">
+                            <div class="item-inner">
+                                <div class="item-title">Открыть счет</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>
+            <!--<rs-panel header-text="ОФОРМЛЕНИЕ КРЕДИТОВ">
+                <div class="list-block list-block-separator-100vw" style="margin:0;">
+                    <ul>
+                        <li class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title">Открыть кредит</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </rs-panel>-->
+
+            <!-- TODO: 098339: MTS: Скрыть функционал в МБ для запуска беты -->
+            <!--<rs-panel header-text="Другое">-->
+                <!--<div class="list-block list-block-separator-100vw" style="margin:0;">-->
+                    <!--<ul>-->
+                        <!--<li class="item-content" ui-sref="products.embassydoc">-->
+                            <!--<div class="item-inner">-->
+                                <!--<div class="item-title">Справка в посольство</div>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</rs-panel>-->
+        </ion-content>
+    </ion-view>
+</div>

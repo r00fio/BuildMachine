@@ -1,0 +1,16 @@
+<!--
+<li ng-if="totalSum && totalSum != 0" class="item-content">
+    <div class="item-inner">
+        <div class="table-fixed-width100pc">
+            <div class="table-row">
+                <div class="table-cell text-gray">Сумма с комиссией</div>
+            </div>
+            <div class="table-row">
+                <div class="table-cell">
+                    {{totalSum}}<span ng-if="sourceProduct" currency="{{sourceProduct.currency}}"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
+-->

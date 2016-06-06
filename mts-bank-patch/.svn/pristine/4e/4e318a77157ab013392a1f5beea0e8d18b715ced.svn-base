@@ -1,0 +1,43 @@
+<rs-header>Платеж</rs-header>
+<div class="content no-footer">
+    <div class="padding-5px text-12px top-margin-15px">Получатель</div>
+    <div class="padding-5px"><input type="text" class="width100pc border-radius-3px solid-border-1px gray-border" style="height: 30px;"/></div>
+
+    <div class="padding-5px text-12px top-margin-15px">Реквизиты</div>
+    <div class="padding-5px"><input type="text" class="width100pc border-radius-3px solid-border-1px gray-border" style="height: 30px;"/></div>
+
+    <div class="padding-5px text-12px top-margin-15px">Сумма</div>
+    <div class="padding-5px"><input type="text" class="width100pc border-radius-3px solid-border-1px gray-border" style="height: 30px;"/></div>
+
+    <div class="padding-7px text-12px">
+        <div class="padding-5px table-fixed-width100pc">
+            <div class="table-cell width100pc"><span>Комиссия</span></div>
+            <div class="table-cell relative nowrap"><span class="absolute right">0 ₽</span></div>
+        </div>
+        <div class="padding-5px table-fixed-width100pc">
+            <div class="table-cell width100pc"><span>Сумма с учетом комиссии</span></div>
+            <div class="table-cell relative nowrap"><span class="absolute right">00 ₽</span></div>
+        </div>
+    </div>
+
+    <div class="padding-5px text-12px">Источник платежа</div>
+    <div class="padding-5px table-fixed-width100pc">
+        <div class="table-cell width100pc nowrap overflow-hidden solid-border-1px gray-border padding-5px"><span>Visa Classic ** 1234</span></div>
+        <div class="table-cell relative nowrap empty-border-1px padding-5px"><span class="absolute right right-padding-5px">00 000 ₽</span></div>
+    </div>
+
+    <div class="padding-5px text-12px">Дата платежа</div>
+    <div class="padding-5px table-fixed-width100pc">
+        <div class="table-cell width100pc nowrap overflow-hidden solid-border-1px gray-border padding-5px"><span>Сейчас</span></div>
+        <div class="table-cell relative nowrap empty-border-1px padding-5px"><span class="absolute right right-padding-5px"></span></div>
+    </div>
+
+    <div class="padding-5px table-fixed-width100pc">
+        <div ui-sref="loan.payment({paymentId:1})" class="table-cell width100pc nowrap overflow-hidden solid-border-1px gray-border padding-5px"><span>Оплатить</span></div>
+        <div class="table-cell relative nowrap empty-border-1px padding-5px"><span class="absolute right right-padding-5px">&gt;</span></div>
+    </div>
+
+    <div class="text-12px">
+        <div>Сохранить в избранное</div>
+    </div>
+</div>
