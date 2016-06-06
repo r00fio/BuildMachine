@@ -1,36 +1,25 @@
 #!/bin/bash
-CNT=1
-function checkErrors {
-	if [ $? != 0 ]; then
-	    >&2 echo "_STATUS_=RED Build failed"
-	    exit 2
-	else
-		((CNT++))
-		PROGRES=$((CNT * 14))
-		>&1 echo "_STATUS_=GREEN $PROGRES "
-	fi
-}
-cwd=$(pwd)
 
-WORKSPACE=/Users/r00fi0/Work/mts/mts/MTS\ MB/mts-bank-patch
+cwd=$(pwd)
+cwd="$HOME"/Work/buildmachine
+CNT=1
+WORKSPACE="$HOME"/Work/mts/mts/MTS\ MB/mts-bank-patch
 DESTINATION="$HOME"/Documents
-# DESTINATION="$HOME"/Dropbox
-# XC: rs.
-PROVISIONING_PROFILE="$HOME"/Library/MobileDevice/Provisioning\ Profiles/2848f246-b7d5-4168-801d-8393efb92221.mobileprovision 
-# XC:*
-# PROVISIONING_PROFILE="$HOME"/Library/MobileDevice/Provisioning\ Profiles/c9d2d32e-c2d8-4312-817e-20ccf6098cb7.mobileprovision 
 PROVISIONING_PROFILES="$HOME"/Library/MobileDevice/Provisioning\ Profiles
+PROVISIONING_PROFILE="$PROVISIONING_PROFILES"/2848f246-b7d5-4168-801d-8393efb92221.mobileprovision
 OUT_NAME=MobilePrototype2.ipa
 SERVER_TYPE=FT
-while getopts ":h:w:n:p:d:u:s:a:b:" opt; do
+LOG="$HOME"/Work/buildmachine/log
+
+
+
+while getopts ":h:w:n:d:u:s:a:b:e:" opt; do
   case $opt in
-  	h) HELP="Available arguments (-r project name) (-w path to project) (-n output ipa name) (-d destination for output ipa ) (-p path to PROVISIONING_PROFILE) (-u UUID of PROVISIONING_PROFILE)"
+    h) HELP="Available arguments (-r project name) (-w path to project) (-n output ipa name) (-d destination for output ipa ) (-p path to PROVISIONING_PROFILE) (-u UUID of PROVISIONING_PROFILE)"
     ;;
-  	w) WORKSPACE="$OPTARG"
+    w) WORKSPACE="$OPTARG"
     ;;
     n) OUT_NAME="$OPTARG"
-    ;;
-    p) PROVISIONING_PROFILE="$OPTARG"
     ;;
     u) PROVISIONING_PROFILE="$PROVISIONING_PROFILES"/"$OPTARG".mobileprovision
     ;;
@@ -42,71 +31,94 @@ while getopts ":h:w:n:p:d:u:s:a:b:" opt; do
     ;;
     b) BUILD_PROJECT="$OPTARG"
     ;;
+    e) UPLOAD_TO_DROPBOX="$OPTARG"
+    ;;
     \?) echo "Invalid option -$OPTARG" >&2
     ;;
   esac
 done
-if [[ "$HELP" != "" ]]; then
-	echo "$HELP"
-else
-	printf "Argument WORKSPACE is %s\n" "$WORKSPACE"
-	printf "Argument OUT_NAME is %s\n" "$OUT_NAME"
-	printf "Argument PROVISIONING_PROFILE is %s\n" "$PROVISIONING_PROFILE"
-	printf "Argument DESTINATION is %s\n" "$DESTINATION"	
-	printf "Argument SERVER_TYPE is %s\n" "$SERVER_TYPE"	
-fi
-cwd=/Users/r00fi0/Work/buildmachine
-cp "$cwd"/"$SERVER_TYPE"/config.xml "$WORKSPACE"/
-cp "$cwd"/"$SERVER_TYPE"/Config.js "$WORKSPACE"/www/js/
-PROJECT_NAME="$(cat "$WORKSPACE"/config.xml | sed -n 's:.*<name>\(.*\)</name>.*:\1:p')"
-LOG=/Users/r00fi0/Work/buildmachine/log
-cd "$WORKSPACE"
-# svn up
-if [ "$ADD_PLATFORM" = true ]; then
-	cordova platform remove ios > "$LOG"
-	cordova platform add ios  >> "$LOG"
-	checkErrors
-fi
+printf "$HELP"
 
-if [[ "$BUILD_PROJECT" = true ]]; then
-	cordova build ios > "$LOG"
-	checkErrors
-fi
-
-echo "$PROJECT_NAME"
-WORKSPACE="$WORKSPACE"/platforms/ios
-
-cp -r "$cwd"/"$PROJECT_NAME".xcodeproj "$WORKSPACE"
-cp "$cwd"/"$SERVER_TYPE"/AppDelegate.m "$WORKSPACE"/"$PROJECT_NAME"/Classes/
-
-BUILD="$WORKSPACE"/build
-ARCHIVE_PATH="$BUILD"/"$PROJECT_NAME".xcarchive
+BUILD="$WORKSPACE"/platforms/ios/build
 IPA_PATH="$BUILD"/"$PROJECT_NAME".ipa
 
-PLIST="$WORKSPACE"/"$PROJECT_NAME"/"$PROJECT_NAME"-Info.plist 
-WORK_SPACE_FILE="$WORKSPACE"/"$PROJECT_NAME".xcodeproj/project.xcworkspace
+function begin {
+    cp "$cwd"/"$SERVER_TYPE"/config.xml "$WORKSPACE"/
+    cp "$cwd"/"$SERVER_TYPE"/Config.js "$WORKSPACE"/www/js/
+    PROJECT_NAME="$(cat "$WORKSPACE"/config.xml | sed -n 's:.*<name>\(.*\)</name>.*:\1:p')"
 
-APP_DIR_NAME="$BUILD"/Payload/"$PROJECT_NAME".app
+    cd "$WORKSPACE"
+    buildCordova
+    WORKSPACE="$WORKSPACE"/platforms/ios
 
-echo "Building Workspace $WORKSPACE   file = $WORK_SPACE_FILE  scheme $PROJECT_NAME apath = $ARCHIVE_PATH  build = $BUILD plist $PLIST"
+    cp -r "$cwd"/"$PROJECT_NAME".xcodeproj "$WORKSPACE"
+    cp "$cwd"/"$SERVER_TYPE"/AppDelegate.m "$WORKSPACE"/"$PROJECT_NAME"/Classes/
 
-xcrun xcodebuild -workspace "$WORK_SPACE_FILE" -scheme "$PROJECT_NAME" -configuration Release clean archive -archivePath "$ARCHIVE_PATH" ENABLE_BITCODE=NO >> "$LOG"
-checkErrors
-xcrun xcodebuild -exportArchive -exportPath "$BUILD" -archivePath "$ARCHIVE_PATH" -exportOptionsPlist "$PLIST" ENABLE_BITCODE=NO > "$LOG"
-checkErrors
-rm -r "$BUILD"/Payload
-unzip "$IPA_PATH" -d "$BUILD"/ >> "$LOG"
-checkErrors
-rm -r "$APP_DIR_NAME"/_CodeSignature/ "$APP_DIR_NAME"/CodeResources 2> /dev/null | true
-cp  "$PROVISIONING_PROFILE" "$BUILD"/Payload/"$PROJECT_NAME".app/embedded.mobileprovision
-codesign -f -s "iPhone Distribution: R-Style Softlab"  "$BUILD"/Payload/"$PROJECT_NAME".app/ >> "$LOG"
-checkErrors
-cd "$BUILD"
+    BUILD="$WORKSPACE"/build
+    ARCHIVE_PATH="$BUILD"/"$PROJECT_NAME".xcarchive
+    IPA_PATH="$BUILD"/"$PROJECT_NAME".ipa
 
-zip -qr "$OUT_NAME" Payload 
-cp "$BUILD"/"$OUT_NAME" "$DESTINATION"
-rm -r "$BUILD"/Payload "$ARCHIVE_PATH" "$IPA_PATH" "$BUILD"/"$OUT_NAME"
-echo "_STATUS_=DONE ALL TASK DONE. BULD IS GREEN"
+    PLIST="$WORKSPACE"/"$PROJECT_NAME"/"$PROJECT_NAME"-Info.plist
+    WORK_SPACE_FILE="$WORKSPACE"/"$PROJECT_NAME".xcodeproj/project.xcworkspace
+
+    APP_DIR_NAME="$BUILD"/Payload/"$PROJECT_NAME".app
+
+    echo "Building Workspace $WORKSPACE   file = $WORK_SPACE_FILE  scheme $PROJECT_NAME apath = $ARCHIVE_PATH  build = $BUILD plist $PLIST"
+
+    archive
+    postArchive
+}
+function archive {
+    xcrun xcodebuild -workspace "$WORK_SPACE_FILE" -scheme "$PROJECT_NAME" -configuration Release clean archive -archivePath "$ARCHIVE_PATH" ENABLE_BITCODE=NO >> "$LOG"
+    checkErrors
+    xcrun xcodebuild -exportArchive -exportPath "$BUILD" -archivePath "$ARCHIVE_PATH" -exportOptionsPlist "$PLIST" ENABLE_BITCODE=NO >> "$LOG"
+    checkErrors
+    rm -r "$BUILD"/Payload
+    unzip "$IPA_PATH" -d "$BUILD"/ > "$LOG"
+    rm "$IPA_PATH"
+    checkErrors
+    rm -r "$APP_DIR_NAME"/_CodeSignature/ "$APP_DIR_NAME"/CodeResources 2> /dev/null | true
+    cp  "$PROVISIONING_PROFILE" "$BUILD"/Payload/"$PROJECT_NAME".app/embedded.mobileprovision
+    codesign -f -s "iPhone Distribution: R-Style Softlab"  "$BUILD"/Payload/"$PROJECT_NAME".app/ >> "$LOG"
+    checkErrors
+    cd "$BUILD"
+    zip -qr "$OUT_NAME" Payload
+}
+function postArchive {
+
+    if [ "$UPLOAD_TO_DROPBOX" = true ]; then
+        cp "$BUILD"/"$OUT_NAME" "$DESTINATION"
+    fi
+    rm -r "$ARCHIVE_PATH"
+    echo "_STATUS_=DONE ALL TASK DONE. BULD IS GREEN"
+}
+
+function buildCordova {
+    svn up
+    if [ "$ADD_PLATFORM" = true ]; then
+      cordova platform remove ios > "$LOG"
+      cordova platform add ios  > "$LOG"
+    fi
+    checkErrors
+    if [[ "$BUILD_PROJECT" = true ]]; then
+      cordova build ios > "$LOG"
+    fi
+    checkErrors
+}
+
+function checkErrors {
+	if [ $? != 0 ]; then
+	    >&2 echo "_STATUS_=RED Build failed"
+	    exit 2
+	else
+		((CNT++))
+		PROGRES=$((CNT * 14))
+		>&1 echo "_STATUS_=GREEN $PROGRES "
+	fi
+}
+
+begin
+
 # 2
 
 # rm -r MTS\ Bank.app/_CodeSignature/ MTS\ Bank.app/CodeResources 2> /dev/null | true

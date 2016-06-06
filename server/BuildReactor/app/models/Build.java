@@ -16,6 +16,7 @@ public class Build extends Model{
     private String progress;
     private boolean reAddPlatform;
     private boolean buildProject;
+    private boolean uploadToDropbox;
 
     public String getServer() {
         return server;
@@ -63,5 +64,13 @@ public class Build extends Model{
 
     public void setBuildProject(boolean buildProject) {
         this.buildProject = buildProject;
+    }
+
+    public boolean isUploadToDropbox() {
+        return uploadToDropbox;
+    }
+
+    public void setUploadToDropbox(boolean uploadToDropbox) {
+        this.uploadToDropbox = uploadToDropbox;
     }
 }

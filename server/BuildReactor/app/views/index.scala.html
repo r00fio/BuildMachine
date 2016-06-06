@@ -11,6 +11,9 @@
 @main("Build Your Dream") {
     <script type='text/javascript'>
             function build(){
+                $("#img").show()
+                $("#bb").hide()
+                $("#status").text("Build started");
                 setInterval(getProgress, 3000)
             }
 
@@ -30,37 +33,65 @@
 
     </script>
     <script type='text/javascript' src='@routes.Assets.versioned("javascripts/index.js")'></script>
+
     <div class="root">
-        <img id="img" src="@routes.Assets.versioned("images/favicon.png")">
-        <div id="status">@message</div>
-        <form id="main"  action="@routes.Application.build()" method = "post" style="color: goldenrod">
+        <div class="waiter">
+            <img id="img" src="https://media.giphy.com/media/sVkjSzxoeAWDC/giphy.gif">
+        </div>
+        <div class="trow">
+            <div id="status" class="half">@message</div>
+            <div id="progress" class="half"></div>
+        </div>
+
+        <form id="main" action="@routes.Application.build()" method = "post" style="color: goldenrod">
             <div>
-                <div>
-                    Output file name <input id="s-name" type="text" name="outIpaName" value="MobilePrototype2.ipa">
-                </div>
-                <div class="server">
-                    <div class="server-title">Server:</div>
-                    <div>
-                        <br>
-                        <input type="radio" onclick="changeName('FT')" name="server" value="FT" checked="true" title="FT">
-                        FT<br>
-                        <input type="radio" onclick="changeName('OPE')" name="server" value="OPE" title="OPE">OPE<br>
-                        <input type="radio" onclick="changeName('DEMO')" name="server" value="DEMO" title="Demo">Demo
+
+                <div class="trow">
+                    <div class="half">Output file name</div>
+                    <div class="half">
+                        <input class="rinput" id="s-name" type="text" name="outIpaName" value="MobilePrototype2.ipa">
                     </div>
                 </div>
-                <div class="re-add-platform">
-                    <div>Add Platform</div>
-                    <dvi><input type="checkbox" checked="true" name="reAddPlatform"></dvi>
+                <div class="p-p trow">
+                    <div class="half">
+                        Provisioning profile:
+                    </div>
+                    <div class="half">
+                        <select class="rinput" name="uuid" id="p-profile">
+                        </select>
+                    </div>
                 </div>
-                <div class="re-add-platform">
-                    <div>Rebuild Project</div>
-                    <dvi><input type="checkbox" checked="true" name="buildProject"></dvi>
+                <div class="server trow">
+                    <div class="server-title half">Server:</div>
+                    <div class="half">
+                        <div>
+                            <input type="radio" onclick="changeName('FT')"
+                            name="server" value="FT" checked="true" title="FT">FT
+                        </div>
+                        <div>
+                            <input type="radio" onclick="changeName('OPE')" name="server" value="OPE" title="OPE">
+                            OPE
+                        </div>
+                        <div>
+                            <input type="radio" onclick="changeName('DEMO')" name="server" value="DEMO" title="Demo">
+                            Demo
+                        </div>
+                    </div>
                 </div>
-                <div class="p-p">Provisioning profile:
-                    <select name="uuid" id="p-profile">
-                    </select>
+                <div class="trow">
+                    <div class="half">Add Platform</div>
+                    <div class="half"><input type="checkbox" checked="true" name="reAddPlatform"></div>
                 </div>
-                <button onclick='build()'>Build</button>
+                <div class="trow">
+                    <div class="half">Rebuild Project</div>
+                    <div class="half"><input type="checkbox" checked="true" name="buildProject"></div>
+                </div>
+                <div class="trow">
+                    <div class="half">Upload to Dropbox</div>
+                    <div class="half"><input type="checkbox" name="uploadToDropbox"></div>
+                </div>
+
+                <button id="bb" class="bb" onclick='build()'>Build</button>
             </div>
         </form>
     </div>

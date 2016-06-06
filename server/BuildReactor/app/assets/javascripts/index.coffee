@@ -1,8 +1,10 @@
 
 
 @getProgress =  ->
-  $.get "/progress", (progres) ->
-    $("#status").text("Build started...#{progres}");
+  $.get "/progress", (progress) ->
+    $("#status").text("Build started");
+    $("#progress").text("#{progress}");
+    $("title").text("Build started   #{progress}");
 
 $ ->
   $.get "/profiles", (profiles) ->

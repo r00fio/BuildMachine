@@ -84,12 +84,13 @@ public class Application extends Controller {
 
         try {
             ProcessBuilder pb = new ProcessBuilder("bash",
-                    new File("/Users/r00fi0/Work/buildmachine/buildIos").toString(),
+                    new File("/Users/r00fi0/Work/buildmachine/build").toString(),
                     "-s" + build.getServer(),
                     "-n" + build.getOutIpaName(),
                     "-u" + build.getUuid(),
                     "-a" + build.isReAddPlatform(),
                     "-b" + build.isBuildProject(),
+                    "-e" + build.isUploadToDropbox(),
                     "");
             pb.redirectErrorStream();
             Process process = pb.start();
@@ -112,6 +113,7 @@ public class Application extends Controller {
                 }
             }).start();
             process.waitFor();
+            progress.setProgress("0%");
             InputStream errorStream = process.getErrorStream();
             if (errorStream.available() > 0) {
                 byte[] out = new byte[errorStream.available()];
